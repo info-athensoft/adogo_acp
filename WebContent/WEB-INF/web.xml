@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>adogo_admin</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="adogo_admin" version="3.0">
+  <display-name>adogoadmin</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+  		classpath:com/adogo/admin/config/application-context.xml
+  		classpath:com/adogo/admin/config/dao-context.xml
+  		classpath:com/adogo/admin/config/service-context.xml
+  		<!-- classpath:com/adogo/config/adogo-servlet.xml  -->
+  	</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<servlet>
+		<description></description>
+		<display-name>adogoadmin</display-name>
+		<servlet-name>adogoadmin</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>adogoadmin</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>/</welcome-file>    
   </welcome-file-list>
 </web-app>
