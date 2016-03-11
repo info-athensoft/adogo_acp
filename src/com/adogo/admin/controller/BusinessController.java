@@ -28,7 +28,7 @@ public class BusinessController {
 	public String updateBizProfile(){
 		String url = "/bizprofile";
 		System.out.println("INFO: url "+url);
-		return "login_soft";
+		return "biz_profile";
 	}
 	
 	
