@@ -61,79 +61,14 @@
 						</a>
 						<ul class="sub-menu">
 							<li>
-								<a href="page_timeline.html">
-								<i class="icon-paper-plane"></i>
-								<span class="badge badge-warning">2</span>New Timeline</a>
-							</li>
-							<li>
-								<a href="extra_profile.html">
-								<i class="icon-user-following"></i>
-								<span class="badge badge-success badge-roundless">new</span>New User Profile</a>
-							</li>
-							<li>
-								<a href="page_todo.html">
-								<i class="icon-hourglass"></i>
-								<span class="badge badge-danger">4</span>Todo</a>
-							</li>
-							<li>
-								<a href="inbox.html">
-								<i class="icon-envelope"></i>
-								<span class="badge badge-danger">4</span>Inbox</a>
-							</li>
-							<li>
-								<a href="extra_faq.html">
+								<a href="/admin/bizprofile">
 								<i class="icon-info"></i>
-								FAQ</a>
+								Edit Profile</a>
 							</li>
 							<li>
 								<a href="page_portfolio.html">
 								<i class="icon-feed"></i>
-								Portfolio</a>
-							</li>
-							<li>
-								<a href="page_coming_soon.html">
-								<i class="icon-flag"></i>
-								Coming Soon</a>
-							</li>
-							<li>
-								<a href="page_calendar.html">
-								<i class="icon-calendar"></i>
-								<span class="badge badge-danger">14</span>Calendar</a>
-							</li>
-							<li>
-								<a href="extra_invoice.html">
-								<i class="icon-flag"></i>
-								Invoice</a>
-							</li>
-							<li>
-								<a href="page_blog.html">
-								<i class="icon-speech"></i>
-								Blog</a>
-							</li>
-							<li>
-								<a href="page_blog_item.html">
-								<i class="icon-link"></i>
-								Blog Post</a>
-							</li>
-							<li>
-								<a href="page_news.html">
-								<i class="icon-eye"></i>
-								<span class="badge badge-success">9</span>News</a>
-							</li>
-							<li>
-								<a href="page_news_item.html">
-								<i class="icon-bell"></i>
-								News View</a>
-							</li>
-							<li>
-								<a href="page_timeline_old.html">
-								<i class="icon-paper-plane"></i>
-								<span class="badge badge-warning">2</span>Old Timeline</a>
-							</li>
-							<li>
-								<a href="extra_profile_old.html">
-								<i class="icon-user"></i>
-								Old User Profile</a>
+								Edit Ad. Page</a>
 							</li>
 						</ul>
 					</li>
@@ -155,9 +90,6 @@
 							</li>
 						</ul>
 					</li>
-					
-					
-					
 					
 					<li>
 						<a href="javascript:;">
