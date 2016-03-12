@@ -7,7 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 	
 	@RequestMapping("/login")
-	public String gotoIndex2(){
+	public String doLogin(){
 		return "login_soft";
 	}
+	
+	@RequestMapping("/logout")
+	public String doLogout(){
+		return "login_soft";
+	}
+	
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GlobalController {
 	@RequestMapping("/")
 	public String gotoIndex2(){
-		return "index";
+		return "login_soft";
 	}
 	
 	@RequestMapping("/index")

@@ -21,7 +21,38 @@
 					<li>
 						<a href="javascript:;">
 						<i class="icon-basket"></i>
-						<span class="title">eCommerce</span>
+						<span class="title">My Purchase</span>
+						<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="ecommerce_index.html">
+								<i class="icon-home"></i>
+								Dashboard</a>
+							</li>
+							<li>
+								<a href="ecommerce_orders.html">
+								<i class="icon-basket"></i>
+								Order a service</a>
+							</li>
+							<li>
+								<a href="ecommerce_orders_view.html">
+								<i class="icon-docs"></i>
+								History Orders</a>
+							</li>
+							<li>
+								<a href="ecommerce_products.html">
+								<i class="icon-handbag"></i>
+								View Adogo Services</a>
+							</li>
+							
+						</ul>
+					</li>
+					
+					<li>
+						<a href="javascript:;">
+						<i class="icon-star"></i>
+						<span class="title">My Credits</span>
 						<span class="arrow "></span>
 						</a>
 						<ul class="sub-menu">
@@ -55,15 +86,62 @@
 					
 					<li>
 						<a href="javascript:;">
-						<i class="icon-docs"></i>
-						<span class="title">Post Ad.</span>
+						<i class="icon-user"></i>
+						<span class="title">Advertiser</span>
+						<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="ecommerce_orders.html">
+								<i class="icon-basket"></i>
+								Order a service</a>
+							</li>
+							<li>
+								<a href="/admin/bizprofile">
+								<i class="icon-pencil"></i>
+								Edit Business Profile</a>
+							</li>
+							<li>
+								<a href="page_portfolio.html">
+								<i class="icon-pencil"></i>
+								Edit Ad. Page</a>
+							</li>
+						</ul>
+					</li>
+					
+					<li>
+						<a href="javascript:;">
+						<i class="icon-users"></i>
+						<span class="title">Distributor</span>
+						<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="/admin/bizprofile">
+								<i class="icon-folder"></i>
+								View my customers</a>
+							</li>
+							<li>
+								<a href="page_portfolio.html">
+								<i class="icon-wallet"></i>
+								Cashing credits</a>
+							</li>
+						</ul>
+					</li>
+					
+					
+					
+					<li>
+						<a href="javascript:;">
+						<i class="icon-badge"></i>
+						<span class="title">My Certificates</span>
 						<span class="arrow "></span>
 						</a>
 						<ul class="sub-menu">
 							<li>
 								<a href="/admin/bizprofile">
 								<i class="icon-info"></i>
-								Edit Profile</a>
+								Post Business Profile</a>
 							</li>
 							<li>
 								<a href="page_portfolio.html">
@@ -73,24 +151,7 @@
 						</ul>
 					</li>
 					
-					<li>
-						<a href="javascript:;">
-						<i class="icon-bar-chart"></i>
-						<span class="title">Charts</span>
-						<span class="arrow "></span>
-						</a>
-						<ul class="sub-menu">
-							<li>
-								<a href="charts_amcharts.html">
-								amChart</a>
-							</li>
-							<li>
-								<a href="charts_flotcharts.html">
-								Flotchart</a>
-							</li>
-						</ul>
-					</li>
-					
+					<!-- 
 					<li>
 						<a href="javascript:;">
 						<i class="icon-folder"></i>
@@ -154,7 +215,7 @@
 							</li>
 						</ul>
 					</li>
-					
+					 -->
 									
 				</ul>
 				<!-- END SIDEBAR MENU -->
