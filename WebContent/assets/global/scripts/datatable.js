@@ -35,7 +35,7 @@ var Datatable = function() {
 
             // default settings
             options = $.extend(true, {
-                src: "", // actual table  
+                src: $('#datatable_orders'), // actual table  
                 filterApplyAction: "filter",
                 filterCancelAction: "filter_cancel",
                 resetGroupActionInputOnSuccess: true,
@@ -76,7 +76,7 @@ var Datatable = function() {
                     "serverSide": true, // enable/disable server side ajax loading
 
                     "ajax": { // define ajax settings
-                        "url": "", // ajax URL
+                        "url": "/acp/orders", // ajax URL            //modified by athens on 2016-12-06
                         "type": "POST", // request type
                         "timeout": 20000,
                         "data": function(data) { // add request parameters before submit

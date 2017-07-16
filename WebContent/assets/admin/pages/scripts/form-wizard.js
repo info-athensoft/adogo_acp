@@ -10,7 +10,8 @@ var FormWizard = function () {
 
             function format(state) {
                 if (!state.id) return state.text; // optgroup
-                return "<img class='flag' src='../../assets/global/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
+//                return "<img class='flag' src='../../assets/global/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
+                return "<img class='flag' src='/assets/global/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
             }
 
             $("#country_list").select2({
@@ -98,7 +99,11 @@ var FormWizard = function () {
                     'payment[]': {
                         required: "Please select at least one option",
                         minlength: jQuery.validator.format("Please select at least one option")
-                    }
+                    },
+	                'contentSection[]': {
+	                    required: "Please select at least one option sdfggsdfgfdsgsdfgdsfgdsfgfdsgfdsgsdfgdsfgsdfgfdsg",
+	                    minlength: jQuery.validator.format("Please select at least one option")
+	                }
                 },
 
                 errorPlacement: function (error, element) { // render error placement for each input type
@@ -129,6 +134,7 @@ var FormWizard = function () {
 
                 success: function (label) {
                     if (label.attr("for") == "gender" || label.attr("for") == "payment[]") { // for checkboxes and radio buttons, no need to show OK icon
+//                   	if (label.attr("for") == "gender" || label.attr("for") == "payment[]" ||label.attr("for") == "contentSection[]") { // for checkboxes and radio buttons, no need to show OK icon
                         label
                             .closest('.form-group').removeClass('has-error').addClass('has-success');
                         label.remove(); // remove error label here
