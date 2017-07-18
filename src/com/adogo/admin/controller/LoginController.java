@@ -8,12 +8,14 @@ public class LoginController {
 	
 	@RequestMapping("/login")
 	public String doLogin(){
-		return "login_soft";
+//		return "uaas/login_soft";
+		return "uaas/page_user_login_4";
 	}
 	
 	@RequestMapping("/logout")
 	public String doLogout(){
-		return "login_soft";
+//		return "uaas/login_soft";
+		return "uaas/page_user_login_4";
 	}
 	
 }

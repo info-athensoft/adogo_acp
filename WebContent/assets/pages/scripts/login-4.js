@@ -1,3 +1,5 @@
+var webapp_name = "/acp";
+
 var Login = function () {
 
 	var handleLogin = function() {
@@ -127,7 +129,7 @@ var Login = function () {
 		        function format(state) {
             if (!state.id) { return state.text; }
             var $state = $(
-             '<span><img src="../assets/global/img/flags/' + state.element.value.toLowerCase() + '.png" class="img-flag" /> ' + state.text + '</span>'
+             '<span><img src="'+webapp_name+'/assets/global/img/flags/' + state.element.value.toLowerCase() + '.png" class="img-flag" /> ' + state.text + '</span>'
             );
             
             return $state;
@@ -255,13 +257,13 @@ var Login = function () {
 
             // init background slide images
 		    $.backstretch([
-		        "../assets/pages/media/bg/1.jpg",
-		        "../assets/pages/media/bg/2.jpg",
-		        "../assets/pages/media/bg/3.jpg",
-		        "../assets/pages/media/bg/4.jpg"
+		        webapp_name+"/assets/pages/media/bg/1.jpg",
+		        webapp_name+"/assets/pages/media/bg/2.jpg",
+		        webapp_name+"/assets/pages/media/bg/3.jpg",
+		        webapp_name+"/assets/pages/media/bg/4.jpg"
 		        ], {
 		          fade: 1000,
-		          duration: 8000
+		          duration: 5000
 		    	}
         	);
         }
