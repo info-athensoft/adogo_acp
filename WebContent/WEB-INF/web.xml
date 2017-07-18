@@ -4,9 +4,9 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-  		classpath:com/adogo/admin/config/application-context.xml
-  		classpath:com/adogo/admin/config/dao-context.xml
-  		classpath:com/adogo/admin/config/service-context.xml
+  		classpath:com/adogo/config/application-context.xml
+  		classpath:com/adogo/config/dao-context.xml
+  		classpath:com/adogo/config/service-context.xml
   		
   	</param-value>
   </context-param>

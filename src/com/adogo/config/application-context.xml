@@ -35,7 +35,7 @@
 	<!-- Database properties file support -->
 	<context:property-placeholder
 		ignore-unresolvable="true" 
-		location="classpath:com/adogo/admin/config/jdbc-mysql.properties"
+		location="classpath:com/adogo/config/jdbc-mysql.properties"
 	/>	
 	
 	<!-- Database connection -->	 
