@@ -31,7 +31,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
-        <title>Adogo | Ad Post - Creating</title>
+        <title>Adogo | Ad Post - Editing</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
         
@@ -107,7 +107,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN THEME PANEL -->
                     <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Ad Post <small>create ad post</small></h1>
+                    <h1 class="page-title"> Ad Post <small>edit ad post</small></h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
 							<li>

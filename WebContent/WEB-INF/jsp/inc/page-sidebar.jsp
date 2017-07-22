@@ -61,14 +61,14 @@
 								Dashboard</a>
 							</li>
 							<li>
-								<a href="page_portfolio.html">
+								<a href="/admin/bizprofile">
 								<i class="icon-pencil"></i>
 								Edit Business Profile</a>
 							</li>
 							<li>
-								<a href="/admin/bizprofile">
+								<a href="/acp/ad/adPostCreate">
 								<i class="icon-paper-plane"></i>
-								Post Ad. Page</a>
+								Create Ad Post</a>
 							</li>
 							<li>
 								<a href="ecommerce_orders.html">
