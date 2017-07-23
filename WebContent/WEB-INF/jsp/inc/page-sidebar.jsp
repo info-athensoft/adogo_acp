@@ -66,9 +66,24 @@
 								Edit Business Profile</a>
 							</li>
 							<li>
-								<a href="/acp/ad/adPostCreate">
+								<a href="/acp/ad/adpost/create">
 								<i class="icon-paper-plane"></i>
 								Create Ad Post</a>
+							</li>
+							<li>
+								<a href="/acp/ad/adpost/edit">
+								<i class="icon-paper-plane"></i>
+								Edit Ad Post</a>
+							</li>
+							<li>
+								<a href="/acp/ad/booth/create">
+								<i class="icon-paper-plane"></i>
+								Create a Booth</a>
+							</li>
+							<li>
+								<a href="/acp/ad/booth/edit">
+								<i class="icon-paper-plane"></i>
+								Edit Booth</a>
 							</li>
 							<li>
 								<a href="ecommerce_orders.html">
