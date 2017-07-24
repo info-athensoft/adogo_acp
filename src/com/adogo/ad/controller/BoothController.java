@@ -18,4 +18,5 @@ public class BoothController {
 		String viewName = "ad/booth_edit";
 		return viewName;
 	}
+
 }
