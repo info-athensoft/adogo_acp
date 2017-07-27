@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdvertiserController {
 	
 	@RequestMapping("/apply")
-	public String applyAdvertiser(){
-		String viewName = "uaas/advertiser_apply";
+	public String applyAdvertiserStep1(){
+		String viewName = "uaas/advertiser_apply_agreement";
+		return viewName;
+	}
+	
+	@RequestMapping("/apply2")
+	public String applyAdvertiserStep2(){
+		String viewName = "uaas/advertiser_apply_form";
 		return viewName;
 	}
 }
