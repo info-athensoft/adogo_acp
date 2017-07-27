@@ -271,8 +271,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                    <a href="javascript:saveTags('test_adpost01');">
+                                                        <i class="fa fa-pencil"></i> Save Tags </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:;">
@@ -304,7 +304,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Tags</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" value="a,b,c" data-role="tagsinput">
+                                                    <input type="text" id="ad-tags" class="form-control" value="a,b,c" data-role="tagsinput">
                                                 </div>
                                             </div>
                                             
@@ -829,6 +829,34 @@ License: You must have a valid license purchased only from themeforest(the above
 <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
+
+<script type="text/javascript">
+   function saveTags(adpostId){
+	  // alert("saveTags()");
+		//var adpostId = "test01";
+		var tags = $("#ad-tags").val();
+		//alert("saveTags(), tags="+tags);
+		
+		$.ajax({
+			type:"post",
+			url:"saveTags",
+			dataType:"json",
+			data: {	adpostId:adpostId, tags:JSON.stringify(tags) },
+			//data: {	adpostId:adpostId },
+			timeout : 5000,
+			success:function(data){	
+//				var msg = data.info_msg;
+				//var userAccount = data.userAccount;
+/*				$("#sec_activate").html(msg);
+				$("#ua1").text(userAccount.acctId);
+*/				
+				//alert(msg);
+				//location = "goactivateresult?resultMsg="+msg;
+			}		
+		});
+	}
+</script> 
+	
 <script>
 EventNewsList.init();
 //$("#menu-myevents").addClass("selected");
