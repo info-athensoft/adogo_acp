@@ -2,38 +2,33 @@ package com.adogo.ad.entity;
 
 public class AdTag {
 	
-	private long tag_id;
-	private String tag_name;
-	private int tag_score;
-	
-	public long getTag_id() {
-		return tag_id;
+	private long tagId;			//tagId
+	private String tagName;		//tagName
+	private int tagScore;		//tagScore
+	public long getTagId() {
+		return tagId;
 	}
-	
-	public void setTag_id(long tag_id) {
-		this.tag_id = tag_id;
+	public void setTagId(long tagId) {
+		this.tagId = tagId;
 	}
-	
-	public String getTag_name() {
-		return tag_name;
+	public String getTagName() {
+		return tagName;
 	}
-	
-	public void setTag_name(String tag_name) {
-		this.tag_name = tag_name;
+	public void setTagName(String tagName) {
+		this.tagName = tagName;
 	}
-	
-	public int getTag_score() {
-		return tag_score;
+	public int getTagScore() {
+		return tagScore;
 	}
-	
-	public void setTag_score(int tag_score) {
-		this.tag_score = tag_score;
+	public void setTagScore(int tagScore) {
+		this.tagScore = tagScore;
 	}
-	
 	@Override
 	public String toString() {
-		return "AdTag [tag_id=" + tag_id + ", tag_name=" + tag_name + ", tag_score=" + tag_score + "]";
+		return "AdTag [tagId=" + tagId + ", tagName=" + tagName + ", tagScore=" + tagScore + "]";
 	}
+	
+	
 	
 	
 

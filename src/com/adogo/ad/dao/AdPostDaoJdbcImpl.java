@@ -20,7 +20,7 @@ import com.adogo.ad.entity.AdPost;
 
 @Component
 @Qualifier("adPostDaoJdbcImpl")
-public class AdPostDaoImpl implements AdPostDao{
+public class AdPostDaoJdbcImpl implements AdPostDao{
 	
 	private NamedParameterJdbcTemplate jdbc;
 	

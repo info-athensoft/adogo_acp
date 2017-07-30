@@ -25,7 +25,7 @@ public class AdTagService {
 	}
 	
 	public int updateTag(String tagName) {
-		return this.adTagDao.updateTag(tagName);
+		return this.adTagDao.persistTag(tagName);
 	}
 	
 }

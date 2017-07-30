@@ -10,15 +10,13 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import com.adogo.ad.entity.AdTag;
 
 @Component
 @Qualifier("adTagDaoJdbcImpl")
-public class AdTagDaoImpl implements AdTagDao{
+public class AdTagDaoJdbcImpl implements AdTagDao{
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
@@ -48,7 +46,7 @@ public class AdTagDaoImpl implements AdTagDao{
 
 
 	@Override
-	public int updateTag(String tagName) {
+	public int persistTag(String tagName) {
 		//System.out.println("entering -- AdTagDaoImpl/updateTag ");
 		AdTag tag = this.findTagByName(tagName);
 		if (tag == null) {
@@ -95,9 +93,9 @@ public class AdTagDaoImpl implements AdTagDao{
 		public AdTag mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			
 			AdTag x = new AdTag();
-			x.setTag_id(rs.getLong("tag_id"));
-			x.setTag_name(rs.getString("tag_name"));
-			x.setTag_score(rs.getInt("tag_score"));
+			x.setTagId(rs.getLong("tag_id"));
+			x.setTagName(rs.getString("tag_name"));
+			x.setTagScore(rs.getInt("tag_score"));
 			
             return x;
 		}		
