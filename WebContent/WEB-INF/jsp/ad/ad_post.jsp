@@ -858,7 +858,7 @@ License: You must have a valid license purchased only from themeforest(the above
 </script> 
 	
 <script>
-EventNewsList.init();
+//EventNewsList.init();
 //$("#menu-myevents").addClass("selected");
 
 </script>
