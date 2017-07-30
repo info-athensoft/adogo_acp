@@ -194,11 +194,11 @@ License: You must have a valid license purchased only from themeforest(the above
                     	<div class="col-md-12">
                     		
                     		<div class="portlet light ">
-                            	<div class="portlet-title">
+                                            <div class="portlet-title">
                                                 <div class="caption">
                                                     <i class="icon-equalizer font-red-sunglo"></i>
-                                                    <span class="caption-subject font-red-sunglo bold uppercase">SERVICE AGREEMENT</span>
-                                                    <span class="caption-helper">for all advertisers</span>
+                                                    <span class="caption-subject font-red-sunglo bold uppercase">Application Form</span>
+                                                    <span class="caption-helper">become an advertiser</span>
                                                 </div>
                                                 <div class="actions">
                                                     <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -212,32 +212,78 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </a>
                                                 </div>
                                             </div>
-                                <div class="portlet-body form">
+                                            <div class="portlet-body form">
                                                 <!-- BEGIN FORM-->
                                                 <form action="#" class="form-horizontal">
                                                     <div class="form-body">
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Business Name</label>
+                                                            <div class="col-md-5">
+                                                                <input type="text" class="form-control" placeholder="Enter text">
+                                                                <span class="help-block"> Your legal company name or real business name  </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Email Address</label>
+                                                            <div class="col-md-4">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="fa fa-envelope"></i>
+                                                                    </span>
+                                                                    <input type="email" class="form-control" placeholder="Email Address"> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Password</label>
+                                                            <div class="col-md-4">
+                                                                <div class="input-group">
+                                                                    <input type="password" class="form-control" placeholder="Password">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="fa fa-user"></i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Left Icon</label>
+                                                            <div class="col-md-4">
+                                                                <div class="input-icon">
+                                                                    <i class="fa fa-bell-o"></i>
+                                                                    <input type="text" class="form-control" placeholder="Left icon"> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Right Icon</label>
+                                                            <div class="col-md-4">
+                                                                <div class="input-icon right">
+                                                                    <i class="fa fa-microphone"></i>
+                                                                    <input type="text" class="form-control" placeholder="Right icon"> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Input With Spinner</label>
+                                                            <div class="col-md-4">
+                                                                <input type="password" class="form-control spinner" placeholder="Password"> </div>
+                                                        </div>
                                                         <div class="form-group last">
-                                                        	<div class="col-md-1">
-                                                            </div>
-                                                            <div class="col-md-10">
-                                                                <jsp:include page="advertiser_agreement_content.jsp"></jsp:include>
-                                                            </div>
-                                                           	<div class="col-md-1">
+                                                            <label class="col-md-3 control-label">Static Control</label>
+                                                            <div class="col-md-4">
+                                                                <p class="form-control-static"> email@example.com </p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-actions">
                                                         <div class="row">
                                                             <div class="col-md-offset-3 col-md-4">
-                                                                <button type="button" class="btn default">I don't agree</button>
-                                                                <a class="btn green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I Agree&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                                                <button type="submit" class="btn green">Submit</button>
+                                                                <button type="button" class="btn default">Cancel</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </form>
                                                 <!-- END FORM-->
                                             </div>
-                    		</div>
+                                        </div>
                     		
                     	</div>
                     </div>

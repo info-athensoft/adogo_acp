@@ -9,7 +9,8 @@ public class BizRoleController {
 	
 	@RequestMapping("/bizrole")
 	public String applyAdvertiser(){
-		String viewName = "uaas/bizrole_home";
+//		String viewName = "uaas/bizrole_home";
+		String viewName = "index2";
 		return viewName;
 	}
 }
