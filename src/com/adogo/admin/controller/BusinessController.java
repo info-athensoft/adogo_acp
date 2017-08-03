@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.admin.entity.BusinessProfile;
-import com.adogo.admin.service.BusinessProfileService;
+import com.adogo.ad.entity.BusinessProfile;
+import com.adogo.ad.service.BusinessProfileService;
 
 @Controller
 public class BusinessController {

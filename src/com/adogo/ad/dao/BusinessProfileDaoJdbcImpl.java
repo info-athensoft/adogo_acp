@@ -1,4 +1,4 @@
-package com.adogo.admin.dao;
+package com.adogo.ad.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.admin.entity.BusinessProfile;
+import com.adogo.ad.entity.BusinessProfile;
 
 @Component
 @Qualifier("businessProfileDaoJdbcImpl")
