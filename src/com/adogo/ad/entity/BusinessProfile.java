@@ -1,4 +1,4 @@
-package com.adogo.admin.entity;
+package com.adogo.ad.entity;
 
 
 public class BusinessProfile {

@@ -1,7 +1,7 @@
-/** event_news_list.jsp */
+/** role_list.jsp */
 
-/* list news - init */
-var EventNewsList = function () {
+/* list roles - init */
+var RoleList = function () {
 
     var initPickers = function () {
         //init date pickers
@@ -16,7 +16,7 @@ var EventNewsList = function () {
         var grid = new Datatable();
 
         grid.init({
-            src: $("#datatable_eventNewsList"),
+            src: $("#datatable_roleList"),
             onSuccess: function (grid) {
             	//alert("success");
             },
@@ -38,7 +38,7 @@ var EventNewsList = function () {
                 ],
                 "pageLength": 10, // default record count per page
                 "ajax": {
-                    "url": "/acp/events/eventsNewsListData", // ajax source
+                    "url": "/acp/uaas/role/roleListData", // ajax source
                     //"url": "http://localhost:8080/acp/events/eventsNewsListData?length=3", // ajax source
                 },
                 "order": [

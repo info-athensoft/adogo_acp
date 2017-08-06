@@ -179,6 +179,40 @@
 						</ul>
 					</li>
 					
+					
+					<li>
+						<a href="javascript:;">
+						<i class="icon-user"></i>
+						<span class="title">Administrator</span>
+						<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="#">
+								<i class="icon-home"></i>
+								Dashboard</a>
+							</li>
+							<li>
+								<a href="/acp/uaas/role/list">
+								<i class="icon-pencil"></i>
+								Role list</a>
+							</li>
+							<li>
+								<a href="/acp/uaas/role/role-func">
+								<i class="icon-pencil"></i>
+								Role-function</a>
+							</li>
+							<li>
+								<a href="/acp/uaas/function/list">
+								<i class="icon-paper-plane"></i>
+								Function list</a>
+							</li>
+							
+						</ul>
+					</li>
+					
+					
+					
 					<!-- 
 					<li>
 						<a href="javascript:;">

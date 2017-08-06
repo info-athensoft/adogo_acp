@@ -30,9 +30,7 @@ public class AdPostController {
 	
 	@RequestMapping("/create")
 	public String gotoCreate(){
-		System.out.println("entering -- /create");
-		String viewName = "ad/ad_post";
-		System.out.println("exiting -- /create");
+		String viewName = "ad/ad_post_create";
 		return viewName;
 	}
 	

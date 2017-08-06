@@ -1,6 +1,6 @@
-package com.adogo.admin.dao;
+package com.adogo.ad.dao;
 
-import com.adogo.admin.entity.BusinessProfile;
+import com.adogo.ad.entity.BusinessProfile;
 
 public interface BusinessProfileDao {
 	public BusinessProfile getBusinessProfileByBizId(int biz_id);

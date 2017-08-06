@@ -1,6 +1,6 @@
 /**
- * Package:	content
- * Module:  event-news system
+ * Package:	uaas
+ * Module:  role
  */
 
 /* event news - global variables and functions*/

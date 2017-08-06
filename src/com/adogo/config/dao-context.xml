@@ -8,4 +8,5 @@
 	<context:annotation-config></context:annotation-config>
 	<context:component-scan base-package="com.adogo.admin.dao"></context:component-scan>
 	<context:component-scan base-package="com.adogo.ad.dao"></context:component-scan>
+	<context:component-scan base-package="com.adogo.uaas.dao"></context:component-scan>
 </beans>
