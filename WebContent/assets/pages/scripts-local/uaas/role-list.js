@@ -1,7 +1,7 @@
-/** event_news_list.jsp */
+/** role_list.jsp */
 
-/* list news - init */
-var EventNewsList = function () {
+/* list roles - init */
+var RoleList = function () {
 
     var initPickers = function () {
         //init date pickers

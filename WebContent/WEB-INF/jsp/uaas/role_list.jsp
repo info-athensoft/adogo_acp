@@ -107,7 +107,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN THEME PANEL -->
                     <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Event System <small>manage news</small></h1>
+                    <h1 class="page-title"> UAAS System <small>authentication and authorization</small></h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
 							<li>
@@ -190,12 +190,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <span></span>
                                                         </label>
                                                     </th>
-                                                    <th width="8%">ID</th>
-													<th width="25%">Title</th>
-													<th width="8%">Author</th>
-													<th width="8%">Category</th>
-													<th width="15%">Date&nbsp;Post</th>
-													<th width="6%">Views</th>
+                                                    <th width="8%">Role ID</th>
+													<th width="25%">Role Code</th>
+													<th width="8%">Role Level</th>
+													<th width="8%">Role Type</th>
+													<th width="8%">Role Name</th>
 													<th width="8%">Status</th>
 													<th width="8%">Actions</th>
                                                 </tr>
@@ -212,34 +211,15 @@ License: You must have a valid license purchased only from themeforest(the above
 															<option value="3">Hot</option>
 														</select>
 													</td>
+													
+													<td><input type="text" class="form-control form-filter input-sm" name="event_author" id="eventAuthor"></td>
 													<td>
-														<div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
-															<input type="text" class="form-control form-filter input-sm" readonly name="product_created_from" placeholder="From" id="postDatetimeFrom">
-															<span class="input-group-btn">
-															<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
-															</span>
-														</div>
-														<div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
-															<input type="text" class="form-control form-filter input-sm" readonly name="product_created_to" placeholder="To" id="postDatetimeTo">
-															<span class="input-group-btn">
-															<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
-															</span>
-														</div>
-													</td>
-													<td>
-														<div class="margin-bottom-5">
-															<input type="text" class="form-control form-filter input-sm" name="viewNum_from" placeholder="From" id="viewNumFrom">
-														</div>
-														<input type="text" class="form-control form-filter input-sm" name="viewNum_to" placeholder="To" id="viewNumTo"/>
-													</td>
-													<td>
-														<select class="form-control form-filter input-sm" name="event_status" id="eventStatus">
+														<select class="form-control form-filter input-sm" name="event_status" id="roleStatus">
 															<option value="0">Select...</option>
-															<option value="1">Published</option>
-															<option value="2">Wait to post</option>
-															<option value="3">Deleted</option>
-															<option value="4">Out of date</option>
-															<option value="5">Suspended</option>
+															<option value="1">Active</option>
+															<option value="2">Inactive</option>
+															<option value="3">Pending</option>
+															<option value="4">Disabled</option>
 														</select>
 													</td>
 													<td>
