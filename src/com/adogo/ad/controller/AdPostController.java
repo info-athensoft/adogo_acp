@@ -9,7 +9,7 @@ public class AdPostController {
 	
 	@RequestMapping("/create")
 	public String gotoCreate(){
-		String viewName = "ad/ad_post";
+		String viewName = "ad/ad_post_create";
 		return viewName;
 	}
 	

@@ -192,6 +192,102 @@ License: You must have a valid license purchased only from themeforest(the above
                     
                     <div class="row">
                     	<div class="col-md-6">
+                    	
+                    	
+                    		<div class="portlet light">
+                    			<div class="portlet-title">
+                                    <div class="caption font-red-sunglo">
+                                        <i class="icon-settings"></i>
+                                        <span class="caption-subject sbold uppercase">Basic Info. of Post</span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-ban"></i> Ban </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;"> Make admin </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                    			<div class="portlet-body form">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                        	
+                                        	<div class="form-group">
+                                                <label class="col-md-3 control-label">Choose a language</label>
+                                                <div class="col-md-9">
+                                                <select class="form-control">
+                                                    <option selected="selected">English</option>
+                                                    <option>French</option>
+                                                    <option>Chinese (Simplified)</option>
+                                                    <option>Chinese (Traditional)</option>
+                                                </select>
+                                                
+                                                <button class="btn" name="confirm" onclick="testButtonConfirmLang();">Confirm</button>
+                                               
+                                                </div>
+                                            </div>
+                                        	
+                                        	<div class="form-group">
+                                                <label class="col-md-3 control-label">Title</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Author</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                </div>
+                                            </div> 
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Category</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Tags</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" value="a,b,c" data-role="tagsinput">
+                                                </div>
+                                            </div> 
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Short Description</label>
+                                                <div class="col-md-9">
+                                                    <textarea class="form-control" rows="2"></textarea>
+                                                </div>
+                                            </div>
+                                            
+                                        	
+                                        </div>
+                                    </form>
+                                </div>
+                    		</div>
+                    	
+                    	
+                    	
                     		
                     		<div class="portlet light">
                     			<div class="portlet-title">
@@ -293,27 +389,6 @@ License: You must have a valid license purchased only from themeforest(the above
                     			<div class="portlet-body form">
                                     <form class="form-horizontal" role="form">
                                         <div class="form-body">
-                                        
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Ad Title</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Tags</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" value="a,b,c" data-role="tagsinput">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Short Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea class="form-control" rows="3"></textarea>
-                                                </div>
-                                            </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Long Description</label>
@@ -830,8 +905,13 @@ License: You must have a valid license purchased only from themeforest(the above
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-EventNewsList.init();
+//EventNewsList.init();
 //$("#menu-myevents").addClass("selected");
+
+
+function testButtonConfirmLang(){
+	alert("ok");
+}
 
 </script>
 </body>
