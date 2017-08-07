@@ -30,7 +30,7 @@ private NamedParameterJdbcTemplate jdbc;
 	
 	@Override
 	public List<Function> findAll() {
-		String sql = "select * from UAAS_ROLE";
+		String sql = "select * from UAAS_FUNCTION";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		List<Function> x = new ArrayList<Function>();
 		try{

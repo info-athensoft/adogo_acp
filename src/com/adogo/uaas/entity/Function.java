@@ -15,6 +15,7 @@ public class Function {
 	private String functionUrl;
 	private Integer seqNo;
 	private Integer functionStatus;
+	
 	public Integer getFunctionId() {
 		return functionId;
 	}
@@ -63,18 +64,7 @@ public class Function {
 	public void setFunctionStatus(Integer functionStatus) {
 		this.functionStatus = functionStatus;
 	}
-	public static int getInactive() {
-		return INACTIVE;
-	}
-	public static int getActive() {
-		return ACTIVE;
-	}
-	public static int getPending() {
-		return PENDING;
-	}
-	public static int getDisabled() {
-		return DISABLED;
-	}
+	
 	
 	@Override
 	public String toString() {

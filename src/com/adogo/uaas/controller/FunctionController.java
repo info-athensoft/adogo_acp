@@ -10,44 +10,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.uaas.entity.Role;
-import com.adogo.uaas.service.RoleService;
+import com.adogo.uaas.entity.Function;
+import com.adogo.uaas.service.FunctionService;
 
 @Controller
-@RequestMapping("/uaas/role")
-public class RoleController {
+@RequestMapping("/uaas/function")
+public class FunctionController {
 	
-	private final static Logger logger = Logger.getLogger(RoleController.class);
+	private final static Logger logger = Logger.getLogger(FunctionController.class);
 	
 	private static final String ACTION_EDIT = "Edit";
 	private static final String ACTION_DELETE = "Delete";
 	
 	@Autowired
-	private RoleService roleService;
+	private FunctionService functionService;
 
-	public void setRoleService(RoleService roleService) {
-		this.roleService = roleService;
+	public void setFunctionService(FunctionService functionService) {
+		this.functionService = functionService;
 	}
 	
 	@RequestMapping(value="/list")
 	public String gotoRoleList(){
-		String viewName = "uaas/role_list";
+		String viewName = "uaas/function_list";
 		return viewName;
 	}
 	
 	
-	@RequestMapping(value="/roleListData",produces="application/json")
+	@RequestMapping(value="/functionListData",produces="application/json")
 	@ResponseBody
-	public Map<String,Object> getDataRoleList(){
-		logger.info("entering /uaas/roleListData");
+	public Map<String,Object> getDataFunctionList(){
+		logger.info("entering... /uaas/functionListData");
 		
 		ModelAndView mav = new ModelAndView();
 		
 		//data
-		List<Role> listRole = roleService.getAllRoles();
-		logger.info("Length of role entries: "+ listRole.size());
+		List<Function> listFunction = functionService.getAllFunctions();
+		logger.info("Length of role entries: "+ listFunction.size());
 		
-		String[][] data = getData(listRole, ACTION_EDIT);
+		String[][] data = getData(listFunction, ACTION_EDIT);
 		
 		Map<String, Object> model = mav.getModel();
 		
@@ -58,13 +58,13 @@ public class RoleController {
 		model.put("customActionStatus","OK");
 		model.put("customActionMessage","Data loaded");
 		
-		logger.info("leaving /events/eventsNewsListData");
+		logger.info("leaving... /uaas/functionListData");
 		return model;
 	}
 	
-	private String[][] getData(List<Role> list, String actionName){
+	private String[][] getData(List<Function> list, String actionName){
 		int entryLength = list.size();
-		final int COLUMN_NUM = 8;
+		final int COLUMN_NUM = 10;
 		String[][] data = new String[entryLength][COLUMN_NUM];
 		
 		String field0 = "";	//check box
@@ -75,22 +75,26 @@ public class RoleController {
 		String field5 = "";	//role name
 		String field6 = "";	//role status
 		String field7 = "";	//action
+		String field8 = "";	//action
+		String field9 = "";	//action
 		
 		for(int i=0; i<entryLength ; i++){			
-			field0 = "<input type='checkbox' name='id[]' value="+list.get(i).getRoleId()+">";
-			field1 = list.get(i).getRoleId()+"";
-			field2 = list.get(i).getRoleCode()+"";
-			field3 = list.get(i).getRoleLevel()+"";
-			field4 = list.get(i).getRoleType()+"";
-			field5 = list.get(i).getRoleName();
+			field0 = "<input type='checkbox' name='id[]' value="+list.get(i).getFunctionId()+">";
+			field1 = list.get(i).getFunctionId()+"";
+			field2 = list.get(i).getParentId()+"";
+			field3 = list.get(i).getFunctionPackage();
+			field4 = list.get(i).getFunctionName();
+			field5 = list.get(i).getFunctionCode();
+			field6 = list.get(i).getFunctionUrl();
+			field7 = list.get(i).getSeqNo()+"";
 			
-			int intRoleStatus = list.get(i).getRoleStatus();
-			String[] roleStatusPair = getRoleStatusPair(intRoleStatus);
-			String roleStatusKey = roleStatusPair[0];
-			String roleStatus = roleStatusPair[1];
+			int intFunctionStatus = list.get(i).getFunctionStatus();
+			String[] functionStatusPair = getFunctionStatusPair(intFunctionStatus);
+			String funtionStatusKey = functionStatusPair[0];
+			String functionStatus = functionStatusPair[1];
 			
-			field6 = "<span class='label label-sm label-"+roleStatusKey+"'>"+roleStatus+"</span>";
-			field7 = "<a href='/uaas/role/list' class='btn btn-xs default btn-editable'><i class='fa fa-pencil'></i> "+actionName+"</a>";
+			field8 = "<span class='label label-sm label-"+funtionStatusKey+"'>"+functionStatus+"</span>";
+			field9 = "<a href='/uaas/function/list' class='btn btn-xs default btn-editable'><i class='fa fa-pencil'></i> "+actionName+"</a>";
 			
 			
 			data[i][0] = field0;
@@ -101,30 +105,32 @@ public class RoleController {
 			data[i][5] = field5;
 			data[i][6] = field6;
 			data[i][7] = field7;
+			data[i][8] = field8;
+			data[i][9] = field9;
 		}
 		
 		return data;
 	}
 	
-	private String[] getRoleStatusPair(int intObjectStatus){
+	private String[] getFunctionStatusPair(int intObjectStatus){
 		String[] objectStatusPair = new String[2];
 		
 		String objectStatus = "";
 		String objectStatusKey = "";
 		switch(intObjectStatus){
-			case Role.ACTIVE: 
+			case Function.ACTIVE: 
 				objectStatus = "Active";
 				objectStatusKey = "success";
 				break;
-			case Role.INACTIVE: 
+			case Function.INACTIVE: 
 				objectStatus = "Inactive";
 				objectStatusKey = "warning";
 				break;
-			case Role.PENDING: 
+			case Function.PENDING: 
 				objectStatus = "Pending";
 				objectStatusKey = "danger";
 				break;
-			case Role.DISABLED: 
+			case Function.DISABLED: 
 				objectStatus = "Disabled";
 				objectStatusKey = "default";
 				break;
