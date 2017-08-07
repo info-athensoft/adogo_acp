@@ -7,8 +7,6 @@ public class Role {
 	public static final int PENDING = 2;
 	public static final int  DISABLED= 3;
 	
-	
-	
 	private Integer roleId;
 	private String roleCode;
 	private Integer roleLevel;
