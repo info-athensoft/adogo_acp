@@ -116,7 +116,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>
-								<a href="#">Role Management</a>
+								<a href="#">Function management</a>
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>
@@ -180,7 +180,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </select>
                                             <button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
                                         </div>
-                                        <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_roleList">
+                                        <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_functionList">
                                             <thead>
                                                 <tr role="row" class="heading">
                                                     <th width="1%">
@@ -190,11 +190,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <span></span>
                                                         </label>
                                                     </th>
-                                                    <th width="8%">Role ID</th>
-													<th width="25%">Role Code</th>
-													<th width="8%">Role Level</th>
-													<th width="8%">Role Type</th>
-													<th width="8%">Role Name</th>
+                                                    <th width="8%">Function ID</th>
+													<th width="8%">Parent ID</th>
+													<th width="8%">Function Pck.</th>
+													<th width="8%">Function Name</th>
+													<th width="8%">Function Code</th>
+													<th width="8%">Function Url</th>
+													<th width="8%">Seq No.</th>
 													<th width="8%">Status</th>
 													<th width="8%">Actions</th>
                                                 </tr>
@@ -203,15 +205,9 @@ License: You must have a valid license purchased only from themeforest(the above
 													<td><input type="text" class="form-control form-filter input-sm" name="event_uuid" id="eventUUID"></td>
 													<td><input type="text" class="form-control form-filter input-sm" name="event_title" id="eventTitle"></td>
 													<td><input type="text" class="form-control form-filter input-sm" name="event_author" id="eventAuthor"></td>
-													<td>
-														<select class="form-control form-filter input-sm" name="event_class" id="eventClass">
-															<option value="0">Select...</option>
-															<option value="1">Default</option>
-															<option value="2">New</option>
-															<option value="3">Hot</option>
-														</select>
-													</td>
-													
+													<td><input type="text" class="form-control form-filter input-sm" name="event_author" id="eventAuthor"></td>
+													<td><input type="text" class="form-control form-filter input-sm" name="event_author" id="eventAuthor"></td>
+													<td><input type="text" class="form-control form-filter input-sm" name="event_author" id="eventAuthor"></td>
 													<td><input type="text" class="form-control form-filter input-sm" name="event_author" id="eventAuthor"></td>
 													<td>
 														<select class="form-control form-filter input-sm" name="event_status" id="roleStatus">
@@ -277,9 +273,9 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/scripts/app.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/uaas/role.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/uaas/function.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/uaas/role-list.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/uaas/function-list.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -291,7 +287,7 @@ License: You must have a valid license purchased only from themeforest(the above
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-RoleList.init();
+FunctionList.init();
 //$("#menu-myevents").addClass("selected");
 
 </script>

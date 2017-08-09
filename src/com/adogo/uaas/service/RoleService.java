@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.adogo.uaas.dao.RoleDao;
 import com.adogo.uaas.entity.Role;
 
-
 @Service
 public class RoleService {
 	
@@ -17,7 +16,7 @@ public class RoleService {
 	@Qualifier("roleDaoJdbcImpl")
 	private RoleDao roleDao;
 
-	public void setNewsDao(RoleDao roleDao) {
+	public void setRoleDao(RoleDao roleDao) {
 		this.roleDao = roleDao;
 	}
 	
