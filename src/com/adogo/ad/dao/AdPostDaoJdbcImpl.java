@@ -63,25 +63,24 @@ public class AdPostDaoJdbcImpl implements AdPostDao{
 	private static class AdPostRowMapper implements RowMapper<AdPost>{
 		public AdPost mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			AdPost x = new AdPost();
-			x.setGlobal_id(rs.getLong("global_id"));
-			x.setUser_id(rs.getLong("user_id"));
-			x.setAdpost_id(rs.getString("adpost_id"));
-			x.setMedia_cover_url(rs.getString("media_cover_url"));
-			x.setPost_title(rs.getString("post_title"));
-			x.setPost_author(rs.getString("post_author"));
+			x.setGlobalId(rs.getLong("global_id"));
+			x.setUserId(rs.getLong("user_id"));
+			x.setAdPostId(rs.getString("adpost_id"));
+			x.setMediaCoverUrl(rs.getString("media_cover_url"));
+			x.setPostTitle(rs.getString("post_title"));
+			x.setPostAuthor(rs.getString("post_author"));
 			
 			Timestamp cd = rs.getTimestamp("create_datetime");
 			if (cd != null) {
-				x.setCreate_datetime(new Date(cd.getTime()));
+				x.setCreateDatetime(new Date(cd.getTime()));
 			}
 			
 			Timestamp pd = rs.getTimestamp("post_datetime");
 			if (pd != null) {
-				x.setPost_datetime(new Date(pd.getTime()));			
+				x.setPostDatetime(new Date(pd.getTime()));			
 			}
 			
-			
-			x.setLang_no(rs.getInt("lang_no"));
+			x.setLangNo(rs.getInt("lang_no"));
 			x.setTags(rs.getString("tags"));
 			
             return x;

@@ -3,138 +3,84 @@ package com.adogo.ad.entity;
 import java.util.Date;
 
 public class AdPost {
-	private long global_id;
-	private long user_id;
-	private String adpost_id;
-	private String media_cover_url;
-	private String post_title;
-	private String post_author;
-	private Date create_datetime;
-	private Date post_datetime;
-	private int lang_no;
+	private long globalId;
+	private long userId;
+	private String adPostId;
+	private String mediaCoverUrl;
+	private String postTitle;
+	private String postAuthor;
+	private Date createDatetime;
+	private Date postDatetime;
+	private int langNo;
 	private String tags;
 	
 	
-	public long getGlobal_id() {
-		return global_id;
+	public long getGlobalId() {
+		return globalId;
 	}
-
-	public void setGlobal_id(long global_id) {
-		this.global_id = global_id;
+	public void setGlobalId(long globalId) {
+		this.globalId = globalId;
 	}
-
-	public long getUser_id() {
-		return user_id;
+	public long getUserId() {
+		return userId;
 	}
-
-	public void setUser_id(long user_id) {
-		this.user_id = user_id;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
-
-	public String getAdpost_id() {
-		return adpost_id;
+	public String getAdPostId() {
+		return adPostId;
 	}
-
-
-
-	public void setAdpost_id(String adpost_id) {
-		this.adpost_id = adpost_id;
+	public void setAdPostId(String adPostId) {
+		this.adPostId = adPostId;
 	}
-
-
-
-	public String getMedia_cover_url() {
-		return media_cover_url;
+	public String getMediaCoverUrl() {
+		return mediaCoverUrl;
 	}
-
-
-
-	public void setMedia_cover_url(String media_cover_url) {
-		this.media_cover_url = media_cover_url;
+	public void setMediaCoverUrl(String mediaCoverUrl) {
+		this.mediaCoverUrl = mediaCoverUrl;
 	}
-
-
-
-	public String getPost_title() {
-		return post_title;
+	public String getPostTitle() {
+		return postTitle;
 	}
-
-
-
-	public void setPost_title(String post_title) {
-		this.post_title = post_title;
+	public void setPostTitle(String postTitle) {
+		this.postTitle = postTitle;
 	}
-
-
-
-	public String getPost_author() {
-		return post_author;
+	public String getPostAuthor() {
+		return postAuthor;
 	}
-
-
-
-	public void setPost_author(String post_author) {
-		this.post_author = post_author;
+	public void setPostAuthor(String postAuthor) {
+		this.postAuthor = postAuthor;
 	}
-
-
-
-	public Date getCreate_datetime() {
-		return create_datetime;
+	public Date getCreateDatetime() {
+		return createDatetime;
 	}
-
-
-
-	public void setCreate_datetime(Date create_datetime) {
-		this.create_datetime = create_datetime;
+	public void setCreateDatetime(Date createDatetime) {
+		this.createDatetime = createDatetime;
 	}
-
-
-
-	public Date getPost_datetime() {
-		return post_datetime;
+	public Date getPostDatetime() {
+		return postDatetime;
 	}
-
-
-
-	public void setPost_datetime(Date post_datetime) {
-		this.post_datetime = post_datetime;
+	public void setPostDatetime(Date postDatetime) {
+		this.postDatetime = postDatetime;
 	}
-
-
-
-	public int getLang_no() {
-		return lang_no;
+	public int getLangNo() {
+		return langNo;
 	}
-
-
-
-	public void setLang_no(int lang_no) {
-		this.lang_no = lang_no;
+	public void setLangNo(int langNo) {
+		this.langNo = langNo;
 	}
-
-
-
 	public String getTags() {
 		return tags;
 	}
-
-
-
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
-
-
-
+	
 	@Override
 	public String toString() {
-		return "AdPost [global_id=" + global_id + ", user_id=" + user_id + ", adpost_id=" + adpost_id
-				+ ", media_cover_url=" + media_cover_url + ", post_title=" + post_title + ", post_author=" + post_author
-				+ ", create_datetime=" + create_datetime + ", post_datetime=" + post_datetime + ", lang_no=" + lang_no
-				+ ", tags=" + tags + "]";
+		return "AdPost [globalId=" + globalId + ", userId=" + userId + ", adPostId=" + adPostId + ", mediaCoverUrl="
+				+ mediaCoverUrl + ", postTitle=" + postTitle + ", postAuthor=" + postAuthor + ", createDatetime="
+				+ createDatetime + ", postDatetime=" + postDatetime + ", langNo=" + langNo + ", tags=" + tags + "]";
 	}
-
-
 
 }
