@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.ad.entity.AdPost;
+import com.adogo.ad.entity.AdPostHead;
 
 
 @Component
@@ -34,11 +34,11 @@ public class AdPostDaoJdbcImpl implements AdPostDao{
 	}
 	
 	@Override
-	public AdPost findById(long globalId) {
+	public AdPostHead findById(long globalId) {
 		String sql = "select * from AD_POST where global_id =:global_id";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("global_id", globalId);
-		AdPost x = null;
+		AdPostHead x = null;
 		try{
 			x = jdbc.queryForObject(sql, paramSource, new AdPostRowMapper());
 		}catch(EmptyResultDataAccessException ex){
@@ -60,9 +60,9 @@ public class AdPostDaoJdbcImpl implements AdPostDao{
 		
 	}
 	
-	private static class AdPostRowMapper implements RowMapper<AdPost>{
-		public AdPost mapRow(ResultSet rs, int rowNumber) throws SQLException {
-			AdPost x = new AdPost();
+	private static class AdPostRowMapper implements RowMapper<AdPostHead>{
+		public AdPostHead mapRow(ResultSet rs, int rowNumber) throws SQLException {
+			AdPostHead x = new AdPostHead();
 			x.setGlobalId(rs.getLong("global_id"));
 			x.setUserId(rs.getLong("user_id"));
 			x.setAdPostId(rs.getString("adpost_id"));

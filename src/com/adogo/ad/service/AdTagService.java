@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.adogo.ad.dao.AdPostDao;
 import com.adogo.ad.dao.AdTagDao;
-import com.adogo.ad.entity.AdPost;
+import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.entity.AdTag;
 
 @Service
