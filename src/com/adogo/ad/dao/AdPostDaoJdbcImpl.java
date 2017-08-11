@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.ad.entity.AdPost;
+import com.adogo.ad.entity.AdPostHead;
 
 
 @Component
@@ -34,11 +34,11 @@ public class AdPostDaoJdbcImpl implements AdPostDao{
 	}
 	
 	@Override
-	public AdPost findById(long globalId) {
+	public AdPostHead findById(long globalId) {
 		String sql = "select * from AD_POST where global_id =:global_id";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("global_id", globalId);
-		AdPost x = null;
+		AdPostHead x = null;
 		try{
 			x = jdbc.queryForObject(sql, paramSource, new AdPostRowMapper());
 		}catch(EmptyResultDataAccessException ex){
@@ -60,28 +60,27 @@ public class AdPostDaoJdbcImpl implements AdPostDao{
 		
 	}
 	
-	private static class AdPostRowMapper implements RowMapper<AdPost>{
-		public AdPost mapRow(ResultSet rs, int rowNumber) throws SQLException {
-			AdPost x = new AdPost();
-			x.setGlobal_id(rs.getLong("global_id"));
-			x.setUser_id(rs.getLong("user_id"));
-			x.setAdpost_id(rs.getString("adpost_id"));
-			x.setMedia_cover_url(rs.getString("media_cover_url"));
-			x.setPost_title(rs.getString("post_title"));
-			x.setPost_author(rs.getString("post_author"));
+	private static class AdPostRowMapper implements RowMapper<AdPostHead>{
+		public AdPostHead mapRow(ResultSet rs, int rowNumber) throws SQLException {
+			AdPostHead x = new AdPostHead();
+			x.setGlobalId(rs.getLong("global_id"));
+			x.setUserId(rs.getLong("user_id"));
+			x.setAdPostId(rs.getString("adpost_id"));
+			x.setMediaCoverUrl(rs.getString("media_cover_url"));
+			x.setPostTitle(rs.getString("post_title"));
+			x.setPostAuthor(rs.getString("post_author"));
 			
 			Timestamp cd = rs.getTimestamp("create_datetime");
 			if (cd != null) {
-				x.setCreate_datetime(new Date(cd.getTime()));
+				x.setCreateDatetime(new Date(cd.getTime()));
 			}
 			
 			Timestamp pd = rs.getTimestamp("post_datetime");
 			if (pd != null) {
-				x.setPost_datetime(new Date(pd.getTime()));			
+				x.setPostDatetime(new Date(pd.getTime()));			
 			}
 			
-			
-			x.setLang_no(rs.getInt("lang_no"));
+			x.setLangNo(rs.getInt("lang_no"));
 			x.setTags(rs.getString("tags"));
 			
             return x;
