@@ -149,6 +149,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="caption">
                                         <i class="fa fa-shopping-cart"></i>Post an Ad <span class="caption-helper">composite an ad</span></div>
                                     <div class="actions">
+                                        <a href="" class="btn btn-circle btn-info" onclick="saveAdPost()">
+                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Save AdPost </span>
+                                        </a>
                                         <a href="eventsNewsCreate" class="btn btn-circle btn-info">
                                             <i class="fa fa-plus"></i><span class="hidden-xs"> Create news </span>
                                         </a>
@@ -233,7 +236,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Choose a language</label>
                                                 <div class="col-md-9">
-                                                <select class="form-control">
+                                                <select id="adPost-lang" class="form-control">
                                                     <option selected="selected">English</option>
                                                     <option>French</option>
                                                     <option>Chinese (Simplified)</option>
@@ -248,35 +251,35 @@ License: You must have a valid license purchased only from themeforest(the above
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Title</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" id="adPost-title" class="form-control" placeholder="Enter text">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Author</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" id="adPost-author" class="form-control" placeholder="Enter text">
                                                 </div>
                                             </div> 
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Category</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" id="adPost-category" class="form-control" placeholder="Enter text">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Tags</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" value="a,b,c" data-role="tagsinput">
+                                                    <input type="text" id="adPost-tags" class="form-control" value="a,b,c" data-role="tagsinput">
                                                 </div>
                                             </div> 
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Short Description</label>
                                                 <div class="col-md-9">
-                                                    <textarea class="form-control" rows="2"></textarea>
+                                                    <textarea id="adPost-short-desc" class="form-control" rows="2"></textarea>
                                                 </div>
                                             </div>
                                             
@@ -328,21 +331,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Image Title</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" id="adPost-cover-img-title" class="form-control" placeholder="Enter text">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">URL</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" id="adPost-cover-img-url" class="form-control" placeholder="Enter text">
                                                 </div>
                                             </div> 
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Short Description</label>
                                                 <div class="col-md-9">
-                                                    <textarea class="form-control" rows="2"></textarea>
+                                                    <textarea id="adPost-cover-img-short-desc" class="form-control" rows="2"></textarea>
                                                 </div>
                                             </div>
                                             
@@ -911,6 +914,50 @@ License: You must have a valid license purchased only from themeforest(the above
 
 function testButtonConfirmLang(){
 	alert("ok");
+}
+
+function saveAdPost(){
+	//alert("saveAdPost called!");
+	var adPostId = "test01";
+	var adPostLang = $("#adPost-lang").val();
+	var adPostTitle = $("#adPost-title").val();
+	var adPostAuthor = $("#adPost-author").val();
+	var adPostCategory = $("#adPost-category").val();
+	var adPostTags = $("#adPost-tags").val();
+	var adPostShortDesc = $("#adPost-short-desc").val();
+	
+	var adPostCoverImgTitle = $("#adPost-cover-img-title").val();
+	var adPostCoverImgUrl = $("#adPost-cover-img-url").val();
+	var adPostCoverImgShortDesc = $("#adPost-cover-img-short-desc").val();
+	
+	//alert("saveAdPost(), adPostLang="+adPostLang);
+	
+	$.ajax({
+		type:"post",
+		url:"saveAdPost",
+		dataType:"json",
+		data: {	adPostId:adPostId,
+				adPostLang:adPostLang,
+				adPostTitle:adPostTitle,
+				adPostAuthor:adPostAuthor,
+				adPostCategory:adPostCategory,
+				adPostTags:JSON.stringify(adPostTags),
+				adPostShortDesc:adPostShortDesc,
+				adPostCoverImgTitle:adPostCoverImgTitle,
+				adPostCoverImgUrl:adPostCoverImgUrl,
+				adPostCoverImgShortDesc:adPostCoverImgShortDesc},
+		//data: {	adpostId:adpostId },
+		timeout : 5000,
+		success:function(data){	
+//			var msg = data.info_msg;
+			//var userAccount = data.userAccount;
+/*				$("#sec_activate").html(msg);
+			$("#ua1").text(userAccount.acctId);
+*/				
+			//alert(msg);
+			//location = "goactivateresult?resultMsg="+msg;
+		}		
+	});
 }
 
 </script>

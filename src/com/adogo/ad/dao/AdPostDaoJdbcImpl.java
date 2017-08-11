@@ -13,6 +13,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import com.adogo.ad.entity.AdPostHead;
@@ -85,5 +87,40 @@ public class AdPostDaoJdbcImpl implements AdPostDao{
 			
             return x;
 		}		
+	}
+
+	@Override
+	public long create(AdPostHead adPost) {
+		final String TABLE = "AD_POST";
+				
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("insert into "+TABLE);
+		sbf.append("(user_id,adpost_id,media_cover_url,post_title,post_author,create_datetime,post_datetime,lang_no,tags) ");
+		sbf.append("values(:user_id,:adpost_id,:media_cover_url,:post_title,:post_author,:create_datetime,:post_datetime,:lang_no,:tags)");
+		String sql = sbf.toString();
+		
+		final Date createDate 			= new Date();
+		final Date postDate 	= createDate;
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		//paramSource.addValue("global_id", adPost.getGlobalId());
+		paramSource.addValue("user_id", adPost.getUserId());
+		paramSource.addValue("adpost_id", adPost.getAdPostId());
+		paramSource.addValue("media_cover_url", adPost.getMediaCoverUrl());
+		paramSource.addValue("post_title",adPost.getPostTitle());
+		paramSource.addValue("post_author",adPost.getPostAuthor());
+		paramSource.addValue("create_datetime",new java.sql.Timestamp(createDate.getTime()));
+		paramSource.addValue("post_datetime",new java.sql.Timestamp(postDate.getTime()));
+		paramSource.addValue("lang_no",adPost.getLangNo());
+		paramSource.addValue("tags",adPost.getTags());
+		
+		KeyHolder keyholder = new GeneratedKeyHolder();
+		jdbc.update(sql, paramSource, keyholder);
+		return (long)keyholder.getKey();
+	}
+
+	@Override
+	public int update(AdPostHead adPost) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

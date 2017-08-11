@@ -21,9 +21,13 @@ public class AdPostService {
 	public AdPostHead findById(long globalId) {
 		return this.adPostDao.findById(globalId);
 	}
+	
 	public int saveTags(String adpostId, String tags) {
 		return this.adPostDao.saveTags(adpostId, tags);
 	}
 
+	public long create(AdPostHead adPost) {
+		return this.adPostDao.create(adPost);
+	}
 }
 
