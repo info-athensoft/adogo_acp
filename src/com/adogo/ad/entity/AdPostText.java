@@ -6,6 +6,10 @@ package com.adogo.ad.entity;
  */
 public class AdPostText extends AdPostBody{
 	private String longDesc;
+	
+	public AdPostText(){
+		super.setMediaType(MediaTypeConst.TEXT);
+	}
 
 	public String getLongDesc() {
 		return longDesc;

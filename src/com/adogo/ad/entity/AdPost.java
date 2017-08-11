@@ -3,12 +3,24 @@ package com.adogo.ad.entity;
 import java.util.List;
 
 public class AdPost extends AdPostHead {
-	private List<AdPostAudio> listAdPostAudio;
-	private List<AdPostVideo> listAdPostVideo;
+	private List<AdPostText> listAdPostText;
 	private List<AdPostCoverImage> listAdPostCoverImage;
 	private List<AdPostSlideImage> listAdPostSlideImage;
 	private List<AdPostGalleryImage> listAdPostGalleryImage;
-	private List<AdPostText> listAdPostText;
+	private List<AdPostAudio> listAdPostAudio;
+	private List<AdPostVideo> listAdPostVideo;
+	
+	
+	public <T extends AdPostMediaBody> T getPrimaryMediaObject(List<T> mediaList){
+		T primaryMediaObj = null;
+		for(T obj : mediaList){
+			if(obj.getIsPrimary()){
+				primaryMediaObj = obj;
+			}
+		}
+		return primaryMediaObj;
+	}
+	
 	
 	public List<AdPostAudio> getListAdPostAudio() {
 		return listAdPostAudio;
