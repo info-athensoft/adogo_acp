@@ -1,13 +1,13 @@
 package com.adogo.ad.entity;
 
 public class AdPostBody {
-	private Long globalId;
-	private Long userId;
-	private Long adPostId;
-	private String mediaCoverUrl;
-	private Integer mediaType;
-	private Integer langNo;
-	private Integer sortNo;
+	protected Long globalId;
+	protected Long userId;
+	protected Long adPostId;
+	protected String mediaCoverUrl;
+	protected Integer mediaType;
+	protected Integer langNo;
+	protected Integer sortNo;
 	
 	public Long getGlobalId() {
 		return globalId;

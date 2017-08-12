@@ -6,5 +6,13 @@ public class AdPostGalleryImage extends AdPostMediaBody {
 		super.setMediaType(MediaTypeConst.GALLERY_IMAGE);
 	}
 
+	@Override
+	public String toString() {
+		return "AdPostGalleryImage [mediaTitle=" + mediaTitle + ", mediaIndex=" + mediaIndex + ", isPrimary="
+				+ isPrimary + ", mediaDesc=" + mediaDesc + ", globalId=" + globalId + ", userId=" + userId
+				+ ", adPostId=" + adPostId + ", mediaCoverUrl=" + mediaCoverUrl + ", mediaType=" + mediaType
+				+ ", langNo=" + langNo + ", sortNo=" + sortNo + "]";
+	}
+
 	
 }

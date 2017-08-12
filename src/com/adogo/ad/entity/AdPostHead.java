@@ -3,28 +3,28 @@ package com.adogo.ad.entity;
 import java.util.Date;
 
 public class AdPostHead {
-	private long globalId;
-	private long userId;
-	private String adPostId;
-	private String mediaCoverUrl;
-	private String postTitle;
-	private String postAuthor;
-	private Date createDatetime;
-	private Date postDatetime;
-	private int langNo;
-	private String tags;
+	protected Long globalId;
+	protected Long userId;
+	protected String adPostId;
+	protected String mediaCoverUrl;
+	protected String postTitle;
+	protected String postAuthor;
+	protected Date createDatetime;
+	protected Date postDatetime;
+	protected Integer langNo;
+	protected String tags;
 	
 	
-	public long getGlobalId() {
+	public Long getGlobalId() {
 		return globalId;
 	}
-	public void setGlobalId(long globalId) {
+	public void setGlobalId(Long globalId) {
 		this.globalId = globalId;
 	}
-	public long getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	public String getAdPostId() {
@@ -63,10 +63,10 @@ public class AdPostHead {
 	public void setPostDatetime(Date postDatetime) {
 		this.postDatetime = postDatetime;
 	}
-	public int getLangNo() {
+	public Integer getLangNo() {
 		return langNo;
 	}
-	public void setLangNo(int langNo) {
+	public void setLangNo(Integer langNo) {
 		this.langNo = langNo;
 	}
 	public String getTags() {

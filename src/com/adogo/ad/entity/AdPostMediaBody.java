@@ -1,10 +1,10 @@
 package com.adogo.ad.entity;
 
 public class AdPostMediaBody extends AdPostBody{
-	private String mediaTitle;
-	private Integer mediaIndex;
-	private Boolean isPrimary;
-	private String mediaDesc;
+	protected String mediaTitle;
+	protected Integer mediaIndex;
+	protected Boolean isPrimary = false;
+	protected String mediaDesc;
 	
 	public String getMediaTitle() {
 		return mediaTitle;
