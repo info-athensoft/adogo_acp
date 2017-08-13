@@ -41,9 +41,11 @@ public class AdPost extends AdPostHead {
 						break;
 					}
 				}
-				
+			}//end-of-for-loop
+			if(primaryMediaObj ==null){
+				primaryMediaObj = mediaList.get(0);
 			}
-		}
+		}//end-of-else
 		
 		return primaryMediaObj;
 	}

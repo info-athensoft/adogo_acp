@@ -48,26 +48,18 @@ public class AdPostController {
 	
 	@RequestMapping("/saveTags")
 	public String saveTags(@RequestParam String adpostId, @RequestParam String tags){
-	//public String saveTags(@RequestParam String adpostId){
-	//public String saveTags(){
-		tags = tags.replaceAll("^\"|\"$", "");
-		System.out.println("entering -- /saveTags ... adpostId= " + adpostId + ", tags="+String.valueOf(tags));
-		//System.out.println("entering -- /saveTags ... adpostId= " + adpostId );
-		//System.out.println("entering -- /saveTags");
+		logger.info("entering -- /saveTags ... adpostId= " + adpostId + ", tags="+String.valueOf(tags));
 		String viewName = "ad/ad_post";
 		
+		tags = tags.replaceAll("^\"|\"$", "");
 		this.adpostService.saveTags(adpostId, tags);
-		//long globalId = 0;
-		//AdPost ap = this.adpostService.findById(globalId);
-		//System.out.println("found adpostId = " + ap.getAdpost_id());
 		
 		String[] arrayTags = tags.split(",");
 		for (String tag : arrayTags) {
-			//System.out.println("tag= " + tag );
 			this.adTagService.updateTag(tag);
 		}
 		
-		System.out.println("exiting -- /saveTags ");
+		logger.info("exiting -- /saveTags ");
 		return viewName;
 	}
 }
