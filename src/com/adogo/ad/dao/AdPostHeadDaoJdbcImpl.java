@@ -21,8 +21,8 @@ import com.adogo.ad.entity.AdPostHead;
 
 
 @Component
-@Qualifier("adPostHeaderDaoJdbcImpl")
-public class AdPostHeaderDaoJdbcImpl implements AdPostHeaderDao{
+@Qualifier("adPostHeadDaoJdbcImpl")
+public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
@@ -42,7 +42,7 @@ public class AdPostHeaderDaoJdbcImpl implements AdPostHeaderDao{
 		paramSource.addValue("global_id", globalId);
 		AdPostHead x = null;
 		try{
-			x = jdbc.queryForObject(sql, paramSource, new AdPostHeaderRowMapper());
+			x = jdbc.queryForObject(sql, paramSource, new AdPostHeadRowMapper());
 		}catch(EmptyResultDataAccessException ex){
 			x = null;
 		}
@@ -97,7 +97,7 @@ public class AdPostHeaderDaoJdbcImpl implements AdPostHeaderDao{
 		return 0;
 	}
 	
-	private static class AdPostHeaderRowMapper implements RowMapper<AdPostHead>{
+	private static class AdPostHeadRowMapper implements RowMapper<AdPostHead>{
 		public AdPostHead mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			AdPostHead x = new AdPostHead();
 			x.setGlobalId(rs.getLong("global_id"));
