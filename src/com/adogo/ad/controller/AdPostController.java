@@ -1,15 +1,17 @@
 package com.adogo.ad.controller;
 
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
-import com.adogo.uaas.controller.AdvertiserController;
+import com.athensoft.util.id.UUIDHelper;
 
 @Controller
 @RequestMapping("/ad/adpost")
@@ -65,23 +67,48 @@ public class AdPostController {
 	}
 	
 	@RequestMapping("/saveAdPost")
-	public String saveAdPost(@RequestParam String adPostId,
-							 @RequestParam String adPostLang,
-							 @RequestParam String adPostTitle,
-							 @RequestParam String adPostAuthor,
-							 @RequestParam String adPostCategory,
-							 @RequestParam String adPostTags,
-							 @RequestParam String adPostShortDesc,
-							 @RequestParam String adPostCoverImgTitle,
-							 @RequestParam String adPostCoverImgUrl,
-							 @RequestParam String adPostCoverImgShortDesc){
-	
+	public ModelAndView saveAdPost(@RequestParam String adPostJSONString){		
+		logger.info("entering... /ad/adpost/saveAdPost");
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		//set model
+		JSONObject jsonObj= new JSONObject(adPostJSONString);
+		
+		AdPostHead adPostHead = new AdPostHead();
+		
+//		adPostHead.setGlobalId(globalId);
+		String adPostId = UUIDHelper.getUUID();
+		adPostHead.setAdPostId(adPostId);
+		adPostHead.setUserId(jsonObj.getLong("adPostUserId"));
+		
+		adPostHead.setLangNo(jsonObj.getInt("adPostLangNo"));
+		adPostHead.setPostTitle(jsonObj.getString("adPostTitle"));
+		adPostHead.setPostAuthor(jsonObj.getString("adPostAuthor"));
+		adPostHead.setPostCategory(jsonObj.getInt("adPostCategory"));
+		
+//		adPostHead.setMediaCoverUrl(jsonObj.getString(""));
+		
+		String adPostTags = jsonObj.getString("adPostTags");
+		adPostTags = adPostTags.replaceAll("^\"|\"$", "");
+		this.adpostService.saveTags(adPostId, adPostTags);
+		adPostHead.setTags(adPostTags);
+		
+		/*create a new record of adpost into master table*/
+		this.adpostService.create(adPostHead);
+		
+		/*update tags*/
+		String[] arrayTags = adPostTags.split(",");
+		for (String tag : arrayTags) {
+			logger.info("tag= " + tag );
+			this.adTagService.updateTag(tag);
+		}
+		
+		/*	
 		adPostTags = adPostTags.replaceAll("^\"|\"$", "");
 		System.out.println("entering -- /saveAdPost ... adPostId= " + adPostId + ", adPostLang="+adPostLang+ ", adPostTitle="+adPostTitle+ ", adPostAuthor="+adPostAuthor+ ", adPostCategory="+adPostCategory + ", adPostTags="+String.valueOf(adPostTags)+ ", adPostShortDesc="+adPostShortDesc);
 		System.out.println("entering -- /saveAdPost ... adPostCoverImgTitle= " + adPostCoverImgTitle + ", adPostCoverImgUrl="+adPostCoverImgUrl+ ", adPostCoverImgShortDesc="+adPostCoverImgShortDesc);
-		//System.out.println("entering -- /saveTags ... adpostId= " + adpostId );
-		//System.out.println("entering -- /saveTags");
-		String viewName = "ad/adpost/create";
 		
 //		this.adpostService.saveTags(adPostId, tags);
 		//long globalId = 0;
@@ -103,7 +130,13 @@ public class AdPostController {
 			this.adTagService.updateTag(tag);
 		}
 		
-		System.out.println("exiting -- /saveAdPost ");
-		return viewName;
+		*/
+		
+		/* assemble model and view */
+		String viewName = "ad/adpost/create";
+        mav.setViewName(viewName);
+		
+		logger.info("exiting... /ad/adpost/saveAdPost");
+		return mav;
 	}
 }

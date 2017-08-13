@@ -9,6 +9,7 @@ public class AdPostHead {
 	protected String mediaCoverUrl;
 	protected String postTitle;
 	protected String postAuthor;
+	protected Integer postCategory;
 	protected Date createDatetime;
 	protected Date postDatetime;
 	protected Integer langNo;
@@ -76,6 +77,12 @@ public class AdPostHead {
 		this.tags = tags;
 	}
 	
+	public Integer getPostCategory() {
+		return postCategory;
+	}
+	public void setPostCategory(Integer postCategory) {
+		this.postCategory = postCategory;
+	}
 	@Override
 	public String toString() {
 		return "AdPost [globalId=" + globalId + ", userId=" + userId + ", adPostId=" + adPostId + ", mediaCoverUrl="

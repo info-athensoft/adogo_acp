@@ -237,10 +237,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <label class="col-md-3 control-label">Choose a language</label>
                                                 <div class="col-md-9">
                                                 <select id="adPost-lang" class="form-control">
-                                                    <option selected="selected">English</option>
-                                                    <option>French</option>
-                                                    <option>Chinese (Simplified)</option>
-                                                    <option>Chinese (Traditional)</option>
+                                                    <option value="1033" selected="selected">English</option>
+                                                    <option value="3084" >French</option>
+                                                    <option value="2052">Chinese (Simplified)</option>
+                                                    <option value="31748">Chinese (Traditional)</option>
                                                 </select>
                                                 
                                                 <button class="btn" name="confirm" onclick="testButtonConfirmLang();">Confirm</button>
@@ -894,9 +894,9 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
 
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news-list.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost-create.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -908,58 +908,9 @@ License: You must have a valid license purchased only from themeforest(the above
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-//EventNewsList.init();
-//$("#menu-myevents").addClass("selected");
-
-
 function testButtonConfirmLang(){
 	alert("ok");
 }
-
-function saveAdPost(){
-	//alert("saveAdPost called!");
-	var adPostId = "test01";
-	var adPostLang = $("#adPost-lang").val();
-	var adPostTitle = $("#adPost-title").val();
-	var adPostAuthor = $("#adPost-author").val();
-	var adPostCategory = $("#adPost-category").val();
-	var adPostTags = $("#adPost-tags").val();
-	var adPostShortDesc = $("#adPost-short-desc").val();
-	
-	var adPostCoverImgTitle = $("#adPost-cover-img-title").val();
-	var adPostCoverImgUrl = $("#adPost-cover-img-url").val();
-	var adPostCoverImgShortDesc = $("#adPost-cover-img-short-desc").val();
-	
-	//alert("saveAdPost(), adPostLang="+adPostLang);
-	
-	$.ajax({
-		type:"post",
-		url:"saveAdPost",
-		dataType:"json",
-		data: {	adPostId:adPostId,
-				adPostLang:adPostLang,
-				adPostTitle:adPostTitle,
-				adPostAuthor:adPostAuthor,
-				adPostCategory:adPostCategory,
-				adPostTags:JSON.stringify(adPostTags),
-				adPostShortDesc:adPostShortDesc,
-				adPostCoverImgTitle:adPostCoverImgTitle,
-				adPostCoverImgUrl:adPostCoverImgUrl,
-				adPostCoverImgShortDesc:adPostCoverImgShortDesc},
-		//data: {	adpostId:adpostId },
-		timeout : 5000,
-		success:function(data){	
-//			var msg = data.info_msg;
-			//var userAccount = data.userAccount;
-/*				$("#sec_activate").html(msg);
-			$("#ua1").text(userAccount.acctId);
-*/				
-			//alert(msg);
-			//location = "goactivateresult?resultMsg="+msg;
-		}		
-	});
-}
-
 </script>
 </body>
 
