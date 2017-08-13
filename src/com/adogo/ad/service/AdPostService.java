@@ -4,17 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.adogo.ad.dao.AdPostDao;
+import com.adogo.ad.dao.AdPostHeaderDao;
 import com.adogo.ad.entity.AdPostHead;
 
 @Service
 public class AdPostService {
 	
-	private AdPostDao adPostDao;
+	private AdPostHeaderDao adPostDao;
 
 	@Autowired
 	@Qualifier("adPostDaoJdbcImpl")
-	public void setAdPostDao(AdPostDao adPostDao) {
+	public void setAdPostDao(AdPostHeaderDao adPostDao) {
 		this.adPostDao = adPostDao;
 	}
 	

@@ -1,11 +1,14 @@
 package com.adogo.uaas.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/uaas/advertiser")
 public class AdvertiserController {
+	
+	private static final Logger logger = Logger.getLogger(AdvertiserController.class);
 	
 	@RequestMapping("/apply")
 	public String applyAdvertiserStep1(){

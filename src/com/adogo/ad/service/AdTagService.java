@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.adogo.ad.dao.AdPostDao;
+import com.adogo.ad.dao.AdPostHeaderDao;
 import com.adogo.ad.dao.AdTagDao;
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.entity.AdTag;

@@ -1,30 +1,50 @@
 package com.adogo.ad.entity;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
 
 public class AdPost extends AdPostHead {
 	
+	private static final Logger logger = Logger.getLogger(AdPost.class);
+	
 	private List<AdPostText> listAdPostText;
-	private List<AdPostCoverImage> listAdPostCoverImage;
-	private List<AdPostSlideImage> listAdPostSlideImage;
-	private List<AdPostGalleryImage> listAdPostGalleryImage;
-	private List<AdPostAudio> listAdPostAudio;
-	private List<AdPostVideo> listAdPostVideo;
+	private List<AdPostCoverImage> listAdPostCoverImage = new ArrayList<AdPostCoverImage>();
+	private List<AdPostSlideImage> listAdPostSlideImage = new ArrayList<AdPostSlideImage>();
+	private List<AdPostGalleryImage> listAdPostGalleryImage = new ArrayList<AdPostGalleryImage>();
+	private List<AdPostAudio> listAdPostAudio = new ArrayList<AdPostAudio>();
+	private List<AdPostVideo> listAdPostVideo = new ArrayList<AdPostVideo>();
 	
 	
+	/**
+	 * @param mediaList
+	 * @return
+	 */
 	public <T extends AdPostMediaBody> T getPrimaryMediaObject(List<T> mediaList){
 		T primaryMediaObj = null;
-		for(T obj : mediaList){
-			//System.out.println(obj.toString());
-			if(obj.isPrimary==null){
-				continue;
-			}else{
-				if(obj.getIsPrimary()){
-					primaryMediaObj = obj;
+		
+		int listSize = mediaList.size();
+		
+		if(listSize==0){
+			logger.info("The media list does not exist.");
+		}else if(listSize==1){
+			primaryMediaObj = mediaList.get(0);
+		}else{
+			for(T obj : mediaList){
+				if(obj.isPrimary==null){
+					continue;
+				}else{
+					if(obj.getIsPrimary()){
+						primaryMediaObj = obj;
+						break;
+					}
 				}
+				
 			}
-			
 		}
+		
 		return primaryMediaObj;
 	}
 	

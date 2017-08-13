@@ -1,5 +1,6 @@
 package com.adogo.ad.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,10 +8,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
+import com.adogo.uaas.controller.AdvertiserController;
 
 @Controller
 @RequestMapping("/ad/adpost")
 public class AdPostController {
+	
+	private static final Logger logger = Logger.getLogger(AdPostController.class);
 	
 	@Autowired
 	private AdPostService adpostService;
