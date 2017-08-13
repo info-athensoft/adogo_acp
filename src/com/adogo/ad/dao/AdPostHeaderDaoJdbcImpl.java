@@ -21,8 +21,8 @@ import com.adogo.ad.entity.AdPostHead;
 
 
 @Component
-@Qualifier("adPostDaoJdbcImpl")
-public class AdPostDaoJdbcImpl implements AdPostDao{
+@Qualifier("adPostHeaderDaoJdbcImpl")
+public class AdPostHeaderDaoJdbcImpl implements AdPostHeaderDao{
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
@@ -42,7 +42,7 @@ public class AdPostDaoJdbcImpl implements AdPostDao{
 		paramSource.addValue("global_id", globalId);
 		AdPostHead x = null;
 		try{
-			x = jdbc.queryForObject(sql, paramSource, new AdPostRowMapper());
+			x = jdbc.queryForObject(sql, paramSource, new AdPostHeaderRowMapper());
 		}catch(EmptyResultDataAccessException ex){
 			x = null;
 		}
@@ -62,33 +62,6 @@ public class AdPostDaoJdbcImpl implements AdPostDao{
 		
 	}
 	
-	private static class AdPostRowMapper implements RowMapper<AdPostHead>{
-		public AdPostHead mapRow(ResultSet rs, int rowNumber) throws SQLException {
-			AdPostHead x = new AdPostHead();
-			x.setGlobalId(rs.getLong("global_id"));
-			x.setUserId(rs.getLong("user_id"));
-			x.setAdPostId(rs.getString("adpost_id"));
-			x.setMediaCoverUrl(rs.getString("media_cover_url"));
-			x.setPostTitle(rs.getString("post_title"));
-			x.setPostAuthor(rs.getString("post_author"));
-			
-			Timestamp cd = rs.getTimestamp("create_datetime");
-			if (cd != null) {
-				x.setCreateDatetime(new Date(cd.getTime()));
-			}
-			
-			Timestamp pd = rs.getTimestamp("post_datetime");
-			if (pd != null) {
-				x.setPostDatetime(new Date(pd.getTime()));			
-			}
-			
-			x.setLangNo(rs.getInt("lang_no"));
-			x.setTags(rs.getString("tags"));
-			
-            return x;
-		}		
-	}
-
 	@Override
 	public long create(AdPostHead adPost) {
 		final String TABLE = "AD_POST";
@@ -122,5 +95,32 @@ public class AdPostDaoJdbcImpl implements AdPostDao{
 	public int update(AdPostHead adPost) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	private static class AdPostHeaderRowMapper implements RowMapper<AdPostHead>{
+		public AdPostHead mapRow(ResultSet rs, int rowNumber) throws SQLException {
+			AdPostHead x = new AdPostHead();
+			x.setGlobalId(rs.getLong("global_id"));
+			x.setUserId(rs.getLong("user_id"));
+			x.setAdPostId(rs.getString("adpost_id"));
+			x.setMediaCoverUrl(rs.getString("media_cover_url"));
+			x.setPostTitle(rs.getString("post_title"));
+			x.setPostAuthor(rs.getString("post_author"));
+			
+			Timestamp cd = rs.getTimestamp("create_datetime");
+			if (cd != null) {
+				x.setCreateDatetime(new Date(cd.getTime()));
+			}
+			
+			Timestamp pd = rs.getTimestamp("post_datetime");
+			if (pd != null) {
+				x.setPostDatetime(new Date(pd.getTime()));			
+			}
+			
+			x.setLangNo(rs.getInt("lang_no"));
+			x.setTags(rs.getString("tags"));
+			
+            return x;
+		}		
 	}
 }

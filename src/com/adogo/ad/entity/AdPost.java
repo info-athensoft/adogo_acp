@@ -1,14 +1,55 @@
 package com.adogo.ad.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+
 public class AdPost extends AdPostHead {
-	private List<AdPostAudio> listAdPostAudio;
-	private List<AdPostVideo> listAdPostVideo;
-	private List<AdPostCoverImage> listAdPostCoverImage;
-	private List<AdPostSlideImage> listAdPostSlideImage;
-	private List<AdPostGalleryImage> listAdPostGalleryImage;
+	
+	private static final Logger logger = Logger.getLogger(AdPost.class);
+	
 	private List<AdPostText> listAdPostText;
+	private List<AdPostCoverImage> listAdPostCoverImage = new ArrayList<AdPostCoverImage>();
+	private List<AdPostSlideImage> listAdPostSlideImage = new ArrayList<AdPostSlideImage>();
+	private List<AdPostGalleryImage> listAdPostGalleryImage = new ArrayList<AdPostGalleryImage>();
+	private List<AdPostAudio> listAdPostAudio = new ArrayList<AdPostAudio>();
+	private List<AdPostVideo> listAdPostVideo = new ArrayList<AdPostVideo>();
+	
+	
+	/**
+	 * @param mediaList
+	 * @return
+	 */
+	public <T extends AdPostMediaBody> T getPrimaryMediaObject(List<T> mediaList){
+		T primaryMediaObj = null;
+		
+		int listSize = mediaList.size();
+		
+		if(listSize==0){
+			logger.info("The media list does not exist.");
+		}else if(listSize==1){
+			primaryMediaObj = mediaList.get(0);
+		}else{
+			for(T obj : mediaList){
+				if(obj.isPrimary==null){
+					continue;
+				}else{
+					if(obj.getIsPrimary()){
+						primaryMediaObj = obj;
+						break;
+					}
+				}
+			}//end-of-for-loop
+			if(primaryMediaObj ==null){
+				primaryMediaObj = mediaList.get(0);
+			}
+		}//end-of-else
+		
+		return primaryMediaObj;
+	}
+	
 	
 	public List<AdPostAudio> getListAdPostAudio() {
 		return listAdPostAudio;
@@ -45,6 +86,17 @@ public class AdPost extends AdPostHead {
 	}
 	public void setListAdPostText(List<AdPostText> listAdPostText) {
 		this.listAdPostText = listAdPostText;
+	}
+	
+	@Override
+	public String toString() {
+		return "AdPost [listAdPostText=" + listAdPostText + ", listAdPostCoverImage=" + listAdPostCoverImage
+				+ ", listAdPostSlideImage=" + listAdPostSlideImage + ", listAdPostGalleryImage="
+				+ listAdPostGalleryImage + ", listAdPostAudio=" + listAdPostAudio + ", listAdPostVideo="
+				+ listAdPostVideo + ", globalId=" + globalId + ", userId=" + userId + ", adPostId=" + adPostId
+				+ ", mediaCoverUrl=" + mediaCoverUrl + ", postTitle=" + postTitle + ", postAuthor=" + postAuthor
+				+ ", createDatetime=" + createDatetime + ", postDatetime=" + postDatetime + ", langNo=" + langNo
+				+ ", tags=" + tags + "]";
 	}
 	
 	

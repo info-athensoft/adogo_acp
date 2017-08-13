@@ -1,37 +1,18 @@
 package com.adogo.ad.entity;
 
-public class AdPostSlideImage extends AdPostBody {
-	private String mediaTitle;
-	private Integer mediaIndex;
-	private Boolean isPrimary;
-	private String mediaDesc;
+public class AdPostSlideImage extends AdPostMediaBody {
 	
 	public AdPostSlideImage(){
 		super.setMediaType(MediaTypeConst.SLIDE_IMAGE);
 	}
+
+	@Override
+	public String toString() {
+		return "AdPostSlideImage [mediaTitle=" + mediaTitle + ", mediaIndex=" + mediaIndex + ", isPrimary=" + isPrimary
+				+ ", mediaDesc=" + mediaDesc + ", globalId=" + globalId + ", userId=" + userId + ", adPostId="
+				+ adPostId + ", mediaCoverUrl=" + mediaCoverUrl + ", mediaType=" + mediaType + ", langNo=" + langNo
+				+ ", sortNo=" + sortNo + "]";
+	}
 	
-	public String getMediaTitle() {
-		return mediaTitle;
-	}
-	public void setMediaTitle(String mediaTitle) {
-		this.mediaTitle = mediaTitle;
-	}
-	public Integer getMediaIndex() {
-		return mediaIndex;
-	}
-	public void setMediaIndex(Integer mediaIndex) {
-		this.mediaIndex = mediaIndex;
-	}
-	public Boolean getIsPrimary() {
-		return isPrimary;
-	}
-	public void setIsPrimary(Boolean isPrimary) {
-		this.isPrimary = isPrimary;
-	}
-	public String getMediaDesc() {
-		return mediaDesc;
-	}
-	public void setMediaDesc(String mediaDesc) {
-		this.mediaDesc = mediaDesc;
-	}
+	
 }

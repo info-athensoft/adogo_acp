@@ -1,6 +1,6 @@
 package com.adogo.ad.entity;
 
-public class AdPostAudio extends AdPostBody {
+public class AdPostAudio extends AdPostMediaBody {
 	private String mediaTitle;
 	private Integer mediaIndex;
 	private Boolean isPrimary;

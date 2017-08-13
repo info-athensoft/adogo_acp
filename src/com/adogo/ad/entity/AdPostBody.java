@@ -1,13 +1,16 @@
 package com.adogo.ad.entity;
 
 public class AdPostBody {
-	private Long globalId;
-	private Long userId;
-	private Long adPostId;
-	private String mediaCoverUrl;
-	private Integer mediaType;
-	private Integer langNo;
-	private Integer sortNo;
+	protected Long globalId;
+	protected Long userId;
+	protected Long adPostId;
+	protected String mediaCoverUrl;
+	protected Boolean isPrimary = false;
+	protected Integer mediaIndex;
+	protected Integer mediaType;
+	protected Integer langNo;
+	protected Integer sortNo;
+	
 	
 	public Long getGlobalId() {
 		return globalId;
@@ -52,5 +55,18 @@ public class AdPostBody {
 		this.sortNo = sortNo;
 	}
 	
+	public Boolean getIsPrimary() {
+		return isPrimary;
+	}
+	public void setIsPrimary(Boolean isPrimary) {
+		this.isPrimary = isPrimary;
+	}
+	
+	public Integer getMediaIndex() {
+		return mediaIndex;
+	}
+	public void setMediaIndex(Integer mediaIndex) {
+		this.mediaIndex = mediaIndex;
+	}
 	
 }

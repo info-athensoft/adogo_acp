@@ -2,13 +2,13 @@ package com.adogo.ad.entity;
 
 public class AdTag {
 	
-	private long tagId;			//tagId
+	private Long tagId;			//tagId
 	private String tagName;		//tagName
-	private int tagScore;		//tagScore
-	public long getTagId() {
+	private Integer tagScore;		//tagScore
+	public Long getTagId() {
 		return tagId;
 	}
-	public void setTagId(long tagId) {
+	public void setTagId(Long tagId) {
 		this.tagId = tagId;
 	}
 	public String getTagName() {
@@ -17,7 +17,7 @@ public class AdTag {
 	public void setTagName(String tagName) {
 		this.tagName = tagName;
 	}
-	public int getTagScore() {
+	public Integer getTagScore() {
 		return tagScore;
 	}
 	public void setTagScore(int tagScore) {

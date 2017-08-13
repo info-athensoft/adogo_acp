@@ -1,5 +1,6 @@
 package com.adogo.ad.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,10 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
+import com.adogo.uaas.controller.AdvertiserController;
 
 @Controller
 @RequestMapping("/ad/adpost")
 public class AdPostController {
+	
+	private static final Logger logger = Logger.getLogger(AdPostController.class);
 	
 	@Autowired
 	private AdPostService adpostService;
@@ -45,26 +49,18 @@ public class AdPostController {
 	
 	@RequestMapping("/saveTags")
 	public String saveTags(@RequestParam String adpostId, @RequestParam String tags){
-	//public String saveTags(@RequestParam String adpostId){
-	//public String saveTags(){
-		tags = tags.replaceAll("^\"|\"$", "");
-		System.out.println("entering -- /saveTags ... adpostId= " + adpostId + ", tags="+String.valueOf(tags));
-		//System.out.println("entering -- /saveTags ... adpostId= " + adpostId );
-		//System.out.println("entering -- /saveTags");
+		logger.info("entering -- /saveTags ... adpostId= " + adpostId + ", tags="+String.valueOf(tags));
 		String viewName = "ad/ad_post";
 		
+		tags = tags.replaceAll("^\"|\"$", "");
 		this.adpostService.saveTags(adpostId, tags);
-		//long globalId = 0;
-		//AdPost ap = this.adpostService.findById(globalId);
-		//System.out.println("found adpostId = " + ap.getAdpost_id());
 		
 		String[] arrayTags = tags.split(",");
 		for (String tag : arrayTags) {
-			//System.out.println("tag= " + tag );
 			this.adTagService.updateTag(tag);
 		}
 		
-		System.out.println("exiting -- /saveTags ");
+		logger.info("exiting -- /saveTags ");
 		return viewName;
 	}
 	
@@ -92,7 +88,7 @@ public class AdPostController {
 		//AdPost ap = this.adpostService.findById(globalId);
 		//System.out.println("found adpostId = " + ap.getAdpost_id());
 		AdPostHead adPost = new AdPostHead();
-		adPost.setUserId('1');
+		adPost.setUserId(1L);
 		adPost.setAdPostId(adPostId);
 		adPost.setMediaCoverUrl(adPostCoverImgUrl);
 		adPost.setLangNo(1);

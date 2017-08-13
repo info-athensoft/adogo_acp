@@ -1,6 +1,6 @@
 package com.adogo.ad.entity;
 
-public class AdPostVideo extends AdPostBody {
+public class AdPostVideo extends AdPostMediaBody {
 	private String mediaTitle;
 	private Integer mediaIndex;
 	private Boolean isPrimary;
