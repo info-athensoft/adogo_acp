@@ -9,7 +9,6 @@ import com.adogo.ad.dao.AdPostDao;
 import com.adogo.ad.entity.AdPostHead;
 
 @Service
-@Transactional
 public class AdPostService {
 	
 	private AdPostDao adPostDao;
@@ -28,6 +27,7 @@ public class AdPostService {
 		return this.adPostDao.saveTags(adpostId, tags);
 	}
 
+	@Transactional
 	public long create(AdPostHead adPost) {
 		return this.adPostDao.create(adPost);
 	}

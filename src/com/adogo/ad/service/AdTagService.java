@@ -11,7 +11,6 @@ import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.entity.AdTag;
 
 @Service
-@Transactional
 public class AdTagService {
 	
 	private AdTagDao adTagDao;
@@ -25,7 +24,8 @@ public class AdTagService {
 	public AdTag findTagByName(String tagName) {
 		return this.adTagDao.findTagByName(tagName);
 	}
-	
+
+	@Transactional
 	public int updateTag(String tagName) {
 		return this.adTagDao.persistTag(tagName);
 	}
