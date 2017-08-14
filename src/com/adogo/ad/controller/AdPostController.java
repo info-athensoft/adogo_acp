@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
@@ -79,7 +80,7 @@ public class AdPostController {
 		AdPostHead adPostHead = new AdPostHead();
 		
 //		adPostHead.setGlobalId(globalId);
-		String adPostId = UUIDHelper.getUUID();
+		Long adPostId = UUIDHelper.getUniqueLongId();
 		adPostHead.setAdPostId(adPostId);
 		adPostHead.setUserId(jsonObj.getLong("adPostUserId"));
 		
@@ -91,8 +92,9 @@ public class AdPostController {
 //		adPostHead.setMediaCoverUrl(jsonObj.getString(""));
 		
 		String adPostTags = jsonObj.getString("adPostTags");
+		
 		adPostTags = adPostTags.replaceAll("^\"|\"$", "");
-		this.adpostService.saveTags(adPostId, adPostTags);
+		//this.adpostService.saveTags(adPostId, adPostTags);
 		adPostHead.setTags(adPostTags);
 		
 		/*create a new record of adpost into master table*/
@@ -104,6 +106,23 @@ public class AdPostController {
 			logger.info("tag= " + tag );
 			this.adTagService.updateTag(tag);
 		}
+		
+		/*create a new AdPostCoverImage*/
+		/*AdPostCoverImage cImg = new AdPostCoverImage();
+		//cImg.setGlobalId(101L);
+		cImg.setUserId(jsonObj.getLong("adPostUserId"));
+		cImg.setAdPostId(adPostId);
+		//cImg.setMediaCoverUrl(jsonObj.getString(""));
+		//cImg.setMediaType("");
+		cImg.setLangNo(101L);
+		cImg.setSortNo(101L);
+		cImg.setIsPrimary(101L);
+		cImg.setMediaIndex(101L);
+		
+		cImg.setMediaTitle(jsonObj.getInt("adPostCoverImgTitle"));
+		cImg.setMediaUrl(jsonObj.getInt("adPostCoverImgUrl"));
+		cImg.setMediaDesc(jsonObj.getInt("adPostCoverImgShortDesc")); */
+
 		
 		/*	
 		adPostTags = adPostTags.replaceAll("^\"|\"$", "");

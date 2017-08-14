@@ -5,7 +5,7 @@ import java.util.Date;
 public class AdPostHead {
 	protected Long globalId;
 	protected Long userId;
-	protected String adPostId;
+	protected Long adPostId;
 	protected String mediaCoverUrl;
 	protected String postTitle;
 	protected String postAuthor;
@@ -28,10 +28,10 @@ public class AdPostHead {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	public String getAdPostId() {
+	public Long getAdPostId() {
 		return adPostId;
 	}
-	public void setAdPostId(String adPostId) {
+	public void setAdPostId(Long adPostId) {
 		this.adPostId = adPostId;
 	}
 	public String getMediaCoverUrl() {
