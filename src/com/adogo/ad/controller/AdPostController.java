@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.adogo.ad.entity.AdPostBody;
 import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostHead;
+import com.adogo.ad.entity.AdPostMediaBody;
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
 import com.athensoft.util.id.UUIDHelper;
@@ -108,21 +110,42 @@ public class AdPostController {
 		}
 		
 		/*create a new AdPostCoverImage*/
-		/*AdPostCoverImage cImg = new AdPostCoverImage();
+/*		AdPostBody adPostBody = new AdPostBody();
+		//cImg.setGlobalId(101L);
+		adPostBody.setUserId(jsonObj.getLong("adPostUserId"));
+		adPostBody.setAdPostId(adPostId);
+		//cImg.setMediaCoverUrl(jsonObj.getString(""));
+		//adPostBody.setIsPrimary(false);
+		adPostBody.setMediaIndex(0);
+		adPostBody.setLangNo(jsonObj.getInt("adPostLangNo"));
+		//adPostBody.setSortNo(0);
+		
+		AdPostMediaBody adPostMediaBody = new AdPostMediaBody();
+		adPostMediaBody = (AdPostMediaBody) adPostBody;
+		
+		adPostMediaBody.setMediaTitle(jsonObj.getString("adPostCoverImgTitle"));
+		adPostMediaBody.setMediaUrl(jsonObj.getString("adPostCoverImgUrl"));
+		adPostMediaBody.setMediaDesc(jsonObj.getString("adPostCoverImgShortDesc")); 
+
+		AdPostCoverImage cImg = new AdPostCoverImage();
+		cImg = (AdPostCoverImage) adPostMediaBody; */
+		
+		AdPostCoverImage cImg = new AdPostCoverImage();
 		//cImg.setGlobalId(101L);
 		cImg.setUserId(jsonObj.getLong("adPostUserId"));
 		cImg.setAdPostId(adPostId);
 		//cImg.setMediaCoverUrl(jsonObj.getString(""));
-		//cImg.setMediaType("");
-		cImg.setLangNo(101L);
-		cImg.setSortNo(101L);
-		cImg.setIsPrimary(101L);
-		cImg.setMediaIndex(101L);
+		//adPostBody.setIsPrimary(false);
+		cImg.setMediaIndex(0);
+		cImg.setLangNo(jsonObj.getInt("adPostLangNo"));
+		//adPostBody.setSortNo(0);
 		
-		cImg.setMediaTitle(jsonObj.getInt("adPostCoverImgTitle"));
-		cImg.setMediaUrl(jsonObj.getInt("adPostCoverImgUrl"));
-		cImg.setMediaDesc(jsonObj.getInt("adPostCoverImgShortDesc")); */
+		cImg.setMediaTitle(jsonObj.getString("adPostCoverImgTitle"));
+		cImg.setMediaUrl(jsonObj.getString("adPostCoverImgUrl"));
+		cImg.setMediaDesc(jsonObj.getString("adPostCoverImgShortDesc")); 
 
+		this.adpostService.create(cImg);
+		
 		
 		/*	
 		adPostTags = adPostTags.replaceAll("^\"|\"$", "");

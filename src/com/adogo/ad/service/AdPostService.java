@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.adogo.ad.dao.AdPostDao;
 import com.adogo.ad.dao.AdPostHeadDao;
+import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostHead;
 
 @Service
@@ -44,5 +45,9 @@ public class AdPostService {
 	
 	
 	/*children tables*/
+	@Transactional
+	public long create(AdPostCoverImage adPost) {
+		return this.adPostDao.create(adPost);
+	}
 }
 

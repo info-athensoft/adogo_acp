@@ -2,6 +2,13 @@ package com.adogo.ad.entity;
 
 public class AdPostMediaBody extends AdPostBody{
 	protected String mediaTitle;
+	protected String mediaUrl;
+	public String getMediaUrl() {
+		return mediaUrl;
+	}
+	public void setMediaUrl(String mediaUrl) {
+		this.mediaUrl = mediaUrl;
+	}
 	protected String mediaDesc;
 	
 	public String getMediaTitle() {
