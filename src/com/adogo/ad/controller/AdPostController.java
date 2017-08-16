@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.adogo.ad.entity.AdPostAudio;
 import com.adogo.ad.entity.AdPostBody;
 import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.entity.AdPostMediaBody;
+import com.adogo.ad.entity.AdPostText;
+import com.adogo.ad.entity.AdPostVideo;
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
 import com.athensoft.util.id.UUIDHelper;
@@ -110,8 +113,7 @@ public class AdPostController {
 		}
 		
 		/*create a new AdPostCoverImage*/
-/*		AdPostBody adPostBody = new AdPostBody();
-		//cImg.setGlobalId(101L);
+		AdPostBody adPostBody = new AdPostBody();
 		adPostBody.setUserId(jsonObj.getLong("adPostUserId"));
 		adPostBody.setAdPostId(adPostId);
 		//cImg.setMediaCoverUrl(jsonObj.getString(""));
@@ -120,31 +122,30 @@ public class AdPostController {
 		adPostBody.setLangNo(jsonObj.getInt("adPostLangNo"));
 		//adPostBody.setSortNo(0);
 		
-		AdPostMediaBody adPostMediaBody = new AdPostMediaBody();
-		adPostMediaBody = (AdPostMediaBody) adPostBody;
-		
+		AdPostMediaBody adPostMediaBody = new AdPostMediaBody(adPostBody);
 		adPostMediaBody.setMediaTitle(jsonObj.getString("adPostCoverImgTitle"));
 		adPostMediaBody.setMediaUrl(jsonObj.getString("adPostCoverImgUrl"));
 		adPostMediaBody.setMediaDesc(jsonObj.getString("adPostCoverImgShortDesc")); 
-
-		AdPostCoverImage cImg = new AdPostCoverImage();
-		cImg = (AdPostCoverImage) adPostMediaBody; */
-		
-		AdPostCoverImage cImg = new AdPostCoverImage();
-		//cImg.setGlobalId(101L);
-		cImg.setUserId(jsonObj.getLong("adPostUserId"));
-		cImg.setAdPostId(adPostId);
-		//cImg.setMediaCoverUrl(jsonObj.getString(""));
-		//adPostBody.setIsPrimary(false);
-		cImg.setMediaIndex(0);
-		cImg.setLangNo(jsonObj.getInt("adPostLangNo"));
-		//adPostBody.setSortNo(0);
-		
-		cImg.setMediaTitle(jsonObj.getString("adPostCoverImgTitle"));
-		cImg.setMediaUrl(jsonObj.getString("adPostCoverImgUrl"));
-		cImg.setMediaDesc(jsonObj.getString("adPostCoverImgShortDesc")); 
-
+		AdPostCoverImage cImg = new AdPostCoverImage(adPostMediaBody);
 		this.adpostService.create(cImg);
+		
+		AdPostText tContent = new AdPostText(adPostBody);
+		tContent.setLongDesc(jsonObj.getString("adPostTextContentLongDesc"));
+		this.adpostService.create(tContent);
+		
+		AdPostMediaBody adPostMediaBodyForVideo = new AdPostMediaBody(adPostBody);
+		adPostMediaBodyForVideo.setMediaTitle(jsonObj.getString("adPostVideoContentTitle"));
+		adPostMediaBodyForVideo.setMediaUrl(jsonObj.getString("adPostVideoContentUrl"));
+		adPostMediaBodyForVideo.setMediaDesc(jsonObj.getString("adPostVideoContentShortDesc"));
+		AdPostVideo vContent = new AdPostVideo(adPostMediaBodyForVideo);
+		this.adpostService.create(vContent);
+		
+		AdPostMediaBody adPostMediaBodyForAudio = new AdPostMediaBody(adPostBody);
+		adPostMediaBodyForAudio.setMediaTitle(jsonObj.getString("adPostAudioContentTitle"));
+		adPostMediaBodyForAudio.setMediaUrl(jsonObj.getString("adPostAudioContentUrl"));
+		adPostMediaBodyForAudio.setMediaDesc(jsonObj.getString("adPostAudioContentShortDesc"));
+		AdPostAudio aContent = new AdPostAudio(adPostMediaBodyForAudio);
+		this.adpostService.create(aContent);
 		
 		
 		/*	

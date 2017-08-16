@@ -396,7 +396,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Long Description</label>
                                                 <div class="col-md-9">
-                                                    <textarea class="form-control" rows="5"></textarea>
+                                                    <textarea id="adPost-text-content-long-desc" class="form-control" rows="5"></textarea>
                                                 </div>
                                             </div>
                                         	
@@ -445,21 +445,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Title</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" id="adPost-video-content-title" class="form-control" placeholder="Enter text">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">URL</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" id="adPost-video-content-url" class="form-control" placeholder="Enter text">
                                                 </div>
                                             </div>
                                         	
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Short Description</label>
                                                 <div class="col-md-9">
-                                                    <textarea class="form-control" rows="2"></textarea>
+                                                    <textarea id="adPost-video-content-short-desc" class="form-control" rows="2"></textarea>
                                                 </div>
                                             </div>
                                         	
@@ -508,21 +508,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Title</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" id="adPost-audio-content-title" class="form-control" placeholder="Enter text">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">URL</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" id="adPost-audio-content-url" class="form-control" placeholder="Enter text">
                                                 </div>
                                             </div>
                                         	
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Short Description</label>
                                                 <div class="col-md-9">
-                                                    <textarea class="form-control" rows="2"></textarea>
+                                                    <textarea id="adPost-audio-content-short-desc" class="form-control" rows="2"></textarea>
                                                 </div>
                                             </div>
                                         	

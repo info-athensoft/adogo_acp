@@ -17,20 +17,34 @@ function getBusinessObject(){
     var p9 = $("#adPost-cover-img-url").val();
     var p10 = $("#adPost-cover-img-short-desc").val();
     var p11 = 1011;		//user id: long  , temperorily set
+    var p12 = $("#adPost-text-content-long-desc").val();
+    var p13 = $("#adPost-video-content-title").val();
+    var p14 = $("#adPost-video-content-url").val();
+    var p15 = $("#adPost-video-content-short-desc").val();
+    var p16 = $("#adPost-audio-content-title").val();
+    var p17 = $("#adPost-audio-content-url").val();
+    var p18 = $("#adPost-audio-content-short-desc").val();
     
     var businessObject =
     {
-    		adPostId    			:   p1,
-    		adPostLangNo   			:   p2,
-    		adPostTitle    			:   p3,
-    		adPostAuthor    		:   p4,
-    		adPostCategory			:   p5,            
-    		adPostTags    			:   p6,            
-    		adPostShortDesc 		:   p7,
-    		adPostCoverImgTitle		:   p8,
-    		adPostCoverImgUrl  		:   p9,
-    		adPostCoverImgShortDesc	:   p10,
-    		adPostUserId			:	p11
+    		adPostId    			      :   p1,
+    		adPostLangNo   		    	  :   p2,
+    		adPostTitle    		    	  :   p3,
+    		adPostAuthor    		      :   p4,
+    		adPostCategory			      :   p5,            
+    		adPostTags    			      :   p6,            
+    		adPostShortDesc 		      :   p7,
+    		adPostCoverImgTitle		      :   p8,
+    		adPostCoverImgUrl  		      :   p9,
+    		adPostCoverImgShortDesc	      :   p10,
+    		adPostUserId			      :	  p11,
+    		adPostTextContentLongDesc     :   p12,
+    		adPostVideoContentTitle		  :   p13,
+    		adPostVideoContentUrl  		  :   p14,
+    		adPostVideoContentShortDesc	  :   p15,
+    		adPostAudioContentTitle		  :   p16,
+    		adPostAudioContentUrl  		  :   p17,
+    		adPostAudioContentShortDesc	  :   p18
     };
     
     return businessObject;
