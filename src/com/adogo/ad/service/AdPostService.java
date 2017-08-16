@@ -10,6 +10,7 @@ import com.adogo.ad.dao.AdPostHeadDao;
 import com.adogo.ad.entity.AdPostAudio;
 import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostHead;
+import com.adogo.ad.entity.AdPostSlideImage;
 import com.adogo.ad.entity.AdPostText;
 import com.adogo.ad.entity.AdPostVideo;
 
@@ -63,6 +64,10 @@ public class AdPostService {
 
 	public long create(AdPostAudio aContent) {
 		return this.adPostDao.create(aContent);
+	}
+
+	public long create(AdPostSlideImage sImg) {
+		return this.adPostDao.create(sImg);
 	}
 }
 

@@ -580,21 +580,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-slide-img-title1" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-slide-img-url1" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-slide-img-short-desc1" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>

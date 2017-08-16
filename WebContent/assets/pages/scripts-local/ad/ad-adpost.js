@@ -24,6 +24,9 @@ function getBusinessObject(){
     var p16 = $("#adPost-audio-content-title").val();
     var p17 = $("#adPost-audio-content-url").val();
     var p18 = $("#adPost-audio-content-short-desc").val();
+    var p19 = $("#adPost-slide-img-title1").val();
+    var p20 = $("#adPost-slide-img-url1").val();
+    var p21 = $("#adPost-slide-img-short-desc1").val();
     
     var businessObject =
     {
@@ -44,7 +47,10 @@ function getBusinessObject(){
     		adPostVideoContentShortDesc	  :   p15,
     		adPostAudioContentTitle		  :   p16,
     		adPostAudioContentUrl  		  :   p17,
-    		adPostAudioContentShortDesc	  :   p18
+    		adPostAudioContentShortDesc	  :   p18,
+    		adPostSlideImgTitle1	      :   p19,
+    		adPostSlideImgUrl1 		      :   p20,
+    		adPostSlideImgShortDesc1      :   p21
     };
     
     return businessObject;

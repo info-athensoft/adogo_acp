@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.adogo.ad.entity.AdPostAudio;
 import com.adogo.ad.entity.AdPostCoverImage;
+import com.adogo.ad.entity.AdPostSlideImage;
 import com.adogo.ad.entity.AdPostText;
 import com.adogo.ad.entity.AdPostVideo;
 
@@ -152,6 +153,38 @@ private NamedParameterJdbcTemplate jdbc;
 		paramSource.addValue("create_datetime",new java.sql.Timestamp(createDate.getTime()));
 		paramSource.addValue("update_datetime",new java.sql.Timestamp(updateDate.getTime()));
 		paramSource.addValue("lang_no",aContent.getLangNo());
+		
+		KeyHolder keyholder = new GeneratedKeyHolder();
+		jdbc.update(sql, paramSource, keyholder);
+		return (long)keyholder.getKey();
+	}
+
+	@Override
+	public long create(AdPostSlideImage adPost) {
+final String TABLE = "AD_POST_IMG2";
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("insert into "+TABLE);
+		sbf.append("(user_id,adpost_id,media_cover_url,media_title,media_url,media_type,media_index,is_primary,media_desc,create_datetime,update_datetime,lang_no) ");
+		sbf.append("values(:user_id,:adpost_id,:media_cover_url,:media_title,:media_url,:media_type,:media_index,:is_primary,:media_desc,:create_datetime,:update_datetime,:lang_no)");
+		String sql = sbf.toString();
+		
+		final Date createDate 			= new Date();
+		final Date updateDate 	= createDate;
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		//paramSource.addValue("global_id", adPost.getGlobalId());
+		paramSource.addValue("user_id", adPost.getUserId());
+		paramSource.addValue("adpost_id", adPost.getAdPostId());
+		paramSource.addValue("media_cover_url", adPost.getMediaCoverUrl());
+		paramSource.addValue("media_title",adPost.getMediaTitle());
+		paramSource.addValue("media_url",adPost.getMediaUrl());
+		paramSource.addValue("media_type",adPost.getMediaType());
+		paramSource.addValue("media_index",adPost.getMediaIndex());
+		paramSource.addValue("is_primary",adPost.getIsPrimary());
+		paramSource.addValue("media_desc",adPost.getMediaDesc());
+		paramSource.addValue("create_datetime",new java.sql.Timestamp(createDate.getTime()));
+		paramSource.addValue("update_datetime",new java.sql.Timestamp(updateDate.getTime()));
+		paramSource.addValue("lang_no",adPost.getLangNo());
 		
 		KeyHolder keyholder = new GeneratedKeyHolder();
 		jdbc.update(sql, paramSource, keyholder);

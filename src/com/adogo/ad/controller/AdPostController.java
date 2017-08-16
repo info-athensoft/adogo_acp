@@ -13,6 +13,7 @@ import com.adogo.ad.entity.AdPostBody;
 import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.entity.AdPostMediaBody;
+import com.adogo.ad.entity.AdPostSlideImage;
 import com.adogo.ad.entity.AdPostText;
 import com.adogo.ad.entity.AdPostVideo;
 import com.adogo.ad.service.AdPostService;
@@ -147,6 +148,12 @@ public class AdPostController {
 		AdPostAudio aContent = new AdPostAudio(adPostMediaBodyForAudio);
 		this.adpostService.create(aContent);
 		
+		AdPostMediaBody adPostMediaBodyForGallery = new AdPostMediaBody(adPostBody);
+		adPostMediaBodyForGallery.setMediaTitle(jsonObj.getString("adPostSlideImgTitle1"));
+		adPostMediaBodyForGallery.setMediaUrl(jsonObj.getString("adPostSlideImgUrl1"));
+		adPostMediaBodyForGallery.setMediaDesc(jsonObj.getString("adPostSlideImgShortDesc1")); 
+		AdPostSlideImage sImg = new AdPostSlideImage(adPostMediaBodyForGallery);
+		this.adpostService.create(sImg);
 		
 		/*	
 		adPostTags = adPostTags.replaceAll("^\"|\"$", "");
