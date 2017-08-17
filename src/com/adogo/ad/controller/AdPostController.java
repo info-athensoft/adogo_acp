@@ -123,37 +123,55 @@ public class AdPostController {
 		adPostBody.setLangNo(jsonObj.getInt("adPostLangNo"));
 		//adPostBody.setSortNo(0);
 		
-		AdPostMediaBody adPostMediaBody = new AdPostMediaBody(adPostBody);
-		adPostMediaBody.setMediaTitle(jsonObj.getString("adPostCoverImgTitle"));
-		adPostMediaBody.setMediaUrl(jsonObj.getString("adPostCoverImgUrl"));
-		adPostMediaBody.setMediaDesc(jsonObj.getString("adPostCoverImgShortDesc")); 
-		AdPostCoverImage cImg = new AdPostCoverImage(adPostMediaBody);
-		this.adpostService.create(cImg);
+		if (!jsonObj.getString("adPostCoverImgUrl").isEmpty()) {
+			AdPostMediaBody adPostMediaBody = new AdPostMediaBody(adPostBody);
+			adPostMediaBody.setMediaTitle(jsonObj.getString("adPostCoverImgTitle"));
+			adPostMediaBody.setMediaUrl(jsonObj.getString("adPostCoverImgUrl"));
+			adPostMediaBody.setMediaDesc(jsonObj.getString("adPostCoverImgShortDesc")); 
+			AdPostCoverImage cImg = new AdPostCoverImage(adPostMediaBody);
+			this.adpostService.create(cImg);
+		}		
 		
-		AdPostText tContent = new AdPostText(adPostBody);
-		tContent.setLongDesc(jsonObj.getString("adPostTextContentLongDesc"));
-		this.adpostService.create(tContent);
+		if (!jsonObj.getString("adPostTextContentLongDesc").isEmpty()) {
+			AdPostText tContent = new AdPostText(adPostBody);
+			tContent.setLongDesc(jsonObj.getString("adPostTextContentLongDesc"));
+			this.adpostService.create(tContent);
+		}
 		
-		AdPostMediaBody adPostMediaBodyForVideo = new AdPostMediaBody(adPostBody);
-		adPostMediaBodyForVideo.setMediaTitle(jsonObj.getString("adPostVideoContentTitle"));
-		adPostMediaBodyForVideo.setMediaUrl(jsonObj.getString("adPostVideoContentUrl"));
-		adPostMediaBodyForVideo.setMediaDesc(jsonObj.getString("adPostVideoContentShortDesc"));
-		AdPostVideo vContent = new AdPostVideo(adPostMediaBodyForVideo);
-		this.adpostService.create(vContent);
+		if (!jsonObj.getString("adPostVideoContentUrl").isEmpty()) {
+			AdPostMediaBody adPostMediaBodyForVideo = new AdPostMediaBody(adPostBody);
+			adPostMediaBodyForVideo.setMediaTitle(jsonObj.getString("adPostVideoContentTitle"));
+			adPostMediaBodyForVideo.setMediaUrl(jsonObj.getString("adPostVideoContentUrl"));
+			adPostMediaBodyForVideo.setMediaDesc(jsonObj.getString("adPostVideoContentShortDesc"));
+			AdPostVideo vContent = new AdPostVideo(adPostMediaBodyForVideo);
+			this.adpostService.create(vContent);
+		}
 		
-		AdPostMediaBody adPostMediaBodyForAudio = new AdPostMediaBody(adPostBody);
-		adPostMediaBodyForAudio.setMediaTitle(jsonObj.getString("adPostAudioContentTitle"));
-		adPostMediaBodyForAudio.setMediaUrl(jsonObj.getString("adPostAudioContentUrl"));
-		adPostMediaBodyForAudio.setMediaDesc(jsonObj.getString("adPostAudioContentShortDesc"));
-		AdPostAudio aContent = new AdPostAudio(adPostMediaBodyForAudio);
-		this.adpostService.create(aContent);
 		
-		AdPostMediaBody adPostMediaBodyForGallery = new AdPostMediaBody(adPostBody);
-		adPostMediaBodyForGallery.setMediaTitle(jsonObj.getString("adPostSlideImgTitle1"));
-		adPostMediaBodyForGallery.setMediaUrl(jsonObj.getString("adPostSlideImgUrl1"));
-		adPostMediaBodyForGallery.setMediaDesc(jsonObj.getString("adPostSlideImgShortDesc1")); 
-		AdPostSlideImage sImg = new AdPostSlideImage(adPostMediaBodyForGallery);
-		this.adpostService.create(sImg);
+		if (!jsonObj.getString("adPostAudioContentUrl").isEmpty()) {
+			AdPostMediaBody adPostMediaBodyForAudio = new AdPostMediaBody(adPostBody);
+			adPostMediaBodyForAudio.setMediaTitle(jsonObj.getString("adPostAudioContentTitle"));
+			adPostMediaBodyForAudio.setMediaUrl(jsonObj.getString("adPostAudioContentUrl"));
+			adPostMediaBodyForAudio.setMediaDesc(jsonObj.getString("adPostAudioContentShortDesc"));
+			AdPostAudio aContent = new AdPostAudio(adPostMediaBodyForAudio);
+			this.adpostService.create(aContent);
+		}
+		
+		AdPostMediaBody[] adPostMediaBodyForGalleryArray;
+		adPostMediaBodyForGalleryArray = new AdPostMediaBody[9];
+		AdPostSlideImage[] sImgArray;
+		sImgArray = new AdPostSlideImage[9];
+		
+		for(int i = 0; i < 9; i++) {
+			if (!jsonObj.getString("adPostSlideImgUrl"+(i+1)).isEmpty()) {
+				adPostMediaBodyForGalleryArray[i] = new AdPostMediaBody(adPostBody);
+				adPostMediaBodyForGalleryArray[i].setMediaTitle(jsonObj.getString("adPostSlideImgTitle"+(i+1)));
+				adPostMediaBodyForGalleryArray[i].setMediaUrl(jsonObj.getString("adPostSlideImgUrl"+(i+1)));
+				adPostMediaBodyForGalleryArray[i].setMediaDesc(jsonObj.getString("adPostSlideImgShortDesc"+(i+1)));
+				sImgArray[i] = new AdPostSlideImage(adPostMediaBodyForGalleryArray[i]);
+				this.adpostService.create(sImgArray[i]);
+			}
+		}
 		
 		/*	
 		adPostTags = adPostTags.replaceAll("^\"|\"$", "");

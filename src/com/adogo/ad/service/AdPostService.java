@@ -54,18 +54,22 @@ public class AdPostService {
 		return this.adPostDao.create(adPost);
 	}
 
+	@Transactional
 	public long create(AdPostText tContent) {
 		return this.adPostDao.create(tContent);
 	}
 
+	@Transactional
 	public long create(AdPostVideo vContent) {
 		return this.adPostDao.create(vContent);
 	}
 
+	@Transactional
 	public long create(AdPostAudio aContent) {
 		return this.adPostDao.create(aContent);
 	}
 
+	@Transactional
 	public long create(AdPostSlideImage sImg) {
 		return this.adPostDao.create(sImg);
 	}
