@@ -66,12 +66,12 @@
 								Edit Business Profile</a>
 							</li>
 							<li>
-								<a href="/acp/ad/adpost/create">
+								<a href="/acp/ad/adpost/create.html">
 								<i class="icon-paper-plane"></i>
 								Create Ad Post</a>
 							</li>
 							<li>
-								<a href="/acp/ad/adpost/edit">
+								<a href="/acp/ad/adpost/edit.html">
 								<i class="icon-paper-plane"></i>
 								Edit Ad Post</a>
 							</li>

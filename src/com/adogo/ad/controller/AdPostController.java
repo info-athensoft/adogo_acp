@@ -20,11 +20,11 @@ public class AdPostController {
 	private static final Logger logger = Logger.getLogger(AdPostController.class);
 	
 	@Autowired
-	private AdPostService adpostService;
+	private AdPostService adPostService;
 		
 	@Autowired
-	public void setAdPostService(AdPostService adpostService) {
-		this.adpostService = adpostService;
+	public void setAdPostService(AdPostService adPostService) {
+		this.adPostService = adPostService;
 	}
 	
 	@Autowired
@@ -35,13 +35,13 @@ public class AdPostController {
 		this.adTagService = adTagService;
 	}
 	
-	@RequestMapping("/create")
+	@RequestMapping("/create.html")
 	public String gotoCreate(){
 		String viewName = "ad/ad_post_create";
 		return viewName;
 	}
 	
-	@RequestMapping("/edit")
+	@RequestMapping("/edit.html")
 	public String gotoEdit(){
 		System.out.println("entering -- /edit");
 		String viewName = "ad/ad_post_edit";
@@ -55,7 +55,7 @@ public class AdPostController {
 		String viewName = "ad/ad_post";
 		
 		tags = tags.replaceAll("^\"|\"$", "");
-		this.adpostService.saveTags(adpostId, tags);
+		this.adPostService.saveTags(adpostId, tags);
 		
 		String[] arrayTags = tags.split(",");
 		for (String tag : arrayTags) {
@@ -92,11 +92,11 @@ public class AdPostController {
 		
 		String adPostTags = jsonObj.getString("adPostTags");
 		adPostTags = adPostTags.replaceAll("^\"|\"$", "");
-		this.adpostService.saveTags(adPostId, adPostTags);
+		this.adPostService.saveTags(adPostId, adPostTags);
 		adPostHead.setTags(adPostTags);
 		
 		/*create a new record of adpost into master table*/
-		this.adpostService.create(adPostHead);
+		this.adPostService.create(adPostHead);
 		
 		/*update tags*/
 		String[] arrayTags = adPostTags.split(",");
