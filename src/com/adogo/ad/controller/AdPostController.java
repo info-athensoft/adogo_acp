@@ -1,13 +1,23 @@
 package com.adogo.ad.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.adogo.ad.entity.AdPost;
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
@@ -49,6 +59,13 @@ public class AdPostController {
 		return viewName;
 	}
 	
+	/**
+	 * @param adpostId
+	 * @param tags
+	 * @return
+	 * 
+	 * @author sfz
+	 */
 	@RequestMapping("/saveTags")
 	public String saveTags(@RequestParam String adpostId, @RequestParam String tags){
 		logger.info("entering -- /saveTags ... adpostId= " + adpostId + ", tags="+String.valueOf(tags));
@@ -66,6 +83,12 @@ public class AdPostController {
 		return viewName;
 	}
 	
+	/**
+	 * @param adPostJSONString
+	 * @return
+	 * 
+	 * @author sfz
+	 */
 	@RequestMapping("/saveAdPost")
 	public ModelAndView saveAdPost(@RequestParam String adPostJSONString){		
 		logger.info("entering... /ad/adpost/saveAdPost");
@@ -139,4 +162,109 @@ public class AdPostController {
 		logger.info("exiting... /ad/adpost/saveAdPost");
 		return mav;
 	}
+	
+	/**
+	 * search and get all AdPost objects
+	 * @return
+	 */
+	@RequestMapping(value="/adposts",method=RequestMethod.GET,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> getDataAdPostList(){
+		logger.info("entering RESTFUL API... /ad/adpost/adposts");
+		
+		ModelAndView mav = new ModelAndView();
+		
+		//data
+		Map<String, Object> model = mav.getModel();
+		
+		//retrieve data from database via service and dao		
+		List<AdPost> list = new ArrayList<AdPost>();
+		//TODO
+		
+		model.put("listAdPost", list);
+		
+		logger.info("exiting RESTFUL API... /ad/adpost/adposts");
+		return null;
+	}
+	
+	
+	/**
+	 * search and get an AdPost object by id
+	 * @param adPostId
+	 * @return
+	 * 
+	 * @author Athens
+	 */
+	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.GET,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> getDataAdPost(@PathVariable String adPostId){
+		logger.info("entering RESTFUL API... /ad/adpost/adposts/"+adPostId);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		//data
+		Map<String, Object> model = mav.getModel();
+		
+		//retrieve data from database via service and dao		
+		AdPost obj = new AdPost();
+		//TODO
+		
+		model.put("adPost", obj);
+		
+		logger.info("exiting RESTFUL API... /ad/adpost/adposts"+adPostId);
+		return null;
+	}
+	
+	
+	/**
+	 * create an AdPost object
+	 * @param adPostJSONString
+	 * @return
+	 * 
+	 * @author Athens
+	 */
+	@RequestMapping(value="/adposts",method=RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<Boolean> createAdPost(@RequestParam String adPostJSONString){
+		
+		
+		
+		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
+	}
+	
+	
+	/**
+	 * update an AdPost object with entire object data
+	 * @param adPostId
+	 * @return
+	 * 
+	 * @author Athens
+	 */
+	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.PUT)
+	@ResponseBody
+	public ResponseEntity<Boolean> updateAdPost(@PathVariable String adPostId){
+		
+		
+		
+		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
+	}
+	
+	
+	
+	/**
+	 * delete an AdPost object with entire object data
+	 * @param adPostId
+	 * @return
+	 * 
+	 * @author Athens
+	 */
+	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.DELETE)
+	@ResponseBody
+	public ResponseEntity<Boolean> deleteAdPost(@PathVariable String adPostId){
+		
+		
+		
+		return new ResponseEntity<Boolean>(true,HttpStatus.NO_CONTENT);
+	}
+	
 }
