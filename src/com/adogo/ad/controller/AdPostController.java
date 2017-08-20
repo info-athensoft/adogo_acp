@@ -139,21 +139,21 @@ public class AdPostController {
 		}
 		
 		if (!jsonObj.getString("adPostVideoContentUrl").isEmpty()) {
-			AdPostMediaBody adPostMediaBodyForVideo = new AdPostMediaBody(adPostBody);
-			adPostMediaBodyForVideo.setMediaTitle(jsonObj.getString("adPostVideoContentTitle"));
-			adPostMediaBodyForVideo.setMediaUrl(jsonObj.getString("adPostVideoContentUrl"));
-			adPostMediaBodyForVideo.setMediaDesc(jsonObj.getString("adPostVideoContentShortDesc"));
-			AdPostVideo vContent = new AdPostVideo(adPostMediaBodyForVideo);
+			String mediaTitle = jsonObj.getString("adPostVideoContentTitle");
+			String mediaUrl = jsonObj.getString("adPostVideoContentUrl");
+			String mediaDesc = jsonObj.getString("adPostVideoContentShortDesc");
+			
+			AdPostVideo vContent = getAdPostVideo(adPostBody, mediaTitle, mediaUrl, mediaDesc);
 			this.adpostService.create(vContent);
 		}
 		
 		
 		if (!jsonObj.getString("adPostAudioContentUrl").isEmpty()) {
-			AdPostMediaBody adPostMediaBodyForAudio = new AdPostMediaBody(adPostBody);
-			adPostMediaBodyForAudio.setMediaTitle(jsonObj.getString("adPostAudioContentTitle"));
-			adPostMediaBodyForAudio.setMediaUrl(jsonObj.getString("adPostAudioContentUrl"));
-			adPostMediaBodyForAudio.setMediaDesc(jsonObj.getString("adPostAudioContentShortDesc"));
-			AdPostAudio aContent = new AdPostAudio(adPostMediaBodyForAudio);
+			String mediaTitle = jsonObj.getString("adPostAudioContentTitle");
+			String mediaUrl = jsonObj.getString("adPostAudioContentUrl");
+			String mediaDesc = jsonObj.getString("adPostAudioContentShortDesc");
+			
+			AdPostAudio aContent = getAdPostAudio(adPostBody, mediaTitle, mediaUrl, mediaDesc);
 			this.adpostService.create(aContent);
 		}
 		
@@ -207,4 +207,30 @@ public class AdPostController {
 		logger.info("exiting... /ad/adpost/saveAdPost");
 		return mav;
 	}
+
+
+	public AdPostVideo getAdPostVideo(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+		AdPostMediaBody mediaBody = getAdPostMediaBody(adPostBody, mediaTitle, mediaUrl, mediaDesc);		
+		AdPostVideo contentObj = new AdPostVideo(mediaBody);
+		return contentObj;
+	}
+	
+	public AdPostAudio getAdPostAudio(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+		AdPostMediaBody mediaBody = getAdPostMediaBody(adPostBody, mediaTitle, mediaUrl, mediaDesc);		
+		AdPostAudio contentObj = new AdPostAudio(mediaBody);
+		return contentObj;
+	}
+	
+		
+	
+	private AdPostMediaBody getAdPostMediaBody(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+		AdPostMediaBody mediaBody = new AdPostMediaBody(adPostBody);
+		mediaBody.setMediaTitle(mediaTitle);
+		mediaBody.setMediaUrl(mediaUrl);
+		mediaBody.setMediaDesc(mediaDesc);
+		return mediaBody;
+	}
+	
+	
+	
 }

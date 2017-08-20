@@ -38,6 +38,16 @@ public class UUIDHelper {
 	    }
     }
 	
+	public static long getUniqueLongIdUUID() {      
+       UUID idOne = UUID.randomUUID();
+        String str=""+idOne;        
+        long uid=str.hashCode();
+        String filterStr=""+uid;
+        str=filterStr.replaceAll("-", "");
+        return Long.parseLong(str);
+		
+    }
+	
 	/**
 	 * generate a UUID of generation 4
 	 * @return
@@ -48,11 +58,15 @@ public class UUIDHelper {
 	}
 	
 	public static void main(String[] args){
-		System.out.println(getUUID());
-		System.out.println(getUUID());
-		System.out.println(getUUID());
-		System.out.println(getUniqueLongId());
-		System.out.println(getUniqueLongId());
-		System.out.println(getUniqueLongId());
+//		System.out.println(getUUID());
+//		System.out.println(getUUID());
+//		System.out.println(getUUID());
+//		System.out.println(getUniqueLongId());
+//		System.out.println(getUniqueLongId());
+		for(int i=0; i<20; i++)
+			System.out.println(getUniqueLongIdUUID());
+		
+		
+		
 	}
 }
