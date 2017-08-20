@@ -1,5 +1,7 @@
 package com.adogo.ad.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -7,10 +9,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.adogo.ad.dao.AdPostDao;
 import com.adogo.ad.dao.AdPostHeadDao;
+import com.adogo.ad.dao.AdPostTextDao;
 import com.adogo.ad.entity.AdPostHead;
+import com.adogo.ad.entity.AdPostText;
 
 @Service
 public class AdPostService {
+	
+	private AdPostDao adPostDao;
+	
+	@Autowired
+	@Qualifier("adPostDaoJdbcImpl")
+	public void setAdPostDao(AdPostDao adPostDao) {
+		this.adPostDao = adPostDao;
+	}
 	
 	private AdPostHeadDao adPostHeadDao;
 
@@ -20,13 +32,16 @@ public class AdPostService {
 		this.adPostHeadDao = adPostHeadDao;
 	}
 	
-	private AdPostDao adPostDao;
 	
+	private AdPostTextDao adPostTextDao;
+
 	@Autowired
-	@Qualifier("adPostDaoJdbcImpl")
-	public void setAdPostDao(AdPostDao adPostDao) {
-		this.adPostDao = adPostDao;
+	@Qualifier("adPostTextDaoJdbcImpl")
+	public void setAdPostTextDao(AdPostTextDao adPostTextDao) {
+		this.adPostTextDao = adPostTextDao;
 	}
+	
+	
 	
 	/*master table*/
 	public AdPostHead findById(long globalId) {
@@ -44,5 +59,8 @@ public class AdPostService {
 	
 	
 	/*children tables*/
+	public List<AdPostText> getListAdPostText(){
+		return null;
+	}
 }
 

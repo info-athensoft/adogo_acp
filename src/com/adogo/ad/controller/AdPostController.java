@@ -184,7 +184,7 @@ public class AdPostController {
 		model.put("listAdPost", list);
 		
 		logger.info("exiting RESTFUL API... /ad/adpost/adposts");
-		return null;
+		return model;
 	}
 	
 	
@@ -212,7 +212,7 @@ public class AdPostController {
 		model.put("adPost", obj);
 		
 		logger.info("exiting RESTFUL API... /ad/adpost/adposts"+adPostId);
-		return null;
+		return model;
 	}
 	
 	
