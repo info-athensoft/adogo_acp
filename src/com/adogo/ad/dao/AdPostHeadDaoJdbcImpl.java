@@ -102,7 +102,7 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 			AdPostHead x = new AdPostHead();
 			x.setGlobalId(rs.getLong("global_id"));
 			x.setUserId(rs.getLong("user_id"));
-			x.setAdPostId(rs.getString("adpost_id"));
+			x.setAdPostId(rs.getLong("adpost_id"));
 			x.setMediaCoverUrl(rs.getString("media_cover_url"));
 			x.setPostTitle(rs.getString("post_title"));
 			x.setPostAuthor(rs.getString("post_author"));

@@ -17,8 +17,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.adogo.ad.entity.AdPost;
+
+import com.adogo.ad.entity.AdPostAudio;
+import com.adogo.ad.entity.AdPostBody;
+import com.adogo.ad.entity.AdPostCoverImage;
+
 import com.adogo.ad.entity.AdPostHead;
+import com.adogo.ad.entity.AdPostMediaBody;
+import com.adogo.ad.entity.AdPostSlideImage;
+import com.adogo.ad.entity.AdPostText;
+import com.adogo.ad.entity.AdPostVideo;
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
 import com.athensoft.util.id.UUIDHelper;
@@ -102,7 +112,7 @@ public class AdPostController {
 		AdPostHead adPostHead = new AdPostHead();
 		
 //		adPostHead.setGlobalId(globalId);
-		String adPostId = UUIDHelper.getUUID();
+		Long adPostId = UUIDHelper.getUniqueLongId();
 		adPostHead.setAdPostId(adPostId);
 		adPostHead.setUserId(jsonObj.getLong("adPostUserId"));
 		
@@ -114,8 +124,9 @@ public class AdPostController {
 //		adPostHead.setMediaCoverUrl(jsonObj.getString(""));
 		
 		String adPostTags = jsonObj.getString("adPostTags");
+		
 		adPostTags = adPostTags.replaceAll("^\"|\"$", "");
-		this.adPostService.saveTags(adPostId, adPostTags);
+
 		adPostHead.setTags(adPostTags);
 		
 		/*create a new record of adpost into master table*/
@@ -126,6 +137,66 @@ public class AdPostController {
 		for (String tag : arrayTags) {
 			logger.info("tag= " + tag );
 			this.adTagService.updateTag(tag);
+		}
+		
+		/*create a new AdPostCoverImage*/
+		AdPostBody adPostBody = new AdPostBody();
+		adPostBody.setUserId(jsonObj.getLong("adPostUserId"));
+		adPostBody.setAdPostId(adPostId);
+		//cImg.setMediaCoverUrl(jsonObj.getString(""));
+		//adPostBody.setIsPrimary(false);
+		adPostBody.setMediaIndex(0);
+		adPostBody.setLangNo(jsonObj.getInt("adPostLangNo"));
+		//adPostBody.setSortNo(0);
+		
+		if (!jsonObj.getString("adPostCoverImgUrl").isEmpty()) {
+			AdPostMediaBody adPostMediaBody = new AdPostMediaBody(adPostBody);
+			adPostMediaBody.setMediaTitle(jsonObj.getString("adPostCoverImgTitle"));
+			adPostMediaBody.setMediaUrl(jsonObj.getString("adPostCoverImgUrl"));
+			adPostMediaBody.setMediaDesc(jsonObj.getString("adPostCoverImgShortDesc")); 
+			AdPostCoverImage cImg = new AdPostCoverImage(adPostMediaBody);
+			this.adPostService.create(cImg);
+		}		
+		
+		if (!jsonObj.getString("adPostTextContentLongDesc").isEmpty()) {
+			AdPostText tContent = new AdPostText(adPostBody);
+			tContent.setLongDesc(jsonObj.getString("adPostTextContentLongDesc"));
+			this.adPostService.create(tContent);
+		}
+		
+		if (!jsonObj.getString("adPostVideoContentUrl").isEmpty()) {
+			String mediaTitle = jsonObj.getString("adPostVideoContentTitle");
+			String mediaUrl = jsonObj.getString("adPostVideoContentUrl");
+			String mediaDesc = jsonObj.getString("adPostVideoContentShortDesc");
+			
+			AdPostVideo vContent = getAdPostVideo(adPostBody, mediaTitle, mediaUrl, mediaDesc);
+			this.adPostService.create(vContent);
+		}
+		
+		
+		if (!jsonObj.getString("adPostAudioContentUrl").isEmpty()) {
+			String mediaTitle = jsonObj.getString("adPostAudioContentTitle");
+			String mediaUrl = jsonObj.getString("adPostAudioContentUrl");
+			String mediaDesc = jsonObj.getString("adPostAudioContentShortDesc");
+			
+			AdPostAudio aContent = getAdPostAudio(adPostBody, mediaTitle, mediaUrl, mediaDesc);
+			this.adPostService.create(aContent);
+		}
+		
+		AdPostMediaBody[] adPostMediaBodyForGalleryArray;
+		adPostMediaBodyForGalleryArray = new AdPostMediaBody[9];
+		AdPostSlideImage[] sImgArray;
+		sImgArray = new AdPostSlideImage[9];
+		
+		for(int i = 0; i < 9; i++) {
+			if (!jsonObj.getString("adPostSlideImgUrl"+(i+1)).isEmpty()) {
+				adPostMediaBodyForGalleryArray[i] = new AdPostMediaBody(adPostBody);
+				adPostMediaBodyForGalleryArray[i].setMediaTitle(jsonObj.getString("adPostSlideImgTitle"+(i+1)));
+				adPostMediaBodyForGalleryArray[i].setMediaUrl(jsonObj.getString("adPostSlideImgUrl"+(i+1)));
+				adPostMediaBodyForGalleryArray[i].setMediaDesc(jsonObj.getString("adPostSlideImgShortDesc"+(i+1)));
+				sImgArray[i] = new AdPostSlideImage(adPostMediaBodyForGalleryArray[i]);
+				this.adPostService.create(sImgArray[i]);
+			}
 		}
 		
 		/*	
@@ -162,6 +233,7 @@ public class AdPostController {
 		logger.info("exiting... /ad/adpost/saveAdPost");
 		return mav;
 	}
+
 	
 	/**
 	 * search and get all AdPost objects
@@ -266,5 +338,32 @@ public class AdPostController {
 		
 		return new ResponseEntity<Boolean>(true,HttpStatus.NO_CONTENT);
 	}
+
+
+
+	public AdPostVideo getAdPostVideo(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+		AdPostMediaBody mediaBody = getAdPostMediaBody(adPostBody, mediaTitle, mediaUrl, mediaDesc);		
+		AdPostVideo contentObj = new AdPostVideo(mediaBody);
+		return contentObj;
+	}
+	
+	public AdPostAudio getAdPostAudio(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+		AdPostMediaBody mediaBody = getAdPostMediaBody(adPostBody, mediaTitle, mediaUrl, mediaDesc);		
+		AdPostAudio contentObj = new AdPostAudio(mediaBody);
+		return contentObj;
+	}
+	
+		
+	
+	private AdPostMediaBody getAdPostMediaBody(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+		AdPostMediaBody mediaBody = new AdPostMediaBody(adPostBody);
+		mediaBody.setMediaTitle(mediaTitle);
+		mediaBody.setMediaUrl(mediaUrl);
+		mediaBody.setMediaDesc(mediaDesc);
+		return mediaBody;
+	}
+	
+	
+
 	
 }
