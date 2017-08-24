@@ -35,4 +35,16 @@ public class UserAccountService {
 	public void updateUserAccount(UserAccount userAccount) {
 		userAccoutDao.update(userAccount);
 	}
+	
+	public boolean isUserAccountExist(UserAccount userAccount) {
+		return userAccoutDao.isUserAccountExist(userAccount);
+	}
+
+	public UserAccount findById(long acctId) {
+		return userAccoutDao.findById(acctId);
+	}
+
+	public void delete(long acctId) {
+		userAccoutDao.delete(acctId);
+	}
 }

@@ -18,6 +18,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
+//import com.adogo.uaas.dao.UserAccountDaoParamImpl.UserAccountRowMapper;
 import com.adogo.uaas.entity.UserAccount;
 
 @Component
@@ -49,6 +50,30 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 			ua = null;
 		}
 		return ua;
+	}
+	
+	@Override
+	public UserAccount findByName(String name) {
+		String sql = "select * from user_account where acct_name =:name";
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("name", name);
+		UserAccount ua = null;
+		try{
+			ua = jdbc.queryForObject(sql, paramSource, new UserAccountRowMapper());
+		}catch(EmptyResultDataAccessException ex){
+			ua = null;
+		}
+		return ua;
+	}
+	
+	@Override
+	public boolean isUserAccountExist(UserAccount userAccount) {
+		String acctName = userAccount.getAcctName();
+		UserAccount ua = this.findByName(acctName);
+		if (ua == null) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -109,9 +134,11 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 	}
 
 	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
-
+	public void delete(long acctId) {
+		String sql = "delete from user_account where acct_id =:acctId";
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("acctId", acctId);
+		jdbc.update(sql, paramSource);
 	}
 	
 	@Override

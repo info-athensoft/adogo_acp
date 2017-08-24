@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,11 +44,18 @@ public class UserAccountController {
 
 	@RequestMapping(value="/useracct-test/{acctId}",method=RequestMethod.GET)
 	@ResponseBody
-	public UserAccount getUserAccountTest(@PathVariable long acctId){
+	public ResponseEntity<?> getUserAccountTest(@PathVariable long acctId){
 		System.out.println("hello GET");
-		UserAccount userAccount = userAccountService.getUserAccount(acctId);
 		
-		return userAccount;
+	    logger.info("Fetching UserAcc with id {"+ acctId + "}");
+	    System.out.println("Fetching UserAcc with id {"+ acctId + "}");
+	    UserAccount userAccount = userAccountService.getUserAccount(acctId);
+        if (userAccount == null) {
+            logger.error("UserAcc with id {" + acctId + "} not found.");
+            System.out.println("UserAcc with id {" + acctId + "} not found.");
+            return new ResponseEntity<UserAccount>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<UserAccount>(userAccount, HttpStatus.OK);
 	}
 
 
@@ -106,6 +115,52 @@ public class UserAccountController {
 		
 		//mav.setViewName("redirect:/useracct/"+key);
 		return data;
+	}
+	
+	@RequestMapping(value="/useracct-test/{acctId}",method=RequestMethod.PUT)
+	@ResponseBody
+	public ResponseEntity<?> updateUserAccountTest(
+			@PathVariable long acctId,
+			@RequestBody UserAccount userAccount
+			){
+		System.out.println("hello PUT");				
+		logger.info("Updating UserAccount with id {" + acctId + "}");
+		System.out.println("Updating UserAccount with id {" + acctId + "}");
+		 
+		UserAccount foundUserAccount = userAccountService.findById(acctId);
+ 
+        if (foundUserAccount == null) {
+            logger.error("Unable to update. UserAccount with id {" + acctId + "} not found.");
+            System.out.println("Unable to update. UserAccount with id {" + acctId + "} not found.");
+            return new ResponseEntity<UserAccount>(HttpStatus.NOT_FOUND);
+        }
+        userAccount.setAcctId(acctId);
+        System.out.println("passed UserAccount :" + userAccount);
+        userAccountService.updateUserAccount(userAccount);
+        UserAccount updatedUserAccount = userAccountService.findById(acctId);
+        System.out.println("Updated UserAccount :" + updatedUserAccount);
+        return new ResponseEntity<UserAccount>(updatedUserAccount, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/useracct-test/{acctId}",method=RequestMethod.DELETE)
+	@ResponseBody
+	public ResponseEntity<?> deleteUserAccountTest(@PathVariable long acctId){
+		System.out.println("hello DELETE");
+		
+	    logger.info("Fetching UserAcc with id {"+ acctId + "}");
+	    System.out.println("Fetching UserAcc with id {"+ acctId + "}");
+	    
+	    UserAccount foundUserAccount = userAccountService.findById(acctId);
+	    if (foundUserAccount == null) {
+            logger.error("UserAcc with id {"+ acctId + "} not found.");
+            System.out.println("UserAcc with id {"+ acctId + "} not found.");
+            return new ResponseEntity<UserAccount>(HttpStatus.NOT_FOUND);
+        }
+	    
+	    userAccountService.delete(acctId);
+        
+        return new ResponseEntity<UserAccount>(HttpStatus.NO_CONTENT);
+        
 	}
 	
 }
