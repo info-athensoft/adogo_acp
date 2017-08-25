@@ -55,6 +55,7 @@ public class UserAccountController {
             System.out.println("UserAcc with id {" + acctId + "} not found.");
             return new ResponseEntity<UserAccount>(HttpStatus.NOT_FOUND);
         }
+        System.out.println("Got UserAccount :" + userAccount);
         return new ResponseEntity<UserAccount>(userAccount, HttpStatus.OK);
 	}
 
@@ -71,23 +72,33 @@ public class UserAccountController {
 		return json;
 	}
 	
-	@RequestMapping(value="/useracct-test",method=RequestMethod.POST,produces="application/json",consumes="application/json")
+	@RequestMapping(value="/useracct-test",method=RequestMethod.POST)
 	@ResponseBody
-	public UserAccount createUserAccountTest(@RequestBody String json){
+	public ResponseEntity<?> createUserAccountTest(@RequestBody UserAccount userAccount){
 		System.out.println("hello POST");
-		
+		/*
 		UserAccount userAccount = new UserAccount();
 	    ObjectMapper mapper = new ObjectMapper();
 	    try {
-			userAccount = mapper.readValue(json, UserAccount.class);
+			userAccount = mapper.readValue(acct, UserAccount.class);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		
+		} */
+	    /*
 		long key = userAccountService.createUserAccount(userAccount);
 		userAccount.setAcctId(key);
-		
-		return userAccount;
+		*/
+		if (userAccountService.isUserAccountExist(userAccount)) {
+            logger.error("Unable to create. A User with name {" + userAccount.getAcctName() + "} already exist");
+            System.out.println("Unable to create. A User with name {" + userAccount.getAcctName() + "} already exist");
+            return new ResponseEntity<UserAccount>(HttpStatus.CONFLICT);
+        }
+		long key = userAccountService.createUserAccount(userAccount);
+		userAccount.setAcctId(key);
+		System.out.println("Created UserAccount :" + userAccount);
+        
+        return new ResponseEntity<UserAccount>(userAccount, HttpStatus.CREATED);
+		//return userAccount;
 	}
 	
 	@RequestMapping(value="/useracct/{acctId}",method=RequestMethod.POST,produces="application/json")

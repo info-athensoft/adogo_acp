@@ -54,7 +54,7 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 	
 	@Override
 	public UserAccount findByName(String name) {
-		String sql = "select * from user_account where acct_name =:name";
+		String sql = "select * from UAAS_USER_ACCOUNT where acct_name =:name";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("name", name);
 		UserAccount ua = null;
@@ -135,7 +135,7 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 
 	@Override
 	public void delete(long acctId) {
-		String sql = "delete from user_account where acct_id =:acctId";
+		String sql = "delete from UAAS_USER_ACCOUNT where acct_id =:acctId";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acctId", acctId);
 		jdbc.update(sql, paramSource);
