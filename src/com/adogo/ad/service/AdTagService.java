@@ -30,4 +30,14 @@ public class AdTagService {
 		return this.adTagDao.persistTag(tagName);
 	}
 	
+	/**
+	 * @param tagNameList
+	 */
+	public void updateTagList(String tagNameList) {
+		tagNameList = tagNameList.replaceAll("^\"|\"$", "");
+		String[] arrayTags = tagNameList.split(",");
+		for (String tag : arrayTags) {
+			this.updateTag(tag);
+		}
+	}
 }

@@ -59,8 +59,9 @@ public class AdPostService {
 		return this.adPostHeadDao.findById(globalId);
 	}
 	
-	public int saveTags(String adpostId, String tags) {
-		return this.adPostHeadDao.saveTags(adpostId, tags);
+	public int saveTags(String adpostId, String tagNameList) {
+		tagNameList = tagNameList.replaceAll("^\"|\"$", "");
+		return this.adPostHeadDao.saveTags(adpostId, tagNameList);
 	}
 
 	@Transactional

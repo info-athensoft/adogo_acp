@@ -81,13 +81,9 @@ public class AdPostController {
 		logger.info("entering -- /saveTags ... adpostId= " + adpostId + ", tags="+String.valueOf(tags));
 		String viewName = "ad/ad_post";
 		
-		tags = tags.replaceAll("^\"|\"$", "");
 		this.adPostService.saveTags(adpostId, tags);
 		
-		String[] arrayTags = tags.split(",");
-		for (String tag : arrayTags) {
-			this.adTagService.updateTag(tag);
-		}
+		this.adTagService.updateTagList(tags);
 		
 		logger.info("exiting -- /saveTags ");
 		return viewName;
@@ -119,24 +115,23 @@ public class AdPostController {
 		adPostHead.setPostTitle(jsonObj.getString("adPostTitle"));
 		adPostHead.setPostAuthor(jsonObj.getString("adPostAuthor"));
 		adPostHead.setPostCategory(jsonObj.getInt("adPostCategory"));
-		
 //		adPostHead.setMediaCoverUrl(jsonObj.getString(""));
-		
 		String adPostTags = jsonObj.getString("adPostTags");
 		
 		adPostTags = adPostTags.replaceAll("^\"|\"$", "");
-
 		adPostHead.setTags(adPostTags);
 		
 		/*create a new record of adpost into master table*/
 		this.adPostService.create(adPostHead);
 		
 		/*update tags*/
-		String[] arrayTags = adPostTags.split(",");
-		for (String tag : arrayTags) {
-			logger.info("tag= " + tag );
-			this.adTagService.updateTag(tag);
-		}
+//		String[] arrayTags = adPostTags.split(",");
+//		for (String tag : arrayTags) {
+//			logger.info("tag= " + tag );
+//			this.adTagService.updateTag(tag);
+//		}
+		
+		this.adTagService.updateTag(adPostTags);
 		
 		/*create a new AdPostCoverImage*/
 		AdPostBody adPostBody = new AdPostBody();
@@ -197,7 +192,6 @@ public class AdPostController {
 				this.adPostService.create(sImgArray[i]);
 			}
 		}
-		
 
 		
 		/* assemble model and view */

@@ -70,19 +70,25 @@ function getBusinessObject(){
     		adPostTitle    		    	  :   p3,
     		adPostAuthor    		      :   p4,
     		adPostCategory			      :   p5,            
-    		adPostTags    			      :   p6,            
+    		adPostTags    			      :   p6,
+    		adPostUserId			      :	  p11,
     		adPostShortDesc 		      :   p7,
+    		
     		adPostCoverImgTitle		      :   p8,
     		adPostCoverImgUrl  		      :   p9,
     		adPostCoverImgShortDesc	      :   p10,
-    		adPostUserId			      :	  p11,
+    		
+    		
     		adPostTextContentLongDesc     :   p12,
+    		
     		adPostVideoContentTitle		  :   p13,
     		adPostVideoContentUrl  		  :   p14,
     		adPostVideoContentShortDesc	  :   p15,
+    		
     		adPostAudioContentTitle		  :   p16,
     		adPostAudioContentUrl  		  :   p17,
     		adPostAudioContentShortDesc	  :   p18,
+    		
     		adPostSlideImgTitle1	      :   p19,
     		adPostSlideImgUrl1 		      :   p20,
     		adPostSlideImgShortDesc1      :   p21,
