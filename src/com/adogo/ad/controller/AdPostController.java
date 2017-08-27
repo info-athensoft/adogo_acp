@@ -115,7 +115,6 @@ public class AdPostController {
 		Long adPostId = UUIDHelper.getUniqueLongId();
 		adPostHead.setAdPostId(adPostId);
 		adPostHead.setUserId(jsonObj.getLong("adPostUserId"));
-		
 		adPostHead.setLangNo(jsonObj.getInt("adPostLangNo"));
 		adPostHead.setPostTitle(jsonObj.getString("adPostTitle"));
 		adPostHead.setPostAuthor(jsonObj.getString("adPostAuthor"));
@@ -199,32 +198,7 @@ public class AdPostController {
 			}
 		}
 		
-		/*	
-		adPostTags = adPostTags.replaceAll("^\"|\"$", "");
-		System.out.println("entering -- /saveAdPost ... adPostId= " + adPostId + ", adPostLang="+adPostLang+ ", adPostTitle="+adPostTitle+ ", adPostAuthor="+adPostAuthor+ ", adPostCategory="+adPostCategory + ", adPostTags="+String.valueOf(adPostTags)+ ", adPostShortDesc="+adPostShortDesc);
-		System.out.println("entering -- /saveAdPost ... adPostCoverImgTitle= " + adPostCoverImgTitle + ", adPostCoverImgUrl="+adPostCoverImgUrl+ ", adPostCoverImgShortDesc="+adPostCoverImgShortDesc);
-		
-//		this.adpostService.saveTags(adPostId, tags);
-		//long globalId = 0;
-		//AdPost ap = this.adpostService.findById(globalId);
-		//System.out.println("found adpostId = " + ap.getAdpost_id());
-		AdPostHead adPost = new AdPostHead();
-		adPost.setUserId(1L);
-		adPost.setAdPostId(adPostId);
-		adPost.setMediaCoverUrl(adPostCoverImgUrl);
-		adPost.setLangNo(1);
-		adPost.setPostTitle(adPostTitle);
-		adPost.setPostAuthor(adPostAuthor);
-		adPost.setTags(adPostTags);
-		this.adpostService.create(adPost);
-		
-		String[] arrayTags = adPostTags.split(",");
-		for (String tag : arrayTags) {
-			System.out.println("tag= " + tag );
-			this.adTagService.updateTag(tag);
-		}
-		
-		*/
+
 		
 		/* assemble model and view */
 		String viewName = "ad/adpost/create";
