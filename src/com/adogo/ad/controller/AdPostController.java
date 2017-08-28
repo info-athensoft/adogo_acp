@@ -23,7 +23,7 @@ import com.adogo.ad.entity.AdPost;
 import com.adogo.ad.entity.AdPostAudio;
 import com.adogo.ad.entity.AdPostBody;
 import com.adogo.ad.entity.AdPostCoverImage;
-
+import com.adogo.ad.entity.AdPostGalleryImage;
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.entity.AdPostMediaBody;
 import com.adogo.ad.entity.AdPostSlideImage;
@@ -102,95 +102,90 @@ public class AdPostController {
 		/* initial settings */
 		ModelAndView mav = new ModelAndView();
 		
-		//set model
+		/* prepare data */		
 		JSONObject jsonObj= new JSONObject(adPostJSONString);
 		
-		AdPostHead adPostHead = new AdPostHead();
+		Long adPostId 			= UUIDHelper.getUniqueLongId();
+		Long adPostUserId 		= jsonObj.getLong("adPostUserId");
+		Integer adPostLangNo 	= jsonObj.getInt("adPostLangNo");
+		String adPostTitle 		= jsonObj.getString("adPostTitle");
+		String adPostAuthor		= jsonObj.getString("adPostAuthor");
+		Integer adPostCategory	= jsonObj.getInt("adPostCategory");
+		String adPostTags		= jsonObj.getString("adPostTags").replaceAll("^\"|\"$", "");
 		
-//		adPostHead.setGlobalId(globalId);
-		Long adPostId = UUIDHelper.getUniqueLongId();
-		adPostHead.setAdPostId(adPostId);
-		adPostHead.setUserId(jsonObj.getLong("adPostUserId"));
-		adPostHead.setLangNo(jsonObj.getInt("adPostLangNo"));
-		adPostHead.setPostTitle(jsonObj.getString("adPostTitle"));
-		adPostHead.setPostAuthor(jsonObj.getString("adPostAuthor"));
-		adPostHead.setPostCategory(jsonObj.getInt("adPostCategory"));
-//		adPostHead.setMediaCoverUrl(jsonObj.getString(""));
-		String adPostTags = jsonObj.getString("adPostTags");
+		//cover image
+		String adPostCoverImgTitle		= jsonObj.getString("adPostCoverImgTitle");
+		String adPostCoverImgUrl		= jsonObj.getString("adPostCoverImgUrl");
+		String adPostCoverImgShortDesc	= jsonObj.getString("adPostCoverImgShortDesc");
 		
-		adPostTags = adPostTags.replaceAll("^\"|\"$", "");
-		adPostHead.setTags(adPostTags);
+		//text
+		String adPostTextContentLongDesc = jsonObj.getString("adPostTextContentLongDesc");
+		
+		//video
+		String adPostVideoContentTitle 		= jsonObj.getString("adPostVideoContentTitle");
+		String adPostVideoContentUrl 		= jsonObj.getString("adPostVideoContentUrl");
+		String adPostVideoContentShortDesc 	= jsonObj.getString("adPostVideoContentShortDesc");
+		
+		//audio
+		String adPostAudioContentTitle 		= jsonObj.getString("adPostAudioContentTitle");
+		String adPostAudioContentUrl 		= jsonObj.getString("adPostAudioContentUrl");
+		String adPostAudioContentShortDesc 	= jsonObj.getString("adPostAudioContentShortDesc");
+		
+		//gallery image
+		final int SIZE_OF_ADPOST_GALLERY_IMAGE = 9;
+		String[] adPostGalleryImgTitleList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
+		String[] adPostGalleryImgUrlList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
+		String[] adPostGalleryImgShortDescList	= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
+		
+		for(int i=0; i<SIZE_OF_ADPOST_GALLERY_IMAGE; i++){
+			adPostGalleryImgTitleList[i] 		= jsonObj.getString("adPostGalleryImgTitle"+(i+1));
+			adPostGalleryImgUrlList[i] 			= jsonObj.getString("adPostGalleryImgUrl"+(i+1));
+			adPostGalleryImgShortDescList[i] 	= jsonObj.getString("adPostGalleryImgShortDesc"+(i+1));
+		}
+		
 		
 		/*create a new record of adpost into master table*/
+		AdPostHead adPostHead = new AdPostHead();
+		adPostHead.setAdPostId(adPostId);
+		adPostHead.setUserId(adPostUserId);
+		adPostHead.setLangNo(adPostLangNo);
+		adPostHead.setPostTitle(adPostTitle);
+		adPostHead.setPostAuthor(adPostAuthor);
+		adPostHead.setPostCategory(adPostCategory);
+		adPostHead.setTags(adPostTags);
+				
 		this.adPostService.create(adPostHead);
 		
 		/*update tags*/
-//		String[] arrayTags = adPostTags.split(",");
-//		for (String tag : arrayTags) {
-//			logger.info("tag= " + tag );
-//			this.adTagService.updateTag(tag);
-//		}
-		
 		this.adTagService.updateTag(adPostTags);
 		
-		/*create a new AdPostCoverImage*/
+		/*create AdPostBody for common fields*/
 		AdPostBody adPostBody = new AdPostBody();
 		adPostBody.setUserId(jsonObj.getLong("adPostUserId"));
 		adPostBody.setAdPostId(adPostId);
-		//cImg.setMediaCoverUrl(jsonObj.getString(""));
-		//adPostBody.setIsPrimary(false);
 		adPostBody.setMediaIndex(0);
 		adPostBody.setLangNo(jsonObj.getInt("adPostLangNo"));
-		//adPostBody.setSortNo(0);
 		
-		if (!jsonObj.getString("adPostCoverImgUrl").isEmpty()) {
-			AdPostMediaBody adPostMediaBody = new AdPostMediaBody(adPostBody);
-			adPostMediaBody.setMediaTitle(jsonObj.getString("adPostCoverImgTitle"));
-			adPostMediaBody.setMediaUrl(jsonObj.getString("adPostCoverImgUrl"));
-			adPostMediaBody.setMediaDesc(jsonObj.getString("adPostCoverImgShortDesc")); 
-			AdPostCoverImage cImg = new AdPostCoverImage(adPostMediaBody);
-			this.adPostService.create(cImg);
-		}		
+		/*create AdPostText*/
+		AdPostText tContent = getAdPostText(adPostBody,adPostTextContentLongDesc);
+		this.adPostService.create(tContent);
 		
-		if (!jsonObj.getString("adPostTextContentLongDesc").isEmpty()) {
-			AdPostText tContent = new AdPostText(adPostBody);
-			tContent.setLongDesc(jsonObj.getString("adPostTextContentLongDesc"));
-			this.adPostService.create(tContent);
-		}
+		/*create AdPostCoverImage*/
+		AdPostCoverImage cImg = getAdPostCoverImage(adPostBody, adPostCoverImgTitle, adPostCoverImgUrl, adPostCoverImgShortDesc);
+		this.adPostService.create(cImg);
+				
+		/*create AdPostVideo*/
+		AdPostVideo vContent = getAdPostVideo(adPostBody, adPostVideoContentTitle, adPostVideoContentUrl, adPostVideoContentShortDesc);
+		this.adPostService.create(vContent);
 		
-		if (!jsonObj.getString("adPostVideoContentUrl").isEmpty()) {
-			String mediaTitle = jsonObj.getString("adPostVideoContentTitle");
-			String mediaUrl = jsonObj.getString("adPostVideoContentUrl");
-			String mediaDesc = jsonObj.getString("adPostVideoContentShortDesc");
-			
-			AdPostVideo vContent = getAdPostVideo(adPostBody, mediaTitle, mediaUrl, mediaDesc);
-			this.adPostService.create(vContent);
-		}
+		/*create AdPostAudio*/
+		AdPostAudio aContent = getAdPostAudio(adPostBody, adPostAudioContentTitle, adPostAudioContentUrl, adPostAudioContentShortDesc);
+		this.adPostService.create(aContent);
 		
-		
-		if (!jsonObj.getString("adPostAudioContentUrl").isEmpty()) {
-			String mediaTitle = jsonObj.getString("adPostAudioContentTitle");
-			String mediaUrl = jsonObj.getString("adPostAudioContentUrl");
-			String mediaDesc = jsonObj.getString("adPostAudioContentShortDesc");
-			
-			AdPostAudio aContent = getAdPostAudio(adPostBody, mediaTitle, mediaUrl, mediaDesc);
-			this.adPostService.create(aContent);
-		}
-		
-		AdPostMediaBody[] adPostMediaBodyForGalleryArray;
-		adPostMediaBodyForGalleryArray = new AdPostMediaBody[9];
-		AdPostSlideImage[] sImgArray;
-		sImgArray = new AdPostSlideImage[9];
-		
-		for(int i = 0; i < 9; i++) {
-			if (!jsonObj.getString("adPostSlideImgUrl"+(i+1)).isEmpty()) {
-				adPostMediaBodyForGalleryArray[i] = new AdPostMediaBody(adPostBody);
-				adPostMediaBodyForGalleryArray[i].setMediaTitle(jsonObj.getString("adPostSlideImgTitle"+(i+1)));
-				adPostMediaBodyForGalleryArray[i].setMediaUrl(jsonObj.getString("adPostSlideImgUrl"+(i+1)));
-				adPostMediaBodyForGalleryArray[i].setMediaDesc(jsonObj.getString("adPostSlideImgShortDesc"+(i+1)));
-				sImgArray[i] = new AdPostSlideImage(adPostMediaBodyForGalleryArray[i]);
-				this.adPostService.create(sImgArray[i]);
-			}
+		/*create AdPostGalleryImage*/
+		for(int i = 0; i < SIZE_OF_ADPOST_GALLERY_IMAGE; i++) {
+			AdPostGalleryImage gImg = getAdPostGalleryImage(adPostBody, adPostGalleryImgTitleList[i], adPostGalleryImgUrlList[i], adPostGalleryImgShortDescList[i]);
+			this.adPostService.create(gImg);
 		}
 
 		
@@ -308,20 +303,37 @@ public class AdPostController {
 	}
 
 
+	
+	
+	private AdPostText getAdPostText(AdPostBody adPostBody, String mediaDesc){
+		AdPostText contentObj = new AdPostText(adPostBody);
+		contentObj.setLongDesc(mediaDesc);
+		return contentObj;
+	}
 
-	public AdPostVideo getAdPostVideo(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+	private AdPostCoverImage getAdPostCoverImage(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+		AdPostMediaBody mediaBody = getAdPostMediaBody(adPostBody, mediaTitle, mediaUrl, mediaDesc);		
+		AdPostCoverImage contentObj = new AdPostCoverImage(mediaBody);
+		return contentObj;
+	}
+	
+	private AdPostGalleryImage getAdPostGalleryImage(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+		AdPostMediaBody mediaBody = getAdPostMediaBody(adPostBody, mediaTitle, mediaUrl, mediaDesc);		
+		AdPostGalleryImage contentObj = new AdPostGalleryImage(mediaBody);
+		return contentObj;
+	}
+
+	private AdPostVideo getAdPostVideo(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
 		AdPostMediaBody mediaBody = getAdPostMediaBody(adPostBody, mediaTitle, mediaUrl, mediaDesc);		
 		AdPostVideo contentObj = new AdPostVideo(mediaBody);
 		return contentObj;
 	}
 	
-	public AdPostAudio getAdPostAudio(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
+	private AdPostAudio getAdPostAudio(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
 		AdPostMediaBody mediaBody = getAdPostMediaBody(adPostBody, mediaTitle, mediaUrl, mediaDesc);		
 		AdPostAudio contentObj = new AdPostAudio(mediaBody);
 		return contentObj;
 	}
-	
-		
 	
 	private AdPostMediaBody getAdPostMediaBody(AdPostBody adPostBody, String mediaTitle, String mediaUrl, String mediaDesc){
 		AdPostMediaBody mediaBody = new AdPostMediaBody(adPostBody);

@@ -9,16 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.adogo.ad.dao.AdPostDao;
 import com.adogo.ad.dao.AdPostHeadDao;
-
 import com.adogo.ad.dao.AdPostTextDao;
-
 import com.adogo.ad.entity.AdPostAudio;
 import com.adogo.ad.entity.AdPostCoverImage;
-
+import com.adogo.ad.entity.AdPostGalleryImage;
 import com.adogo.ad.entity.AdPostHead;
-
-import com.adogo.ad.entity.AdPostText;
-
 import com.adogo.ad.entity.AdPostSlideImage;
 import com.adogo.ad.entity.AdPostText;
 import com.adogo.ad.entity.AdPostVideo;
@@ -76,30 +71,60 @@ public class AdPostService {
 		return null;
 	}
 	
+	
 	@Transactional
-	public long create(AdPostCoverImage adPost) {
-		return this.adPostDao.create(adPost);
+	public long create(AdPostText contentObj) {
+		long intFlag = 0L;
+		if(contentObj.getLongDesc().isEmpty()){
+			return this.adPostDao.create(contentObj);
+		}
+		return intFlag;
+	}
+	
+	@Transactional
+	public long create(AdPostCoverImage contentObj) {
+		long intFlag = 0L;
+		if(contentObj.getMediaUrl().isEmpty()){
+			intFlag = this.adPostDao.create(contentObj);
+		}
+		return intFlag;
+	}
+
+
+	@Transactional
+	public long create(AdPostVideo contentObj) {
+		long intFlag = 0L;
+		if(contentObj.getMediaUrl().isEmpty()){
+			return this.adPostDao.create(contentObj);
+		}
+		return intFlag;
 	}
 
 	@Transactional
-	public long create(AdPostText tContent) {
-		return this.adPostDao.create(tContent);
+	public long create(AdPostAudio contentObj) {
+		long intFlag = 0L;
+		if(contentObj.getMediaUrl().isEmpty()){
+			return this.adPostDao.create(contentObj);
+		}
+		return intFlag;
 	}
 
 	@Transactional
-	public long create(AdPostVideo vContent) {
-		return this.adPostDao.create(vContent);
+	public long create(AdPostSlideImage contentObj) {
+		long intFlag = 0L;
+		if(contentObj.getMediaUrl().isEmpty()){
+			return this.adPostDao.create(contentObj);
+		}
+		return intFlag;
 	}
-
+	
 	@Transactional
-	public long create(AdPostAudio aContent) {
-		return this.adPostDao.create(aContent);
-	}
-
-	@Transactional
-	public long create(AdPostSlideImage sImg) {
-		return this.adPostDao.create(sImg);
-
+	public long create(AdPostGalleryImage contentObj) {
+		long intFlag = 0L;
+		if(contentObj.getMediaUrl().isEmpty()){
+			return this.adPostDao.create(contentObj);
+		}
+		return intFlag;
 	}
 }
 

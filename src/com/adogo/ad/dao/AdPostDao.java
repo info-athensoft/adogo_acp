@@ -2,6 +2,7 @@ package com.adogo.ad.dao;
 
 import com.adogo.ad.entity.AdPostAudio;
 import com.adogo.ad.entity.AdPostCoverImage;
+import com.adogo.ad.entity.AdPostGalleryImage;
 import com.adogo.ad.entity.AdPostSlideImage;
 import com.adogo.ad.entity.AdPostText;
 import com.adogo.ad.entity.AdPostVideo;
@@ -17,6 +18,8 @@ public interface AdPostDao {
 	long create(AdPostAudio aContent);
 
 	long create(AdPostSlideImage sImg);
+	
+	long create(AdPostGalleryImage gImg);
 
 
 }
