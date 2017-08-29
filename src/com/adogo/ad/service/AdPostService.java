@@ -50,8 +50,17 @@ public class AdPostService {
 	
 	
 	/*master table*/
-	public AdPostHead findById(long globalId) {
+	public List<AdPostHead> getAllAdPostHead() {
+		return this.adPostHeadDao.findAll();
+	}
+	
+	
+	public AdPostHead getAdPostHeadById(long globalId) {
 		return this.adPostHeadDao.findById(globalId);
+	}
+	
+	public Long getAdPostHeadCount() {
+		return this.adPostHeadDao.findTotalCount();
 	}
 	
 	public int saveTags(String adpostId, String tagNameList) {

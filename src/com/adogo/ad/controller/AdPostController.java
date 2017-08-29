@@ -26,7 +26,6 @@ import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostGalleryImage;
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.entity.AdPostMediaBody;
-import com.adogo.ad.entity.AdPostSlideImage;
 import com.adogo.ad.entity.AdPostText;
 import com.adogo.ad.entity.AdPostVideo;
 import com.adogo.ad.service.AdPostService;
@@ -190,7 +189,7 @@ public class AdPostController {
 
 		
 		/* assemble model and view */
-		String viewName = "ad/adpost/create";
+		String viewName = "ad/ad_post";
         mav.setViewName(viewName);
 		
 		logger.info("exiting... /ad/adpost/saveAdPost");
@@ -216,7 +215,11 @@ public class AdPostController {
 		List<AdPost> list = new ArrayList<AdPost>();
 		//TODO
 		
+		Long numOfAdPost = adPostService.getAdPostHeadCount();
+		logger.info(">>> Num of AdPost (header) is: "+numOfAdPost);
+		
 		model.put("listAdPost", list);
+		model.put("countAdPost", numOfAdPost+"");
 		
 		logger.info("exiting RESTFUL API... /ad/adpost/adposts");
 		return model;

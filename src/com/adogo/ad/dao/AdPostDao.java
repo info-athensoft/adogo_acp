@@ -9,17 +9,18 @@ import com.adogo.ad.entity.AdPostVideo;
 
 public interface AdPostDao {
 
-	long create(AdPostCoverImage adPost);
+	public long create(AdPostCoverImage adPost);
 
-	long create(AdPostText tContent);
+	public long create(AdPostText tContent);
 
-	long create(AdPostVideo vContent);
+	public long create(AdPostVideo vContent);
 
-	long create(AdPostAudio aContent);
+	public long create(AdPostAudio aContent);
 
-	long create(AdPostSlideImage sImg);
+	public long create(AdPostSlideImage sImg);
 	
-	long create(AdPostGalleryImage gImg);
-
+	public long create(AdPostGalleryImage gImg);
+	
+	
 
 }

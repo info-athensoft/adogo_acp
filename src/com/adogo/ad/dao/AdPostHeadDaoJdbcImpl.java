@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -36,6 +37,20 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 	}
 	
 	@Override
+	public List<AdPostHead> findAll() {
+		final String TABLE = "AD_POST";
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("select * from ");
+		sbf.append(TABLE);
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		return jdbc.query(sql,paramSource,new AdPostHeadRowMapper());
+		
+	}
+
+	@Override
 	public AdPostHead findById(long globalId) {
 		String sql = "select * from AD_POST where global_id =:global_id";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
@@ -47,6 +62,19 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 			x = null;
 		}
 		return x;
+	}
+
+	@Override
+	public Long findTotalCount() {
+		String sql = "select count(*) from AD_POST";
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		Long count = 0L;
+		try{
+			count = jdbc.queryForObject(sql, paramSource, Long.class);
+		}catch(EmptyResultDataAccessException ex){
+			count = 0L;
+		}
+		return count;
 	}
 
 	@Override
