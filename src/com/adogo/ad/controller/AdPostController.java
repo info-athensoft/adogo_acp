@@ -212,13 +212,20 @@ public class AdPostController {
 		Map<String, Object> model = mav.getModel();
 		
 		//retrieve data from database via service and dao		
-		List<AdPost> list = new ArrayList<AdPost>();
+		List<AdPost> listAdPost = new ArrayList<AdPost>();
 		//TODO
+		
+		List<AdPostHead> listAdPostHead = new ArrayList<AdPostHead>();
+		listAdPostHead = adPostService.getAllAdPostHead();
 		
 		Long numOfAdPost = adPostService.getAdPostHeadCount();
 		logger.info(">>> Num of AdPost (header) is: "+numOfAdPost);
 		
-		model.put("listAdPost", list);
+		
+		
+		
+		model.put("listAdPost", listAdPost);
+		model.put("listAdPostHead", listAdPostHead);
 		model.put("countAdPost", numOfAdPost+"");
 		
 		logger.info("exiting RESTFUL API... /ad/adpost/adposts");
@@ -235,7 +242,7 @@ public class AdPostController {
 	 */
 	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> getDataAdPost(@PathVariable String adPostId){
+	public Map<String,Object> getDataAdPost(@PathVariable long adPostId){
 		logger.info("entering RESTFUL API... /ad/adpost/adposts/"+adPostId);
 		
 		ModelAndView mav = new ModelAndView();
@@ -244,10 +251,16 @@ public class AdPostController {
 		Map<String, Object> model = mav.getModel();
 		
 		//retrieve data from database via service and dao		
-		AdPost obj = new AdPost();
+		AdPost adPost = new AdPost();
 		//TODO
 		
-		model.put("adPost", obj);
+		AdPostHead adPostHead = adPostService.getAdPostHeadByAdPostId(adPostId);
+		
+		adPost.setAdPostHead(adPostHead);
+		
+		//
+		model.put("adPost", adPost);
+		model.put("adPostHead", adPostHead);
 		
 		logger.info("exiting RESTFUL API... /ad/adpost/adposts"+adPostId);
 		return model;

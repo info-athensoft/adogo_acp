@@ -10,6 +10,8 @@ public interface AdPostHeadDao {
 	
 	public AdPostHead findById(long globalId);
 	
+	public AdPostHead findByAdPostId(long adPostId);
+	
 	public Long findTotalCount();
 	
 	public int saveTags(String adpostId, String tags);

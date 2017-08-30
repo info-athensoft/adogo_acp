@@ -14,6 +14,8 @@ public class AdPostHead {
 	protected Date postDatetime;
 	protected Integer langNo;
 	protected String tags;
+	protected Integer viewNum;
+	protected String shortDesc;
 	
 	
 	public Long getGlobalId() {
@@ -88,6 +90,18 @@ public class AdPostHead {
 		return "AdPost [globalId=" + globalId + ", userId=" + userId + ", adPostId=" + adPostId + ", mediaCoverUrl="
 				+ mediaCoverUrl + ", postTitle=" + postTitle + ", postAuthor=" + postAuthor + ", createDatetime="
 				+ createDatetime + ", postDatetime=" + postDatetime + ", langNo=" + langNo + ", tags=" + tags + "]";
+	}
+	public Integer getViewNum() {
+		return viewNum;
+	}
+	public void setViewNum(Integer viewNum) {
+		this.viewNum = viewNum;
+	}
+	public String getShortDesc() {
+		return shortDesc;
+	}
+	public void setShortDesc(String shortDesc) {
+		this.shortDesc = shortDesc;
 	}
 
 }

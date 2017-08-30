@@ -41,8 +41,21 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 		final String TABLE = "AD_POST";
 		
 		StringBuffer sbf = new StringBuffer();
-		sbf.append("select * from ");
-		sbf.append(TABLE);
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("user_id, ");
+		sbf.append("adpost_id, ");
+		sbf.append("media_cover_url, ");
+		sbf.append("post_title, ");
+		sbf.append("post_author, ");
+		sbf.append("post_category, ");
+		sbf.append("create_datetime, ");
+		sbf.append("post_datetime, ");
+		sbf.append("lang_no, ");
+		sbf.append("tags, ");
+		sbf.append("view_num, ");
+		sbf.append("short_desc ");
+		sbf.append(" FROM "+TABLE);
 		String sql = sbf.toString();
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
@@ -52,9 +65,67 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 
 	@Override
 	public AdPostHead findById(long globalId) {
-		String sql = "select * from AD_POST where global_id =:global_id";
+		final String TABLE = "AD_POST";
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("user_id, ");
+		sbf.append("adpost_id, ");
+		sbf.append("media_cover_url, ");
+		sbf.append("post_title, ");
+		sbf.append("post_author, ");
+		sbf.append("post_category, ");
+		sbf.append("create_datetime, ");
+		sbf.append("post_datetime, ");
+		sbf.append("lang_no, ");
+		sbf.append("tags, ");
+		sbf.append("view_num, ");
+		sbf.append("short_desc ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND global_id =:global_id ");
+		
+		String sql = sbf.toString();
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("global_id", globalId);
+		AdPostHead x = null;
+		try{
+			x = jdbc.queryForObject(sql, paramSource, new AdPostHeadRowMapper());
+		}catch(EmptyResultDataAccessException ex){
+			x = null;
+		}
+		return x;
+	}
+
+	@Override
+	public AdPostHead findByAdPostId(long adPostId) {
+		final String TABLE = "AD_POST";
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("user_id, ");
+		sbf.append("adpost_id, ");
+		sbf.append("media_cover_url, ");
+		sbf.append("post_title, ");
+		sbf.append("post_author, ");
+		sbf.append("post_category, ");
+		sbf.append("create_datetime, ");
+		sbf.append("post_datetime, ");
+		sbf.append("lang_no, ");
+		sbf.append("tags, ");
+		sbf.append("view_num, ");
+		sbf.append("short_desc ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND adpost_id =:adpost_id ");
+		
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("adpost_id", adPostId);
 		AdPostHead x = null;
 		try{
 			x = jdbc.queryForObject(sql, paramSource, new AdPostHeadRowMapper());
@@ -134,19 +205,18 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 			x.setMediaCoverUrl(rs.getString("media_cover_url"));
 			x.setPostTitle(rs.getString("post_title"));
 			x.setPostAuthor(rs.getString("post_author"));
+			x.setPostCategory(rs.getInt("post_category"));
 			
 			Timestamp cd = rs.getTimestamp("create_datetime");
-			if (cd != null) {
-				x.setCreateDatetime(new Date(cd.getTime()));
-			}
+			if (cd != null) {	x.setCreateDatetime(new Date(cd.getTime())); }
 			
 			Timestamp pd = rs.getTimestamp("post_datetime");
-			if (pd != null) {
-				x.setPostDatetime(new Date(pd.getTime()));			
-			}
+			if (pd != null) {	x.setPostDatetime(new Date(pd.getTime()));	}
 			
 			x.setLangNo(rs.getInt("lang_no"));
 			x.setTags(rs.getString("tags"));
+			x.setViewNum(rs.getInt("view_num"));
+			x.setShortDesc(rs.getString("short_desc"));
 			
             return x;
 		}		

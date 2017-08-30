@@ -59,6 +59,10 @@ public class AdPostService {
 		return this.adPostHeadDao.findById(globalId);
 	}
 	
+	public AdPostHead getAdPostHeadByAdPostId(long adPostId) {
+		return this.adPostHeadDao.findByAdPostId(adPostId);
+	}
+	
 	public Long getAdPostHeadCount() {
 		return this.adPostHeadDao.findTotalCount();
 	}

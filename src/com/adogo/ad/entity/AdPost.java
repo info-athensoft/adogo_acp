@@ -1,6 +1,7 @@
 package com.adogo.ad.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -48,6 +49,22 @@ public class AdPost extends AdPostHead {
 		}//end-of-else
 		
 		return primaryMediaObj;
+	}
+	
+	public void setAdPostHead(AdPostHead adPostHead){
+		this.globalId = adPostHead.getGlobalId();
+		this.userId = adPostHead.getUserId();
+		this.adPostId = adPostHead.getAdPostId();
+		this.mediaCoverUrl = adPostHead.getMediaCoverUrl();
+		this.postTitle = adPostHead.getPostTitle();
+		this.postAuthor = adPostHead.getPostAuthor();
+		this.postCategory = adPostHead.getPostCategory();
+		this.createDatetime = adPostHead.getCreateDatetime();
+		this.postDatetime = adPostHead.getPostDatetime();
+		this.langNo = adPostHead.getLangNo();
+		this.tags = adPostHead.getTags();
+		this.viewNum = adPostHead.getViewNum();
+		this.shortDesc = adPostHead.getShortDesc();
 	}
 	
 	
