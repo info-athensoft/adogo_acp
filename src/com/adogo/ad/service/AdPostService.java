@@ -88,7 +88,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostText contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getLongDesc().isEmpty()){
+		if(!contentObj.getLongDesc().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -97,7 +97,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostCoverImage contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			intFlag = this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -107,7 +107,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostVideo contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -116,7 +116,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostAudio contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -125,7 +125,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostSlideImage contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -134,7 +134,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostGalleryImage contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;

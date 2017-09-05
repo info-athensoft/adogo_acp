@@ -111,24 +111,37 @@ public class AdPostController {
 		String adPostAuthor		= jsonObj.getString("adPostAuthor");
 		Integer adPostCategory	= jsonObj.getInt("adPostCategory");
 		String adPostTags		= jsonObj.getString("adPostTags").replaceAll("^\"|\"$", "");
+		String adPostShortDesc	= jsonObj.getString("adPostShortDesc");
+		logger.info("adPostCategory="+adPostCategory);
+		logger.info("adPostShortDesc="+adPostShortDesc);
 		
 		//cover image
 		String adPostCoverImgTitle		= jsonObj.getString("adPostCoverImgTitle");
 		String adPostCoverImgUrl		= jsonObj.getString("adPostCoverImgUrl");
 		String adPostCoverImgShortDesc	= jsonObj.getString("adPostCoverImgShortDesc");
+		logger.info("cover image:adPostCoverImgTitle="+adPostCoverImgTitle);
+		logger.info("cover image:adPostCoverImgUrl="+adPostCoverImgUrl);
+		logger.info("cover image:adPostCoverImgShortDesc="+adPostCoverImgShortDesc);
 		
 		//text
 		String adPostTextContentLongDesc = jsonObj.getString("adPostTextContentLongDesc");
+		logger.info("text:adPostTextContentLongDesc="+adPostTextContentLongDesc);
 		
 		//video
 		String adPostVideoContentTitle 		= jsonObj.getString("adPostVideoContentTitle");
 		String adPostVideoContentUrl 		= jsonObj.getString("adPostVideoContentUrl");
 		String adPostVideoContentShortDesc 	= jsonObj.getString("adPostVideoContentShortDesc");
+		logger.info("video:adPostVideoContentTitle="+adPostVideoContentTitle);
+		logger.info("video:adPostVideoContentUrl="+adPostVideoContentUrl);
+		logger.info("video:adPostVideoContentShortDesc="+adPostVideoContentShortDesc);
 		
 		//audio
 		String adPostAudioContentTitle 		= jsonObj.getString("adPostAudioContentTitle");
 		String adPostAudioContentUrl 		= jsonObj.getString("adPostAudioContentUrl");
 		String adPostAudioContentShortDesc 	= jsonObj.getString("adPostAudioContentShortDesc");
+		logger.info("audio:adPostAudioContentTitle="+adPostAudioContentTitle);
+		logger.info("audio:adPostAudioContentUrl="+adPostAudioContentUrl);
+		logger.info("audio:adPostAudioContentShortDesc="+adPostAudioContentShortDesc);
 		
 		//gallery image
 		final int SIZE_OF_ADPOST_GALLERY_IMAGE = 9;
@@ -140,6 +153,9 @@ public class AdPostController {
 			adPostGalleryImgTitleList[i] 		= jsonObj.getString("adPostGalleryImgTitle"+(i+1));
 			adPostGalleryImgUrlList[i] 			= jsonObj.getString("adPostGalleryImgUrl"+(i+1));
 			adPostGalleryImgShortDescList[i] 	= jsonObj.getString("adPostGalleryImgShortDesc"+(i+1));
+			logger.info("gallery image:adPostGalleryImgTitleList["+i+"]="+adPostGalleryImgTitleList[i]);
+			logger.info("gallery image:adPostGalleryImgUrlList["+i+"]="+adPostGalleryImgUrlList[i]);
+			logger.info("gallery image:adPostGalleryImgShortDescList["+i+"]="+adPostGalleryImgShortDescList[i]);
 		}
 		
 		
@@ -152,6 +168,7 @@ public class AdPostController {
 		adPostHead.setPostAuthor(adPostAuthor);
 		adPostHead.setPostCategory(adPostCategory);
 		adPostHead.setTags(adPostTags);
+		adPostHead.setShortDesc(adPostShortDesc);
 				
 		this.adPostService.create(adPostHead);
 		
@@ -167,6 +184,7 @@ public class AdPostController {
 		
 		/*create AdPostText*/
 		AdPostText tContent = getAdPostText(adPostBody,adPostTextContentLongDesc);
+		logger.info("tContent.getLongDesc()="+tContent.getLongDesc());
 		this.adPostService.create(tContent);
 		
 		/*create AdPostCoverImage*/
