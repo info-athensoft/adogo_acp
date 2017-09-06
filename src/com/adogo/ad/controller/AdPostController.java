@@ -258,7 +258,7 @@ public class AdPostController {
 	 * 
 	 * @author Athens
 	 */
-	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.GET,produces="application/json")
+/*	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
 	public Map<String,Object> getDataAdPost(@PathVariable long adPostId){
 		logger.info("entering RESTFUL API... /ad/adpost/adposts/"+adPostId);
@@ -282,8 +282,32 @@ public class AdPostController {
 		
 		logger.info("exiting RESTFUL API... /ad/adpost/adposts"+adPostId);
 		return model;
-	}
-	
+	} */
+	@RequestMapping(value="/{adPostId}",method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<?> getDataAdPost(@PathVariable long adPostId){
+		logger.info("entering RESTFUL API... /ad/adpost/"+adPostId);
+		
+		//retrieve data from database via service and dao		
+		AdPost adPost = new AdPost();
+		AdPostHead adPostHead = adPostService.getAdPostHeadByAdPostId(adPostId);
+		adPost.setAdPostHead(adPostHead);
+		List<AdPostCoverImage> adPostCoverImage = adPostService.getAdPostCoverImageByAdPostId(adPostId);
+		adPost.setListAdPostCoverImage(adPostCoverImage);
+		
+		logger.info("exiting RESTFUL API... /ad/adpost/"+adPostId);
+		
+		if (adPostHead == null) {
+            logger.info("AdPost with id {"+ adPostId+"} not found.");
+            
+            return new ResponseEntity<AdPost>(HttpStatus.NOT_FOUND);
+        }
+		else {
+			return new ResponseEntity<AdPost>(adPost, HttpStatus.OK);
+		}
+        
+        
+	}	
 	
 	/**
 	 * create an AdPost object

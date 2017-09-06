@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.adogo.ad.dao.AdPostCoverImageDao;
 import com.adogo.ad.dao.AdPostDao;
 import com.adogo.ad.dao.AdPostHeadDao;
 import com.adogo.ad.dao.AdPostTextDao;
@@ -47,7 +48,13 @@ public class AdPostService {
 		this.adPostTextDao = adPostTextDao;
 	}
 	
-	
+	private AdPostCoverImageDao adPostCoverImageDao;
+
+	@Autowired
+	@Qualifier("adPostCoverImageDaoJdbcImpl")
+	public void setAdPostCoverImageDao(AdPostCoverImageDao adPostCoverImageDao) {
+		this.adPostCoverImageDao = adPostCoverImageDao;
+	}
 	
 	/*master table*/
 	public List<AdPostHead> getAllAdPostHead() {
@@ -82,6 +89,10 @@ public class AdPostService {
 
 	public List<AdPostText> getListAdPostText(){
 		return null;
+	}
+	
+	public List<AdPostCoverImage> getAdPostCoverImageByAdPostId(Long adPostId){
+		return this.adPostCoverImageDao.findByAdPostId(adPostId);
 	}
 	
 	
