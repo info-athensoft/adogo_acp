@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.adogo.ad.dao.AdPostAudioDao;
 import com.adogo.ad.dao.AdPostCoverImageDao;
 import com.adogo.ad.dao.AdPostDao;
+import com.adogo.ad.dao.AdPostGalleryImageDao;
 import com.adogo.ad.dao.AdPostHeadDao;
 import com.adogo.ad.dao.AdPostTextDao;
+import com.adogo.ad.dao.AdPostVideoDao;
 import com.adogo.ad.entity.AdPostAudio;
 import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostGalleryImage;
@@ -56,6 +59,30 @@ public class AdPostService {
 		this.adPostCoverImageDao = adPostCoverImageDao;
 	}
 	
+	private AdPostGalleryImageDao adPostGalleryImageDao;
+
+	@Autowired
+	@Qualifier("adPostGalleryImageDaoJdbcImpl")
+	public void setAdPostGalleryImageDao(AdPostGalleryImageDao adPostGalleryImageDao) {
+		this.adPostGalleryImageDao = adPostGalleryImageDao;
+	}
+	
+	private AdPostAudioDao adPostAudioDao;
+
+	@Autowired
+	@Qualifier("adPostAudioDaoJdbcImpl")
+	public void setAdPostAudioDao(AdPostAudioDao adPostAudioDao) {
+		this.adPostAudioDao = adPostAudioDao;
+	}
+	
+	private AdPostVideoDao adPostVideoDao;
+
+	@Autowired
+	@Qualifier("adPostVideoDaoJdbcImpl")
+	public void setAdPostVideoDao(AdPostVideoDao adPostVideoDao) {
+		this.adPostVideoDao = adPostVideoDao;
+	}
+	
 	/*master table*/
 	public List<AdPostHead> getAllAdPostHead() {
 		return this.adPostHeadDao.findAll();
@@ -99,6 +126,9 @@ public class AdPostService {
 		return this.adPostCoverImageDao.findTotalCount();
 	}
 	
+	public List<AdPostAudio> getAdPostAudioByAdPostId(Long adPostId){
+		return this.adPostAudioDao.findByAdPostId(adPostId);
+	}
 	
 	@Transactional
 	public long create(AdPostText contentObj) {

@@ -292,23 +292,27 @@ public class AdPostController {
 		AdPost adPost = new AdPost();
 		AdPostHead adPostHead = adPostService.getAdPostHeadByAdPostId(adPostId);
 		adPost.setAdPostHead(adPostHead);
+		
 		List<AdPostCoverImage> adPostCoverImage = adPostService.getAdPostCoverImageByAdPostId(adPostId);
 		adPost.setListAdPostCoverImage(adPostCoverImage);
 		
-		List<AdPostCoverImage> adPostCoverImage1 = adPost.getListAdPostCoverImage();
-		for (AdPostCoverImage cImg : adPostCoverImage1) {
-			logger.info("cImg getMediaCoverUrl()="+cImg.getMediaCoverUrl());
+		List<AdPostCoverImage> adPostCoverImage2 = adPost.getListAdPostCoverImage();
+/*		for (AdPostCoverImage cImg : adPostCoverImage2) {
 			logger.info("cImg getMediaUrl()="+cImg.getMediaUrl());
-		}
-		
-		AdPostCoverImage primaryCoverImage = adPost.getPrimaryMediaObject(adPostCoverImage1);
+		} */
+		AdPostCoverImage primaryCoverImage = adPost.getPrimaryMediaObject(adPostCoverImage2);
 		logger.info("primaryCoverImage getMediaUrl()="+primaryCoverImage.getMediaUrl());
 		
-		Long test = adPostService.getAdPostHeadCount();
-		logger.info("test getAdPostHeadCount()="+test);
 		
-		Long test2 = adPostService.getAdPostCoverImageCount();
-		logger.info("test getAdPostCoverImageCount()="+test2);
+		List<AdPostAudio> adPostAudio = adPostService.getAdPostAudioByAdPostId(adPostId);
+		adPost.setListAdPostAudio(adPostAudio);
+		
+		List<AdPostAudio> adPostAudio2 = adPost.getListAdPostAudio();
+				
+		AdPostAudio primaryAudio = adPost.getPrimaryMediaObject(adPostAudio2);
+		logger.info("primaryAudio getMediaUrl()="+primaryAudio.getMediaUrl());
+		
+		
 		
 		logger.info("exiting RESTFUL API... /ad/adpost/"+adPostId);
 		
