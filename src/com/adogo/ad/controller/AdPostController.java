@@ -295,6 +295,21 @@ public class AdPostController {
 		List<AdPostCoverImage> adPostCoverImage = adPostService.getAdPostCoverImageByAdPostId(adPostId);
 		adPost.setListAdPostCoverImage(adPostCoverImage);
 		
+		List<AdPostCoverImage> adPostCoverImage1 = adPost.getListAdPostCoverImage();
+		for (AdPostCoverImage cImg : adPostCoverImage1) {
+			logger.info("cImg getMediaCoverUrl()="+cImg.getMediaCoverUrl());
+			logger.info("cImg getMediaUrl()="+cImg.getMediaUrl());
+		}
+		
+		AdPostCoverImage primaryCoverImage = adPost.getPrimaryMediaObject(adPostCoverImage1);
+		logger.info("primaryCoverImage getMediaUrl()="+primaryCoverImage.getMediaUrl());
+		
+		Long test = adPostService.getAdPostHeadCount();
+		logger.info("test getAdPostHeadCount()="+test);
+		
+		Long test2 = adPostService.getAdPostCoverImageCount();
+		logger.info("test getAdPostCoverImageCount()="+test2);
+		
 		logger.info("exiting RESTFUL API... /ad/adpost/"+adPostId);
 		
 		if (adPostHead == null) {

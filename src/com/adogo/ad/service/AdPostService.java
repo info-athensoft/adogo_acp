@@ -95,6 +95,10 @@ public class AdPostService {
 		return this.adPostCoverImageDao.findByAdPostId(adPostId);
 	}
 	
+	public Long getAdPostCoverImageCount() {
+		return this.adPostCoverImageDao.findTotalCount();
+	}
+	
 	
 	@Transactional
 	public long create(AdPostText contentObj) {

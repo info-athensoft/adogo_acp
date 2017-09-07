@@ -11,6 +11,8 @@ public interface AdPostCoverImageDao {
 	
 	public List<AdPostCoverImage> findByAdPostId(Long adPostId);
 	
+	public Long findTotalCount();
+	
 	public AdPostCoverImage findPrimary();
 	
 	

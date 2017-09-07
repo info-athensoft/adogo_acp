@@ -4,8 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -18,6 +22,15 @@ import com.adogo.ad.entity.AdPostCoverImage;
 public class AdPostCoverImageDaoJdbcImpl implements AdPostCoverImageDao {
 	
 	private NamedParameterJdbcTemplate jdbc;
+	/**
+	 * inject DataSource object
+	 * @param dataSource
+	 */
+	@Autowired
+	public void setDataSource(DataSource dataSource){
+		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
+	}
+	
 	private final static Logger logger = Logger.getLogger(AdPostCoverImageDaoJdbcImpl.class);
 
 	@Override
@@ -58,7 +71,21 @@ public class AdPostCoverImageDaoJdbcImpl implements AdPostCoverImageDao {
 		String sql = sbf.toString();
 		logger.info("sql="+sql);
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("adpost_id", adPostId);
 		return jdbc.query(sql,paramSource,new AdPostCoverImageRowMapper());
+	}
+	
+	@Override
+	public Long findTotalCount() {
+		String sql = "select count(*) from AD_POST_IMG";
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		Long count = 0L;
+		try{
+			count = jdbc.queryForObject(sql, paramSource, Long.class);
+		}catch(EmptyResultDataAccessException ex){
+			count = 0L;
+		}
+		return count;
 	}
 
 	@Override
@@ -87,5 +114,7 @@ public class AdPostCoverImageDaoJdbcImpl implements AdPostCoverImageDao {
             return x;
 		}		
 	}
+
+	
 	
 }
