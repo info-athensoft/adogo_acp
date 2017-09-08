@@ -47,7 +47,7 @@ public class AdPostAudioDaoJdbcImpl implements AdPostAudioDao {
 
 	@Override
 	public List<AdPostAudio> findByAdPostId(Long adPostId) {
-final String TABLE = "AD_POST_MEDIA";
+		final String TABLE = "AD_POST_MEDIA";
 		
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");

@@ -313,8 +313,28 @@ public class AdPostController {
 		logger.info("primaryAudio getMediaUrl()="+primaryAudio.getMediaUrl());
 		
 		
+		List<AdPostVideo> adPostVideo = adPostService.getAdPostVideoByAdPostId(adPostId);
+		adPost.setListAdPostVideo(adPostVideo);
+		
+		List<AdPostVideo> adPostVideo2 = adPost.getListAdPostVideo();
+				
+		AdPostVideo primaryVideo = adPost.getPrimaryMediaObject(adPostVideo2);
+		logger.info("primaryVideo getMediaUrl()="+primaryVideo.getMediaUrl());
+		
+		
+		List<AdPostGalleryImage> adPostGalleryImage = adPostService.getAdPostGalleryImageByAdPostId(adPostId);
+		adPost.setListAdPostGalleryImage(adPostGalleryImage);
+		
+		List<AdPostGalleryImage> adPostGalleryImage2 = adPost.getListAdPostGalleryImage();
+		for (AdPostGalleryImage gImg : adPostGalleryImage2) {
+			logger.info("gImg getMediaUrl()="+gImg.getMediaUrl());
+		} 
+		AdPostGalleryImage primaryGalleryImage = adPost.getPrimaryMediaObject(adPostGalleryImage2);
+		logger.info("primaryGalleryImage getMediaUrl()="+primaryGalleryImage.getMediaUrl());
+		
 		
 		logger.info("exiting RESTFUL API... /ad/adpost/"+adPostId);
+		
 		
 		if (adPostHead == null) {
             logger.info("AdPost with id {"+ adPostId+"} not found.");
@@ -324,7 +344,6 @@ public class AdPostController {
 		else {
 			return new ResponseEntity<AdPost>(adPost, HttpStatus.OK);
 		}
-        
         
 	}	
 	

@@ -130,6 +130,14 @@ public class AdPostService {
 		return this.adPostAudioDao.findByAdPostId(adPostId);
 	}
 	
+	public List<AdPostVideo> getAdPostVideoByAdPostId(Long adPostId){
+		return this.adPostVideoDao.findByAdPostId(adPostId);
+	}
+	
+	public List<AdPostGalleryImage> getAdPostGalleryImageByAdPostId(Long adPostId){
+		return this.adPostGalleryImageDao.findByAdPostId(adPostId);
+	}
+	
 	@Transactional
 	public long create(AdPostText contentObj) {
 		long intFlag = 0L;
