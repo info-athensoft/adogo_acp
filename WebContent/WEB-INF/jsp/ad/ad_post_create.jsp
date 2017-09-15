@@ -55,6 +55,9 @@ License: You must have a valid license purchased only from themeforest(the above
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.css"/>
+        
+        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+        
         <link href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
         <link href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
@@ -574,7 +577,18 @@ License: You must have a valid license purchased only from themeforest(the above
                                         
                                         	<div class="row">
 	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg" width="100%"/>
+	                                        		<div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail" style="width: 100px; height: 75px;">
+                                                            <img src="http://www.placehold.it/100x75/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                                        <div>
+                                                            <span class="btn default btn-file">
+                                                                <span class="fileinput-new"> Select image </span>
+                                                                <span class="fileinput-exists"> Change </span>
+                                                                <input type="file" name="..."> </span>
+                                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                        </div>
+                                                    </div>
 	                                        	</div>
 	                                        	<div class="col-md-9">
 		                                        	<div class="form-group">
@@ -882,6 +896,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+<script src="${webapp_name}/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
 
 <script src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
