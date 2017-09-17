@@ -256,7 +256,7 @@ public class AdPostController {
 	 * @param adPostId
 	 * @return
 	 * 
-	 * @author Athens
+	 * @author sfz
 	 */
 /*	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
