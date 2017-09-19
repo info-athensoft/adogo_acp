@@ -575,6 +575,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <form class="form-horizontal" role="form">
                                         <div class="form-body">
                                         
+                                        			<div id="tab_images_uploader_container" class="text-align-reverse margin-bottom-10">
+                                                        <a id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
+                                                            <i class="fa fa-plus"></i> Select Files </a>
+                                                        <a id="tab_images_uploader_uploadfiles" href="javascript:;" class="btn btn-primary">
+                                                            <i class="fa fa-share"></i> Upload Files </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"> </div>
+                                                    </div>
+                                        
                                         	<div class="row">
 	                                        	<div class="col-md-3">
 	                                        		<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -894,8 +904,10 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+<script src="${webapp_name}/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="${webapp_name}/assets/global/plugins/plupload/js/plupload.full.min.js" type="text/javascript"></script>
 
 <script src="${webapp_name}/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
 
@@ -913,6 +925,9 @@ License: You must have a valid license purchased only from themeforest(the above
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost-create.js"></script>
+
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/temp/event-news-edit.js"></script>
+
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -923,6 +938,16 @@ License: You must have a valid license purchased only from themeforest(the above
 <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
+<script>
+jQuery(document).ready(function() {    
+	//Metronic.init(); // init metronic core components
+	//Layout.init(); // init current layout
+	//Demo.init(); // init demo features
+	//EventNewsEdit.init();
+	//var eventUUID = $("#eventUUID").val();
+	EventNewsEdit.init('1011');
+});
+</script>
 <script>
 function testButtonConfirmLang(){
 	alert("ok");
