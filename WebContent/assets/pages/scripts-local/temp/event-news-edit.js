@@ -3,7 +3,8 @@
 /* edit news - init */
 var EventNewsEdit = function (option) {
 	
-	var num = 1;
+	var imgNo = ["9", "8", "7", "6", "5", "4", "3", "2", "1"];
+	//var num = "1";
 
     var handleImages = function(option) {
 
@@ -40,16 +41,31 @@ var EventNewsEdit = function (option) {
                         return false;
                     });
 
-                    $('#tab_images_uploader_filelist').on('click', '.added-files .remove', function(){
-                        uploader.removeFile($(this).parent('.added-files').attr("id"));    
-                        $(this).parent('.added-files').remove();                     
+                    $('#tab_images_uploader_filelist').on('click', '.col-md-3 .added-files .remove', function(){
+//                    	alert("id="+$(this).attr("id"));
+                    	imgNo.push($(this).attr("id"));
+                        uploader.removeFile($(this).parent('.added-files').attr("id"));
+                        $(this).parent('.added-files').parent().next().remove();
+//                        $(this).parent('.added-files').remove();
+                        $(this).parent('.added-files').parent().remove();
                     });
                 },
          
                 FilesAdded: function(up, files) {
                     plupload.each(files, function(file) {
                     	//alert(num++);
-                        $('#tab_images_uploader_filelist').append('<div style="width: 200px;" class="alert alert-warning added-files" id="uploaded_file_' + file.id + '">' + file.name + '(' + plupload.formatSize(file.size) + ')</div> <div style="width: 200px;"  align="left"><a href="javascript:;" style="margin-top:-5px" class="remove pull-right btn btn-sm red"><i class="fa fa-times"></i> remove</a></div>');
+                    	var num = imgNo.pop();
+                    	if (typeof num == 'undefined') {
+                    		alert('Over limit!');
+                    	}
+                        else {
+                        	//$('#tab_images_uploader_filelist').append('<table id="tab_images_uploader_filelist_table'+num+'"></table>');
+                        	//$('#tab_images_uploader_filelist_table'+num).append('<tr id="tab_images_uploader_filelist_table_tr'+num+'"></tr>');
+                        	$('#tab_images_uploader_filelist').append('<div class="col-md-3" style="float: left; width: 200px;"><div style="width: 200px; margin-top:10px" class="alert alert-warning added-files" id="uploaded_file_' + file.id + '">' + file.name + '(' + plupload.formatSize(file.size) + ')<a href="javascript:;" id = "'+num+'" class="remove pull-right btn btn-sm red"><i class="fa fa-times"></i> remove</a></div><div><p><br><br><br></div></div>');
+                            $('#tab_images_uploader_filelist').append('<div class="col-md-9" style="float: right; width: 250px;"><div class="form-group"><label class="col-md-3 control-label">Title</label><div class="col-md-9"><input type="text" id="adPost-gallery-img-title'+num+'" class="form-control" placeholder="Enter text"></div></div><div class="form-group"><label class="col-md-3 control-label">URL</label><div class="col-md-9"><input type="text" id="adPost-gallery-img-url'+num+'" class="form-control" placeholder="Enter text"></div></div><div class="form-group"><label class="col-md-3 control-label">Desc</label><div class="col-md-9"><textarea id="adPost-gallery-img-short-desc'+num+'" class="form-control" rows="2"></textarea></div></div></div>');
+
+                        }
+                       		
                     });
                 },
          

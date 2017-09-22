@@ -577,14 +577,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                         
                                         			<div id="tab_images_uploader_container" class="text-align-reverse margin-bottom-10">
                                                         <a id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
-                                                            <i class="fa fa-plus"></i> Select Files </a>
+                                                            <i class="fa fa-plus"></i> Add Files </a>
                                                         <a id="tab_images_uploader_uploadfiles" href="javascript:;" class="btn btn-primary">
                                                             <i class="fa fa-share"></i> Upload Files </a>
                                                     </div>
-                                                    <div class="row">
-                                                        <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"> </div>
+                                                    <div id="tab_images_uploader_filelist">
+                                                        <!-- <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"> </div> -->
                                                     </div>
-                                        
+                                        <!-- 
                                         	<div class="row">
 	                                        	<div class="col-md-3">
 	                                        		<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -863,7 +863,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                            </div>
 	                                        	</div>
                                         	</div>
-                                        	
+                                         -->	
                                         </div>
                                     </form>
                                 </div>
