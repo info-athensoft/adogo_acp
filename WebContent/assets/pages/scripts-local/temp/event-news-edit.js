@@ -61,9 +61,9 @@ var EventNewsEdit = function (option) {
                         else {
                         	//$('#tab_images_uploader_filelist').append('<table id="tab_images_uploader_filelist_table'+num+'"></table>');
                         	//$('#tab_images_uploader_filelist_table'+num).append('<tr id="tab_images_uploader_filelist_table_tr'+num+'"></tr>');
-                        	$('#tab_images_uploader_filelist').append('<div class="col-md-3" style="float: left; width: 200px;"><div style="width: 200px; margin-top:10px" class="alert alert-warning added-files" id="uploaded_file_' + file.id + '">' + file.name + '(' + plupload.formatSize(file.size) + ')<a href="javascript:;" id = "'+num+'" class="remove pull-right btn btn-sm red"><i class="fa fa-times"></i> remove</a></div><div><p><br><br><br></div></div>');
+                        	$('#tab_images_uploader_filelist').append('<div class="col-md-3" style="float: left; width: 200px;"><div style="width: 200px; margin-top:12px" class="alert alert-warning added-files" id="uploaded_file_' + file.id + '">' + file.name + '(' + plupload.formatSize(file.size) + ')<a href="javascript:;" id = "'+num+'" class="remove pull-right btn btn-sm red"><i class="fa fa-times"></i> remove</a></div><div><p><br><br><br></div></div>');
                             $('#tab_images_uploader_filelist').append('<div class="col-md-9" style="float: right; width: 250px;"><div class="form-group"><label class="col-md-3 control-label">Title</label><div class="col-md-9"><input type="text" id="adPost-gallery-img-title'+num+'" class="form-control" placeholder="Enter text"></div></div><div class="form-group"><label class="col-md-3 control-label">URL</label><div class="col-md-9"><input type="text" id="adPost-gallery-img-url'+num+'" class="form-control" placeholder="Enter text"></div></div><div class="form-group"><label class="col-md-3 control-label">Desc</label><div class="col-md-9"><textarea id="adPost-gallery-img-short-desc'+num+'" class="form-control" rows="2"></textarea></div></div></div>');
-
+                            file.name = num + "." + file.name.split('.')[1];
                         }
                        		
                     });
@@ -84,7 +84,7 @@ var EventNewsEdit = function (option) {
                         
                         //create media record to database
                         
-                        
+                        $('#adPost-gallery-img-url' + file.name.split('.')[0]).val(file.name);
                         
                     } else {
                         $('#uploaded_file_' + file.id + ' > .status').removeClass("label-info").addClass("label-danger").html('<i class="fa fa-warning"></i> Failed'); // set failed upload
