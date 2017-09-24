@@ -926,7 +926,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost-create.js"></script>
 
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/temp/event-news-edit.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost-create-test.js"></script>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
@@ -945,7 +945,7 @@ jQuery(document).ready(function() {
 	//Demo.init(); // init demo features
 	//EventNewsEdit.init();
 	//var eventUUID = $("#eventUUID").val();
-	EventNewsEdit.init('1011');
+	EventNewsEdit.init('1011');		//TODO to change
 });
 </script>
 <script>
