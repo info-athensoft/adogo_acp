@@ -576,26 +576,28 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <div class="form-body">
                                         
                                         			<div id="tab_images_uploader_container" class="text-align-reverse margin-bottom-10">
-                                                        <a id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
-                                                            <i class="fa fa-plus"></i> Add Files </a>
+                                                         <a id="tab_images_uploader_pickfiles1"  onclick="$('#call-me-first').trigger('click'); return false;" href="javascript:;" class="btn btn-success">
+                                                            <i class="fa fa-plus"></i> Add Files </a> 
                                                         <a id="tab_images_uploader_uploadfiles" href="javascript:;" class="btn btn-primary">
                                                             <i class="fa fa-share"></i> Upload Files </a>
                                                     </div>
                                                     <div id="tab_images_uploader_filelist">
                                                         <!-- <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"> </div> -->
                                                     </div>
-                                        <!-- 
+                                         
                                         	<div class="row">
 	                                        	<div class="col-md-3">
 	                                        		<div class="fileinput fileinput-new" data-provides="fileinput">
-                                                        <div class="fileinput-new thumbnail" style="width: 100px; height: 75px;">
+                                                        <div id="preview" class="fileinput-new thumbnail" style="width: 100px; height: 75px;">
                                                             <img src="http://www.placehold.it/100x75/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
                                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
-                                                        <div>
+                                                        <div id="tab_images_uploader_container">
                                                             <span class="btn default btn-file">
-                                                                <span class="fileinput-new"> Select image </span>
+                                                                <span class="fileinput-new"> Select Image </span>
                                                                 <span class="fileinput-exists"> Change </span>
-                                                                <input type="file" name="..."> </span>
+                                                                <input type="file" id="tab_images_uploader_pickfiles" name="..." onclick="return true;"> </span>
+                                                                <!-- <img id="image-preview"  style="height:100px; width:100px;"  src="" >
+                                                                <div id="preview"></div> -->
                                                             <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
                                                         </div>
                                                     </div>
@@ -623,7 +625,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                            </div>
 	                                        	</div>
                                         	</div>
-                                        	
+                                         
+                                         <!--	
                                         	<div><br/></div>
                                         	
                                         	<div class="row">
@@ -951,6 +954,18 @@ jQuery(document).ready(function() {
 <script>
 function testButtonConfirmLang(){
 	alert("ok");
+}
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+    }
 }
 </script>
 </body>
