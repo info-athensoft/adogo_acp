@@ -52,56 +52,59 @@ var EventNewsEdit = function (option) {
                 },
          
                 FilesAdded: function(up, files) {
-                	$.each(files, function () {
-                		var img = new mOxie.Image();
-                		img.onload = function () {
-                			$('#preview').empty();
-                			this.embed($('#preview').get(0), {
-                				width: 100,
-                				height: 75
-                			});
-                		};
-                		img.onembedded = function () {
-                			this.destroy();
-                		};
-                		img.onerror = function () {
-                			this.destroy();
-                		};
-                		img.load(this.getSource());
-                	});
+                	$.each(files, function (index, file) {
+//                		alert('index='+index+' file2.name='+file.name);
+//                		var file = files[0];
+	            		var num = imgNo.pop();
+	                	if (typeof num == 'undefined') {
+	                		alert('Over limit!');
+	                	}
+	                    else { 
+	                		var img = new mOxie.Image();
+	                		img.onload = function () {
+	                			$('#preview').empty();
+	                			this.embed($('#preview').get(0), {
+	                				width: 100,
+	                				height: 75
+	                			});
+	                		};
+	                		img.onembedded = function () {
+	                			this.destroy();
+	                		};
+	                		img.onerror = function () {
+	                			this.destroy();
+	                		};
+	                		img.load(this.getSource());
+	                		
+	                		/*
+	                		var dataURI = $("#preview canvas")[0].toDataURL();
+	                		alert('dataURI='+dataURI);
+	                		*/
+	                    	/*
+	                		$('#preview').empty();
+	                		var $canvas = $("<canvas></canvas>");
+	                		$('#preview').append($canvas);
+	                		var context = $canvas.get(0).getContext('2d');
+	                		$canvas.attr('width', '100');
+	                		$canvas.attr('height', '100');
+	                		$('#preview').append($canvas);
+	                		var image = new Image();
+	                		image.onload = function () {
+	                			context.drawImage(image, 0, 0, 100, 100);
+	                		};
+	                		image.src = $scope.data.user.image; */
+	                		$('#tab_images_uploader_filelist').append('<div class="col-md-3"  style="display: none;"><div  style="display: none;" class="alert alert-warning added-files" id="uploaded_file_' + file.id + '">' + file.name + '(' + plupload.formatSize(file.size) + ')<a href="javascript:;" id = "'+num+'" class="remove pull-right btn btn-sm red"><i class="fa fa-times"></i> remove</a></div></div>');
+	                		file.name = num + "." + file.name.split('.')[1];
+	                    }
+                    });
                 	//alert('FilesAdded ...');
-                    plupload.each(files, function(file) {
+/*                    plupload.each(files, function(file) {
                     	//alert('plupload.each ...');
                     	var num = imgNo.pop();
                     	if (typeof num == 'undefined') {
                     		alert('Over limit!');
                     	}
                         else { 
-                        	/*
-                        	alert('files[0]id='+files[0].id+' file.id='+file.id+' up.file.id='+up.files[0].id);
-                        	alert(window.URL.createObjectURL(up.files[0]));
-                        	//document.getElementById('image-preview').src = window.URL.createObjectURL(file);
-                        	if (file) {
-                        	    reader.readAsDataURL(file);
-                        	  }
-//                        	alert('file.id='+file.id+' file.name='+file.name);
-                        	/*
-                    		var dataURI = $("#preview canvas")[0].toDataURL();
-                    		alert('dataURI='+dataURI);
-                    		*/
-                        	/*
-                    		$('#preview').empty();
-                    		var $canvas = $("<canvas></canvas>");
-                    		$('#preview').append($canvas);
-                    		var context = $canvas.get(0).getContext('2d');
-                    		$canvas.attr('width', '100');
-                    		$canvas.attr('height', '100');
-                    		$('#preview').append($canvas);
-                    		var image = new Image();
-                    		image.onload = function () {
-                    			context.drawImage(image, 0, 0, 100, 100);
-                    		};
-                    		image.src = $scope.data.user.image; */
                     		
                         	$('#tab_images_uploader_filelist').append('<div class="col-md-3"  style="display: none;"><div  style="display: none;" class="alert alert-warning added-files" id="uploaded_file_' + file.id + '">' + file.name + '(' + plupload.formatSize(file.size) + ')<a href="javascript:;" id = "'+num+'" class="remove pull-right btn btn-sm red"><i class="fa fa-times"></i> remove</a></div></div>');
                             //$('#tab_images_uploader_filelist').append('<div class="col-md-9" style="float: right; width: 250px;"><div class="form-group"><label class="col-md-3 control-label">Title</label><div class="col-md-9"><input type="text" id="adPost-gallery-img-title'+num+'" class="form-control" placeholder="Enter text"></div></div><div class="form-group"><label class="col-md-3 control-label">URL</label><div class="col-md-9"><input type="text" id="adPost-gallery-img-url'+num+'" class="form-control" placeholder="Enter text"></div></div><div class="form-group"><label class="col-md-3 control-label">Desc</label><div class="col-md-9"><textarea id="adPost-gallery-img-short-desc'+num+'" class="form-control" rows="2"></textarea></div></div></div>');
@@ -109,7 +112,7 @@ var EventNewsEdit = function (option) {
 //                        	up.refresh();
                         }
                        		
-                    }); 
+                    }); */
                 },
          
                 UploadProgress: function(up, file) {
