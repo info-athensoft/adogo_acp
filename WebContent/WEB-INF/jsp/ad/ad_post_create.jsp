@@ -944,8 +944,28 @@ jQuery(document).ready(function() {
 	//Demo.init(); // init demo features
 	//EventNewsEdit.init();
 	//var eventUUID = $("#eventUUID").val();
+	
 	EventNewsEdit.init('1011');		//TODO to change
-});
+	
+	/*
+	var option1 =
+	    {
+	    		id    			      :   '1011',
+	    		index   		    	  :   '1'
+	};
+	 
+	 var option2 =
+	    {
+	    		id    			      :   '1011',
+	    		index   		    	  :   '2'
+	};
+	
+	 
+	EventNewsEdit.init(option1);		//TODO to change
+	EventNewsEdit.init(option2);	
+	*/
+	
+	
 </script>
 <script>
 function testButtonConfirmLang(){
