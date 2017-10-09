@@ -167,8 +167,8 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 				
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("insert into "+TABLE);
-		sbf.append("(user_id,adpost_id,media_cover_url,post_title,post_author,create_datetime,post_datetime,lang_no,tags) ");
-		sbf.append("values(:user_id,:adpost_id,:media_cover_url,:post_title,:post_author,:create_datetime,:post_datetime,:lang_no,:tags)");
+		sbf.append("(user_id,adpost_id,media_cover_url,post_title,post_author,post_category,create_datetime,post_datetime,lang_no,tags,short_desc) ");
+		sbf.append("values(:user_id,:adpost_id,:media_cover_url,:post_title,:post_author,:post_category,:create_datetime,:post_datetime,:lang_no,:tags,:short_desc)");
 		String sql = sbf.toString();
 		
 		final Date createDate 			= new Date();
@@ -180,10 +180,12 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 		paramSource.addValue("media_cover_url", adPost.getMediaCoverUrl());
 		paramSource.addValue("post_title",adPost.getPostTitle());
 		paramSource.addValue("post_author",adPost.getPostAuthor());
+		paramSource.addValue("post_category",adPost.getPostCategory());
 		paramSource.addValue("create_datetime",new java.sql.Timestamp(createDate.getTime()));
 		paramSource.addValue("post_datetime",new java.sql.Timestamp(postDate.getTime()));
 		paramSource.addValue("lang_no",adPost.getLangNo());
 		paramSource.addValue("tags",adPost.getTags());
+		paramSource.addValue("short_desc",adPost.getShortDesc());
 		
 		KeyHolder keyholder = new GeneratedKeyHolder();
 		jdbc.update(sql, paramSource, keyholder);
@@ -222,3 +224,4 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 		}		
 	}
 }
+

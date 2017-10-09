@@ -6,7 +6,7 @@
 /* event news - global variables and functions*/
 function getBusinessObject(){	
 //	create a json object
-    var p1 = "test01";
+    var p1 = "";
     var p2 = $("#adPost-lang").val();        
     var p3 = $("#adPost-title").val();
     var p4 = $("#adPost-author").val();
@@ -27,41 +27,41 @@ function getBusinessObject(){
     var p16 = $("#adPost-audio-content-title").val();
     var p17 = $("#adPost-audio-content-url").val();
     var p18 = $("#adPost-audio-content-short-desc").val();
-    var p19 = $("#adPost-slide-img-title1").val();
-    var p20 = $("#adPost-slide-img-url1").val();
-    var p21 = $("#adPost-slide-img-short-desc1").val();
+    var p19 = $("#adPost-gallery-img-title1").val();
+    var p20 = $("#adPost-gallery-img-url1").val();
+    var p21 = $("#adPost-gallery-img-short-desc1").val();
     
-    var p22 = $("#adPost-slide-img-title2").val();
-    var p23 = $("#adPost-slide-img-url2").val();
-    var p24 = $("#adPost-slide-img-short-desc2").val();
+    var p22 = $("#adPost-gallery-img-title2").val();
+    var p23 = $("#adPost-gallery-img-url2").val();
+    var p24 = $("#adPost-gallery-img-short-desc2").val();
     
-    var p25 = $("#adPost-slide-img-title3").val();
-    var p26 = $("#adPost-slide-img-url3").val();
-    var p27 = $("#adPost-slide-img-short-desc3").val();
+    var p25 = $("#adPost-gallery-img-title3").val();
+    var p26 = $("#adPost-gallery-img-url3").val();
+    var p27 = $("#adPost-gallery-img-short-desc3").val();
     
-    var p28 = $("#adPost-slide-img-title4").val();
-    var p29 = $("#adPost-slide-img-url4").val();
-    var p30 = $("#adPost-slide-img-short-desc4").val();
+    var p28 = $("#adPost-gallery-img-title4").val();
+    var p29 = $("#adPost-gallery-img-url4").val();
+    var p30 = $("#adPost-gallery-img-short-desc4").val();
     
-    var p31 = $("#adPost-slide-img-title5").val();
-    var p32 = $("#adPost-slide-img-url5").val();
-    var p33 = $("#adPost-slide-img-short-desc5").val();
+    var p31 = $("#adPost-gallery-img-title5").val();
+    var p32 = $("#adPost-gallery-img-url5").val();
+    var p33 = $("#adPost-gallery-img-short-desc5").val();
     
-    var p34 = $("#adPost-slide-img-title6").val();
-    var p35 = $("#adPost-slide-img-url6").val();
-    var p36 = $("#adPost-slide-img-short-desc6").val();
+    var p34 = $("#adPost-gallery-img-title6").val();
+    var p35 = $("#adPost-gallery-img-url6").val();
+    var p36 = $("#adPost-gallery-img-short-desc6").val();
     
-    var p37 = $("#adPost-slide-img-title7").val();
-    var p38 = $("#adPost-slide-img-url7").val();
-    var p39 = $("#adPost-slide-img-short-desc7").val();
+    var p37 = $("#adPost-gallery-img-title7").val();
+    var p38 = $("#adPost-gallery-img-url7").val();
+    var p39 = $("#adPost-gallery-img-short-desc7").val();
     
-    var p40 = $("#adPost-slide-img-title8").val();
-    var p41 = $("#adPost-slide-img-url8").val();
-    var p42 = $("#adPost-slide-img-short-desc8").val();
+    var p40 = $("#adPost-gallery-img-title8").val();
+    var p41 = $("#adPost-gallery-img-url8").val();
+    var p42 = $("#adPost-gallery-img-short-desc8").val();
     
-    var p43 = $("#adPost-slide-img-title9").val();
-    var p44 = $("#adPost-slide-img-url9").val();
-    var p45 = $("#adPost-slide-img-short-desc9").val();
+    var p43 = $("#adPost-gallery-img-title9").val();
+    var p44 = $("#adPost-gallery-img-url9").val();
+    var p45 = $("#adPost-gallery-img-short-desc9").val();
     
     var businessObject =
     {
@@ -89,33 +89,33 @@ function getBusinessObject(){
     		adPostAudioContentUrl  		  :   p17,
     		adPostAudioContentShortDesc	  :   p18,
     		
-    		adPostSlideImgTitle1	      :   p19,
-    		adPostSlideImgUrl1 		      :   p20,
-    		adPostSlideImgShortDesc1      :   p21,
-    		adPostSlideImgTitle2	      :   p22,
-    		adPostSlideImgUrl2 		      :   p23,
-    		adPostSlideImgShortDesc2      :   p24,
-    		adPostSlideImgTitle3	      :   p25,
-    		adPostSlideImgUrl3 		      :   p26,
-    		adPostSlideImgShortDesc3      :   p27,
-    		adPostSlideImgTitle4	      :   p28,
-    		adPostSlideImgUrl4 		      :   p29,
-    		adPostSlideImgShortDesc4      :   p30,
-    		adPostSlideImgTitle5	      :   p31,
-    		adPostSlideImgUrl5 		      :   p32,
-    		adPostSlideImgShortDesc5      :   p33,
-    		adPostSlideImgTitle6	      :   p34,
-    		adPostSlideImgUrl6 		      :   p35,
-    		adPostSlideImgShortDesc6      :   p36,
-    		adPostSlideImgTitle7	      :   p37,
-    		adPostSlideImgUrl7 		      :   p38,
-    		adPostSlideImgShortDesc7      :   p39,
-    		adPostSlideImgTitle8	      :   p40,
-    		adPostSlideImgUrl8 		      :   p41,
-    		adPostSlideImgShortDesc8      :   p42,
-    		adPostSlideImgTitle9	      :   p43,
-    		adPostSlideImgUrl9 		      :   p44,
-    		adPostSlideImgShortDesc9      :   p45
+    		adPostGalleryImgTitle1	      :   p19,
+    		adPostGalleryImgUrl1 		  :   p20,
+    		adPostGalleryImgShortDesc1    :   p21,
+    		adPostGalleryImgTitle2	      :   p22,
+    		adPostGalleryImgUrl2 		  :   p23,
+    		adPostGalleryImgShortDesc2    :   p24,
+    		adPostGalleryImgTitle3	      :   p25,
+    		adPostGalleryImgUrl3 		  :   p26,
+    		adPostGalleryImgShortDesc3    :   p27,
+    		adPostGalleryImgTitle4	      :   p28,
+    		adPostGalleryImgUrl4 		  :   p29,
+    		adPostGalleryImgShortDesc4    :   p30,
+    		adPostGalleryImgTitle5	      :   p31,
+    		adPostGalleryImgUrl5 		  :   p32,
+    		adPostGalleryImgShortDesc5    :   p33,
+    		adPostGalleryImgTitle6	      :   p34,
+    		adPostGalleryImgUrl6 		  :   p35,
+    		adPostGalleryImgShortDesc6    :   p36,
+    		adPostGalleryImgTitle7	      :   p37,
+    		adPostGalleryImgUrl7 		  :   p38,
+    		adPostGalleryImgShortDesc7    :   p39,
+    		adPostGalleryImgTitle8	      :   p40,
+    		adPostGalleryImgUrl8 		  :   p41,
+    		adPostGalleryImgShortDesc8    :   p42,
+    		adPostGalleryImgTitle9	      :   p43,
+    		adPostGalleryImgUrl9 		  :   p44,
+    		adPostGalleryImgShortDesc9    :   p45
     };
     
     return businessObject;

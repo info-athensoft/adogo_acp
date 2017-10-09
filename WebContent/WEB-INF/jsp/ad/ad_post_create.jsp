@@ -55,6 +55,9 @@ License: You must have a valid license purchased only from themeforest(the above
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.css"/>
+        
+        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+        
         <link href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
         <link href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
@@ -572,29 +575,50 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <form class="form-horizontal" role="form">
                                         <div class="form-body">
                                         
+                                        			<div id="tab_images_uploader_container" class="text-align-reverse margin-bottom-10">
+                                                        <a id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
+                                                            <i class="fa fa-plus"></i> Add Files </a>
+                                                        <a id="tab_images_uploader_uploadfiles" href="javascript:;" class="btn btn-primary">
+                                                            <i class="fa fa-share"></i> Upload Files </a>
+                                                    </div>
+                                                    <div id="tab_images_uploader_filelist">
+                                                        <!-- <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"> </div> -->
+                                                    </div>
+                                        <!-- 
                                         	<div class="row">
 	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg" width="100%"/>
+	                                        		<div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail" style="width: 100px; height: 75px;">
+                                                            <img src="http://www.placehold.it/100x75/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                                        <div>
+                                                            <span class="btn default btn-file">
+                                                                <span class="fileinput-new"> Select image </span>
+                                                                <span class="fileinput-exists"> Change </span>
+                                                                <input type="file" name="..."> </span>
+                                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                        </div>
+                                                    </div>
 	                                        	</div>
 	                                        	<div class="col-md-9">
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-title1" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-title1" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-url1" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-url1" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-slide-img-short-desc1" class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-gallery-img-short-desc1" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>
@@ -610,21 +634,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-title2" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-title2" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-url2" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-url2" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-slide-img-short-desc2" class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-gallery-img-short-desc2" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>
@@ -640,21 +664,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-title3" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-title3" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-url3" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-url3" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-slide-img-short-desc3" class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-gallery-img-short-desc3" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>
@@ -670,21 +694,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-title4" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-title4" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-url4" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-url4" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-slide-img-short-desc4" class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-gallery-img-short-desc4" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>
@@ -700,21 +724,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-title5" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-title5" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-url5" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-url5" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-slide-img-short-desc5" class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-gallery-img-short-desc5" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>
@@ -730,21 +754,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-title6" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-title6" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-url6" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-url6" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-slide-img-short-desc6" class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-gallery-img-short-desc6" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>
@@ -760,21 +784,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-title7" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-title7" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-url7" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-url7" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-slide-img-short-desc7" class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-gallery-img-short-desc7" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>
@@ -790,21 +814,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-title8" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-title8" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-url8" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-url8" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-slide-img-short-desc8" class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-gallery-img-short-desc8" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>
@@ -820,26 +844,26 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Title</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-title9" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-title9" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                            
 		                                            <div class="form-group">
 		                                                <label class="col-md-3 control-label">URL</label>
 		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-slide-img-url9" class="form-control" placeholder="Enter text">
+		                                                    <input type="text" id="adPost-gallery-img-url9" class="form-control" placeholder="Enter text">
 		                                                </div>
 		                                            </div>
 		                                        	
 		                                        	<div class="form-group">
 		                                                <label class="col-md-3 control-label">Desc</label>
 		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-slide-img-short-desc9" class="form-control" rows="2"></textarea>
+		                                                    <textarea id="adPost-gallery-img-short-desc9" class="form-control" rows="2"></textarea>
 		                                                </div>
 		                                            </div>
 	                                        	</div>
                                         	</div>
-                                        	
+                                         -->	
                                         </div>
                                     </form>
                                 </div>
@@ -880,8 +904,12 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+<script src="${webapp_name}/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="${webapp_name}/assets/global/plugins/plupload/js/plupload.full.min.js" type="text/javascript"></script>
+
+<script src="${webapp_name}/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
 
 <script src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
@@ -897,6 +925,9 @@ License: You must have a valid license purchased only from themeforest(the above
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost-create.js"></script>
+
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost-create-test.js"></script>
+
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -907,6 +938,16 @@ License: You must have a valid license purchased only from themeforest(the above
 <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
+<script>
+jQuery(document).ready(function() {    
+	//Metronic.init(); // init metronic core components
+	//Layout.init(); // init current layout
+	//Demo.init(); // init demo features
+	//EventNewsEdit.init();
+	//var eventUUID = $("#eventUUID").val();
+	EventNewsEdit.init('1011');		//TODO to change
+});
+</script>
 <script>
 function testButtonConfirmLang(){
 	alert("ok");

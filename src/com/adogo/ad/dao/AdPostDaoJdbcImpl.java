@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.sql.DataSource;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -12,6 +13,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
+import com.adogo.ad.controller.AdPostController;
 import com.adogo.ad.entity.AdPostAudio;
 import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostGalleryImage;
@@ -24,6 +26,7 @@ import com.adogo.ad.entity.AdPostVideo;
 public class AdPostDaoJdbcImpl implements AdPostDao {
 	
 private NamedParameterJdbcTemplate jdbc;
+private static final Logger logger = Logger.getLogger(AdPostDaoJdbcImpl.class);
 	
 	/**
 	 * inject DataSource object
@@ -36,6 +39,7 @@ private NamedParameterJdbcTemplate jdbc;
 
 	@Override
 	public long create(AdPostCoverImage adPost) {
+		logger.info("entering... AdPostDaoJdbcImpl/AdPostCoverImage");
 		final String TABLE = "AD_POST_IMG";
 		
 		StringBuffer sbf = new StringBuffer();
@@ -63,11 +67,13 @@ private NamedParameterJdbcTemplate jdbc;
 		
 		KeyHolder keyholder = new GeneratedKeyHolder();
 		jdbc.update(sql, paramSource, keyholder);
+		logger.info("exiting... AdPostDaoJdbcImpl/AdPostCoverImage");
 		return (long)keyholder.getKey();
 	}
 
 	@Override
 	public long create(AdPostText tContent) {
+		logger.info("entering... AdPostDaoJdbcImpl/create:AdPostText");
 		final String TABLE = "AD_POST_TEXT";
 		
 		StringBuffer sbf = new StringBuffer();
@@ -93,11 +99,14 @@ private NamedParameterJdbcTemplate jdbc;
 		
 		KeyHolder keyholder = new GeneratedKeyHolder();
 		jdbc.update(sql, paramSource, keyholder);
+		logger.info("keyholder.getKey()="+keyholder.getKey());
+		logger.info("exiting... AdPostDaoJdbcImpl/AdPostText");
 		return (long)keyholder.getKey();
 	}
 
 	@Override
 	public long create(AdPostVideo vContent) {
+		logger.info("entering... AdPostDaoJdbcImpl/AdPostVideo");
 		final String TABLE = "AD_POST_MEDIA";
 		
 		StringBuffer sbf = new StringBuffer();
@@ -130,6 +139,7 @@ private NamedParameterJdbcTemplate jdbc;
 
 	@Override
 	public long create(AdPostAudio aContent) {
+		logger.info("entering... AdPostDaoJdbcImpl/AdPostAudio");
 		final String TABLE = "AD_POST_MEDIA";
 		
 		StringBuffer sbf = new StringBuffer();
@@ -162,6 +172,7 @@ private NamedParameterJdbcTemplate jdbc;
 
 	@Override
 	public long create(AdPostSlideImage adPost) {
+		logger.info("entering... AdPostDaoJdbcImpl/AdPostSlideImage");
 		final String TABLE = "AD_POST_IMG2";
 		
 		StringBuffer sbf = new StringBuffer();
@@ -194,6 +205,7 @@ private NamedParameterJdbcTemplate jdbc;
 	
 	@Override
 	public long create(AdPostGalleryImage adPost) {
+		logger.info("entering... AdPostDaoJdbcImpl/AdPostGalleryImage");
 		final String TABLE = "AD_POST_IMG2";
 		
 		StringBuffer sbf = new StringBuffer();

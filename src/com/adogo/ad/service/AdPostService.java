@@ -7,9 +7,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.adogo.ad.dao.AdPostAudioDao;
+import com.adogo.ad.dao.AdPostCoverImageDao;
 import com.adogo.ad.dao.AdPostDao;
+import com.adogo.ad.dao.AdPostGalleryImageDao;
 import com.adogo.ad.dao.AdPostHeadDao;
 import com.adogo.ad.dao.AdPostTextDao;
+import com.adogo.ad.dao.AdPostVideoDao;
 import com.adogo.ad.entity.AdPostAudio;
 import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostGalleryImage;
@@ -47,7 +51,37 @@ public class AdPostService {
 		this.adPostTextDao = adPostTextDao;
 	}
 	
+	private AdPostCoverImageDao adPostCoverImageDao;
+
+	@Autowired
+	@Qualifier("adPostCoverImageDaoJdbcImpl")
+	public void setAdPostCoverImageDao(AdPostCoverImageDao adPostCoverImageDao) {
+		this.adPostCoverImageDao = adPostCoverImageDao;
+	}
 	
+	private AdPostGalleryImageDao adPostGalleryImageDao;
+
+	@Autowired
+	@Qualifier("adPostGalleryImageDaoJdbcImpl")
+	public void setAdPostGalleryImageDao(AdPostGalleryImageDao adPostGalleryImageDao) {
+		this.adPostGalleryImageDao = adPostGalleryImageDao;
+	}
+	
+	private AdPostAudioDao adPostAudioDao;
+
+	@Autowired
+	@Qualifier("adPostAudioDaoJdbcImpl")
+	public void setAdPostAudioDao(AdPostAudioDao adPostAudioDao) {
+		this.adPostAudioDao = adPostAudioDao;
+	}
+	
+	private AdPostVideoDao adPostVideoDao;
+
+	@Autowired
+	@Qualifier("adPostVideoDaoJdbcImpl")
+	public void setAdPostVideoDao(AdPostVideoDao adPostVideoDao) {
+		this.adPostVideoDao = adPostVideoDao;
+	}
 	
 	/*master table*/
 	public List<AdPostHead> getAllAdPostHead() {
@@ -84,11 +118,30 @@ public class AdPostService {
 		return null;
 	}
 	
+	public List<AdPostCoverImage> getAdPostCoverImageByAdPostId(Long adPostId){
+		return this.adPostCoverImageDao.findByAdPostId(adPostId);
+	}
+	
+	public Long getAdPostCoverImageCount() {
+		return this.adPostCoverImageDao.findTotalCount();
+	}
+	
+	public List<AdPostAudio> getAdPostAudioByAdPostId(Long adPostId){
+		return this.adPostAudioDao.findByAdPostId(adPostId);
+	}
+	
+	public List<AdPostVideo> getAdPostVideoByAdPostId(Long adPostId){
+		return this.adPostVideoDao.findByAdPostId(adPostId);
+	}
+	
+	public List<AdPostGalleryImage> getAdPostGalleryImageByAdPostId(Long adPostId){
+		return this.adPostGalleryImageDao.findByAdPostId(adPostId);
+	}
 	
 	@Transactional
 	public long create(AdPostText contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getLongDesc().isEmpty()){
+		if(!contentObj.getLongDesc().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -97,7 +150,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostCoverImage contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			intFlag = this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -107,7 +160,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostVideo contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -116,7 +169,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostAudio contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -125,7 +178,7 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostSlideImage contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;
@@ -134,10 +187,9 @@ public class AdPostService {
 	@Transactional
 	public long create(AdPostGalleryImage contentObj) {
 		long intFlag = 0L;
-		if(contentObj.getMediaUrl().isEmpty()){
+		if(!contentObj.getMediaUrl().isEmpty()){
 			return this.adPostDao.create(contentObj);
 		}
 		return intFlag;
 	}
 }
-
