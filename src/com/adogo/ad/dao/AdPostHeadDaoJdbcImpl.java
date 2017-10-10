@@ -224,3 +224,4 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 		}		
 	}
 }
+
