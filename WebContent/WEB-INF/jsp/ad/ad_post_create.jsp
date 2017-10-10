@@ -964,7 +964,7 @@ jQuery(document).ready(function() {
 	EventNewsEdit.init(option1);		//TODO to change
 	EventNewsEdit.init(option2);	
 	*/
-	
+})	
 	
 </script>
 <script>
