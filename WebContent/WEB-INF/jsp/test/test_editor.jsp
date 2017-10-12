@@ -263,30 +263,32 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
 jQuery(document).ready(function() {
-	
-})		
+
+});
 </script>
 <script>
 function save_editor_content() {
 	var editor1 = $("#editor1").val();
-	alert("saveEditorContent(), editor1editor1="+editor1);
+	//alert("saveEditorContent(), editor1editor1="+editor1);
 	
 	$.ajax({
-		type:"post",
-		url:"/acp/save_editor_content",
-		dataType:"json",
-		data: {	editor1:JSON.stringify(editor1) },
-		//data: {	adpostId:adpostId },
+		type: "post",
+		url: "/acp/save_editor_content",
+		//dataType: "json",
+		//data: {	editor1:JSON.stringify(editor1) },
+		//data: JSON.parse(JSON.stringify({"editor1" : editor1})),
+		data: {	'editor1': editor1 },
 		timeout : 5000,
-		success:function(data){	
-//			var msg = data.info_msg;
-			//var userAccount = data.userAccount;
-/*				$("#sec_activate").html(msg);
-			$("#ua1").text(userAccount.acctId);
-*/				
-			//alert(msg);
-			//location = "goactivateresult?resultMsg="+msg;
-		}		
+		success : function(data){	
+			//alert("data="+data.lTextFromDb);
+			//$('#editor2').val(data.lTextFromDb);
+			$('#editor2').data("wysihtml5").editor.setValue(data.lTextFromDb);
+			//location="/acp/test_editor";
+		},
+		error: function(request, status, error) {
+	        //var val = request.responseText;
+	        alert("error: "+error);
+	    }
 	});
 }
 	
