@@ -282,7 +282,7 @@ function save_editor_content() {
 		success : function(data){	
 			//alert("data="+data.lTextFromDb);
 			//$('#editor2').val(data.lTextFromDb);
-			$('#editor2').data("wysihtml5").editor.setValue(data.lTextFromDb);
+			$('#editor2').data("wysihtml5").editor.setValue(data.lTextFromDb);	//TODO check the official API for wysihtml plug-in for future use
 			//location="/acp/test_editor";
 		},
 		error: function(request, status, error) {
