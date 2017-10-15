@@ -183,7 +183,7 @@
 					<li>
 						<a href="javascript:;">
 						<i class="icon-user"></i>
-						<span class="title">Administrator</span>
+						<span class="title">UAAS</span>
 						<span class="arrow "></span>
 						</a>
 						<ul class="sub-menu">
@@ -211,7 +211,25 @@
 						</ul>
 					</li>
 					
-					
+					<li>
+						<a href="javascript:;">
+						<i class="icon-user"></i>
+						<span class="title">Ad Category</span>
+						<span class="arrow "></span>
+						</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="#">
+								<i class="icon-home"></i>
+								Dashboard</a>
+							</li>
+							<li>
+								<a href="/acp/ad/category/list">
+								<i class="icon-pencil"></i>
+								Category list</a>
+							</li>
+						</ul>
+					</li>
 					
 					<!-- 
 					<li>

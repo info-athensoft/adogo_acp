@@ -147,7 +147,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="portlet light">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-shopping-cart"></i>Post an Ad <span class="caption-helper">composite an ad</span></div>
+                                        <i class="fa fa-shopping-cart"></i>Apply for Advertiser <span class="caption-helper">to post ads</span></div>
                                     <div class="actions">
                                         <a href="eventsNewsCreate" class="btn btn-circle btn-info">
                                             <i class="fa fa-plus"></i><span class="hidden-xs"> Create news </span>
@@ -163,7 +163,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <li><a href="javascript:;"> Export to CSV </a></li>
                                                 <li><a href="javascript:;"> Export to XML </a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="javascript:;"> Print Invoices </a></li>
+                                                <li><a href="javascript:;"> Print  </a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -218,11 +218,52 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <div class="form-body">
                                                         <div class="form-group">
                                                             <label class="col-md-3 control-label">Business Name</label>
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-4">
                                                                 <input type="text" class="form-control" placeholder="Enter text">
-                                                                <span class="help-block"> Your legal company name or real business name  </span>
+                                                                <span class="help-block"> Your legal company name or real business name</span>
                                                             </div>
                                                         </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Legal Form</label>
+                                                            <div class="col-md-4">
+                                                                <select class="form-control">
+                                                                	<option value="">Solo business - Not registered</option>
+                                                                	<option value="">Solo business - Registered</option>
+                                                                	<option value="">Partnership</option>
+                                                                	<option value="">Corporation, LLC</option>
+                                                                </select>
+                                                                <span class="help-block"> The legal form of your business</span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 control-label">Industry Code</label>
+                                                            <div class="col-md-4">
+                                                                <select class="form-control" id="industryCodeLevel1" onchange="test(this);">
+                                                                	<option value="">Choose a category</option>
+                                                                	<c:forEach items="${NAICS_level_1}" var="item">
+                                                                		<option value="${item.industryCode}">${item.industryName}</option>
+                                                                	</c:forEach>
+                                                                	
+                                                                </select>
+                                                                <p></p>
+                                                                <select class="form-control" id="industryCodeLevel2">
+                                                                	<option value="">--/--</option>
+                                                                </select>
+                                                                <p></p>
+                                                                <select class="form-control" id="industryCodeLevel3">
+                                                                	<option value="">--/--</option>
+                                                                </select>
+                                                                <p></p>
+                                                                <select class="form-control" id="industryCodeLevel4">
+                                                                	<option value="">--/--</option>
+                                                                </select>
+                                                                <span class="help-block"> Select the industry code for your business </span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
                                                         <div class="form-group">
                                                             <label class="col-md-3 control-label">Email Address</label>
                                                             <div class="col-md-4">
@@ -334,9 +375,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
 
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news-list.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/advertiser.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -348,8 +387,16 @@ License: You must have a valid license purchased only from themeforest(the above
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-EventNewsList.init();
-//$("#menu-myevents").addClass("selected");
+
+function test(){
+	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
+	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
+	//alert(checkValue+" : "+checkText);
+	getSubIndustryCode(parentCode);
+	
+}
+
+
 
 </script>
 </body>
