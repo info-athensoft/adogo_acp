@@ -375,9 +375,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
 
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news-list.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/advertiser.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -398,10 +396,7 @@ function test(){
 	
 }
 
-function getSubIndustryCode(parentCode){
-	alert("parent code = "+parentCode);
-	
-}
+
 
 </script>
 </body>
