@@ -144,58 +144,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <!-- END PAGE HEADER-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- Begin: life time stats -->
-                            <div class="portlet light">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="fa fa-shopping-cart"></i>Post an Ad <span class="caption-helper">composite an ad</span></div>
-                                    <div class="actions">
-                                        <a href="" class="btn btn-circle btn-info" onclick="saveAdPost()">
-                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Save AdPost </span>
-                                        </a>
-                                        <a href="eventsNewsCreate" class="btn btn-circle btn-info">
-                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Create news </span>
-                                        </a>
-                                        <div class="btn-group">
-                                            <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-                                                <i class="fa fa-share"></i>
-                                                <span class="hidden-xs"> Tools </span>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li><a href="javascript:;"> Export to Excel </a></li>
-                                                <li><a href="javascript:;"> Export to CSV </a></li>
-                                                <li><a href="javascript:;"> Export to XML </a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="javascript:;"> Print Invoices </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="table-container">
-                                        <div class="table-actions-wrapper">
-                                            <span> </span>
-                                            <select class="table-group-action-input form-control input-inline input-small input-sm" name="groupOption">
-                                                <option value="">Select...</option>
-												<option value="1">Publish</option>
-												<option value="2">Wait to post</option>
-												<option value="3">Delete</option>
-												<option value="4">Out of date</option>
-												<option value="5">Suspend</option>
-                                            </select>
-                                            <button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End: life time stats -->
-                        </div>
-                    </div>
-                    
+                   
                     
                     <!-- new design as of 2017-10-13 -->       
                     
@@ -212,7 +161,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <i class="fa fa-angle-left"></i> Back</button>
                                             <button class="btn btn-secondary-outline" onclick="resetNews(); return false;">
                                                 <i class="fa fa-reply"></i> Reset</button>
-                                            <button class="btn btn-success" onclick="updateNews(); return false;">
+                                            <button class="btn btn-success" onclick="saveAdPost(); return false;">
                                                 <i class="fa fa-check"></i> Save</button>
                                             <button class="btn btn-success" onclick="updateNewsAndContinue(); return false;">
                                                 <i class="fa fa-check-circle"></i> Save &amp; Continue Edit</button>
@@ -250,11 +199,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </li>
                                                 <li>
                                                     <a href="#tab_images" data-toggle="tab"> Gallery </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#tab_reviews" data-toggle="tab"> Reviews
-                                                        <span class="badge badge-success"> 3 </span>
-                                                    </a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content" >
@@ -639,7 +583,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																	 Image
 																</th>
 																<th width="20%">
-																	 Label
+																	 Title
 																</th>
 																<th width="8%">
 																	 Sort Number
@@ -688,66 +632,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="tab-pane" id="tab_reviews">
-                                                    <div class="table-container">
-                                                        <table class="table table-striped table-bordered table-hover" id="datatable_reviews">
-                                                            <thead>
-                                                                <tr role="row" class="heading">
-                                                                    <th width="5%"> Review&nbsp;# </th>
-                                                                    <th width="10%"> Review&nbsp;Date </th>
-                                                                    <th width="10%"> Customer </th>
-                                                                    <th width="20%"> Review&nbsp;Content </th>
-                                                                    <th width="10%"> Status </th>
-                                                                    <th width="10%"> Actions </th>
-                                                                </tr>
-                                                                <tr role="row" class="filter">
-                                                                    <td>
-                                                                        <input type="text" class="form-control form-filter input-sm" name="event_review_no" id="event_review_no"> </td>
-                                                                    <td>
-                                                                        <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
-                                                                            <input type="text" class="form-control form-filter input-sm" readonly name="event_review_date_from" placeholder="From" id="event_review_date_from">
-                                                                            <span class="input-group-btn">
-                                                                                <button class="btn btn-sm default" type="button">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </button>
-                                                                            </span>
-                                                                        </div>
-                                                                        <div class="input-group date date-picker" data-date-format="yyyy-mm-dd">
-                                                                            <input type="text" class="form-control form-filter input-sm" readonly name="event_review_date_to" placeholder="To" id="event_review_date_to">
-                                                                            <span class="input-group-btn">
-                                                                                <button class="btn btn-sm default" type="button">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </button>
-                                                                            </span>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="text" class="form-control form-filter input-sm" name="event_review_customer" id="event_review_customer"> </td>
-                                                                    <td>
-                                                                        <input type="text" class="form-control form-filter input-sm" name="event_review_content" id="event_review_content"> </td>
-                                                                    <td>
-                                                                        <select name="product_review_status" class="form-control form-filter input-sm" id="event_review_status">
-                                                                            <option value="0">Select...</option>
-																			<option value="1">Approved</option>
-																			<option value="2">Pending</option>
-																			<option value="3">Rejected</option>
-                                                                        </select>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="margin-bottom-5">
-                                                                            <button class="btn btn-sm btn-success filter-submit margin-bottom" onclick="filterSearchReview();">
-                                                                                <i class="fa fa-search"></i> Search</button>
-                                                                        </div>
-                                                                        <button class="btn btn-sm btn-danger filter-cancel">
-                                                                            <i class="fa fa-times"></i> Reset</button>
-                                                                    </td>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody> </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                               
                                             </div>
                                         </div>
                                     </div>
