@@ -249,129 +249,17 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <a href="#tab_meta" data-toggle="tab"> Meta </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#tab_images" data-toggle="tab"> Images </a>
+                                                    <a href="#tab_images" data-toggle="tab"> Gallery </a>
                                                 </li>
                                                 <li>
                                                     <a href="#tab_reviews" data-toggle="tab"> Reviews
                                                         <span class="badge badge-success"> 3 </span>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a href="#tab_history" data-toggle="tab"> History </a>
-                                                </li>
                                             </ul>
                                             <div class="tab-content" >
                                                 <div class="tab-pane active" id="tab_general">
                                                 
-                                                	<!-- 
-                                                    <div class="form-body">
-													<div class="form-group">
-														<label class="col-md-2 control-label">Global ID: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<input type="text" class="form-control" id="globalId" name="globalId" placeholder="" disabled="disabled"  value="${newsObject.globalId}">
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-2 control-label">Event UUID: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<input type="text" class="form-control" id="eventUUID" name="eventUUID"  placeholder="" value="${newsObject.eventUUID}" disabled="disabled">
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-2 control-label">Event Title: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<input type="text" class="form-control" id="title" name="title" placeholder=""  value="${newsObject.title}">
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-2 control-label">Author: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<input type="text" class="form-control" id="author" name="author" placeholder=""  value="${newsObject.author}">
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-2 control-label">Post Datetime: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
-																<input type="text" class="form-control" id="postDatetime" name="postDatetime"  value="${newsObject.postDatetime}" disabled="disabled">
-															</div>
-															<span class="help-block">
-															availability daterange. </span>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-2 control-label">Number of Views: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<input type="text" class="form-control" id="viewNum" name="viewNum" placeholder=""  value="${newsObject.viewNum}" disabled="disabled">
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-2 control-label">Short Description: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<textarea class="form-control" id="descShort" name="descShort">${newsObject.descShort}</textarea>
-															<span class="help-block">
-															shown in product listing </span>
-														</div>
-														
-													</div>
-													
-															<div class="form-group">
-														<label class="col-md-2 control-label">Long Description: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<textarea class="form-control" id="descLong" name="descLong" rows="6">${newsObject.descLong}</textarea>
-														</div>
-														
-													</div>
-													
-													<div class="form-group">
-														<label class="col-md-2 control-label">News Class: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<select class="table-group-action-input form-control input-medium" id="eventClass" name="eventClass">
-																<option value="0" ${newsObject.eventClass == '0' ? 'selected' : ''}>Select...</option>
-																<option value="1" ${newsObject.eventClass == '1' ? 'selected' : ''}>Default</option>
-																<option value="2" ${newsObject.eventClass == '2' ? 'selected' : ''}>New</option>
-																<option value="3" ${newsObject.eventClass == '3' ? 'selected' : ''}>Hot</option>
-															</select>
-														</div>
-													</div>
-													
-													<div class="form-group">
-														<label class="col-md-2 control-label">News Status: <span class="required">
-														* </span>
-														</label>
-														<div class="col-md-10">
-															<select class="table-group-action-input form-control input-medium" id="eventStatus" name="eventStatus">
-																<option value="0" ${newsObject.eventStatus == '0' ? 'selected' : ''}>Select...</option>
-																<option value="1" ${newsObject.eventStatus == '1' ? 'selected' : ''}>Published</option>
-																<option value="2" ${newsObject.eventStatus == '2' ? 'selected' : ''}>Wait to post</option>
-																<option value="3" ${newsObject.eventStatus == '3' ? 'selected' : ''}>Deleted</option>
-																<option value="4" ${newsObject.eventStatus == '4' ? 'selected' : ''}>Out of date</option>
-																<option value="5" ${newsObject.eventStatus == '5' ? 'selected' : ''}>Suspended</option>
-															</select>
-														</div>
-													</div>
-												</div> -->
-                                                
-                                                	
-                                                	
                                                 	<div class="portlet light">
 						                    			<div class="portlet-title">
 						                                    <div class="caption font-red-sunglo">
@@ -468,6 +356,54 @@ License: You must have a valid license purchased only from themeforest(the above
 						                    			<div class="portlet-title">
 						                                    <div class="caption font-red-sunglo">
 						                                        <i class="icon-settings"></i>
+						                                        <span class="caption-subject sbold uppercase">Text Content</span>
+						                                    </div>
+						                                    <div class="actions">
+						                                        <div class="btn-group">
+						                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+						                                                <i class="fa fa-angle-down"></i>
+						                                            </a>
+						                                            <ul class="dropdown-menu pull-right">
+						                                                <li>
+						                                                    <a href="javascript:;">
+						                                                        <i class="fa fa-pencil"></i> Edit </a>
+						                                                </li>
+						                                                <li>
+						                                                    <a href="javascript:;">
+						                                                        <i class="fa fa-trash-o"></i> Delete </a>
+						                                                </li>
+						                                                <li>
+						                                                    <a href="javascript:;">
+						                                                        <i class="fa fa-ban"></i> Ban </a>
+						                                                </li>
+						                                                <li class="divider"> </li>
+						                                                <li>
+						                                                    <a href="javascript:;"> Make admin </a>
+						                                                </li>
+						                                            </ul>
+						                                        </div>
+						                                    </div>
+						                                </div>
+						                    			<div class="portlet-body form">
+						                                    <form class="form-horizontal" role="form">
+						                                        <div class="form-body">
+						                                            
+						                                            <div class="form-group">
+						                                                <label class="col-md-3 control-label">Long Description</label>
+						                                                <div class="col-md-9">
+						                                                    <textarea id="adPost-text-content-long-desc" class="form-control" rows="5"></textarea>
+						                                                </div>
+						                                            </div>
+						                                        	
+						                                        </div>
+						                                    </form>
+						                                </div>
+						                    		</div>
+                    		
+                                                	<div class="portlet light">
+						                    			<div class="portlet-title">
+						                                    <div class="caption font-red-sunglo">
+						                                        <i class="icon-settings"></i>
 						                                        <span class="caption-subject sbold uppercase">Cover Image</span>
 						                                    </div>
 						                                    <div class="actions">
@@ -526,8 +462,132 @@ License: You must have a valid license purchased only from themeforest(the above
 						                                    </form>
 						                                </div>
 						                    		</div>
-						                    	
-                                                	
+						                    		
+						                    		<div class="portlet light">
+						                    			<div class="portlet-title">
+						                                    <div class="caption font-red-sunglo">
+						                                        <i class="icon-settings"></i>
+						                                        <span class="caption-subject sbold uppercase">Video Content</span>
+						                                    </div>
+						                                    <div class="actions">
+						                                        <div class="btn-group">
+						                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+						                                                <i class="fa fa-angle-down"></i>
+						                                            </a>
+						                                            <ul class="dropdown-menu pull-right">
+						                                                <li>
+						                                                    <a href="javascript:;">
+						                                                        <i class="fa fa-pencil"></i> Edit </a>
+						                                                </li>
+						                                                <li>
+						                                                    <a href="javascript:;">
+						                                                        <i class="fa fa-trash-o"></i> Delete </a>
+						                                                </li>
+						                                                <li>
+						                                                    <a href="javascript:;">
+						                                                        <i class="fa fa-ban"></i> Ban </a>
+						                                                </li>
+						                                                <li class="divider"> </li>
+						                                                <li>
+						                                                    <a href="javascript:;"> Make admin </a>
+						                                                </li>
+						                                            </ul>
+						                                        </div>
+						                                    </div>
+						                                </div>
+						                    			<div class="portlet-body form">
+						                                    <form class="form-horizontal" role="form">
+						                                        <div class="form-body">
+						                                        
+						                                        	<div class="form-group">
+						                                                <label class="col-md-3 control-label">Title</label>
+						                                                <div class="col-md-9">
+						                                                    <input type="text" id="adPost-video-content-title" class="form-control" placeholder="Enter text">
+						                                                </div>
+						                                            </div>
+						                                            
+						                                            <div class="form-group">
+						                                                <label class="col-md-3 control-label">URL</label>
+						                                                <div class="col-md-9">
+						                                                    <input type="text" id="adPost-video-content-url" class="form-control" placeholder="Enter text">
+						                                                </div>
+						                                            </div>
+						                                        	
+						                                        	<div class="form-group">
+						                                                <label class="col-md-3 control-label">Short Description</label>
+						                                                <div class="col-md-9">
+						                                                    <textarea id="adPost-video-content-short-desc" class="form-control" rows="2"></textarea>
+						                                                </div>
+						                                            </div>
+						                                        	
+						                                        </div>
+						                                    </form>
+						                                </div>
+						                    		</div>
+						                    		
+						                    		<div class="portlet light">
+						                    			<div class="portlet-title">
+						                                    <div class="caption font-red-sunglo">
+						                                        <i class="icon-settings"></i>
+						                                        <span class="caption-subject sbold uppercase">Audio Content</span>
+						                                    </div>
+						                                    <div class="actions">
+						                                        <div class="btn-group">
+						                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+						                                                <i class="fa fa-angle-down"></i>
+						                                            </a>
+						                                            <ul class="dropdown-menu pull-right">
+						                                                <li>
+						                                                    <a href="javascript:;">
+						                                                        <i class="fa fa-pencil"></i> Edit </a>
+						                                                </li>
+						                                                <li>
+						                                                    <a href="javascript:;">
+						                                                        <i class="fa fa-trash-o"></i> Delete </a>
+						                                                </li>
+						                                                <li>
+						                                                    <a href="javascript:;">
+						                                                        <i class="fa fa-ban"></i> Ban </a>
+						                                                </li>
+						                                                <li class="divider"> </li>
+						                                                <li>
+						                                                    <a href="javascript:;"> Make admin </a>
+						                                                </li>
+						                                            </ul>
+						                                        </div>
+						                                    </div>
+						                                </div>
+						                    			<div class="portlet-body form">
+						                                    <form class="form-horizontal" role="form">
+						                                        <div class="form-body">
+						                                        
+						                                        	<div class="form-group">
+						                                                <label class="col-md-3 control-label">Title</label>
+						                                                <div class="col-md-9">
+						                                                    <input type="text" id="adPost-audio-content-title" class="form-control" placeholder="Enter text">
+						                                                </div>
+						                                            </div>
+						                                            
+						                                            <div class="form-group">
+						                                                <label class="col-md-3 control-label">URL</label>
+						                                                <div class="col-md-9">
+						                                                    <input type="text" id="adPost-audio-content-url" class="form-control" placeholder="Enter text">
+						                                                </div>
+						                                            </div>
+						                                        	
+						                                        	<div class="form-group">
+						                                                <label class="col-md-3 control-label">Short Description</label>
+						                                                <div class="col-md-9">
+						                                                    <textarea id="adPost-audio-content-short-desc" class="form-control" rows="2"></textarea>
+						                                                </div>
+						                                            </div>
+						                                        	
+						                                        </div>
+						                                    </form>
+						                                </div>
+						                    		</div>
+                    		
+                    							
                                                 </div>
                                                 
                                                 <div class="tab-pane" id="tab_meta">
@@ -687,59 +747,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         </table>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane" id="tab_history">
-                                                    <div class="table-container">
-                                                        <table class="table table-striped table-bordered table-hover" id="datatable_history">
-                                                            <thead>
-                                                                <tr role="row" class="heading">
-                                                                    <th width="25%"> Datetime </th>
-                                                                    <th width="55%"> Description </th>
-                                                                    <th width="10%"> Notification </th>
-                                                                    <th width="10%"> Actions </th>
-                                                                </tr>
-                                                                <tr role="row" class="filter">
-                                                                    <td>
-                                                                        <div class="input-group date datetime-picker margin-bottom-5" data-date-format="dd/mm/yyyy hh:ii">
-                                                                            <input type="text" class="form-control form-filter input-sm" readonly name="product_history_date_from" placeholder="From">
-                                                                            <span class="input-group-btn">
-                                                                                <button class="btn btn-sm default date-set" type="button">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </button>
-                                                                            </span>
-                                                                        </div>
-                                                                        <div class="input-group date datetime-picker" data-date-format="dd/mm/yyyy hh:ii">
-                                                                            <input type="text" class="form-control form-filter input-sm" readonly name="product_history_date_to" placeholder="To">
-                                                                            <span class="input-group-btn">
-                                                                                <button class="btn btn-sm default date-set" type="button">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </button>
-                                                                            </span>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="text" class="form-control form-filter input-sm" name="product_history_desc" placeholder="To" /> </td>
-                                                                    <td>
-                                                                        <select name="product_history_notification" class="form-control form-filter input-sm">
-                                                                            <option value="">Select...</option>
-                                                                            <option value="pending">Pending</option>
-                                                                            <option value="notified">Notified</option>
-                                                                            <option value="failed">Failed</option>
-                                                                        </select>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="margin-bottom-5">
-                                                                            <button class="btn btn-sm btn-default filter-submit margin-bottom">
-                                                                                <i class="fa fa-search"></i> Search</button>
-                                                                        </div>
-                                                                        <button class="btn btn-sm btn-danger-outline filter-cancel">
-                                                                            <i class="fa fa-times"></i> Reset</button>
-                                                                    </td>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody> </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -754,678 +762,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     
                     
                     <!-- original design before 2017-10-13 -->
-                    <div class="row">
-                    	<div class="col-md-6">
-                    		<div class="portlet light">
-                    			<div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Basic Info. of Post</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-ban"></i> Ban </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Make admin </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                    			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-body">
-                                        	
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Choose a language</label>
-                                                <div class="col-md-9">
-                                                <select id="adPost-lang" class="form-control">
-                                                    <option value="1033" selected="selected">English</option>
-                                                    <option value="3084" >French</option>
-                                                    <option value="2052">Chinese (Simplified)</option>
-                                                    <option value="31748">Chinese (Traditional)</option>
-                                                </select>
-                                                
-                                                <button class="btn" name="confirm" onclick="testButtonConfirmLang();">Confirm</button>
-                                               
-                                                </div>
-                                            </div>
-                                        	
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Title</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-title" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Author</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-author" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div> 
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Category</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-category" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Tags</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-tags" class="form-control" value="a,b,c" data-role="tagsinput">
-                                                </div>
-                                            </div> 
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Short Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea id="adPost-short-desc" class="form-control" rows="2"></textarea>
-                                                </div>
-                                            </div>
-                                            
-                                        	
-                                        </div>
-                                    </form>
-                                </div>
-                    		</div>
-                    	
-                    	
-                    	
-                    		
-                    		<div class="portlet light">
-                    			<div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Cover Image</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-ban"></i> Ban </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Make admin </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                    			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-body">
-                                        
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Image Title</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-cover-img-title" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">URL</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-cover-img-url" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div> 
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Short Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea id="adPost-cover-img-short-desc" class="form-control" rows="2"></textarea>
-                                                </div>
-                                            </div>
-                                            
-                                        	
-                                        </div>
-                                    </form>
-                                </div>
-                    		</div>
-                    	
-                    	
-                    	
-                    		<div class="portlet light">
-                    			<div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Text Content</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-ban"></i> Ban </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Make admin </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                    			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-body">
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Long Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea id="adPost-text-content-long-desc" class="form-control" rows="5"></textarea>
-                                                </div>
-                                            </div>
-                                        	
-                                        </div>
-                                    </form>
-                                </div>
-                    		</div>
-                    		
-                    		
-                    		<div class="portlet light">
-                    			<div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Video Content</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-ban"></i> Ban </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Make admin </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                    			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-body">
-                                        
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Title</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-video-content-title" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">URL</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-video-content-url" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                        	
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Short Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea id="adPost-video-content-short-desc" class="form-control" rows="2"></textarea>
-                                                </div>
-                                            </div>
-                                        	
-                                        </div>
-                                    </form>
-                                </div>
-                    		</div>
-                    		
-                    		
-                    		<div class="portlet light">
-                    			<div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Audio Content</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-ban"></i> Ban </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Make admin </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                    			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-body">
-                                        
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Title</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-audio-content-title" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">URL</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="adPost-audio-content-url" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                        	
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Short Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea id="adPost-audio-content-short-desc" class="form-control" rows="2"></textarea>
-                                                </div>
-                                            </div>
-                                        	
-                                        </div>
-                                    </form>
-                                </div>
-                    		</div>
-                    		
-                    	</div>
-                    	
-                    	
-                    	
-                    	<div class="col-md-6">
-                    		<div class="portlet light">
-                    			<div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Gallery</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-ban"></i> Ban </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Make admin </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                    			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
-                                        <div id="add_gallery_img_section" class="form-body">
-                                        
-                                        			<div id="tab_images_uploader_container0" class="text-align-reverse margin-bottom-10">
-                                                         <a id="tab_images_uploader_pickfiles0"  onclick="add_gallery_img_section(); return false;" href="javascript:;" class="btn btn-success">
-                                                            <i class="fa fa-plus"></i> Add Files </a> 
-                                                        <a id="tab_images_uploader_uploadfiles" href="javascript:;" class="btn btn-primary">
-                                                            <i class="fa fa-share"></i> Upload Files </a>
-                                                    </div>
-                                                    <div id="tab_images_uploader_filelist">
-                                                        <!-- <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"> </div> -->
-                                                    </div>
-                                          
-                                        	<div id="gallery_img_section1" class="row" style="display: none;">
-	                                        	<div class="col-md-3">
-	                                        		<div class="fileinput fileinput-new" data-provides="fileinput">
-                                                        <div id="preview1" style="width: 100px; height: 75px;">
-                                                            <img id="previmg" src="http://www.placehold.it/100x75/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
-                                                        <!-- <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div> -->
-                                                        <div id="tab_images_uploader_container">
-                                                            <div class="btn default btn-file">
-                                                                <div id="fileinput-new1" class="fileinput-new"> Select Image </div>
-                                                                <input type="file" id="tab_images_uploader_pickfiles" > </div>
-                                                        </div>
-                                                    </div>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-title1" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-url1" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-gallery-img-short-desc1" class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                          
-                                         <!--	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhmsvleK8PbprHaMLNmWXoKofr2C67oZmUGCsWCN9U-T99fqdK" width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-title2" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-url2" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-gallery-img-short-desc2" class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvx3KD_H2-JO2KR-7EaUKJQ0ahVF9iyBCTg3soIRoh-AAsBmlK"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-title3" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-url3" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-gallery-img-short-desc3" class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaAS7SLrVIVvWYft53UQDhK0h1uf0tBsCWQl7AOzl_YmyTaCgm"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-title4" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-url4" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-gallery-img-short-desc4" class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAN1rudxgC_XPsZ7YMBqFykZPxasit8eG2uQvcaYZkJAdM9jF-"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-title5" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-url5" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-gallery-img-short-desc5" class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-title6" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-url6" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-gallery-img-short-desc6" class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-title7" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-url7" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-gallery-img-short-desc7" class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-title8" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-url8" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-gallery-img-short-desc8" class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-title9" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" id="adPost-gallery-img-url9" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea id="adPost-gallery-img-short-desc9" class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                         -->	
-                                        </div>
-                                    </form>
-                                </div>
-                    		</div>
-                    	</div>
-                    	
-                    </div>
+                   
                     
                   
                 </div>
