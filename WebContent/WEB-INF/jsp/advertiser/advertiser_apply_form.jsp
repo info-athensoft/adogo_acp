@@ -141,6 +141,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <!-- END PAGE HEADER-->
+                   
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Begin: life time stats -->
@@ -168,23 +169,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </div>
                                     </div>
                                 </div>
-                                <div class="portlet-body">
-                                    <div class="table-container">
-                                        <div class="table-actions-wrapper">
-                                            <span> </span>
-                                            <select class="table-group-action-input form-control input-inline input-small input-sm" name="groupOption">
-                                                <option value="">Select...</option>
-												<option value="1">Publish</option>
-												<option value="2">Wait to post</option>
-												<option value="3">Delete</option>
-												<option value="4">Out of date</option>
-												<option value="5">Suspend</option>
-                                            </select>
-                                            <button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
+                               
                             </div>
                             <!-- End: life time stats -->
                         </div>
@@ -194,136 +179,237 @@ License: You must have a valid license purchased only from themeforest(the above
                     	<div class="col-md-12">
                     		
                     		<div class="portlet light ">
-                                            <div class="portlet-title">
-                                                <div class="caption">
-                                                    <i class="icon-equalizer font-red-sunglo"></i>
-                                                    <span class="caption-subject font-red-sunglo bold uppercase">Application Form</span>
-                                                    <span class="caption-helper">become an advertiser</span>
-                                                </div>
-                                                <div class="actions">
-                                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                                        <i class="icon-cloud-upload"></i>
-                                                    </a>
-                                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                                        <i class="icon-wrench"></i>
-                                                    </a>
-                                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                                        <i class="icon-trash"></i>
-                                                    </a>
+	                            <div class="portlet-title">
+	                                <div class="caption">
+	                                    <i class="icon-equalizer font-red-sunglo"></i>
+	                                    <span class="caption-subject font-red-sunglo bold uppercase">Application Form</span>
+	                                    <span class="caption-helper">become an advertiser</span>
+	                                </div>
+	                                <div class="actions">
+	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                        <i class="icon-cloud-upload"></i>
+	                                    </a>
+	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                        <i class="icon-wrench"></i>
+	                                    </a>
+	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                        <i class="icon-trash"></i>
+	                                    </a>
+	                                </div>
+	                            </div>
+	                            
+                                <div class="portlet-body form">
+                                    <!-- BEGIN FORM-->
+                                    <form action="#" class="form-horizontal">
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Business Name</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <span class="help-block"> Your legal company name or real business name</span>
                                                 </div>
                                             </div>
-                                            <div class="portlet-body form">
-                                                <!-- BEGIN FORM-->
-                                                <form action="#" class="form-horizontal">
-                                                    <div class="form-body">
-                                                        <div class="form-group">
-                                                            <label class="col-md-3 control-label">Business Name</label>
-                                                            <div class="col-md-4">
-                                                                <input type="text" class="form-control" placeholder="Enter text">
-                                                                <span class="help-block"> Your legal company name or real business name</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="form-group">
-                                                            <label class="col-md-3 control-label">Legal Form</label>
-                                                            <div class="col-md-4">
-                                                                <select class="form-control">
-                                                                	<option value="">Solo business - Not registered</option>
-                                                                	<option value="">Solo business - Registered</option>
-                                                                	<option value="">Partnership</option>
-                                                                	<option value="">Corporation, LLC</option>
-                                                                </select>
-                                                                <span class="help-block"> The legal form of your business</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="form-group">
-                                                            <label class="col-md-3 control-label">Industry Code</label>
-                                                            <div class="col-md-4">
-                                                                <select class="form-control" id="industryCodeLevel1" onchange="test(this);">
-                                                                	<option value="">Choose a category</option>
-                                                                	<c:forEach items="${NAICS_level_1}" var="item">
-                                                                		<option value="${item.industryCode}">${item.industryName}</option>
-                                                                	</c:forEach>
-                                                                	
-                                                                </select>
-                                                                <p></p>
-                                                                <select class="form-control" id="industryCodeLevel2">
-                                                                	<option value="">--/--</option>
-                                                                </select>
-                                                                <p></p>
-                                                                <select class="form-control" id="industryCodeLevel3">
-                                                                	<option value="">--/--</option>
-                                                                </select>
-                                                                <p></p>
-                                                                <select class="form-control" id="industryCodeLevel4">
-                                                                	<option value="">--/--</option>
-                                                                </select>
-                                                                <span class="help-block"> Select the industry code for your business </span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        
-                                                        <div class="form-group">
-                                                            <label class="col-md-3 control-label">Email Address</label>
-                                                            <div class="col-md-4">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon">
-                                                                        <i class="fa fa-envelope"></i>
-                                                                    </span>
-                                                                    <input type="email" class="form-control" placeholder="Email Address"> </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-3 control-label">Password</label>
-                                                            <div class="col-md-4">
-                                                                <div class="input-group">
-                                                                    <input type="password" class="form-control" placeholder="Password">
-                                                                    <span class="input-group-addon">
-                                                                        <i class="fa fa-user"></i>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-3 control-label">Left Icon</label>
-                                                            <div class="col-md-4">
-                                                                <div class="input-icon">
-                                                                    <i class="fa fa-bell-o"></i>
-                                                                    <input type="text" class="form-control" placeholder="Left icon"> </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-3 control-label">Right Icon</label>
-                                                            <div class="col-md-4">
-                                                                <div class="input-icon right">
-                                                                    <i class="fa fa-microphone"></i>
-                                                                    <input type="text" class="form-control" placeholder="Right icon"> </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-3 control-label">Input With Spinner</label>
-                                                            <div class="col-md-4">
-                                                                <input type="password" class="form-control spinner" placeholder="Password"> </div>
-                                                        </div>
-                                                        <div class="form-group last">
-                                                            <label class="col-md-3 control-label">Static Control</label>
-                                                            <div class="col-md-4">
-                                                                <p class="form-control-static"> email@example.com </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-actions">
-                                                        <div class="row">
-                                                            <div class="col-md-offset-3 col-md-4">
-                                                                <button type="submit" class="btn green">Submit</button>
-                                                                <button type="button" class="btn default">Cancel</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <!-- END FORM-->
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Business No.</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <span class="help-block"> Your business no. issued by government</span>
+                                                </div>
                                             </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Business Owner</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="Business owner">
+                                                    <span class="help-block"> Business owner</span>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Legal Form</label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control">
+                                                    	<option value="">Choose a legal form</option>
+                                                    	<option value="">Solo business - Not registered</option>
+                                                    	<option value="">Solo business - Registered</option>
+                                                    	<option value="">Partnership</option>
+                                                    	<option value="">Corporation, LLC</option>
+                                                    </select>
+                                                    <span class="help-block"> The legal form of your business</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Industry Code</label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" id="industryCodeLevel1" onchange="test(this);">
+                                                    	<option value="">Choose a category for your business</option>
+                                                    	<c:forEach items="${NAICS_level_1}" var="item">
+                                                    		<option value="${item.industryCode}">${item.industryName}</option>
+                                                    	</c:forEach>
+                                                    	
+                                                    </select>
+                                                    <p></p>
+                                                    <select class="form-control" id="industryCodeLevel2">
+                                                    	<option value="">--/--</option>
+                                                    </select>
+                                                    <p></p>
+                                                    <select class="form-control" id="industryCodeLevel3">
+                                                    	<option value="">--/--</option>
+                                                    </select>
+                                                    <p></p>
+                                                    <select class="form-control" id="industryCodeLevel4">
+                                                    	<option value="">--/--</option>
+                                                    </select>
+                                                    <span class="help-block"> Select the industry code for your business </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Business Type</label>
+                                                <div class="col-md-4">
+                                                    <div class="mt-checkbox-list mt-checkbox-inline">
+			                                            <label class="mt-checkbox mt-checkbox-outline"> Product
+			                                                <input type="checkbox" value="1" name="businessType" />
+			                                                <span></span>
+			                                            </label>
+			                                            <label class="mt-checkbox mt-checkbox-outline"> e-Product
+			                                                <input type="checkbox" value="2" name="businessType" />
+			                                                <span></span>
+			                                            </label>
+			                                            <label class="mt-checkbox mt-checkbox-outline"> Service
+			                                                <input type="checkbox" value="3" name="businessType" />
+			                                                <span></span>
+			                                            </label>
+			                                        </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Business Description</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="Brief description of your business">
+                                                    <span class="help-block"> Your business description</span>
+                                                </div>
+                                            </div>
+                                            
+	                               			 <div class="form-group">
+	                                               <label class="col-md-3 control-label">Head Office Address</label>
+	                                               <div class="col-md-9">
+	                                               	<div class="row">
+	                                               		<div class="col-md-2">
+	                                               			<input type="text" class="form-control" placeholder="Street no.">
+	                                               		</div>
+	                                               		<div class="col-md-2">
+	                                               			<select class="form-control">
+		                                                    	<option value="">Rue</option>
+		                                                    	<option value="">Avenue/Av.</option>
+		                                                    	<option value="">Boulevard/Blvd.</option>
+		                                                    	<option value="">St.</option>
+	                                                   		</select>
+	                                               		</div>
+	                                               		<div class="col-md-6">
+	                                               			<input type="text" class="form-control" placeholder="Street name">
+	                                               		</div>
+	                                               		<div class="col-md-2">
+	                                               			<input type="text" class="form-control" placeholder="Port no.">
+	                                               		</div>
+	                                               	</div>
+	                                               	<p></p>
+	                                               	<div class="row">
+	                                               		<div class="col-md-4">
+	                                               			<input type="text" class="form-control" placeholder="City">
+	                                               		</div>
+	                                               		<div class="col-md-4">
+	                                               			<input type="text" class="form-control" placeholder="Province">
+	                                               		</div>
+	                                               		<div class="col-md-4">
+	                                               			<input type="text" class="form-control" placeholder="Postal code">
+	                                               		</div>
+	                                               	</div>
+	                                               </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group">
+	                                               <label class="col-md-3 control-label">Phone no.</label>
+	                                                <div class="col-md-4">
+	                                                    <input type="text" class="form-control" placeholder="Phone no.">
+	                                                </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group">
+	                                               <label class="col-md-3 control-label">Fax no.</label>
+	                                                <div class="col-md-4">
+	                                                    <input type="text" class="form-control" placeholder="Fax no.">
+	                                                </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group">
+	                                               <label class="col-md-3 control-label">Website Address</label>
+	                                                <div class="col-md-4">
+	                                                    <input type="text" class="form-control" placeholder="URL of your website or home page">
+	                                                </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group">
+	                                               <label class="col-md-3 control-label">Facebook</label>
+	                                                <div class="col-md-4">
+	                                                    <input type="text" class="form-control" placeholder="URL of your facebook homepage">
+	                                                </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group">
+	                                               <label class="col-md-3 control-label">LinkedIn</label>
+	                                                <div class="col-md-4">
+	                                                    <input type="text" class="form-control" placeholder="URL of your LinkedIn homepage">
+	                                                </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group">
+	                                               <label class="col-md-3 control-label">Twitter</label>
+	                                                <div class="col-md-4">
+	                                                    <input type="text" class="form-control" placeholder="URL of your Twitter homepage">
+	                                                </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group">
+	                                               <label class="col-md-3 control-label">Youtube</label>
+	                                                <div class="col-md-4">
+	                                                    <input type="text" class="form-control" placeholder="URL of your Youtube homepage">
+	                                                </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group">
+	                                               <label class="col-md-3 control-label">Instagram</label>
+	                                                <div class="col-md-4">
+	                                                    <input type="text" class="form-control" placeholder="URL of your Instagram homepage">
+	                                                </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group">
+	                                               <label class="col-md-3 control-label">Pinterest</label>
+	                                                <div class="col-md-4">
+	                                                    <input type="text" class="form-control" placeholder="URL of your Pinterest homepage">
+	                                                </div>
+	                                            </div>
+                                             
+                                            </div>                                                        
+                                            
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-4">
+                                                    <button type="submit" class="btn green">Submit</button>
+                                                    <button type="button" class="btn default">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END FORM-->
+                                </div>
                                         </div>
                     		
                     	</div>
