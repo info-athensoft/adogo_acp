@@ -1,3 +1,4 @@
+/**/
 function getSubIndustryCode(parentIndustryCode){
 	//alert("parent code = "+parentIndustryCode);
 	
@@ -23,4 +24,13 @@ function getSubIndustryCode(parentIndustryCode){
 		}		
 	});
 	
+}
+
+/*advertiser_apply_form.jsp*/
+function saveAdvertiserProfile(){
+	alert("saveAdvertiserProfile()");
+}
+
+function cancelAdvertiserApply(){
+	alert("cancelAdvertiserApply()");
 }
