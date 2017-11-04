@@ -27,7 +27,7 @@ function getBusinessObject(){
     var p16 = $("#adPost-audio-content-title").val();
     var p17 = $("#adPost-audio-content-url").val();
     var p18 = $("#adPost-audio-content-short-desc").val();
-    var p19 = $("#adPost-gallery-img-title1").val();
+/*    var p19 = $("#adPost-gallery-img-title1").val();
     var p20 = $("#adPost-gallery-img-url1").val();
     var p21 = $("#adPost-gallery-img-short-desc1").val();
     
@@ -61,7 +61,7 @@ function getBusinessObject(){
     
     var p43 = $("#adPost-gallery-img-title9").val();
     var p44 = $("#adPost-gallery-img-url9").val();
-    var p45 = $("#adPost-gallery-img-short-desc9").val();
+    var p45 = $("#adPost-gallery-img-short-desc9").val(); */
     
     var businessObject =
     {
@@ -87,8 +87,8 @@ function getBusinessObject(){
     		
     		adPostAudioContentTitle		  :   p16,
     		adPostAudioContentUrl  		  :   p17,
-    		adPostAudioContentShortDesc	  :   p18,
-    		
+    		adPostAudioContentShortDesc	  :   p18
+/*    		
     		adPostGalleryImgTitle1	      :   p19,
     		adPostGalleryImgUrl1 		  :   p20,
     		adPostGalleryImgShortDesc1    :   p21,
@@ -115,7 +115,7 @@ function getBusinessObject(){
     		adPostGalleryImgShortDesc8    :   p42,
     		adPostGalleryImgTitle9	      :   p43,
     		adPostGalleryImgUrl9 		  :   p44,
-    		adPostGalleryImgShortDesc9    :   p45
+    		adPostGalleryImgShortDesc9    :   p45 */
     };
     
     return businessObject;
