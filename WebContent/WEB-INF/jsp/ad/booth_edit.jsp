@@ -145,7 +145,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="portlet light">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-shopping-cart"></i>Post an Ad <span class="caption-helper">composite an ad</span></div>
+                                        <i class="fa fa-shopping-cart"></i>Edit a booth <span class="caption-helper">write contents for your booth to present</span></div>
                                     <div class="actions">
                                         <a href="eventsNewsCreate" class="btn btn-circle btn-info">
                                             <i class="fa fa-plus"></i><span class="hidden-xs"> Create news </span>
@@ -195,7 +195,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     			<div class="portlet-title">
                                     <div class="caption font-red-sunglo">
                                         <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Cover Image</span>
+                                        <span class="caption-subject sbold uppercase">Opening hours</span>
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group">
@@ -205,7 +205,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                        <i class="fa fa-pencil"></i> Save Edit </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:;">
@@ -226,23 +226,108 @@ License: You must have a valid license purchased only from themeforest(the above
                     			<div class="portlet-body form">
                                     <form class="form-horizontal" role="form">
                                         <div class="form-body">
-                                        
+                                        	
                                         	<div class="form-group">
-                                                <label class="col-md-3 control-label">Image Title</label>
+                                                <label class="col-md-3 control-label">Business no.</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" class="form-control" placeholder="start time" value="42001"/>
+                                                    <span class="help-block"> Hard code for test only</span>
+                                                </div>
+                                            </div>
+                                        	
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Monday</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="end time">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">URL</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                <label class="col-md-3 control-label">Tuesday</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="start time">
                                                 </div>
-                                            </div> 
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
                                             
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Short Description</label>
+                                                <label class="col-md-3 control-label">Wednesday</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Thursday</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Friday</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Saturday</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Sunday</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Announcement</label>
                                                 <div class="col-md-9">
                                                     <textarea class="form-control" rows="2"></textarea>
                                                 </div>
@@ -254,201 +339,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                     		</div>
                     	
-                    	
-                    	
-                    		<div class="portlet light">
-                    			<div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Text Content</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-ban"></i> Ban </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Make admin </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                    			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-body">
-                                        
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Ad Title</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Short Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea class="form-control" rows="3"></textarea>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Long Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea class="form-control" rows="5"></textarea>
-                                                </div>
-                                            </div>
-                                        	
-                                        </div>
-                                    </form>
-                                </div>
-                    		</div>
-                    		
-                    		
-                    		
-                    		
-                    		
-                    		
-                    		
-                    		<div class="portlet light">
-                    			<div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Video Content</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-ban"></i> Ban </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Make admin </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                    			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-body">
-                                        
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Title</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">URL</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                        	
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Short Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea class="form-control" rows="2"></textarea>
-                                                </div>
-                                            </div>
-                                        	
-                                        </div>
-                                    </form>
-                                </div>
-                    		</div>
-                    		
-                    		
-                    		<div class="portlet light">
-                    			<div class="portlet-title">
-                                    <div class="caption font-red-sunglo">
-                                        <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Audio Content</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-ban"></i> Ban </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Make admin </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                    			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
-                                        <div class="form-body">
-                                        
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Title</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">URL</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
-                                                </div>
-                                            </div>
-                                        	
-                                        	<div class="form-group">
-                                                <label class="col-md-3 control-label">Short Description</label>
-                                                <div class="col-md-9">
-                                                    <textarea class="form-control" rows="2"></textarea>
-                                                </div>
-                                            </div>
-                                        	
-                                        </div>
-                                    </form>
-                                </div>
-                    		</div>
-                    		
                     	</div>
                     	
                     	
@@ -806,9 +696,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/scripts/app.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/booth.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news-list.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -820,8 +709,6 @@ License: You must have a valid license purchased only from themeforest(the above
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-EventNewsList.init();
-//$("#menu-myevents").addClass("selected");
 
 </script>
 </body>
