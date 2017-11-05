@@ -173,7 +173,7 @@ public static final int BUF_SIZE = 2 * 1024;
 		logger.info("audio:adPostAudioContentShortDesc="+adPostAudioContentShortDesc);
 		
 		//gallery image
-		final int SIZE_OF_ADPOST_GALLERY_IMAGE = 9;
+/*		final int SIZE_OF_ADPOST_GALLERY_IMAGE = 9;
 		String[] adPostGalleryImgTitleList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
 		String[] adPostGalleryImgUrlList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
 		String[] adPostGalleryImgShortDescList	= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
@@ -186,7 +186,7 @@ public static final int BUF_SIZE = 2 * 1024;
 			logger.info("gallery image:adPostGalleryImgUrlList["+i+"]="+adPostGalleryImgUrlList[i]);
 			logger.info("gallery image:adPostGalleryImgShortDescList["+i+"]="+adPostGalleryImgShortDescList[i]);
 		}
-		
+*/		
 		
 		/*create a new record of adpost into master table*/
 		AdPostHead adPostHead = new AdPostHead();
@@ -229,11 +229,11 @@ public static final int BUF_SIZE = 2 * 1024;
 		this.adPostService.create(aContent);
 		
 		/*create AdPostGalleryImage*/
-		for(int i = 0; i < SIZE_OF_ADPOST_GALLERY_IMAGE; i++) {
+/*		for(int i = 0; i < SIZE_OF_ADPOST_GALLERY_IMAGE; i++) {
 			AdPostGalleryImage gImg = getAdPostGalleryImage(adPostBody, adPostGalleryImgTitleList[i], adPostGalleryImgUrlList[i], adPostGalleryImgShortDescList[i]);
 			this.adPostService.create(gImg);
 		}
-
+*/
 		
 		/* assemble model and view */
 		String viewName = "ad/ad_post";
