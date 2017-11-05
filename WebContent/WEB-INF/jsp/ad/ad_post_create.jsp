@@ -379,28 +379,49 @@ License: You must have a valid license purchased only from themeforest(the above
 						                    			<div class="portlet-body form">
 						                                    <form class="form-horizontal" role="form">
 						                                        <div class="form-body">
-						                                        
-						                                        	<div class="form-group">
-						                                                <label class="col-md-3 control-label">Image Title</label>
-						                                                <div class="col-md-9">
-						                                                    <input type="text" id="adPost-cover-img-title" class="form-control" placeholder="Enter text">
-						                                                </div>
-						                                            </div>
-						                                            
-						                                            <div class="form-group">
-						                                                <label class="col-md-3 control-label">URL</label>
-						                                                <div class="col-md-9">
-						                                                    <input type="text" id="adPost-cover-img-url" class="form-control" placeholder="Enter text">
-						                                                </div>
-						                                            </div> 
-						                                            
-						                                            <div class="form-group">
-						                                                <label class="col-md-3 control-label">Short Description</label>
-						                                                <div class="col-md-9">
-						                                                    <textarea id="adPost-cover-img-short-desc" class="form-control" rows="2"></textarea>
-						                                                </div>
-						                                            </div>
-						                                            
+						                                        	<div class="row">
+						                                        		<div class="col-md-3">
+						                                        			<div class="fileinput fileinput-new" data-provides="fileinput">
+						                                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+						                                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
+						                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+						                                                        <div>
+						                                                            <span class="btn default btn-file">
+						                                                                <span class="fileinput-new"> Select image </span>
+						                                                                <span class="fileinput-exists"> Change </span>
+						                                                                <input type="file" name="..."> </span>
+						                                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+						                                                            <a href="javascript:;" class="btn green fileinput-exists" data-dismiss="fileinput"> Upload </a>
+						                                                        </div>
+						                                                    </div>
+						                                                    <div class="clearfix margin-top-10">
+                                                        						<span class="label label-danger">NOTE!</span> Image dimension must be 900X400
+                                                        					</div>
+						                                        		</div>
+						                                        		<div class="col-md-9">
+						                                        			<div class="form-group">
+								                                                <label class="col-md-1 control-label">Image Title</label>
+								                                                <div class="col-md-11">
+								                                                    <input type="text" id="adPost-cover-img-title" class="form-control" placeholder="Enter text">
+								                                                </div>
+								                                            </div>
+								                                            
+								                                            <div class="form-group">
+								                                                <label class="col-md-1 control-label">URL</label>
+								                                                <div class="col-md-11">
+								                                                    <input type="text" id="adPost-cover-img-url" class="form-control" placeholder="Enter text">
+								                                                </div>
+								                                            </div> 
+								                                            
+								                                            <div class="form-group">
+								                                                <label class="col-md-1 control-label">Description</label>
+								                                                <div class="col-md-11">
+								                                                    <textarea id="adPost-cover-img-short-desc" class="form-control" rows="2"></textarea>
+								                                                </div>
+								                                            </div>
+						                                        		</div>
+						                                        	</div>
+						                                        	
 						                                        	
 						                                        </div>
 						                                    </form>
