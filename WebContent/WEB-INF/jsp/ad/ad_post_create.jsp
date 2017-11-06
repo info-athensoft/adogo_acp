@@ -51,6 +51,10 @@ License: You must have a valid license purchased only from themeforest(the above
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" />
+        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-summernote/summernote.css" rel="stylesheet" />
+        
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/datatables.min.css"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
@@ -335,7 +339,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						                                            <div class="form-group">
 						                                                <label class="col-md-3 control-label">Long Description</label>
 						                                                <div class="col-md-9">
-						                                                    <textarea id="adPost-text-content-long-desc" class="form-control" rows="5"></textarea>
+						                                                    <textarea id="adPost-text-content-long-desc" class="wysihtml5 form-control" rows="5"></textarea>
 						                                                </div>
 						                                            </div>
 						                                        	
@@ -697,6 +701,12 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="${webapp_name}/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+<script src="${webapp_name}/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+<script src="${webapp_name}/assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+<script src="${webapp_name}/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+<script src="${webapp_name}/assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
+
 <script src="${webapp_name}/assets/global/scripts/datatable.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
@@ -718,6 +728,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
+
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-editors.min.js"></script>
 
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/ad-adpost.js"></script>
