@@ -64,6 +64,7 @@ public static final int BUF_SIZE = 2 * 1024;
 	private String name;
 	private String user;
 	private String time;
+	private String curl;
 	
 	private static Properties pro = new Properties();
 	
@@ -499,26 +500,29 @@ public static final int BUF_SIZE = 2 * 1024;
 				    
 				    // Handle a form field.
 				    if(item.isFormField()){
-				        String fileName = item.getFieldName();
+				        String fieldName = item.getFieldName();
 				        String value = Streams.asString(input);
 
-				        if("name".equals(fileName)){
+				        if("name".equals(fieldName)){
 				        	this.name = value;
 				        }
-				        else if("chunks".equals(fileName)){
+				        else if("chunks".equals(fieldName)){
 				        	this.chunks = Integer.parseInt(value);
-				        }else if("chunk".equals(fileName)){
+				        }else if("chunk".equals(fieldName)){
 				        	this.chunk = Integer.parseInt(value);
-				        }else if("user".equals(fileName)){
+				        }else if("user".equals(fieldName)){
 				        	this.user = value;
-				        }else if("time".equals(fileName)){
+				        }else if("time".equals(fieldName)){
 				        	this.time = value;
-				        }
+				        }/*else if("curl".equals(fieldName)){
+				        	this.curl = value;
+				        }*/
 				        logger.info("name:" + this.name);
 				        logger.info("chunks:" + this.chunks);
 				        logger.info("chunk:" + this.chunk);
 				        logger.info("user:" + this.user);
 				        logger.info("time:" + this.time);
+				        //logger.info("curl:" + this.curl);
 				    }
 				    
 				    // Handle a multi-part MIME encoded file.
@@ -582,9 +586,11 @@ public static final int BUF_SIZE = 2 * 1024;
 		//data
 		Map<String, Object> model = mav.getModel();
 		
-		model.put("jsonrpc", "2.0");
-		model.put("result", "OK");
-		model.put("id", "id");
+		//model.put("jsonrpc", "2.0");
+		//model.put("result", "OK");
+		//model.put("id", "id");
+		//model.put("url", "url");
+		model.put("url", getFileBaseDir(getLoadedProperties()) + File.separator + eventUUID + File.separator +  this.name);
 		
 		logger.info("leaving /ad/adpost/imageUpload");
 		return model;

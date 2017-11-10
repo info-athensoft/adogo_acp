@@ -48,10 +48,11 @@ License: You must have a valid license purchased only from themeforest(the above
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/font-awesome/css/font-awesome.min.css"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>        
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-wysihtml5/wysiwyg-color.css"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" />
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-summernote/summernote.css" rel="stylesheet" />
         
@@ -393,9 +394,9 @@ License: You must have a valid license purchased only from themeforest(the above
 						                                                            <span class="btn default btn-file">
 						                                                                <span class="fileinput-new"> Select image </span>
 						                                                                <span class="fileinput-exists"> Change </span>
-						                                                                <input type="file" name="..."> </span>
+						                                                                <input type="file" id="ufile" name="..."> </span>
 						                                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-						                                                            <a href="javascript:;" class="btn green fileinput-exists" data-dismiss="fileinput"> Upload </a>
+						                                                            <a href="javascript:;" class="btn green fileinput-exists" data-dismiss="fileinput" onclick=" clickUpload('1011')"> Upload </a>
 						                                                        </div>
 						                                                    </div>
 						                                                    <div class="clearfix margin-top-10">
@@ -748,7 +749,8 @@ License: You must have a valid license purchased only from themeforest(the above
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-jQuery(document).ready(function() {    
+jQuery(document).ready(function() {
+	//alert("ok from document.ready");
 	//Metronic.init(); // init metronic core components
 	//Layout.init(); // init current layout
 	//Demo.init(); // init demo features
@@ -778,6 +780,68 @@ jQuery(document).ready(function() {
 	
 </script>
 <script>
+
+function clickUpload(id) {
+	//alert(id);
+	//$('#ufile').focus().trigger('click');
+/*	var elem = document.getElementById('ufile');
+    if(elem && document.createEvent) {
+       var evt = document.createEvent("MouseEvents");
+       evt.initEvent("click", true, false);
+       elem.dispatchEvent(evt);
+    }
+	$.ajax({
+		//type:"post",
+		url:'/acp/ad/adpost/imageUpload?eventUUID='+id,
+		//dataType:"json",
+		//data: {	adpostId:adpostId },
+		timeout : 5000,
+		success:function(data){	
+//			var msg = data.info_msg;
+			//var userAccount = data.userAccount;
+//				$("#sec_activate").html(msg);
+//			$("#ua1").text(userAccount.acctId);
+//				
+			//alert(msg);
+			//location = "goactivateresult?resultMsg="+msg;
+		}		
+	}); */
+	
+	//var formData = new FormData();
+	//formData.append('file', $('#file')[0].files[0]);
+	
+	var path =  $("#ufile").val();
+	var filename = path.replace(/^.*[\\\/]/, '');
+	//var curl = window.location.href;
+	//alert("filename="+filename);
+	var file_data = $("#ufile").prop("files")[0]; // Getting the properties of file from file field
+	  var form_data = new FormData(); // Creating object of FormData class
+	  form_data.append("name", filename); // Adding extra parameters to form_data
+	  //form_data.append("curl", curl); 
+	  form_data.append("file", file_data); // Appending parameter named file with properties of file_field to form_data
+	  
+	  $.ajax({
+		url:'/acp/ad/adpost/imageUpload?eventUUID='+id,
+	    //dataType: 'script',
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    data: form_data, // Setting the data attribute of ajax with file_data
+	    type: 'post',
+	    error: function (xhr, status) {
+            alert(status);
+        },
+	    success: function(data) {
+	      // Do something after Ajax completes 
+	      //alert(data["url"]);
+	      $("#adPost-cover-img-url").val(data["url"]);
+	      //for (var i in data) {
+	    	//  alert(i);
+	      //}
+	    }
+	  });
+}
+
 function testButtonConfirmLang(){
 	alert("ok");
 }
