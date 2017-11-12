@@ -323,8 +323,12 @@ public static final int BUF_SIZE = 2 * 1024;
 		AdPostHead adPostHead = adPostService.getAdPostHeadByAdPostId(adPostId);
 		adPost.setAdPostHead(adPostHead);
 		
-		List<AdPostCoverImage> adPostCoverImage = adPostService.getAdPostCoverImageByAdPostId(adPostId);
+		List<AdPostCoverImage> adPostCoverImage = new ArrayList<AdPostCoverImage>();
+		logger.info("adPostId = "+adPostId);
+		adPostCoverImage = adPostService.getAdPostCoverImageByAdPostId(adPostId);
 		adPost.setListAdPostCoverImage(adPostCoverImage);
+		
+		logger.info("adPostCoverImage size = "+adPostCoverImage.size());
 		
 		List<AdPostCoverImage> adPostCoverImage2 = adPost.getListAdPostCoverImage();
 /*		for (AdPostCoverImage cImg : adPostCoverImage2) {
@@ -351,7 +355,9 @@ public static final int BUF_SIZE = 2 * 1024;
 		AdPostVideo primaryVideo = adPost.getPrimaryMediaObject(adPostVideo2);
 		logger.info("primaryVideo getMediaUrl()="+primaryVideo.getMediaUrl());
 		
-		
+		//TODO temporarily commented for test
+		//2017-11-12 by Athens
+		/*
 		List<AdPostGalleryImage> adPostGalleryImage = adPostService.getAdPostGalleryImageByAdPostId(adPostId);
 		adPost.setListAdPostGalleryImage(adPostGalleryImage);
 		
@@ -361,7 +367,7 @@ public static final int BUF_SIZE = 2 * 1024;
 		} 
 		AdPostGalleryImage primaryGalleryImage = adPost.getPrimaryMediaObject(adPostGalleryImage2);
 		logger.info("primaryGalleryImage getMediaUrl()="+primaryGalleryImage.getMediaUrl());
-		
+		*/
 		
 		logger.info("exiting RESTFUL API... /ad/adpost/"+adPostId);
 		
