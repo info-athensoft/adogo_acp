@@ -220,7 +220,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         	<div class="col-md-1">
                                                             </div>
                                                             <div class="col-md-10">
-                                                                <jsp:include page="advertiser_agreement_content.jsp"></jsp:include>
+                                                                <jsp:include page="advertiser_agreement_content_inc.jsp"></jsp:include>
                                                             </div>
                                                            	<div class="col-md-1">
                                                             </div>
