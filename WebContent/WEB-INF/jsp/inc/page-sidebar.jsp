@@ -26,7 +26,7 @@
 				</a>
 				<ul class="sub-menu">
 					<li>
-						<a href="ecommerce_index.html">
+						<a href="#">
 						<i class="icon-home"></i>
 						Dashboard</a>
 					</li>
@@ -56,7 +56,7 @@
 				</a>
 				<ul class="sub-menu">
 					<li>
-						<a href="ecommerce_index.html">
+						<a href="#">
 						<i class="icon-home"></i>
 						Dashboard</a>
 					</li>
