@@ -388,7 +388,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						                                        		<div class="col-md-3">
 						                                        			<div class="fileinput fileinput-new" data-provides="fileinput">
 						                                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-						                                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
+						                                                            <img id="fileinput-new-img" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
 						                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
 						                                                        <div>
 						                                                            <span class="btn default btn-file">
@@ -835,6 +835,7 @@ function clickUpload(id) {
 	      // Do something after Ajax completes 
 	      //alert(data["url"]);
 	      $("#adPost-cover-img-url").val(data["url"]);
+	      $("#fileinput-new-img").attr("src",data["url"]);
 	      //for (var i in data) {
 	    	//  alert(i);
 	      //}

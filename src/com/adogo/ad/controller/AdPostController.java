@@ -537,13 +537,13 @@ public static final int BUF_SIZE = 2 * 1024;
 				    	
 				    	String fileBaseDir = getFileBaseDir(getLoadedProperties());	//modified by Athens on 2017-06-12
 				    	String fileDir = fileBaseDir+File.separator+eventUUID;
-//						
+//										    	
 				    	File dstFile = new File(fileDir);
 						if (!dstFile.exists()){
 							dstFile.mkdirs();
 						}
 //						
-						File dst = new File(dstFile.getPath()+ "/" + this.name);
+						File dst = new File(dstFile.getPath()+ File.separator + this.name);
 						
 						logger.info("fileDir:" + fileDir);
 						logger.info("fileName:" + this.name);
@@ -596,7 +596,11 @@ public static final int BUF_SIZE = 2 * 1024;
 		//model.put("result", "OK");
 		//model.put("id", "id");
 		//model.put("url", "url");
-		model.put("url", getFileBaseDir(getLoadedProperties()) + File.separator + eventUUID + File.separator +  this.name);
+		
+		String fileUrlFull = getFileBaseUrl(getLoadedProperties()) + File.separator+eventUUID + File.separator +  this.name;
+		fileUrlFull = fileUrlFull.replaceAll("\\\\", "/");
+		
+		model.put("url", fileUrlFull);
 		
 		logger.info("leaving /ad/adpost/imageUpload");
 		return model;
