@@ -190,7 +190,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     
                     <div class="row">
                     	<div class="col-md-6">
-                    		
+                    		<!-- 
                     		<div class="portlet light">
                     			<div class="portlet-title">
                                     <div class="caption font-red-sunglo">
@@ -340,7 +340,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </form>
                                 </div>
                     		</div>
-                    	</div>
+                    	
+							 -->                    	
+							 
+							 </div>
                     	
                     	
                     	<div class="col-md-6">
