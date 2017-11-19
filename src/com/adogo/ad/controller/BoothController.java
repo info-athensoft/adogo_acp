@@ -3,6 +3,7 @@ package com.adogo.ad.controller;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,9 @@ import com.adogo.ad.entity.AdPostCoverImage;
 import com.adogo.ad.entity.AdPostHead;
 import com.adogo.ad.entity.AdPostText;
 import com.adogo.ad.entity.AdPostVideo;
+import com.adogo.ad.entity.BusinessHours;
+import com.adogo.ad.service.AdPostService;
+import com.adogo.ad.service.BusinessHoursService;
 import com.athensoft.util.id.UUIDHelper;
 
 @Controller
@@ -21,6 +25,14 @@ import com.athensoft.util.id.UUIDHelper;
 public class BoothController {
 	
 	private static final Logger logger = Logger.getLogger(BoothController.class);
+	
+	@Autowired
+	private BusinessHoursService businessHoursService;
+		
+	@Autowired
+	public void setBusinessHoursService(BusinessHoursService businessHoursService) {
+		this.businessHoursService = businessHoursService;
+	}
 	
 	@RequestMapping("/create")
 	public String gotoCreate(){
@@ -77,7 +89,7 @@ public class BoothController {
 
 		
 		/*create a new record of BusinessHours into master table*/
-/*		BusinessHours businessHours = new BusinessHours();
+		BusinessHours businessHours = new BusinessHours();
 		businessHours.setBusinessId(businessId);
 		businessHours.setDay1StartTime(day1StartTime);
 		businessHours.setDay1EndTime(day1EndTime);
@@ -95,7 +107,7 @@ public class BoothController {
 		businessHours.setDay7EndTime(day7EndTime);
 		businessHours.setComment(comment);
 		
-		this.businessHoursService.create(businessHours); */
+		this.businessHoursService.persistBusinessHours(businessHours); 
 		
 		
 		
