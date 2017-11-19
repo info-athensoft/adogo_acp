@@ -100,7 +100,7 @@ public class BoothController {
 		
 		
 		/* assemble model and view */
-		String viewName = "/ad/booth";
+		String viewName = "ad/booth";
         mav.setViewName(viewName);
 		
 		logger.info("exiting... /ad/booth/saveBusinessHours");

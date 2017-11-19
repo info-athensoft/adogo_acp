@@ -19,6 +19,7 @@ function saveBusinessHours(){
 
 		}		
 	});
+}
 
 function getBusinessHoursObject(){	
 //		create a json object
@@ -62,5 +63,13 @@ function getBusinessHoursObject(){
     return businessObject;
 }
 
+/* Edit booth - button:Save Business Location */
+function saveBusinessLocation(){
+	alert("saveBusinessLocation called!");
+	//TODO 	
+}
 
+function getBusinessLocationObject(){
+	alert("getBusinessLocationObject called!");
+	//TODO 	
 }
