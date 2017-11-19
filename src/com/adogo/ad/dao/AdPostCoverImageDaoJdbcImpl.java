@@ -21,6 +21,8 @@ import com.adogo.ad.entity.AdPostCoverImage;
 @Qualifier("adPostCoverImageDaoJdbcImpl")
 public class AdPostCoverImageDaoJdbcImpl implements AdPostCoverImageDao {
 	
+	private final static Logger logger = Logger.getLogger(AdPostCoverImageDaoJdbcImpl.class);
+	
 	private NamedParameterJdbcTemplate jdbc;
 	/**
 	 * inject DataSource object
@@ -31,7 +33,7 @@ public class AdPostCoverImageDaoJdbcImpl implements AdPostCoverImageDao {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
 	
-	private final static Logger logger = Logger.getLogger(AdPostCoverImageDaoJdbcImpl.class);
+	
 
 	@Override
 	public List<AdPostCoverImage> findAll() {

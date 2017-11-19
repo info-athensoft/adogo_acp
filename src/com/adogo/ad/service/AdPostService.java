@@ -114,8 +114,8 @@ public class AdPostService {
 	
 	/*children tables*/
 
-	public List<AdPostText> getListAdPostText(){
-		return null;
+	public List<AdPostText> getAdPostTextByAdPostId(Long adPostId){
+		return this.adPostTextDao.findByAdPostId(adPostId);
 	}
 	
 	public List<AdPostCoverImage> getAdPostCoverImageByAdPostId(Long adPostId){

@@ -323,6 +323,13 @@ public static final int BUF_SIZE = 2 * 1024;
 		AdPostHead adPostHead = adPostService.getAdPostHeadByAdPostId(adPostId);
 		adPost.setAdPostHead(adPostHead);
 		
+		//AdPostText
+		List<AdPostText> adPostText = new ArrayList<AdPostText>();
+		logger.info("adPostId = "+adPostId);
+		adPostText = adPostService.getAdPostTextByAdPostId(adPostId);
+		adPost.setListAdPostText(adPostText);
+		
+		//AdPostCoverImage
 		List<AdPostCoverImage> adPostCoverImage = new ArrayList<AdPostCoverImage>();
 		logger.info("adPostId = "+adPostId);
 		adPostCoverImage = adPostService.getAdPostCoverImageByAdPostId(adPostId);
