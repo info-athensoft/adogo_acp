@@ -147,8 +147,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="caption">
                                         <i class="fa fa-shopping-cart"></i>Edit a booth <span class="caption-helper">write contents for your booth to present</span></div>
                                     <div class="actions">
-                                        <a href="eventsNewsCreate" class="btn btn-circle btn-info">
-                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Create news </span>
+                                        <a href="#" class="btn btn-circle btn-info">
+                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Save booth </span>
                                         </a>
                                         <div class="btn-group">
                                             <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
@@ -195,17 +195,19 @@ License: You must have a valid license purchased only from themeforest(the above
                     			<div class="portlet-title">
                                     <div class="caption font-red-sunglo">
                                         <i class="icon-settings"></i>
-                                        <span class="caption-subject sbold uppercase">Opening hours</span>
+                                        <span class="caption-subject sbold uppercase">Business Location</span>
                                     </div>
                                     <div class="actions">
+                                    	<button class="btn btn-success" onclick="saveBusinessLocation(); return false;">
+                                                <i class="fa fa-check"></i> Quick Save</button>
                                         <div class="btn-group">
                                             <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a href="javascript:;" onclick="saveBusinessHours(); return false;" >
-                                                        <i class="fa fa-pencil"></i> Save Edit </a>
+                                                    <a href="javascript:;" onclick="saveBusinessLocation(); return false;" >
+                                                        <i class="fa fa-pencil"></i> Save this section </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:;">
@@ -230,7 +232,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Business no.</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="business_id" class="form-control" placeholder="start time" value="42001"/>
+                                                    <input type="text" id="business_id" class="form-control" placeholder="start time" value="42001" readonly="readonly"/>
                                                     <span class="help-block"> Hard code for test only</span>
                                                 </div>
                                             </div>
@@ -338,9 +340,160 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </form>
                                 </div>
                     		</div>
-                    	
                     	</div>
                     	
+                    	
+                    	<div class="col-md-6">
+                    		<div class="portlet light">
+                    			<div class="portlet-title">
+                                    <div class="caption font-red-sunglo">
+                                        <i class="icon-settings"></i>
+                                        <span class="caption-subject sbold uppercase">Opening hours</span>
+                                    </div>
+                                    <div class="actions">
+                                    	<button class="btn btn-success" onclick="saveBusinessHours(); return false;">
+                                                <i class="fa fa-check"></i> Quick Save</button>
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;" onclick="saveBusinessHours(); return false;" >
+                                                        <i class="fa fa-pencil"></i> Save this section </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-ban"></i> Ban </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;"> Make admin </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                    			<div class="portlet-body form">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                        	
+                                        	<div class="form-group">
+                                                <label class="col-md-3 control-label">Business no.</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="business_id" class="form-control" placeholder="start time" value="42001" readonly="readonly"/>
+                                                    <span class="help-block"> Hard code for test only</span>
+                                                </div>
+                                            </div>
+                                        	
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Monday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day1_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day1_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Tuesday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day2_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day2_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Wednesday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day3_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day3_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Thursday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day4_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day4_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Friday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day5_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day5_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Saturday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day6_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day6_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Sunday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day7_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day7_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Announcement</label>
+                                                <div class="col-md-9">
+                                                    <textarea id="comment" class="form-control" rows="2"></textarea>
+                                                </div>
+                                            </div>
+                                            
+                                        	
+                                        </div>
+                                    </form>
+                                </div>
+                    		</div>
+                    	</div>
                     	
                     	
                     	<div class="col-md-6">
@@ -467,187 +620,6 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                            </div>
 	                                        	</div>
                                         	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaAS7SLrVIVvWYft53UQDhK0h1uf0tBsCWQl7AOzl_YmyTaCgm"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAN1rudxgC_XPsZ7YMBqFykZPxasit8eG2uQvcaYZkJAdM9jF-"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
                                         </div>
                                     </form>
                                 </div>
