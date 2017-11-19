@@ -53,7 +53,7 @@ public class AdPostController {
 	
 	private static final Logger logger = Logger.getLogger(AdPostController.class);
 	
-public static final int BUF_SIZE = 2 * 1024;
+	public static final int BUF_SIZE = 2 * 1024;
 	
 	private static final String RESP_SUCCESS = "{\"jsonrpc\" : \"2.0\", \"result\" : \"OK\", \"id\" : \"id\"}";
 	private static final String RESP_ERROR = "{\"jsonrpc\" : \"2.0\", \"error\" : {\"code\": 101, \"message\": \"Failed to open input stream.\"}, \"id\" : \"id\"}";

@@ -204,7 +204,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a href="javascript:;">
+                                                    <a href="javascript:;" onclick="saveBusinessHours(); return false;" >
                                                         <i class="fa fa-pencil"></i> Save Edit </a>
                                                 </li>
                                                 <li>
@@ -230,7 +230,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Business no.</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="start time" value="42001"/>
+                                                    <input type="text" id="business_id" class="form-control" placeholder="start time" value="42001"/>
                                                     <span class="help-block"> Hard code for test only</span>
                                                 </div>
                                             </div>
@@ -238,98 +238,98 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Monday</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="start time">
+                                                    <input id="day1_start_time" type="text" class="form-control" placeholder="start time">
                                                 </div>
                                                 <div class="col-md-1">
                                                     &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="end time">
+                                                    <input id="day1_end_time" type="text" class="form-control" placeholder="end time">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Tuesday</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="start time">
+                                                    <input id="day2_start_time" type="text" class="form-control" placeholder="start time">
                                                 </div>
                                                 <div class="col-md-1">
                                                     &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="end time">
+                                                    <input id="day2_end_time" type="text" class="form-control" placeholder="end time">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Wednesday</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="start time">
+                                                    <input id="day3_start_time" type="text" class="form-control" placeholder="start time">
                                                 </div>
                                                 <div class="col-md-1">
                                                     &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="end time">
+                                                    <input id="day3_end_time" type="text" class="form-control" placeholder="end time">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Thursday</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="start time">
+                                                    <input id="day4_start_time" type="text" class="form-control" placeholder="start time">
                                                 </div>
                                                 <div class="col-md-1">
                                                     &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="end time">
+                                                    <input id="day4_end_time" type="text" class="form-control" placeholder="end time">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Friday</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="start time">
+                                                    <input id="day5_start_time" type="text" class="form-control" placeholder="start time">
                                                 </div>
                                                 <div class="col-md-1">
                                                     &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="end time">
+                                                    <input id="day5_end_time" type="text" class="form-control" placeholder="end time">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Saturday</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="start time">
+                                                    <input id="day6_start_time" type="text" class="form-control" placeholder="start time">
                                                 </div>
                                                 <div class="col-md-1">
                                                     &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="end time">
+                                                    <input id="day6_end_time" type="text" class="form-control" placeholder="end time">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Sunday</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="start time">
+                                                    <input id="day7_start_time" type="text" class="form-control" placeholder="start time">
                                                 </div>
                                                 <div class="col-md-1">
                                                     &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="end time">
+                                                    <input id="day7_end_time" type="text" class="form-control" placeholder="end time">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Announcement</label>
                                                 <div class="col-md-9">
-                                                    <textarea class="form-control" rows="2"></textarea>
+                                                    <textarea id="comment" class="form-control" rows="2"></textarea>
                                                 </div>
                                             </div>
                                             
