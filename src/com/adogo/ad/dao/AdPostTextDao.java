@@ -13,5 +13,7 @@ public interface AdPostTextDao {
 	
 	public AdPostText findPrimary();
 	
+	public Long findTotalCount();
+	
 	
 }
