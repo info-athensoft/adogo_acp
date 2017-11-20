@@ -73,3 +73,14 @@ function getBusinessLocationObject(){
 	alert("getBusinessLocationObject called!");
 	//TODO 	
 }
+
+function saveContactInfo(){
+	alert("saveContactInfo called!");
+	//TODO 	
+}
+
+function getContactInfoObject(){
+	alert("getContactInfoObject called!");
+	//TODO 	
+}
+

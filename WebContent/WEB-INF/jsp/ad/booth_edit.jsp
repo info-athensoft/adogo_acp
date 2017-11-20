@@ -226,6 +226,93 @@ License: You must have a valid license purchased only from themeforest(the above
                     		<!-- End of Section -->
                     		
                     		
+                    		<!-- Section of Business Contact -->
+                    		<div class="portlet light">
+                    			<div class="portlet-title">
+                                    <div class="caption font-red-sunglo">
+                                        <i class="icon-settings"></i>
+                                        <span class="caption-subject sbold uppercase">Contact Information</span>
+                                    </div>
+                                    <div class="actions">
+                                    	<button class="btn btn-success" onclick="saveContactInfo(); return false;">
+                                                <i class="fa fa-check"></i> Quick Save</button>
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;" onclick="saveContactInfo(); return false;" >
+                                                        <i class="fa fa-pencil"></i> Save this section </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-ban"></i> Ban </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;"> Make admin </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                    			<div class="portlet-body form">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                        	<div class="form-group">
+                                                <label class="col-md-2 control-label">Phone</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" id="contact_phone_no" class="form-control" placeholder="Phone no."/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Fax</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" id="contact_fax_no" class="form-control" placeholder="Fax no."/>
+                                                </div>
+                                            </div>
+                                        	<div class="form-group">
+                                                <label class="col-md-2 control-label">Email</label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_email_1" class="form-control" placeholder="Email #1 - Primary"/>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_email_2" class="form-control" placeholder="Email #2 - Optional"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"></label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_email_3" class="form-control" placeholder="Email #3 - Optional"/>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_email_4" class="form-control" placeholder="Email #4 - Optional"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Website</label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_website_1" class="form-control" placeholder="Primary website"/>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_website_2" class="form-control" placeholder="Secondary Website"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                    		</div>
+							<!-- End of Section -->
+                    		
+                    		
+                    		<!-- Section of Business Location -->
                     		<div class="portlet light">
                     			<div class="portlet-title">
                                     <div class="caption font-red-sunglo">
@@ -337,18 +424,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </form>
                                 </div>
                     		</div>
-						
+							<!-- End of Section -->
+                    		
+                    		
+                    		
                     		
                     		
                     		
 						</div>
                     	
-                    
-                    
-                    	<!-- Section of Business Location -->
-                    	<div class="col-md-6">
-						</div>
-                    	<!-- End of Section -->
                     	
                     	<!-- Section of Business Hours -->
                     	<div class="col-md-6">

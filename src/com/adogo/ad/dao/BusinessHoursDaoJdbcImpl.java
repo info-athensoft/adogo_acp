@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -12,13 +13,16 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import com.adogo.ad.controller.AdPostController;
 import com.adogo.ad.entity.BusinessHours;
 
 @Component
-@Qualifier("adTagDaoJdbcImpl")
+@Qualifier("businessHoursDaoJdbcImpl")
 public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 	
-	private final String TABLE1 = "INFO_BIZ_HOURS";
+	private static final Logger logger = Logger.getLogger(BusinessHoursDaoJdbcImpl.class);
+	
+	private final String TABLE1 = "BOOTH_BIZ_HOURS";
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
