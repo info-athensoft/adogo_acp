@@ -18,6 +18,8 @@ import com.adogo.ad.entity.BusinessHours;
 @Qualifier("adTagDaoJdbcImpl")
 public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 	
+	private final String TABLE1 = "INFO_BIZ_HOURS";
+	
 	private NamedParameterJdbcTemplate jdbc;
 	
 	/**
@@ -31,8 +33,9 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 	
 	@Override
 	public BusinessHours findBusinessHoursByBusinessId(Long businessId) {
+		
 		System.out.println("entering -- BusinessHoursDaoImpl/findBusinessHoursByBusinessId ");
-		String sql = "select * from test_bussiness_hours where business_id =:businessId";
+		String sql = "select * from "+TABLE1+" where business_id =:businessId";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("businessId", businessId);
 		BusinessHours x = null;
@@ -47,7 +50,6 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 
 	@Override
 	public int persistBusinessHours(BusinessHours businessHours) {
-		//System.out.println("entering -- AdTagDaoImpl/updateTag ");
 		Long businessId = businessHours.getBusinessId();
 		BusinessHours foundBH = this.findBusinessHoursByBusinessId(businessId);
 		if (foundBH == null) {
@@ -60,10 +62,8 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 	
 	private int create(BusinessHours businessHours) {
 
-		final String TABLE = "test_bussiness_hours";
-		
 		StringBuffer sbf = new StringBuffer();
-		sbf.append("insert into "+TABLE);
+		sbf.append("insert into "+TABLE1);
 		sbf.append("(business_id,day1_start_time,day1_end_time,day2_start_time,day2_end_time,day3_start_time,day3_end_time,day4_start_time,day4_end_time");
 		sbf.append(",day5_start_time,day5_end_time,day6_start_time,day6_end_time,day7_start_time,day7_end_time,comment) ");
 		sbf.append("values (:business_id,:day1_start_time,:day1_end_time,:day2_start_time,:day2_end_time,:day3_start_time,:day3_end_time,:day4_start_time,:day4_end_time");
@@ -104,9 +104,7 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 
 	private int update(BusinessHours businessHours) {
 		
-		final String TABLE = "test_bussiness_hours";
-		
-		String sql  = "UPDATE " + TABLE
+		String sql  = "UPDATE " + TABLE1
 	                + " SET day1_start_time = :day1_start_time,"
 	                + "day1_end_time = :day1_end_time,"
 	               
