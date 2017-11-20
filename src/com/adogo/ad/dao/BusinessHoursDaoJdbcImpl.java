@@ -38,7 +38,7 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 	@Override
 	public BusinessHours findBusinessHoursByBusinessId(Long businessId) {
 		
-		System.out.println("entering -- BusinessHoursDaoImpl/findBusinessHoursByBusinessId ");
+		logger.info("entering -- BusinessHoursDaoImpl/findBusinessHoursByBusinessId ");
 		String sql = "select * from "+TABLE1+" where business_id =:businessId";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("businessId", businessId);
@@ -68,14 +68,15 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("insert into "+TABLE1);
-		sbf.append("(business_id,day1_start_time,day1_end_time,day2_start_time,day2_end_time,day3_start_time,day3_end_time,day4_start_time,day4_end_time");
+		sbf.append("(business_id,lang_no,day1_start_time,day1_end_time,day2_start_time,day2_end_time,day3_start_time,day3_end_time,day4_start_time,day4_end_time");
 		sbf.append(",day5_start_time,day5_end_time,day6_start_time,day6_end_time,day7_start_time,day7_end_time,comment) ");
-		sbf.append("values (:business_id,:day1_start_time,:day1_end_time,:day2_start_time,:day2_end_time,:day3_start_time,:day3_end_time,:day4_start_time,:day4_end_time");
+		sbf.append("values (:business_id,:lang_no,:day1_start_time,:day1_end_time,:day2_start_time,:day2_end_time,:day3_start_time,:day3_end_time,:day4_start_time,:day4_end_time");
 		sbf.append(",:day5_start_time,:day5_end_time,:day6_start_time,:day6_end_time,:day7_start_time,:day7_end_time,:comment)");
 		String sql = sbf.toString();
 
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("business_id", businessHours.getBusinessId());
+		paramSource.addValue("lang_no", businessHours.getLangNo());
 		
 		paramSource.addValue("day1_start_time", businessHours.getDay1StartTime());	
 		paramSource.addValue("day1_end_time", businessHours.getDay1EndTime());
@@ -169,6 +170,7 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 			BusinessHours x = new BusinessHours();
 			x.setUid(rs.getLong("uid"));
 			x.setBusinessId(rs.getLong("business_id"));
+			x.setLangNo(rs.getInt("lang_no"));
 			
 			x.setDay1StartTime(rs.getString("day1_start_time"));
 			x.setDay1EndTime(rs.getString("day1_end_time"));

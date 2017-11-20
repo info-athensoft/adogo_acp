@@ -64,6 +64,7 @@ public class BoothController {
 		
 //		Long uId 			= UUIDHelper.getUniqueLongId();
 		Long businessId 		= jsonObj.getLong("businessId");
+		Integer langNo			= jsonObj.getInt("langNo");
 		String day1StartTime 	= jsonObj.getString("day1StartTime");
 		String day1EndTime 		= jsonObj.getString("day1EndTime");
 		String day2StartTime 	= jsonObj.getString("day2StartTime");
@@ -91,6 +92,7 @@ public class BoothController {
 		/*create a new record of BusinessHours into master table*/
 		BusinessHours businessHours = new BusinessHours();
 		businessHours.setBusinessId(businessId);
+		businessHours.setLangNo(langNo);
 		businessHours.setDay1StartTime(day1StartTime);
 		businessHours.setDay1EndTime(day1EndTime);
 		businessHours.setDay2StartTime(day2StartTime);

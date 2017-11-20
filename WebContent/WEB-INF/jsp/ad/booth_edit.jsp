@@ -212,7 +212,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-2 control-label">Language</label>
                                                 <div class="col-md-10">
-                                                    <select id="unit_type" class="form-control">
+                                                    <select id="lang_no" class="form-control">
                                                     	<option value="1033" selected="selected">English</option>
                                                     	<option value="3084">French</option>
                                                     	<option value="2052">Chinese (Simplified)</option>
