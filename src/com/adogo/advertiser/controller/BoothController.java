@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.ad.entity.BusinessHours;
-import com.adogo.ad.service.BusinessHoursService;
+import com.adogo.advertiser.service.BusinessHoursService;
 
 @Controller
 @RequestMapping("/advertiser/booth")

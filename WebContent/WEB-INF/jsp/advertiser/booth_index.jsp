@@ -372,8 +372,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <h3>Booth - English</h3>
                                                     <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
                                                     <p>
-                                                        <a href="javascript:;" class="btn blue"> Button </a>
-                                                        <a href="javascript:;" class="btn default"> Button </a>
+                                                        <a href="javascript:;" class="btn blue"> Edit </a>
+                                                        <a href="javascript:;" class="btn default"> Preview </a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -399,6 +399,19 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
                                                     <p>
                                                         <a href="javascript:;" class="btn red"> Button </a>
+                                                        <a href="javascript:;" class="btn default"> Button </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                            <div class="thumbnail">
+                                                <img src="${webapp_name}/assets/athensoft/booth-logo/03.jpg" alt="" style="width: 100%;">
+                                                <div class="caption">
+                                                    <h3>CREATE A NEW BOOTH</h3>
+                                                    <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
+                                                    <p>
+                                                        <a href="javascript:;" class="btn red"> Create Now </a>
                                                         <a href="javascript:;" class="btn default"> Button </a>
                                                     </p>
                                                 </div>

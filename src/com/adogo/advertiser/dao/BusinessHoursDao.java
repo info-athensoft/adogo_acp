@@ -1,4 +1,4 @@
-package com.adogo.ad.dao;
+package com.adogo.advertiser.dao;
 
 import com.adogo.ad.entity.BusinessHours;
 

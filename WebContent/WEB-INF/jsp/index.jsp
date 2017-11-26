@@ -330,7 +330,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </div>
                                                     <div class="mt-footer-button">
                                                         <!-- <button type="button" class="btn btn-circle btn-danger btn-sm">Apply</button> -->
-                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/uaas/advertiser/apply">Apply</a>
+                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/advertiser/apply">Apply</a>
                                                     </div>
                                                 </div>
                                             </div>

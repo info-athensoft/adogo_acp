@@ -1,11 +1,11 @@
-package com.adogo.ad.service;
+package com.adogo.advertiser.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.adogo.ad.dao.BusinessProfileDao;
 import com.adogo.ad.entity.BusinessProfile;
+import com.adogo.advertiser.dao.BusinessProfileDao;
 
 @Service
 public class BusinessProfileService {
