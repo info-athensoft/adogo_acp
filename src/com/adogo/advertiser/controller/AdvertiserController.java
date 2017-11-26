@@ -104,13 +104,25 @@ public class AdvertiserController {
 		return viewName;
 	}
 	
-	@RequestMapping("/biz/register")
+	@RequestMapping("/biz/register.html")
 	public String gotoRegisiterBiz(){
 		String viewName = "advertiser/advertiser_bizprofile_register";
 		return viewName;
 	}
 	
-	@RequestMapping("/biz/edit")
+	@RequestMapping("/biz/create.html")
+	public String gotoCreateBizProfile(){
+		String viewName = "advertiser/advertiser_bizprofile_create";
+		return viewName;
+	}
+	
+	@RequestMapping("/biz/create")
+	public String createBizProfile(){
+		String viewName = "advertiser/#";
+		return viewName;
+	}
+	
+	@RequestMapping("/biz/edit.html")
 	public String gotoEditBizProfile(){
 		String viewName = "advertiser/advertiser_bizprofile_edit";
 		return viewName;

@@ -229,8 +229,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <div class="form-actions">
                                                         <div class="row">
                                                             <div class="col-md-offset-3 col-md-4">
-                                                                <a href="/acp/uaas/bizrole" type="button" class="btn default">I don't agree</a>
-                                                                <a href="/acp/uaas/advertiser/apply2" class="btn green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I Agree&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                                                <a href="/acp/bizrole" type="button" class="btn default">I don't agree</a>
+                                                                <a href="/acp/advertiser/apply2" class="btn green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I Agree&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                                                             </div>
                                                         </div>
                                                     </div>

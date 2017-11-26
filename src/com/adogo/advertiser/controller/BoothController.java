@@ -9,16 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.ad.entity.AdPostAudio;
-import com.adogo.ad.entity.AdPostBody;
-import com.adogo.ad.entity.AdPostCoverImage;
-import com.adogo.ad.entity.AdPostHead;
-import com.adogo.ad.entity.AdPostText;
-import com.adogo.ad.entity.AdPostVideo;
 import com.adogo.ad.entity.BusinessHours;
-import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.BusinessHoursService;
-import com.athensoft.util.id.UUIDHelper;
 
 @Controller
 @RequestMapping("/advertiser/booth")

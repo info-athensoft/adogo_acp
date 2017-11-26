@@ -66,12 +66,12 @@
 						Manage Business</a>
 						<ul class="sub-menu">
 							<li>
-								<a href="/acp/advertiser/biz/register">
+								<a href="/acp/advertiser/biz/register.html">
 								<i class="icon-pencil"></i>
 								Register my Business</a>
 							</li>
 							<li>
-								<a href="/acp/advertiser/biz/edit">
+								<a href="/acp/advertiser/biz/edit.html">
 								<i class="icon-pencil"></i>
 								Edit Business Profile</a>
 							</li>							

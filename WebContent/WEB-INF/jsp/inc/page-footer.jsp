@@ -4,7 +4,7 @@
 
 <div class="page-footer">
 	<div class="page-footer-inner">
-		 2008 - 2017 &copy; ACP &trade;  Informatique Athensoft. <a href="#" target="_blank"></a>
+		 2008 - 2018 &copy; ADOGO &trade;  Informatique Athensoft <a href="#" target="_blank"></a> &nbsp;&nbsp;&nbsp;All Rights Reserved
 	</div>
 	<div class="scroll-to-top">
 		<i class="icon-arrow-up"></i>
