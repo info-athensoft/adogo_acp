@@ -118,7 +118,11 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>
-								<a href="eventsDashboard">Ad</a>
+                                <a href="${webapp_name}/advertiser/">Advertiser</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+							<li>
+								<a href="#">Manage Ad Post</a>
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>

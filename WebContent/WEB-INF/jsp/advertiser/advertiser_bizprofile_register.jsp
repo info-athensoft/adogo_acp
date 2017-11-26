@@ -7,7 +7,7 @@
 
 
 <!-- page variables  -->
-<c:set var="inc_dir" value="inc"/>
+<c:set var="inc_dir" value="../inc"/>
 <!-- ENDS page variables -->
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <head>
         <meta charset="utf-8" />
-        <title>INF. Athensoft | ACP</title>
+        <title>Adogo | Business Profile - Register</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description" />
@@ -107,18 +107,26 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN THEME PANEL -->
                     <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Athensoft Control Panel 2.0
-                        <small>statistics, charts, recent events and reports</small>
+                    <h1 class="page-title"> Advertiser | Register my Business
+                        <small>get my business registered to show to public</small>
                     </h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
                             <li>
                                 <i class="icon-home"></i>
-                                <a href="#">Home</a>
+                                <a href="${webapp_name}/">Home</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <span>Dashboard</span>
+                                <a href="${webapp_name}/advertiser/">Advertiser</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="${webapp_name}/advertiser/">Manage business</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <span>Register my business</span>
                             </li>
                         </ul>
                         <div class="page-toolbar">
@@ -390,7 +398,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Enter a business role</span>
+                                        <span class="caption-subject bold font-dark uppercase"> Choose a business role</span>
                                         <span class="caption-helper">default option...</span>
                                     </div>
                                     <div class="actions">
@@ -423,7 +431,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </div>
                                                     <div class="mt-footer-button">
                                                         <!-- <button type="button" class="btn btn-circle btn-danger btn-sm">Apply</button> -->
-                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/advertiser/">Enter</a>
+                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/uaas/advertiser/apply">Enter</a>
                                                     </div>
                                                 </div>
                                             </div>

@@ -31,7 +31,7 @@
 						Dashboard</a>
 					</li>
 					<li>
-						<a href="ecommerce_index.html">
+						<a href="#">
 						<i class="icon-doc"></i>
 						Distributor profile</a>
 					</li>
@@ -56,39 +56,65 @@
 				</a>
 				<ul class="sub-menu">
 					<li>
-						<a href="#">
+						<a href="/acp/advertiser/">
 						<i class="icon-home"></i>
 						Dashboard</a>
 					</li>
 					<li>
-						<a href="/admin/bizprofile">
-						<i class="icon-pencil"></i>
-						Edit Business Profile</a>
+						<a href="/acp/advertiser/">
+						<i class="icon-home"></i>
+						Manage Business</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="/acp/advertiser/biz/register">
+								<i class="icon-pencil"></i>
+								Register my Business</a>
+							</li>
+							<li>
+								<a href="/acp/advertiser/biz/edit">
+								<i class="icon-pencil"></i>
+								Edit Business Profile</a>
+							</li>							
+						</ul>
 					</li>
 					<li>
-						<a href="/acp/ad/adpost/create.html">
-						<i class="icon-paper-plane"></i>
-						Create Ad Post</a>
+						<a href="/acp/advertiser/">
+						<i class="icon-home"></i>
+						Manage Booth</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="/acp/advertiser/booth/">
+								<i class="icon-paper-plane"></i>
+								View Booth</a>
+							</li>
+							<li>
+								<a href="/acp/advertiser/booth/create">
+								<i class="icon-paper-plane"></i>
+								Create a Booth</a>
+							</li>
+							<li>
+								<a href="/acp/advertiser/booth/edit">
+								<i class="icon-paper-plane"></i>
+								Edit Booth</a>
+							</li>							
+						</ul>
 					</li>
 					<li>
-						<a href="/acp/ad/adpost/edit.html">
-						<i class="icon-paper-plane"></i>
-						Edit Ad Post</a>
-					</li>
-					<li>
-						<a href="/acp/ad/booth/create">
-						<i class="icon-paper-plane"></i>
-						Create a Booth</a>
-					</li>
-					<li>
-						<a href="/acp/ad/booth/edit">
-						<i class="icon-paper-plane"></i>
-						Edit Booth</a>
-					</li>
-					<li>
-						<a href="ecommerce_orders.html">
-						<i class="icon-basket"></i>
-						Order a service</a>
+						<a href="/acp/advertiser/">
+						<i class="icon-home"></i>
+						Manage AdPost</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="/acp/ad/adpost/create.html">
+								<i class="icon-paper-plane"></i>
+								Create Ad Post</a>
+							</li>
+							<li>
+								<a href="/acp/ad/adpost/edit.html">
+								<i class="icon-paper-plane"></i>
+								Edit Ad Post</a>
+							</li>							
+						</ul>
 					</li>
 				</ul>
 			</li>

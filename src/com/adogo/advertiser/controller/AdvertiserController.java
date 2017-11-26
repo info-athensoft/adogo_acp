@@ -17,7 +17,7 @@ import com.adogo.advertiser.entity.IndustryCode;
 import com.adogo.advertiser.service.IndustryCodeService;
 
 @Controller
-@RequestMapping("/uaas/advertiser")
+@RequestMapping("/advertiser")
 public class AdvertiserController {
 	
 	private static final Logger logger = Logger.getLogger(AdvertiserController.class);
@@ -62,7 +62,6 @@ public class AdvertiserController {
 		return mav;
 	}
 	
-	
 	@RequestMapping(value="industrycode/class/{parentIndustryCode}",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
 	public Map<String,Object> getDataSubIndustyCode(@PathVariable String parentIndustryCode){
@@ -83,4 +82,38 @@ public class AdvertiserController {
 		logger.info("exiting RESTFUL API... /uaas/advertiser/industrycode/sub/");
 		return model;
 	}
+
+
+	
+	
+	@RequestMapping("/")
+	public String gotoDashboard(){
+		String viewName = "advertiser/advertiser_dashboard";
+		return viewName;
+	}
+	
+	@RequestMapping("/index")
+	public String gotoDashboard2(){
+		String viewName = "advertiser/advertiser_dashboard";
+		return viewName;
+	}
+	
+	@RequestMapping("/dashboard")
+	public String gotoDashboard3(){
+		String viewName = "advertiser/advertiser_dashboard";
+		return viewName;
+	}
+	
+	@RequestMapping("/biz/register")
+	public String gotoRegisiterBiz(){
+		String viewName = "advertiser/advertiser_bizprofile_register";
+		return viewName;
+	}
+	
+	@RequestMapping("/biz/edit")
+	public String gotoEditBizProfile(){
+		String viewName = "advertiser/advertiser_bizprofile_edit";
+		return viewName;
+	}
+	
 }

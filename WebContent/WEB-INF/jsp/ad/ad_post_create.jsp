@@ -117,7 +117,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN THEME PANEL -->
                     <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Ad Post <small>create ad post</small></h1>
+                    <h1 class="page-title"> Advertiser | Ad Post <small>create an Ad post</small></h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
 							<li>
@@ -126,11 +126,15 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>
-								<a href="eventsDashboard">Ad</a>
+                                <a href="${webapp_name}/advertiser/">Advertiser</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+							<li>
+								<a href="#">Manage Ad Post</a>
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>
-								<a href="#">Ad Post</a>
+								<a href="#">Create an Ad Post</a>
 							</li>
 						</ul>
                         <div class="page-toolbar">
@@ -244,7 +248,6 @@ License: You must have a valid license purchased only from themeforest(the above
 						                    			<div class="portlet-body form">
 						                                    <form class="form-horizontal" role="form">
 						                                        <div class="form-body">
-						                                        	
 						                                        	<div class="form-group">
 						                                                <label class="col-md-3 control-label">Choose a language</label>
 						                                                <div class="col-md-9">

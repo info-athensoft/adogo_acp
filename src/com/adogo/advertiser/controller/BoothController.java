@@ -1,4 +1,4 @@
-package com.adogo.ad.controller;
+package com.adogo.advertiser.controller;
 
 
 import org.apache.log4j.Logger;
@@ -21,7 +21,7 @@ import com.adogo.ad.service.BusinessHoursService;
 import com.athensoft.util.id.UUIDHelper;
 
 @Controller
-@RequestMapping("/ad/booth")
+@RequestMapping("/advertiser/booth")
 public class BoothController {
 	
 	private static final Logger logger = Logger.getLogger(BoothController.class);
@@ -34,15 +34,28 @@ public class BoothController {
 		this.businessHoursService = businessHoursService;
 	}
 	
+	@RequestMapping("/")
+	public String gotoBoothIndex(){
+		String viewName = "advertiser/booth_index";
+		return viewName;
+	}
+	
+	@RequestMapping("/index")
+	public String gotoBoothIndex2(){
+		String viewName = "advertiser/booth_index";
+		return viewName;
+	}
+	
+	
 	@RequestMapping("/create")
 	public String gotoCreate(){
-		String viewName = "ad/booth_create";
+		String viewName = "advertiser/booth_create";
 		return viewName;
 	}
 	
 	@RequestMapping("/edit")
 	public String gotoEdit(){
-		String viewName = "ad/booth_edit";
+		String viewName = "advertiser/booth_edit";
 		return viewName;
 	}
 	
@@ -54,7 +67,7 @@ public class BoothController {
 	 */
 	@RequestMapping("/saveBusinessHours")
 	public ModelAndView saveAdPost(@RequestParam String businessHoursJSONString){		
-		logger.info("entering... /ad/booth/saveBusinessHours");
+		logger.info("entering... /advertiser/booth/saveBusinessHours");
 		
 		/* initial settings */
 		ModelAndView mav = new ModelAndView();
@@ -114,10 +127,10 @@ public class BoothController {
 		
 		
 		/* assemble model and view */
-		String viewName = "ad/booth";
+		String viewName = "ad/booth";	//TODO booth page does not exist yet
         mav.setViewName(viewName);
 		
-		logger.info("exiting... /ad/booth/saveBusinessHours");
+		logger.info("exiting... /advertiser/booth/saveBusinessHours");
 		return mav;
 	}
 
