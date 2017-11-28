@@ -697,7 +697,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
 <!-- BEGIN CORE PLUGINS -->
-<script src="${webapp_name}/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.min.js"></script>
 <script src="${webapp_name}/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -728,7 +728,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <!-- <script src="${webapp_name}/assets/global/scripts/app.min.js" type="text/javascript"></script> -->
-<script src="${webapp_name}/assets/global/scripts/app.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/scripts/app.js"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
@@ -761,57 +761,13 @@ jQuery(document).ready(function() {
 	//var eventUUID = $("#eventUUID").val();
 	
 	EventNewsEdit.init('1011');		//TODO to change
-	
-	/*
-	var option1 =
-	    {
-	    		id    			      :   '1011',
-	    		index   		    	  :   '1'
-	};
-	 
-	 var option2 =
-	    {
-	    		id    			      :   '1011',
-	    		index   		    	  :   '2'
-	};
-	
-	 
-	EventNewsEdit.init(option1);		//TODO to change
-	EventNewsEdit.init(option2);	
-	*/
+
 })	
 	
 </script>
 <script>
 
 function clickUpload(id) {
-	//alert(id);
-	//$('#ufile').focus().trigger('click');
-/*	var elem = document.getElementById('ufile');
-    if(elem && document.createEvent) {
-       var evt = document.createEvent("MouseEvents");
-       evt.initEvent("click", true, false);
-       elem.dispatchEvent(evt);
-    }
-	$.ajax({
-		//type:"post",
-		url:'/acp/ad/adpost/imageUpload?eventUUID='+id,
-		//dataType:"json",
-		//data: {	adpostId:adpostId },
-		timeout : 5000,
-		success:function(data){	
-//			var msg = data.info_msg;
-			//var userAccount = data.userAccount;
-//				$("#sec_activate").html(msg);
-//			$("#ua1").text(userAccount.acctId);
-//				
-			//alert(msg);
-			//location = "goactivateresult?resultMsg="+msg;
-		}		
-	}); */
-	
-	//var formData = new FormData();
-	//formData.append('file', $('#file')[0].files[0]);
 	
 	var path =  $("#ufile").val();
 	var filename = path.replace(/^.*[\\\/]/, '');
