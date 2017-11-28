@@ -257,11 +257,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     	
                                                     </select>
                                                     <p></p>
-                                                    <select class="form-control" id="industryCodeLevel2">
+                                                    <select class="form-control" id="industryCodeLevel2" onchange="test2(this);">
                                                     	<option value="">--/--</option>
                                                     </select>
                                                     <p></p>
-                                                    <select class="form-control" id="industryCodeLevel3">
+                                                    <select class="form-control" id="industryCodeLevel3" onchange="test3(this);">
                                                     	<option value="">--/--</option>
                                                     </select>
                                                     <p></p>
@@ -482,10 +482,36 @@ function test(){
 	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
 	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
 	//alert(checkValue+" : "+checkText);
-	getSubIndustryCode(parentCode);
-	
+	//getSubIndustryCode(parentCode);
+	var nextLevelIndex = 2;
+	getSubIndustryCode2(parentCode,nextLevelIndex);
 }
 
+
+function test2(selectObject){
+	//alert("test2()");
+	//alert(selectObject);
+	var parentCode=$("#industryCodeLevel2").val();  //Select - Value
+	var checkText=$("#industryCodeLevel2").find("option:selected").text();  //Select - Text
+	alert(parentCode+" : "+checkText);
+	var nextLevelIndex = 3;
+	getSubIndustryCode2(parentCode,nextLevelIndex);
+	
+	//var parentCode=$("#industryCodeLevel2").val();  //Select - Value
+	//alert(checkValue+" : "+checkText);
+}
+
+function test3(selectObject){
+	//alert("test2()");
+	//alert(selectObject);
+	var parentCode=$("#industryCodeLevel3").val();  //Select - Value
+	var checkText=$("#industryCodeLevel3").find("option:selected").text();  //Select - Text
+	alert(parentCode+" : "+checkText);
+	var nextLevelIndex = 4;
+	getSubIndustryCode2(parentCode,nextLevelIndex);
+	
+	//alert(checkValue+" : "+checkText);
+}
 
 
 </script>

@@ -62,10 +62,10 @@ public class AdvertiserController {
 		return mav;
 	}
 	
-	@RequestMapping(value="industrycode/class/{parentIndustryCode}",method=RequestMethod.GET,produces="application/json")
+	@RequestMapping(value="/industrycode/class/{parentIndustryCode}",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
 	public Map<String,Object> getDataSubIndustyCode(@PathVariable String parentIndustryCode){
-		logger.info("entering RESTFUL API... /uaas/advertiser/industrycode/sub/"+parentIndustryCode);
+		logger.info("entering RESTFUL API... /advertiser/industrycode/sub/"+parentIndustryCode);
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -79,7 +79,7 @@ public class AdvertiserController {
 		
 		model.put("listIndustryCode", listIndustryCode);
 		
-		logger.info("exiting RESTFUL API... /uaas/advertiser/industrycode/sub/");
+		logger.info("exiting RESTFUL API... /advertiser/industrycode/sub/");
 		return model;
 	}
 
@@ -111,9 +111,27 @@ public class AdvertiserController {
 	}
 	
 	@RequestMapping("/biz/create.html")
-	public String gotoCreateBizProfile(){
+	public ModelAndView gotoCreateBizProfile(){
+		
+		ModelAndView mav = new ModelAndView();
+		
 		String viewName = "advertiser/advertiser_bizprofile_create";
-		return viewName;
+		mav.setViewName(viewName);
+		
+		//data
+		final int LEVEL_1 = 1;
+//		final int LEVEL_2 = 2;
+//		final int LEVEL_3 = 3;
+//		final int LEVEL_4 = 4;
+//		final int LEVEL_5 = 5;
+		
+		List<IndustryCode> naicsLevel1 = new ArrayList<IndustryCode>();
+		naicsLevel1 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_1);
+		
+		Map<String,Object> model = mav.getModel();
+		model.put("NAICS_level_1", naicsLevel1);
+		
+		return mav;
 	}
 	
 	@RequestMapping("/biz/create")

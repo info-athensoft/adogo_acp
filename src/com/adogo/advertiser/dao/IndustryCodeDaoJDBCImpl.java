@@ -21,6 +21,8 @@ public class IndustryCodeDaoJDBCImpl implements IndustryCodeDao {
 
 	private NamedParameterJdbcTemplate jdbc;
 	
+	private final String TABLE = "INFO_INDUSTRY_NAICS";
+	
 	/**
 	 * inject DataSource object
 	 * @param dataSource
@@ -32,7 +34,7 @@ public class IndustryCodeDaoJDBCImpl implements IndustryCodeDao {
 	
 	@Override
 	public List<IndustryCode> findAll() {
-		final String TABLE = "test_industry_naics";
+		
 		
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");
@@ -52,7 +54,6 @@ public class IndustryCodeDaoJDBCImpl implements IndustryCodeDao {
 
 	@Override
 	public List<IndustryCode> findByLevelNo(int levelNo) {
-		final String TABLE = "test_industry_naics";
 		
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");
@@ -74,7 +75,6 @@ public class IndustryCodeDaoJDBCImpl implements IndustryCodeDao {
 
 	@Override
 	public List<IndustryCode> findByParentCode(String parentCode) {
-		final String TABLE = "test_industry_naics";
 		
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");

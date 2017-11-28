@@ -1,4 +1,4 @@
-package com.adogo.advertiser.entity;
+package com.adogo.advertiser.controller;
 
 import org.springframework.stereotype.Controller;
 
