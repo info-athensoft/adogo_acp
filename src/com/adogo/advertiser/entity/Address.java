@@ -2,18 +2,38 @@ package com.adogo.advertiser.entity;
 
 public class Address {
 	
+	@SuppressWarnings("unused")
 	private final int STREET_TYPE_STREET=11;
+		
+	@SuppressWarnings("unused")
 	private final int STREET_TYPE_RUE=21;
+	
+	@SuppressWarnings("unused")
 	private final int STREET_TYPE_ANVENUE=22;
+	
+	@SuppressWarnings("unused")
 	private final int STREET_TYPE_BOULVARD=23;
 	
+	
+	@SuppressWarnings("unused")
 	private final int PORT_TYPE_PORT=1;
+	
+	@SuppressWarnings("unused")
 	private final int PORT_TYPE_SUITE=2;
+	
+	@SuppressWarnings("unused")
 	private final int PORT_TYPE_APT=3;
+	
+	@SuppressWarnings("unused")
 	private final int PORT_TYPE_APP=4;
 	
+	
+	@SuppressWarnings("unused")
 	private final int ADDR_HQ = 1;
+	
+	@SuppressWarnings("unused")
 	private final int ADDR_OUTLET = 2;
+	
 	
 	private Integer langNo;			//language number
 	
