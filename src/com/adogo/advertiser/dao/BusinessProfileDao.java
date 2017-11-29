@@ -1,10 +1,10 @@
 package com.adogo.advertiser.dao;
 
-import com.adogo.ad.entity.BusinessProfile;
+import com.adogo.advertiser.entity.BusinessProfile;
 
 public interface BusinessProfileDao {
-	public BusinessProfile getBusinessProfileByBizId(int biz_id);
-	public BusinessProfile getBusinessProfileByBizNo(int biz_no);
+	public BusinessProfile getBusinessProfileByBizId(long bizId);
+	public BusinessProfile getBusinessProfileByBizNo(long bizNo);
 	
-	public int update(BusinessProfile bp);
+	public int update(BusinessProfile x);
 }

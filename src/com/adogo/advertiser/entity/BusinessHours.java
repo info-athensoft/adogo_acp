@@ -1,4 +1,4 @@
-package com.adogo.ad.entity;
+package com.adogo.advertiser.entity;
 
 public class BusinessHours {
 	private Long uid;
