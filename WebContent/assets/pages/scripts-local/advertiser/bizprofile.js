@@ -1,4 +1,8 @@
-/**/
+/**
+ * Package:	advertiser
+ * Module:  business profile
+ */
+/*
 function getSubIndustryCode(parentIndustryCode){
 	//alert("parent code = "+parentIndustryCode);
 	
@@ -7,7 +11,7 @@ function getSubIndustryCode(parentIndustryCode){
 		type:"get",
 		url:"/acp/advertiser/industrycode/class/"+parentIndustryCode,
 		dataType:"json",
-		/*data: {	parentIndustryCode : parentCode }, */
+		//data: {	parentIndustryCode : parentCode },
 		timeout : 5000,
 		success:function(data){	
 			var items = data.listIndustryCode;
@@ -24,9 +28,9 @@ function getSubIndustryCode(parentIndustryCode){
 		}		
 	});
 	
-}
+}*/
 
-function getSubIndustryCode2(parentIndustryCode,nextLevelIndex){
+function getSubIndustryCode(parentIndustryCode,nextLevelIndex){
 	//alert("parent code = "+parentIndustryCode);
 	
 	$("#industryCodeLevel"+nextLevelIndex+"").empty().append('<option value="">-- choose a sub-category --- </option>');
@@ -55,11 +59,28 @@ function getSubIndustryCode2(parentIndustryCode,nextLevelIndex){
 	
 }
 
-/*advertiser_apply_form.jsp*/
-function saveAdvertiserProfile(){
-	alert("saveAdvertiserProfile()");
+
+
+
+/* bizProfile - global variables and functions*/
+function getBusinessObject(){	
+//	create a json object
+    var p1 = $("#bizName").val();
+    var p2 = $("#bizNo").val();
+    var p3 = $("#bizOwner").val();
+    var p4 = $("#legalFormNo").val();
+    
+    var businessObject =
+    {
+    		bizName    			      	  :   p1,
+    		bizNo    			      	  :   p2,
+    		bizOwner    			      :   p3,
+    		legalFormNo    			      :   p4
+
+    };
+    
+    return businessObject;
 }
 
-function cancelAdvertiserApply(){
-	alert("cancelAdvertiserApply()");
-}
+
+

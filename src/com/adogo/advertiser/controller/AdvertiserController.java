@@ -134,11 +134,7 @@ public class AdvertiserController {
 		return mav;
 	}
 	
-	@RequestMapping("/biz/create")
-	public String createBizProfile(){
-		String viewName = "advertiser/#";
-		return viewName;
-	}
+	
 	
 	@RequestMapping("/biz/edit.html")
 	public String gotoEditBizProfile(){

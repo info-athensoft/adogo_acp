@@ -29,4 +29,8 @@ public class BusinessProfileService {
 	public void updateBusinessProfile(BusinessProfile bp){
 		businessProfileDao.update(bp);
 	}
+	
+	public void saveBusinessProfile(BusinessProfile bp){
+		businessProfileDao.create(bp);
+	}
 }

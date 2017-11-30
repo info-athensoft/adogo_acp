@@ -89,9 +89,6 @@ public class BoothController {
 		logger.info("day1StartTime="+day1StartTime);
 		logger.info("day1EndTime="+day1EndTime);
 		logger.info("comment="+comment);
-		
-		
-		
 
 		
 		/*create a new record of BusinessHours into master table*/

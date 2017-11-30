@@ -10,8 +10,8 @@ public class BusinessProfile {
 	private String 	bizNo;			//official business no issued by govern.
 	private String	bizName;
 	private String	bizName2;
-	private Integer	legalForm;
-	private String	industryCategoryNo;
+	private Integer	legalFormNo;
+	private String	industryNo;
 	private Integer bizType;
 	private String	bizOwner;
 	private Date	establishDate;	//official registration date at govern.
@@ -60,11 +60,11 @@ public class BusinessProfile {
 	public void setBizName2(String bizName2) {
 		this.bizName2 = bizName2;
 	}
-	public Integer getLegalForm() {
-		return legalForm;
+	public Integer getLegalFormNo() {
+		return legalFormNo;
 	}
-	public void setLegalForm(Integer legalForm) {
-		this.legalForm = legalForm;
+	public void setLegalFormNo(Integer legalFormNo) {
+		this.legalFormNo = legalFormNo;
 	}
 	public Integer getBizType() {
 		return bizType;
@@ -96,11 +96,11 @@ public class BusinessProfile {
 	public void setBizStatus(Integer bizStatus) {
 		this.bizStatus = bizStatus;
 	}
-	public String getIndustryCategoryNo() {
-		return industryCategoryNo;
+	public String getIndustryNo() {
+		return industryNo;
 	}
-	public void setIndustryCategoryNo(String industryCategoryNo) {
-		this.industryCategoryNo = industryCategoryNo;
+	public void setIndustryNo(String industryNo) {
+		this.industryNo = industryNo;
 	}
 	
 	

@@ -53,6 +53,19 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		return jdbc.queryForObject(sql,paramSource,new BusinessProfileRowMapper());
 	}
 	
+	//NOT FINISHED TODO
+	@Override
+	public int create(BusinessProfile bp) {
+		String sql = "INSERT INTO business_profile "
+	               + "SET biz_owner = :biz_owner "
+				   + "WHERE 1=1 "
+				   + "AND biz_no = :biz_no";
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("biz_no", bp.getBizNo());
+		paramSource.addValue("biz_owner", bp.getBizOwner());
+		return jdbc.update(sql,paramSource);
+	}
+	
 	@Override
 	public int update(BusinessProfile bp) {
 		String sql = "UPDATE business_profile "
@@ -75,8 +88,8 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 			x.setBizNo(rs.getString("biz_no"));
 			x.setBizName(rs.getString("biz_name"));
 			x.setBizName2(rs.getString("biz_name2"));
-			x.setLegalForm(rs.getInt("legal_form"));
-			x.setIndustryCategoryNo(rs.getString("industry_category_no"));
+			x.setLegalFormNo(rs.getInt("legal_form_no"));
+			x.setIndustryNo(rs.getString("industry_no"));
 			x.setBizType(rs.getInt("biz_type"));
 			x.setBizOwner(rs.getString("biz_owner"));			
 			x.setBizStatus(rs.getInt("biz_status"));

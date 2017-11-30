@@ -7,4 +7,5 @@ public interface BusinessProfileDao {
 	public BusinessProfile getBusinessProfileByBizNo(long bizNo);
 	
 	public int update(BusinessProfile x);
+	public int create(BusinessProfile x);
 }
