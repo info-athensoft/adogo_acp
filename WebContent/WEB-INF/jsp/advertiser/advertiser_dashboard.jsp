@@ -261,47 +261,15 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <div class="row">
-                        
-                        
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                        </div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                        </div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                            <!-- BEGIN REGIONAL STATS PORTLET-->
-                            <!-- END REGIONAL STATS PORTLET-->
-                        </div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                            <!-- BEGIN PORTLET-->
-                            <!-- END PORTLET-->
-                        </div>
-                    </div>
-                    
+                                        
                     <div class="row">
                         <div class="col-lg-12 col-xs-12 col-sm-12">
                             <div class="portlet light portlet-fit ">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Choose a business role</span>
+                                        <span class="caption-subject bold font-dark uppercase"> Registered Businesses</span>
                                         <span class="caption-helper">default option...</span>
                                     </div>
                                     <div class="actions">
@@ -315,12 +283,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <div class="portlet-body">
                                     <div class="row">
+                                    	<c:forEach items="${listBizProfile}" var="bizProfile">
                                         <div class="col-md-4">
                                             <div class="mt-widget-4">
                                                 <div class="mt-img-container">
                                                     <img src="${webapp_name}/assets/pages/img/background/34.jpg" /> </div>
                                                 <div class="mt-container bg-purple-opacity">
-                                                    <div class="mt-head-title"> Advertiser </div>
+                                                    <div class="mt-head-title"> ${bizProfile.bizName} </div>
                                                     <div class="mt-body-icons">
                                                         <a href="#">
                                                             <i class=" icon-pencil"></i>
@@ -334,295 +303,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </div>
                                                     <div class="mt-footer-button">
                                                         <!-- <button type="button" class="btn btn-circle btn-danger btn-sm">Apply</button> -->
-                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/advertiser/apply">Apply</a>
+                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/advertiser/apply">Enter</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/46.jpg" /> </div>
-                                                <div class="mt-container bg-green-opacity">
-                                                    <div class="mt-head-title"> Distributer </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-social-twitter"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-bubbles"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-bell"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <button type="button" class="btn btn-circle blue-ebonyclay btn-sm">Apply</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/37.jpg" /> </div>
-                                                <div class="mt-container bg-dark-opacity">
-                                                    <div class="mt-head-title"> Visitor </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-bubbles"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-map"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-cup"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <button type="button" class="btn btn-circle btn-success btn-sm">Apply</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </c:forEach>
                                     </div>
+                                    
                                 </div>
                             </div>
-                            
-                            
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Choose a business role</span>
-                                        <span class="caption-helper">default option...</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <label class="btn blue btn-outline btn-circle btn-sm active">
-                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                            <label class="btn  blue btn-outline btn-circle btn-sm">
-                                                <input type="radio" name="options" class="toggle" id="option2">Tools</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/34.jpg" /> </div>
-                                                <div class="mt-container bg-purple-opacity">
-                                                    <div class="mt-head-title"> Advertiser </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-pencil"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-map"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <!-- <button type="button" class="btn btn-circle btn-danger btn-sm">Apply</button> -->
-                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/uaas/advertiser/apply">Enter</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/46.jpg" /> </div>
-                                                <div class="mt-container bg-green-opacity">
-                                                    <div class="mt-head-title"> Distributer </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-social-twitter"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-bubbles"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-bell"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <button type="button" class="btn btn-circle blue-ebonyclay btn-sm">Enter</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/37.jpg" /> </div>
-                                                <div class="mt-container bg-dark-opacity">
-                                                    <div class="mt-head-title"> Visitor </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-bubbles"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-map"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-cup"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <button type="button" class="btn btn-circle btn-success btn-sm">Enter</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                           <!-- 
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Activities</span>
-                                        <span class="caption-helper">default option...</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn red btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;"> Option 1</a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 4</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-3">
-                                                <div class="mt-head bg-blue-hoki">
-                                                    <div class="mt-head-icon">
-                                                        <i class=" icon-social-twitter"></i>
-                                                    </div>
-                                                    <div class="mt-head-desc"> Lorem Ipsum is simply dummy text of the ... </div>
-                                                    <span class="mt-head-date"> 25 Jan, 2015 </span>
-                                                    <div class="mt-head-button">
-                                                        <button type="button" class="btn btn-circle btn-outline white btn-sm">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-body-actions-icons">
-                                                    <div class="btn-group btn-group btn-group-justified">
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-align-justify"></i>
-                                                            </span>RECORD </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-camera"></i>
-                                                            </span>PHOTO </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-calendar"></i>
-                                                            </span>DATE </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-record"></i>
-                                                            </span>RANC </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-3">
-                                                <div class="mt-head bg-red">
-                                                    <div class="mt-head-icon">
-                                                        <i class="icon-user"></i>
-                                                    </div>
-                                                    <div class="mt-head-desc"> Lorem Ipsum is simply dummy text of the ... </div>
-                                                    <span class="mt-head-date"> 12 Feb, 2016 </span>
-                                                    <div class="mt-head-button">
-                                                        <button type="button" class="btn btn-circle btn-outline white btn-sm">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-body-actions-icons">
-                                                    <div class="btn-group btn-group btn-group-justified">
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-align-justify"></i>
-                                                            </span>RECORD </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-camera"></i>
-                                                            </span>PHOTO </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-calendar"></i>
-                                                            </span>DATE </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-record"></i>
-                                                            </span>RANC </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-3">
-                                                <div class="mt-head bg-green">
-                                                    <div class="mt-head-icon">
-                                                        <i class=" icon-graduation"></i>
-                                                    </div>
-                                                    <div class="mt-head-desc"> Lorem Ipsum is simply dummy text of the ... </div>
-                                                    <span class="mt-head-date"> 3 Mar, 2015 </span>
-                                                    <div class="mt-head-button">
-                                                        <button type="button" class="btn btn-circle btn-outline white btn-sm">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-body-actions-icons">
-                                                    <div class="btn-group btn-group btn-group-justified">
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-align-justify"></i>
-                                                            </span>RECORD </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-camera"></i>
-                                                            </span>PHOTO </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-calendar"></i>
-                                                            </span>DATE </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-record"></i>
-                                                            </span>RANC </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                             -->
-                            
-                            
                         </div>
                     </div>
                 </div>

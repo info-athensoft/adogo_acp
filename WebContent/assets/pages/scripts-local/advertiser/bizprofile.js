@@ -44,8 +44,6 @@ function getSubIndustryCode(parentIndustryCode,nextLevelIndex){
 		success:function(data){	
 			var items = data.listIndustryCode;
 			
-			//$("#industryCodeLevel"+nextLevelIndex+" option").empty().append('<option value="">-- choose a sub-category --- </option>');
-			
 			$.each(items, function (i, item) {
 			    $('#industryCodeLevel'+nextLevelIndex).append($('<option>', { 
 			       // value: item.parentCode,
@@ -69,13 +67,15 @@ function getBusinessObject(){
     var p2 = $("#bizNo").val();
     var p3 = $("#bizOwner").val();
     var p4 = $("#legalFormNo").val();
+    var p5 = $("#industryCode").val();
     
     var businessObject =
     {
     		bizName    			      	  :   p1,
     		bizNo    			      	  :   p2,
     		bizOwner    			      :   p3,
-    		legalFormNo    			      :   p4
+    		legalFormNo    			      :   p4,
+    		industryCode    			  :   p5
 
     };
     

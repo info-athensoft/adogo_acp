@@ -141,8 +141,8 @@
                             <div class="caption">
                                 <i class="fa fa-shopping-cart"></i>Register a business <span class="caption-helper">under advertiser</span></div>
                             <div class="actions">
-                                <a href="eventsNewsCreate" class="btn btn-circle btn-info">
-                                    <i class="fa fa-plus"></i><span class="hidden-xs"> Create news </span>
+                                <a href="#" class="btn btn-circle btn-info">
+                                    <i class="fa fa-plus"></i><span class="hidden-xs"> Register </span>
                                 </a>
                                 <div class="btn-group">
                                     <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
@@ -391,7 +391,7 @@
 	                            <div class="form-actions">
 	                                <div class="row">
 	                                    <div class="col-md-offset-3 col-md-4">
-	                                        <button type="submit" class="btn green" onclick="saveBusinessProfile();">Submit</button>
+	                                        <button type="submit" class="btn green" onclick="saveBusinessProfile();">Register now</button>
 	                                        <button type="button" class="btn default" onclick="cancelBusinessRegistration()">Cancel</button>
 	                                    </div>
 	                                </div>

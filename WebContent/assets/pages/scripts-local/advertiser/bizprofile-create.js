@@ -6,7 +6,7 @@
 
 /**/
 function saveBusinessProfile(){
-	alert("saveBusinessProfile()");
+	//alert("saveBusinessProfile()");
 	
 	var businessObject = getBusinessObject();
 	
@@ -18,6 +18,7 @@ function saveBusinessProfile(){
 		timeout : 5000,
 		success:function(data){	
 			alert("saveBusinessProfile ajax ok");
+			window.location.href="/acp/advertiser/biz/register.html";
 		}		
 	});
 }

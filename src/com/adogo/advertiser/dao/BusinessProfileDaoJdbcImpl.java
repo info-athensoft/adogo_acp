@@ -4,9 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.RowMapper;
@@ -19,7 +21,11 @@ import com.adogo.advertiser.entity.BusinessProfile;
 @Component
 @Qualifier("businessProfileDaoJdbcImpl")
 public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
-
+	
+	private final static Logger logger = Logger.getLogger(BusinessProfileDaoJdbcImpl.class);
+	
+	private final String TABLE = "BIZ_PROFILE";
+	
 	private NamedParameterJdbcTemplate jdbc;
 
 	/**
@@ -32,6 +38,66 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 	}
 	
 	@Override
+	public List<BusinessProfile> getBusinessProfileByUserId(long userId) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("user_id, ");
+		sbf.append("advertiser_id, ");
+		sbf.append("biz_id, ");
+		sbf.append("biz_no, ");
+		sbf.append("biz_name, ");
+		sbf.append("biz_name2, ");
+		sbf.append("legal_form_no, ");
+		sbf.append("industry_code, ");
+		sbf.append("media_desc, ");
+//		sbf.append("establish_date, ");
+//		sbf.append("create_date, ");
+		sbf.append("biz_type, ");
+		sbf.append("biz_owner, ");
+		sbf.append("biz_status ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND user_id =:user_id ");
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("user_id", userId);
+		return jdbc.query(sql,paramSource,new BusinessProfileRowMapper());
+	}
+
+	//TODO
+	@Override
+	public List<BusinessProfile> getBusinessProfileByAdvertiserId(long advertiserId) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("user_id, ");
+		sbf.append("advertiser_id, ");
+		sbf.append("biz_id, ");
+		sbf.append("biz_no, ");
+		sbf.append("biz_name, ");
+		sbf.append("biz_name2, ");
+		sbf.append("legal_form_no, ");
+		sbf.append("industry_code, ");
+		sbf.append("establish_date, ");
+		sbf.append("create_date, ");
+		sbf.append("biz_type, ");
+		sbf.append("biz_owner, ");
+		sbf.append("biz_status ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND advertiser_id =:advertiser_id ");
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("advertiser_id", advertiserId);
+		return jdbc.query(sql,paramSource,new BusinessProfileRowMapper());
+	}
+
+	@Override
 	public BusinessProfile getBusinessProfileByBizId(long bizId) {
 		String sql = "SELECT * "
 				   + "FROM business_profile "
@@ -43,7 +109,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 	}
 	
 	@Override
-	public BusinessProfile getBusinessProfileByBizNo(long bizNo) {
+	public BusinessProfile getBusinessProfileByBizNo(String bizNo) {
 		String sql = "SELECT * "
 				   + "FROM business_profile "
 				   + "WHERE 1=1 "
@@ -53,16 +119,40 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		return jdbc.queryForObject(sql,paramSource,new BusinessProfileRowMapper());
 	}
 	
-	//NOT FINISHED TODO
 	@Override
-	public int create(BusinessProfile bp) {
-		String sql = "INSERT INTO business_profile "
-	               + "SET biz_owner = :biz_owner "
-				   + "WHERE 1=1 "
-				   + "AND biz_no = :biz_no";
+	public int create(BusinessProfile x) {
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("INSERT INTO "+TABLE+"(");
+		sbf.append("biz_id,");
+		sbf.append("biz_name,");
+		sbf.append("biz_no,");
+		sbf.append("biz_owner,");
+		sbf.append("industry_code,");
+		sbf.append("legal_form_no,");
+		sbf.append("create_date,");
+		sbf.append("biz_status) ");
+		sbf.append("VALUES(");
+		sbf.append(":biz_id,");
+		sbf.append(":biz_name,");
+		sbf.append(":biz_no,");
+		sbf.append(":biz_owner,");
+		sbf.append(":industry_code,");
+		sbf.append(":legal_form_no,");
+		sbf.append(":create_date,");
+		sbf.append(":biz_status)");
+		String sql = sbf.toString();
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("biz_no", bp.getBizNo());
-		paramSource.addValue("biz_owner", bp.getBizOwner());
+		paramSource.addValue("biz_id", x.getBizId());
+		paramSource.addValue("biz_name", x.getBizName());
+		paramSource.addValue("biz_no", x.getBizNo());
+		paramSource.addValue("biz_owner", x.getBizOwner());
+		paramSource.addValue("industry_code", x.getIndustryCode());
+		paramSource.addValue("legal_form_no", x.getLegalFormNo());
+		paramSource.addValue("create_date", x.getCreateDate());
+		paramSource.addValue("biz_status", x.getBizStatus());
+		
 		return jdbc.update(sql,paramSource);
 	}
 	
@@ -89,7 +179,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 			x.setBizName(rs.getString("biz_name"));
 			x.setBizName2(rs.getString("biz_name2"));
 			x.setLegalFormNo(rs.getInt("legal_form_no"));
-			x.setIndustryNo(rs.getString("industry_no"));
+			x.setIndustryCode(rs.getString("industry_code"));
 			x.setBizType(rs.getInt("biz_type"));
 			x.setBizOwner(rs.getString("biz_owner"));			
 			x.setBizStatus(rs.getInt("biz_status"));
@@ -100,7 +190,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 			Timestamp cd = rs.getTimestamp("create_date");
 			if (cd != null) {	x.setCreateDate(new Date(cd.getTime())); }
 			
-            return x;
+	        return x;
 		}		
 	}
 

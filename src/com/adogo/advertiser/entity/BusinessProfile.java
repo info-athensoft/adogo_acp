@@ -11,7 +11,7 @@ public class BusinessProfile {
 	private String	bizName;
 	private String	bizName2;
 	private Integer	legalFormNo;
-	private String	industryNo;
+	private String	industryCode;
 	private Integer bizType;
 	private String	bizOwner;
 	private Date	establishDate;	//official registration date at govern.
@@ -96,11 +96,11 @@ public class BusinessProfile {
 	public void setBizStatus(Integer bizStatus) {
 		this.bizStatus = bizStatus;
 	}
-	public String getIndustryNo() {
-		return industryNo;
+	public String getIndustryCode() {
+		return industryCode;
 	}
-	public void setIndustryNo(String industryNo) {
-		this.industryNo = industryNo;
+	public void setIndustryCode(String industryCode) {
+		this.industryCode = industryCode;
 	}
 	
 	

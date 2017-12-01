@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.adogo.advertiser.entity.BusinessProfile;
 import com.adogo.advertiser.entity.IndustryCode;
+import com.adogo.advertiser.service.BusinessProfileService;
 import com.adogo.advertiser.service.IndustryCodeService;
 
 @Controller
@@ -29,6 +31,14 @@ public class AdvertiserController {
 	@Autowired
 	public void setIndustryCodeService(IndustryCodeService industryCodeService) {
 		this.industryCodeService = industryCodeService;
+	}
+	
+	@Autowired
+	private BusinessProfileService businessProfileService;
+		
+	@Autowired
+	public void setBusinessProfileService(BusinessProfileService businessProfileService) {
+		this.businessProfileService = businessProfileService;
 	}
 	
 	
@@ -99,9 +109,25 @@ public class AdvertiserController {
 	}
 	
 	@RequestMapping("/dashboard")
-	public String gotoDashboard3(){
-		String viewName = "advertiser/advertiser_dashboard";
-		return viewName;
+	public ModelAndView gotoDashboard3(){
+		logger.info("entering... /advertiser/dashboard");
+		
+		// initial settings 
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		
+		//TODO
+		long advertiserId = 1712010001;
+		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId);
+		model.put("listBizProfile", listBizProfile);
+				
+		// assemble model and view 
+		String viewName = "advertiser/advertiser_dashboard";	
+        mav.setViewName(viewName);
+		
+		logger.info("exiting... /advertiser/dashboard");
+		return mav;
+		
 	}
 	
 	@RequestMapping("/biz/register.html")
