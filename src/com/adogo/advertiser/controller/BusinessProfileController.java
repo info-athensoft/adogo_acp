@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -84,4 +85,20 @@ private static final Logger logger = Logger.getLogger(BusinessProfileController.
 		logger.info("exiting... /advertiser/biz/list");
 		return mav;
 	}*/
+	
+	@RequestMapping(value="/{bizId}",method=RequestMethod.GET)
+	public ModelAndView viewBusinessProfile(@PathVariable long bizId){		
+		logger.info("entering... /advertiser/biz/{bizId}"+bizId);
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		
+		/* assemble model and view */
+		String viewName = "advertiser/advertiser_bizprofile_view";	
+        mav.setViewName(viewName);
+        
+		logger.info("entering... /advertiser/biz/{bizId}"+bizId);
+		return mav;
+	}
 }

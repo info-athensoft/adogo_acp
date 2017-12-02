@@ -97,15 +97,17 @@ public class AdvertiserController {
 	
 	
 	@RequestMapping("/")
-	public String gotoDashboard(){
-		String viewName = "advertiser/advertiser_dashboard";
-		return viewName;
+	public ModelAndView gotoDashboard(){
+		//String viewName = "advertiser/advertiser_dashboard";
+		//return viewName;
+		return gotoDashboard3();
 	}
 	
 	@RequestMapping("/index")
-	public String gotoDashboard2(){
-		String viewName = "advertiser/advertiser_dashboard";
-		return viewName;
+	public ModelAndView gotoDashboard2(){
+		//String viewName = "advertiser/advertiser_dashboard";
+		//return viewName;
+		return gotoDashboard3();
 	}
 	
 	@RequestMapping("/dashboard")

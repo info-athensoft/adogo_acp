@@ -153,6 +153,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <!-- END PAGE HEADER-->
+                    
+                    <!-- 
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 ">
@@ -260,22 +262,24 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                         </div>
                     </div>
+                     -->
                     <div class="row">
                     </div>
-                                        
+                    
+                    
                     <div class="row">
                         <div class="col-lg-12 col-xs-12 col-sm-12">
                             <div class="portlet light portlet-fit ">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Registered Businesses</span>
+                                        <span class="caption-subject bold font-dark uppercase"> Summary</span>
                                         <span class="caption-helper">default option...</span>
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided" data-toggle="buttons">
                                             <label class="btn blue btn-outline btn-circle btn-sm active">
-                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                                                <input type="radio" name="options" class="toggle" id="option1">Register business</label>
                                             <label class="btn  blue btn-outline btn-circle btn-sm">
                                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                                         </div>
@@ -283,38 +287,944 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <div class="portlet-body">
                                     <div class="row">
-                                    	<c:forEach items="${listBizProfile}" var="bizProfile">
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/34.jpg" /> </div>
-                                                <div class="mt-container bg-purple-opacity">
-                                                    <div class="mt-head-title"> ${bizProfile.bizName} </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-pencil"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-map"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <!-- <button type="button" class="btn btn-circle btn-danger btn-sm">Apply</button> -->
-                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/advertiser/apply">Enter</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </c:forEach>
+                                    	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				                            <div class="dashboard-stat2 ">
+				                                <div class="display">
+				                                    <div class="number">
+				                                        <h3 class="font-green-sharp">
+				                                            <span data-counter="counterup" data-value="3">0</span>
+				                                            <small class="font-green-sharp"></small>
+				                                        </h3>
+				                                        <small>Number of Business</small>
+				                                    </div>
+				                                    <div class="icon">
+				                                        <i class="icon-pie-chart"></i>
+				                                    </div>
+				                                </div>
+				                                <div class="progress-info">
+				                                    <div class="progress">
+				                                        <span style="width: 100%;" class="progress-bar progress-bar-success green-sharp">
+				                                            <span class="sr-only">100% progress</span>
+				                                        </span>
+				                                    </div>
+				                                    <div class="status">
+				                                        <div class="status-title"> progress </div>
+				                                        <div class="status-number"> 100% </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				                            <div class="dashboard-stat2 ">
+				                                <div class="display">
+				                                    <div class="number">
+				                                        <h3 class="font-red-haze">
+				                                            <span data-counter="counterup" data-value="1349">0</span>
+				                                        </h3>
+				                                        <small>TOTAL VIEWS</small>
+				                                    </div>
+				                                    <div class="icon">
+				                                        <i class="icon-like"></i>
+				                                    </div>
+				                                </div>
+				                                <div class="progress-info">
+				                                    <div class="progress">
+				                                        <span style="width: 100%;" class="progress-bar progress-bar-success red-haze">
+				                                            <span class="sr-only">100% change</span>
+				                                        </span>
+				                                    </div>
+				                                    <div class="status">
+				                                        <div class="status-title"> change </div>
+				                                        <div class="status-number"> 100% </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				                            <div class="dashboard-stat2 ">
+				                                <div class="display">
+				                                    <div class="number">
+				                                        <h3 class="font-blue-sharp">
+				                                            <span data-counter="counterup" data-value="567"></span>
+				                                        </h3>
+				                                        <small>TOTAL AD POSTS</small>
+				                                    </div>
+				                                    <div class="icon">
+				                                        <i class="icon-basket"></i>
+				                                    </div>
+				                                </div>
+				                                <div class="progress-info">
+				                                    <div class="progress">
+				                                        <span style="width: 45%;" class="progress-bar progress-bar-success blue-sharp">
+				                                            <span class="sr-only">45% grow</span>
+				                                        </span>
+				                                    </div>
+				                                    <div class="status">
+				                                        <div class="status-title"> grow </div>
+				                                        <div class="status-number"> 45% </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				                            <div class="dashboard-stat2 ">
+				                                <div class="display">
+				                                    <div class="number">
+				                                        <h3 class="font-purple-soft">
+				                                            <span data-counter="counterup" data-value="276"></span>
+				                                        </h3>
+				                                        <small>TOTAL FOLLOWERS</small>
+				                                    </div>
+				                                    <div class="icon">
+				                                        <i class="icon-user"></i>
+				                                    </div>
+				                                </div>
+				                                <div class="progress-info">
+				                                    <div class="progress">
+				                                        <span style="width: 100%;" class="progress-bar progress-bar-success purple-soft">
+				                                            <span class="sr-only">100% change</span>
+				                                        </span>
+				                                    </div>
+				                                    <div class="status">
+				                                        <div class="status-title"> change </div>
+				                                        <div class="status-number"> 100% </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
                                     </div>
                                     
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    
+                    
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12 col-sm-12">
+                            <div class="portlet light portlet-fit ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-microphone font-dark hide"></i>
+                                        <span class="caption-subject bold font-dark uppercase"> Today's Summary</span>
+                                        <span class="caption-helper">default option...</span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                            <label class="btn blue btn-outline btn-circle btn-sm active">
+                                                <input type="radio" name="options" class="toggle" id="option1">Register business</label>
+                                            <label class="btn  blue btn-outline btn-circle btn-sm">
+                                                <input type="radio" name="options" class="toggle" id="option2">Tools</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                    	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				                            <div class="dashboard-stat2 ">
+				                                <div class="display">
+				                                    <div class="number">
+				                                        <h3 class="font-green-sharp">
+				                                            <span data-counter="counterup" data-value="51">0</span>
+				                                            <small class="font-green-sharp"></small>
+				                                        </h3>
+				                                        <small>New Visits</small>
+				                                    </div>
+				                                    <div class="icon">
+				                                        <i class="icon-pie-chart"></i>
+				                                    </div>
+				                                </div>
+				                                <div class="progress-info">
+				                                    <div class="progress">
+				                                        <span style="width: 100%;" class="progress-bar progress-bar-success green-sharp">
+				                                            <span class="sr-only">100% progress</span>
+				                                        </span>
+				                                    </div>
+				                                    <div class="status">
+				                                        <div class="status-title"> progress </div>
+				                                        <div class="status-number"> 100% </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				                            <div class="dashboard-stat2 ">
+				                                <div class="display">
+				                                    <div class="number">
+				                                        <h3 class="font-red-haze">
+				                                            <span data-counter="counterup" data-value="236">0</span>
+				                                        </h3>
+				                                        <small>TOTAL Visits</small>
+				                                    </div>
+				                                    <div class="icon">
+				                                        <i class="icon-like"></i>
+				                                    </div>
+				                                </div>
+				                                <div class="progress-info">
+				                                    <div class="progress">
+				                                        <span style="width: 100%;" class="progress-bar progress-bar-success red-haze">
+				                                            <span class="sr-only">100% change</span>
+				                                        </span>
+				                                    </div>
+				                                    <div class="status">
+				                                        <div class="status-title"> change </div>
+				                                        <div class="status-number"> 100% </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				                            <div class="dashboard-stat2 ">
+				                                <div class="display">
+				                                    <div class="number">
+				                                        <h3 class="font-blue-sharp">
+				                                            <span data-counter="counterup" data-value="3"></span>
+				                                        </h3>
+				                                        <small>NEW AD POSTS</small>
+				                                    </div>
+				                                    <div class="icon">
+				                                        <i class="icon-basket"></i>
+				                                    </div>
+				                                </div>
+				                                <div class="progress-info">
+				                                    <div class="progress">
+				                                        <span style="width: 100%;" class="progress-bar progress-bar-success blue-sharp">
+				                                            <span class="sr-only">100% grow</span>
+				                                        </span>
+				                                    </div>
+				                                    <div class="status">
+				                                        <div class="status-title"> grow </div>
+				                                        <div class="status-number"> 100% </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+				                            <div class="dashboard-stat2 ">
+				                                <div class="display">
+				                                    <div class="number">
+				                                        <h3 class="font-purple-soft">
+				                                            <span data-counter="counterup" data-value="39"></span>
+				                                        </h3>
+				                                        <small>NEW FOLLOWERS</small>
+				                                    </div>
+				                                    <div class="icon">
+				                                        <i class="icon-user"></i>
+				                                    </div>
+				                                </div>
+				                                <div class="progress-info">
+				                                    <div class="progress">
+				                                        <span style="width: 100%;" class="progress-bar progress-bar-success purple-soft">
+				                                            <span class="sr-only">100% change</span>
+				                                        </span>
+				                                    </div>
+				                                    <div class="status">
+				                                        <div class="status-title"> change </div>
+				                                        <div class="status-number"> 100% </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ROW BOOTH-->
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-bar-chart font-dark hide"></i>
+                                        <span class="caption-subject font-dark bold uppercase">BUSINESS A</span>
+                                        <span class="caption-helper">BOOTH STATISTICS</span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                            <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm active">
+                                                <input type="radio" name="options" class="toggle" id="option1">Today</label>
+                                            <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                                <input type="radio" name="options" class="toggle" id="option2">Week</label>
+                                            <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                                <input type="radio" name="options" class="toggle" id="option2">Month</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    
+                                    <div class="table-scrollable table-scrollable-borderless">
+                                        <table class="table table-hover table-light">
+                                            <thead>
+                                                <tr class="uppercase">
+                                                    <th colspan="2"> Booth Name</th>
+                                                    <th> Visits </th>
+                                                    <th> Followers </th>
+                                                    <th> Likes </th>
+                                                    <th> Score </th>
+                                                </tr>
+                                            </thead>
+                                            <tr>
+                                                <td class="fit">
+                                                    <img class="user-pic rounded" src="../assets/pages/media/users/avatar4.jpg"> </td>
+                                                <td>
+                                                    <a href="javascript:;" class="primary-link">Booth-FR</a>
+                                                </td>
+                                                <td> $345 </td>
+                                                <td> 45 </td>
+                                                <td> 124 </td>
+                                                <td>
+                                                    <span class="bold theme-font">80%</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fit">
+                                                    <img class="user-pic rounded" src="../assets/pages/media/users/avatar5.jpg"> </td>
+                                                <td>
+                                                    <a href="javascript:;" class="primary-link">Booth-EN</a>
+                                                </td>
+                                                <td> $560 </td>
+                                                <td> 12 </td>
+                                                <td> 24 </td>
+                                                <td>
+                                                    <span class="bold theme-font">67%</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fit">
+                                                    <img class="user-pic rounded" src="../assets/pages/media/users/avatar6.jpg"> </td>
+                                                <td>
+                                                    <a href="javascript:;" class="primary-link">Booth-CHS</a>
+                                                </td>
+                                                <td> $1,345 </td>
+                                                <td> 450 </td>
+                                                <td> 46 </td>
+                                                <td>
+                                                    <span class="bold theme-font">98%</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fit">
+                                                    <img class="user-pic rounded" src="../assets/pages/media/users/avatar7.jpg"> </td>
+                                                <td>
+                                                    <a href="javascript:;" class="primary-link">Booth-CHT</a>
+                                                </td>
+                                                <td> $645 </td>
+                                                <td> 50 </td>
+                                                <td> 89 </td>
+                                                <td>
+                                                    <span class="bold theme-font">58%</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                            <div class="portlet light ">
+                                <div class="portlet-title tabbable-line">
+                                    <div class="caption">
+                                        <i class=" icon-social-twitter font-dark hide"></i>
+                                        <span class="caption-subject font-dark bold uppercase">BUSINESS A</span>
+                                        <span class="caption-helper">QUICK ACTIONS OF BOOTH</span>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#tab_actions_pending" data-toggle="tab"> Pending </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_actions_completed" data-toggle="tab"> Completed </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_actions_pending">
+                                            <!-- BEGIN: Actions -->
+                                            <div class="mt-actions">
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar10.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-magnet"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Booth-FR</span>
+                                                                    <p class="mt-action-desc">Dummy text of the printing</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Approve</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar3.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class=" icon-bubbles"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Booth-EN</span>
+                                                                    <p class="mt-action-desc">pending for approval</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-red"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Approve</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar2.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-call-in"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Booth-CHS</span>
+                                                                    <p class="mt-action-desc">Lorem Ipsum is simply dummy text</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Approve</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar7.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class=" icon-bell"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Booth-CHT</span>
+                                                                    <p class="mt-action-desc">Text of the printing and typesetting industry</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-red"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Published</button>
+                                                                    <!-- <button type="button" class="btn btn-outline red btn-sm">Reject</button> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <!-- END: Actions -->
+                                        </div>
+                                        <div class="tab-pane" id="tab_actions_completed">
+                                            <!-- BEGIN:Completed-->
+                                            <div class="mt-actions">
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar1.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-action-redo"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Frank Cameron</span>
+                                                                    <p class="mt-action-desc">Lorem Ipsum is simply dummy</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-red"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Appove</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar8.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-cup"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Ella Davidson </span>
+                                                                    <p class="mt-action-desc">Text of the printing and typesetting industry</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Appove</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar5.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class=" icon-graduation"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Jason Dickens </span>
+                                                                    <p class="mt-action-desc">Dummy text of the printing and typesetting industry</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-red"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Appove</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar2.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-badge"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Jan Kim</span>
+                                                                    <p class="mt-action-desc">Lorem Ipsum is simply dummy</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Appove</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END: Completed -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END ROW BOOTH-->
+                    
+                    <!-- ROW ADPOST-->
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-bar-chart font-dark hide"></i>
+                                        <span class="caption-subject font-dark bold uppercase">BUSINESS A</span>
+                                        <span class="caption-helper">AD POST STATISTICS</span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                            <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm active">
+                                                <input type="radio" name="options" class="toggle" id="option1">Today</label>
+                                            <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                                <input type="radio" name="options" class="toggle" id="option2">Week</label>
+                                            <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                                <input type="radio" name="options" class="toggle" id="option2">Month</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    
+                                    <div class="table-scrollable table-scrollable-borderless">
+                                        <table class="table table-hover table-light">
+                                            <thead>
+                                                <tr class="uppercase">
+                                                    <th colspan="2"> Ad Post Title</th>
+                                                    <th> Language </th>
+                                                    <th> Visits </th>
+                                                    <th> Comments </th>
+                                                    <th> Likes </th>
+                                                </tr>
+                                            </thead>
+                                            <tr>
+                                                <td class="fit">
+                                                    <img class="user-pic rounded" src="../assets/pages/media/users/avatar4.jpg"> </td>
+                                                <td><a href="javascript:;" class="primary-link">AdPost title</a></td>
+                                                <td> FR </td>
+                                                <td> 450 </td>
+                                                <td> 124 </td>
+                                                <td><span class="bold theme-font">50</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fit">
+                                                    <img class="user-pic rounded" src="../assets/pages/media/users/avatar5.jpg"> </td>
+                                                <td><a href="javascript:;" class="primary-link">AdPost title</a></td>
+                                                <td> EN </td>
+                                                <td> 12 </td>
+                                                <td> 24 </td>
+                                                <td><span class="bold theme-font">29</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fit">
+                                                    <img class="user-pic rounded" src="../assets/pages/media/users/avatar6.jpg"> </td>
+                                                <td><a href="javascript:;" class="primary-link">AdPost title</a></td>
+                                                <td> CHS </td>
+                                                <td> 450 </td>
+                                                <td> 46 </td>
+                                                <td><span class="bold theme-font">49</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fit">
+                                                    <img class="user-pic rounded" src="../assets/pages/media/users/avatar7.jpg"> </td>
+                                                <td><a href="javascript:;" class="primary-link">AdPost title</a></td>
+                                                <td> CHT </td>
+                                                <td> 50 </td>
+                                                <td> 89 </td>
+                                                <td><span class="bold theme-font">58</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                            <div class="portlet light ">
+                                <div class="portlet-title tabbable-line">
+                                    <div class="caption">
+                                        <i class=" icon-social-twitter font-dark hide"></i>
+                                        <span class="caption-subject font-dark bold uppercase">BUSINESS A</span>
+                                        <span class="caption-helper">QUICK ACTIONS OF AD POST</span>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#tab_actions_pending" data-toggle="tab"> Pending </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_actions_completed" data-toggle="tab"> Completed </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_actions_pending">
+                                            <!-- BEGIN: Actions -->
+                                            <div class="mt-actions">
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar10.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-magnet"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Booth-FR</span>
+                                                                    <p class="mt-action-desc">Dummy text of the printing</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Approve</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar3.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class=" icon-bubbles"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Booth-EN</span>
+                                                                    <p class="mt-action-desc">pending for approval</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-red"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Approve</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar2.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-call-in"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Booth-CHS</span>
+                                                                    <p class="mt-action-desc">Lorem Ipsum is simply dummy text</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Approve</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar7.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class=" icon-bell"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Booth-CHT</span>
+                                                                    <p class="mt-action-desc">Text of the printing and typesetting industry</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-red"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Published</button>
+                                                                    <!-- <button type="button" class="btn btn-outline red btn-sm">Reject</button> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <!-- END: Actions -->
+                                        </div>
+                                        <div class="tab-pane" id="tab_actions_completed">
+                                            <!-- BEGIN:Completed-->
+                                            <div class="mt-actions">
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar1.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-action-redo"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Frank Cameron</span>
+                                                                    <p class="mt-action-desc">Lorem Ipsum is simply dummy</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-red"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Appove</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar8.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-cup"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Ella Davidson </span>
+                                                                    <p class="mt-action-desc">Text of the printing and typesetting industry</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Appove</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar5.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class=" icon-graduation"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Jason Dickens </span>
+                                                                    <p class="mt-action-desc">Dummy text of the printing and typesetting industry</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-red"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Appove</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="../assets/pages/media/users/avatar2.jpg" /> </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-badge"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">Jan Kim</span>
+                                                                    <p class="mt-action-desc">Lorem Ipsum is simply dummy</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">3 jun</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                                <span class="mt=action-time">9:30-13:00</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <button type="button" class="btn btn-outline green btn-sm">Appove</button>
+                                                                    <button type="button" class="btn btn-outline red btn-sm">Reject</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END: Completed -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END ROW ADPOST-->
+                    
                 </div>
                 <!-- END CONTENT BODY -->
             </div>
