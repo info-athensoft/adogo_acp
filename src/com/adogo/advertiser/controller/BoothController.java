@@ -1,12 +1,16 @@
 package com.adogo.advertiser.controller;
 
 
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.advertiser.entity.BusinessHours;
@@ -57,8 +61,9 @@ public class BoothController {
 	 * 
 	 * @author sfz
 	 */
-	@RequestMapping("/saveBusinessHours")
-	public ModelAndView saveAdPost(@RequestParam String businessHoursJSONString){		
+	@RequestMapping(value="/saveBusinessHours",method=RequestMethod.POST,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> saveAdPost(@RequestParam String businessHoursJSONString){		
 		logger.info("entering... /advertiser/booth/saveBusinessHours");
 		
 		/* initial settings */
@@ -116,11 +121,13 @@ public class BoothController {
 		
 		
 		/* assemble model and view */
-		String viewName = "ad/booth";	//TODO booth page does not exist yet
-        mav.setViewName(viewName);
+		Map<String,Object> model = mav.getModel();
+		
+		//String viewName = "ad/booth";	//TODO booth page does not exist yet
+        //mav.setViewName(viewName);
 		
 		logger.info("exiting... /advertiser/booth/saveBusinessHours");
-		return mav;
+		return model;
 	}
 
 }

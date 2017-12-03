@@ -11,12 +11,46 @@ function saveBusinessHours(){
 	
 	$.ajax({
 		type:"post",
-		url:"saveBusinessHours",
-		dataType:"json",
+		url:"/acp/advertiser/booth/saveBusinessHours",
+		dataType:"html",
 		data: {	businessHoursJSONString : JSON.stringify(businessHoursObject) },
-		timeout : 5000,
-		success:function(data){	
-
+		timeout : 10000,
+		beforeSend: function() {
+			//alert('beforeSend');
+		      //Blockui App
+		      App.blockUI({
+	              target: '#blockui_buz_hrs_id',
+	              message: 'SAVING INFORMATION ......  '
+	          }); 
+		    },		
+		complete: function() {
+			//alert('completed');
+			/*	//Blockui App
+		      App.blockUI({
+	              target: '#blockui_buz_hrs_id',
+	              message: 'SAVING INFORMATION ......  '
+	          }); */
+		      //Blockui App
+	          
+	          window.setTimeout(function() {
+	              App.unblockUI('#blockui_buz_hrs_id');
+	          }, 9000); 
+		    }, 
+		success:function(data){
+			window.setTimeout(function() {
+	              App.unblockUI('#blockui_buz_hrs_id');
+	          }, 2000);
+			
+			 window.setTimeout(function() {
+				 App.blockUI({
+		              target: '#blockui_buz_hrs_id',
+		              message: 'ok ......  '
+		          });
+	         }, 2000);
+			 
+			 window.setTimeout(function() {
+	              App.unblockUI('#blockui_buz_hrs_id');
+	          }, 4000);
 		}		
 	});
 }

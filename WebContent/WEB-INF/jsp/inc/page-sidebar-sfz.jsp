@@ -48,7 +48,7 @@
 				</ul>
 			</li>
 			
-			<li class="nav-item ">
+			<li class="nav-item  ">
 				<a href="javascript:;" class="nav-link nav-toggle">
 				<i class="icon-user"></i>
 				<span class="title">Advertiser</span>
@@ -56,69 +56,39 @@
 				</a>
 				<ul class="sub-menu">
 					<li class="nav-item  ">
-						<a href="/acp/advertiser/">
+						<a href="#">
 						<i class="icon-home"></i>
 						Dashboard</a>
 					</li>
-					<li class="nav-item">
-						<a href="/acp/advertiser/"  class="nav-link nav-toggle">
-						<i class="icon-home"></i>
-						Manage Business
-						<span class="arrow"></span>
-					 	</a>
-						<ul class="sub-menu">
-							<li class="nav-item">
-								<a href="/acp/advertiser/biz/register.html"  class="nav-link nav-toggle">
-								<i class="icon-pencil"></i>
-								Register my Business</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="/acp/advertiser/biz/edit.html"  class="nav-link nav-toggle">
-								<i class="icon-pencil"></i>
-								Edit Business Profile</a>
-							</li>							
-						</ul>
+					<li class="nav-item  ">
+						<a href="/admin/bizprofile">
+						<i class="icon-pencil"></i>
+						Edit Business Profile</a>
 					</li>
 					<li class="nav-item  ">
-						<a href="/acp/advertiser/"  class="nav-link nav-toggle">
-						<i class="icon-home"></i>
-						Manage Booth
-						<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li class="nav-item">
-								<a href="/acp/advertiser/booth/">
-								<i class="icon-paper-plane"></i>
-								View Booth</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="/acp/advertiser/booth/create">
-								<i class="icon-paper-plane"></i>
-								Create a Booth</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="/acp/advertiser/booth/edit">
-								<i class="icon-paper-plane"></i>
-								Edit Booth</a>
-							</li>							
-						</ul>
+						<a href="/acp/ad/adpost/create.html">
+						<i class="icon-paper-plane"></i>
+						Create Ad Post</a>
 					</li>
 					<li class="nav-item  ">
-						<a href="/acp/advertiser/">
-						<i class="icon-home"></i>
-						Manage AdPost</a>
-						<ul class="sub-menu">
-							<li class="nav-item  ">
-								<a href="/acp/ad/adpost/create.html">
-								<i class="icon-paper-plane"></i>
-								Create Ad Post</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="/acp/ad/adpost/edit.html">
-								<i class="icon-paper-plane"></i>
-								Edit Ad Post</a>
-							</li>							
-						</ul>
+						<a href="/acp/ad/adpost/edit.html">
+						<i class="icon-paper-plane"></i>
+						Edit Ad Post</a>
+					</li>
+					<li class="nav-item  ">
+						<a href="/acp/ad/booth/create">
+						<i class="icon-paper-plane"></i>
+						Create a Booth</a>
+					</li>
+					<li class="nav-item  ">
+						<a href="/acp/ad/booth/edit">
+						<i class="icon-paper-plane"></i>
+						Edit Booth</a>
+					</li>
+					<li class="nav-item  ">
+						<a href="ecommerce_orders.html">
+						<i class="icon-basket"></i>
+						Order a service</a>
 					</li>
 				</ul>
 			</li>
