@@ -472,7 +472,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                     			<div class="portlet-body form">
                                     <form class="form-horizontal" role="form">
-                                        <div class="form-body">
+                                        <div class="form-body" id="blockui_buz_hrs_id">
                                         	
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Business no.</label>
@@ -765,6 +765,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/ad/booth.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
+
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts/ui-blockui.min.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
