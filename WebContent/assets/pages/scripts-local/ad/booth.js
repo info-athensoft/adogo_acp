@@ -38,7 +38,8 @@ function getBusinessHoursObject(){
     var p13 = $("#day6_end_time").val();
     var p14 = $("#day7_start_time").val();        
     var p15 = $("#day7_end_time").val();
-    var p16 = $("#comment").val();   
+    var p16 = $("#comment").val();
+    var p17 = $("#lang_no").val();
     
     var businessObject =
     {
@@ -57,7 +58,8 @@ function getBusinessHoursObject(){
     		day6EndTime    		    	  :   p13,
     		day7StartTime   		   	  :   p14,
     		day7EndTime    		    	  :   p15,
-    		comment              		  :   p16
+    		comment              		  :   p16,
+    		langNo              		  :   p17
     };
     
     return businessObject;
@@ -73,3 +75,14 @@ function getBusinessLocationObject(){
 	alert("getBusinessLocationObject called!");
 	//TODO 	
 }
+
+function saveContactInfo(){
+	alert("saveContactInfo called!");
+	//TODO 	
+}
+
+function getContactInfoObject(){
+	alert("getContactInfoObject called!");
+	//TODO 	
+}
+

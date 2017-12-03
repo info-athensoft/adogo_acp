@@ -189,8 +189,130 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     
                     <div class="row">
+                    	
                     	<div class="col-md-6">
-                    		<!-- 
+                    		<!-- Section of Basic info -->
+                    		<div class="portlet light">
+                    			<div class="portlet-title">
+                                    <div class="caption font-red-sunglo">
+                                        <i class="icon-settings"></i>
+                                        <span class="caption-subject sbold uppercase">Basic Information</span>
+                                    </div>
+                                </div>
+                    			<div class="portlet-body form">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                        	<div class="form-group">
+                                                <label class="col-md-2 control-label">Business no.</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" id="business_id" class="form-control" placeholder="Business no." value="42001" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Language</label>
+                                                <div class="col-md-10">
+                                                    <select id="lang_no" class="form-control">
+                                                    	<option value="1033" selected="selected">English</option>
+                                                    	<option value="3084">French</option>
+                                                    	<option value="2052">Chinese (Simplified)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                    		</div>
+                    		<!-- End of Section -->
+                    		
+                    		
+                    		<!-- Section of Business Contact -->
+                    		<div class="portlet light">
+                    			<div class="portlet-title">
+                                    <div class="caption font-red-sunglo">
+                                        <i class="icon-settings"></i>
+                                        <span class="caption-subject sbold uppercase">Contact Information</span>
+                                    </div>
+                                    <div class="actions">
+                                    	<button class="btn btn-success" onclick="saveContactInfo(); return false;">
+                                                <i class="fa fa-check"></i> Quick Save</button>
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;" onclick="saveContactInfo(); return false;" >
+                                                        <i class="fa fa-pencil"></i> Save this section </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-ban"></i> Ban </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;"> Make admin </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                    			<div class="portlet-body form">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                        	<div class="form-group">
+                                                <label class="col-md-2 control-label">Phone</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" id="contact_phone_no" class="form-control" placeholder="Phone no."/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Fax</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" id="contact_fax_no" class="form-control" placeholder="Fax no."/>
+                                                </div>
+                                            </div>
+                                        	<div class="form-group">
+                                                <label class="col-md-2 control-label">Email</label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_email_1" class="form-control" placeholder="Email #1 - Primary"/>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_email_2" class="form-control" placeholder="Email #2 - Optional"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"></label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_email_3" class="form-control" placeholder="Email #3 - Optional"/>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_email_4" class="form-control" placeholder="Email #4 - Optional"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Website</label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_website_1" class="form-control" placeholder="Primary website"/>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="contact_website_2" class="form-control" placeholder="Secondary Website"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                    		</div>
+							<!-- End of Section -->
+                    		
+                    		
+                    		<!-- Section of Business Location -->
                     		<div class="portlet light">
                     			<div class="portlet-title">
                                     <div class="caption font-red-sunglo">
@@ -230,108 +352,70 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <div class="form-body">
                                         	
                                         	<div class="form-group">
-                                                <label class="col-md-3 control-label">Business no.</label>
-                                                <div class="col-md-9">
+                                                <label class="col-md-2 control-label">Business no.</label>
+                                                <div class="col-md-10">
                                                     <input type="text" id="business_id" class="form-control" placeholder="start time" value="42001" readonly="readonly"/>
                                                     <span class="help-block"> Hard code for test only</span>
                                                 </div>
                                             </div>
                                         	
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Monday</label>
-                                                <div class="col-md-4">
-                                                    <input id="day1_start_time" type="text" class="form-control" placeholder="start time">
+                                                <label class="col-md-2 control-label">Address Line1</label>
+                                                <div class="col-md-2">
+                                                    <input id="street_no" type="text" class="form-control" placeholder="Street no.">
                                                 </div>
-                                                <div class="col-md-1">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input id="day1_end_time" type="text" class="form-control" placeholder="end time">
+                                                <div class="col-md-8">
+                                                    <input id="day1_end_time" type="text" class="form-control" placeholder="Street name">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Tuesday</label>
-                                                <div class="col-md-4">
-                                                    <input id="day2_start_time" type="text" class="form-control" placeholder="start time">
+                                                <label class="col-md-2 control-label"></label>
+                                                <div class="col-md-2">
+                                                    <select id="unit_type" class="form-control">
+                                                    	<option value="Port">Port</option>
+                                                    	<option value="Suite">Suite</option>
+                                                    	<option value="Apt">Apt</option>
+                                                    	<option value="na">N/A</option>
+                                                    </select>
                                                 </div>
-                                                <div class="col-md-1">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input id="day2_end_time" type="text" class="form-control" placeholder="end time">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Wednesday</label>
-                                                <div class="col-md-4">
-                                                    <input id="day3_start_time" type="text" class="form-control" placeholder="start time">
-                                                </div>
-                                                <div class="col-md-1">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input id="day3_end_time" type="text" class="form-control" placeholder="end time">
+                                                <div class="col-md-8">
+                                                    <input id="unit_type" type="text" class="form-control" placeholder="Port no./Unit no.">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Thursday</label>
-                                                <div class="col-md-4">
-                                                    <input id="day4_start_time" type="text" class="form-control" placeholder="start time">
-                                                </div>
-                                                <div class="col-md-1">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input id="day4_end_time" type="text" class="form-control" placeholder="end time">
+                                                <label class="col-md-2 control-label">Address Line2</label>
+                                                <div class="col-md-10">
+                                                    <input id="address_line2" type="text" class="form-control" placeholder="Additional content of address">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Friday</label>
-                                                <div class="col-md-4">
-                                                    <input id="day5_start_time" type="text" class="form-control" placeholder="start time">
+                                                <label class="col-md-2 control-label"></label>
+                                                <div class="col-md-5">
+                                                    <input id="loction_city" type="text" class="form-control" placeholder="City">
                                                 </div>
-                                                <div class="col-md-1">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input id="day5_end_time" type="text" class="form-control" placeholder="end time">
+                                                <div class="col-md-5">
+                                                    <input id="loction_province" type="text" class="form-control" placeholder="Province/State">
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Saturday</label>
-                                                <div class="col-md-4">
-                                                    <input id="day6_start_time" type="text" class="form-control" placeholder="start time">
+                                             <div class="form-group">
+                                                <label class="col-md-2 control-label"></label>
+                                                <div class="col-md-5">
+                                                    <input id="postal_code" type="text" class="form-control" placeholder="Postal code">
                                                 </div>
-                                                <div class="col-md-1">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input id="day6_end_time" type="text" class="form-control" placeholder="end time">
+                                                <div class="col-md-5">
+                                                    <input id="loction_country" type="text" class="form-control" placeholder="Country">
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">Sunday</label>
-                                                <div class="col-md-4">
-                                                    <input id="day7_start_time" type="text" class="form-control" placeholder="start time">
-                                                </div>
-                                                <div class="col-md-1">
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input id="day7_end_time" type="text" class="form-control" placeholder="end time">
-                                                </div>
-                                            </div>
                                             
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">Announcement</label>
-                                                <div class="col-md-9">
-                                                    <textarea id="comment" class="form-control" rows="2"></textarea>
+                                                <label class="col-md-2 control-label">Comment</label>
+                                                <div class="col-md-10">
+                                                    <textarea id="location_comment" class="form-control" rows="2"></textarea>
                                                 </div>
                                             </div>
                                             
@@ -340,12 +424,17 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </form>
                                 </div>
                     		</div>
+							<!-- End of Section -->
+                    		
+                    		
+                    		
+                    		
+                    		
+                    		
+						</div>
                     	
-							 -->                    	
-							 
-							 </div>
                     	
-                    	
+                    	<!-- Section of Business Hours -->
                     	<div class="col-md-6">
                     		<div class="portlet light">
                     			<div class="portlet-title">
@@ -497,8 +586,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                     		</div>
                     	</div>
+                    	<!-- End of Section -->
                     	
-                    	
+                    	<!-- Section of Gallery -->
+                    	<!-- 
                     	<div class="col-md-6">
                     		<div class="portlet light">
                     			<div class="portlet-title">
@@ -628,7 +719,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                     		</div>
                     	</div>
-                    	
+                    	 -->
+                    	<!-- End of Section -->	
                     </div>
                     
                   

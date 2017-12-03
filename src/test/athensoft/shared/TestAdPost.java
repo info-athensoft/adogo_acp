@@ -1,7 +1,12 @@
-package com.adogo.ad.entity;
+package test.athensoft.shared;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.adogo.ad.entity.AdPost;
+import com.adogo.ad.entity.AdPostCoverImage;
+import com.adogo.ad.entity.AdPostGalleryImage;
+import com.adogo.ad.entity.AdPostSlideImage;
 
 public class TestAdPost {
 

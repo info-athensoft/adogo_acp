@@ -7,7 +7,7 @@
 
 
 <!-- page variables  -->
-<c:set var="inc_dir" value="inc"/>
+<c:set var="inc_dir" value="../inc"/>
 <!-- ENDS page variables -->
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <head>
         <meta charset="utf-8" />
-        <title>INF. Athensoft | ACP</title>
+        <title>Adogo | Business Profile - Register</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description" />
@@ -107,18 +107,26 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN THEME PANEL -->
                     <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Athensoft Control Panel 2.0
-                        <small>statistics, charts, recent events and reports</small>
+                    <h1 class="page-title"> Advertiser | Register my Business
+                        <small>get my business registered to show to public</small>
                     </h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
                             <li>
                                 <i class="icon-home"></i>
-                                <a href="#">Home</a>
+                                <a href="${webapp_name}/">Home</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <span>Dashboard</span>
+                                <a href="${webapp_name}/advertiser/">Advertiser</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="${webapp_name}/advertiser/">Manage business</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <span>Register my business</span>
                             </li>
                         </ul>
                         <div class="page-toolbar">
@@ -297,7 +305,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Choose a business role</span>
+                                        <span class="caption-subject bold font-dark uppercase"> Register a new business</span>
                                         <span class="caption-helper">default option...</span>
                                     </div>
                                     <div class="actions">
@@ -329,54 +337,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         </a>
                                                     </div>
                                                     <div class="mt-footer-button">
-                                                        <!-- <button type="button" class="btn btn-circle btn-danger btn-sm">Apply</button> -->
-                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/advertiser/apply">Apply</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/46.jpg" /> </div>
-                                                <div class="mt-container bg-green-opacity">
-                                                    <div class="mt-head-title"> Distributer </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-social-twitter"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-bubbles"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-bell"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <button type="button" class="btn btn-circle blue-ebonyclay btn-sm">Apply</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/37.jpg" /> </div>
-                                                <div class="mt-container bg-dark-opacity">
-                                                    <div class="mt-head-title"> Visitor </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-bubbles"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-map"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-cup"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <button type="button" class="btn btn-circle btn-success btn-sm">Apply</button>
+                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/advertiser/biz/create.html">Register</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -384,13 +345,17 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </div>
                                 </div>
                             </div>
-                            
-                            
+                        </div>
+                    </div>
+                	
+                	
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12 col-sm-12">
                             <div class="portlet light portlet-fit ">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Enter a business role</span>
+                                        <span class="caption-subject bold font-dark uppercase"> All Registered businesses</span>
                                         <span class="caption-helper">default option...</span>
                                     </div>
                                     <div class="actions">
@@ -422,8 +387,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         </a>
                                                     </div>
                                                     <div class="mt-footer-button">
-                                                        <!-- <button type="button" class="btn btn-circle btn-danger btn-sm">Apply</button> -->
-                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/advertiser/">Enter</a>
+                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/advertiser/apply">Enter</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -431,7 +395,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <div class="col-md-4">
                                             <div class="mt-widget-4">
                                                 <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/46.jpg" /> </div>
+                                                    <img src="${webapp_name}/assets/pages/img/background/46.jpg"/></div>
                                                 <div class="mt-container bg-green-opacity">
                                                     <div class="mt-head-title"> Distributer </div>
                                                     <div class="mt-body-icons">
@@ -477,150 +441,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </div>
                                 </div>
                             </div>
-                            
-                           <!-- 
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Activities</span>
-                                        <span class="caption-helper">default option...</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group">
-                                            <a class="btn red btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;"> Option 1</a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">Option 4</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-3">
-                                                <div class="mt-head bg-blue-hoki">
-                                                    <div class="mt-head-icon">
-                                                        <i class=" icon-social-twitter"></i>
-                                                    </div>
-                                                    <div class="mt-head-desc"> Lorem Ipsum is simply dummy text of the ... </div>
-                                                    <span class="mt-head-date"> 25 Jan, 2015 </span>
-                                                    <div class="mt-head-button">
-                                                        <button type="button" class="btn btn-circle btn-outline white btn-sm">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-body-actions-icons">
-                                                    <div class="btn-group btn-group btn-group-justified">
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-align-justify"></i>
-                                                            </span>RECORD </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-camera"></i>
-                                                            </span>PHOTO </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-calendar"></i>
-                                                            </span>DATE </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-record"></i>
-                                                            </span>RANC </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-3">
-                                                <div class="mt-head bg-red">
-                                                    <div class="mt-head-icon">
-                                                        <i class="icon-user"></i>
-                                                    </div>
-                                                    <div class="mt-head-desc"> Lorem Ipsum is simply dummy text of the ... </div>
-                                                    <span class="mt-head-date"> 12 Feb, 2016 </span>
-                                                    <div class="mt-head-button">
-                                                        <button type="button" class="btn btn-circle btn-outline white btn-sm">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-body-actions-icons">
-                                                    <div class="btn-group btn-group btn-group-justified">
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-align-justify"></i>
-                                                            </span>RECORD </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-camera"></i>
-                                                            </span>PHOTO </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-calendar"></i>
-                                                            </span>DATE </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-record"></i>
-                                                            </span>RANC </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-3">
-                                                <div class="mt-head bg-green">
-                                                    <div class="mt-head-icon">
-                                                        <i class=" icon-graduation"></i>
-                                                    </div>
-                                                    <div class="mt-head-desc"> Lorem Ipsum is simply dummy text of the ... </div>
-                                                    <span class="mt-head-date"> 3 Mar, 2015 </span>
-                                                    <div class="mt-head-button">
-                                                        <button type="button" class="btn btn-circle btn-outline white btn-sm">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-body-actions-icons">
-                                                    <div class="btn-group btn-group btn-group-justified">
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-align-justify"></i>
-                                                            </span>RECORD </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-camera"></i>
-                                                            </span>PHOTO </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-calendar"></i>
-                                                            </span>DATE </a>
-                                                        <a href="javascript:;" class="btn ">
-                                                            <span class="mt-icon">
-                                                                <i class="glyphicon glyphicon-record"></i>
-                                                            </span>RANC </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                             -->
-                            
-                            
                         </div>
                     </div>
+                
+                
                 </div>
                 <!-- END CONTENT BODY -->
             </div>

@@ -1,4 +1,4 @@
-package com.adogo.ad.controller;
+package com.adogo.advertiser.controller;
 
 
 import org.apache.log4j.Logger;
@@ -9,19 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.ad.entity.AdPostAudio;
-import com.adogo.ad.entity.AdPostBody;
-import com.adogo.ad.entity.AdPostCoverImage;
-import com.adogo.ad.entity.AdPostHead;
-import com.adogo.ad.entity.AdPostText;
-import com.adogo.ad.entity.AdPostVideo;
-import com.adogo.ad.entity.BusinessHours;
-import com.adogo.ad.service.AdPostService;
-import com.adogo.ad.service.BusinessHoursService;
-import com.athensoft.util.id.UUIDHelper;
+import com.adogo.advertiser.entity.BusinessHours;
+import com.adogo.advertiser.service.BusinessHoursService;
 
 @Controller
-@RequestMapping("/ad/booth")
+@RequestMapping("/advertiser/booth")
 public class BoothController {
 	
 	private static final Logger logger = Logger.getLogger(BoothController.class);
@@ -34,15 +26,28 @@ public class BoothController {
 		this.businessHoursService = businessHoursService;
 	}
 	
+	@RequestMapping("/")
+	public String gotoBoothIndex(){
+		String viewName = "advertiser/booth_index";
+		return viewName;
+	}
+	
+	@RequestMapping("/index")
+	public String gotoBoothIndex2(){
+		String viewName = "advertiser/booth_index";
+		return viewName;
+	}
+	
+	
 	@RequestMapping("/create")
 	public String gotoCreate(){
-		String viewName = "ad/booth_create";
+		String viewName = "advertiser/booth_create";
 		return viewName;
 	}
 	
 	@RequestMapping("/edit")
 	public String gotoEdit(){
-		String viewName = "ad/booth_edit";
+		String viewName = "advertiser/booth_edit";
 		return viewName;
 	}
 	
@@ -54,7 +59,7 @@ public class BoothController {
 	 */
 	@RequestMapping("/saveBusinessHours")
 	public ModelAndView saveAdPost(@RequestParam String businessHoursJSONString){		
-		logger.info("entering... /ad/booth/saveBusinessHours");
+		logger.info("entering... /advertiser/booth/saveBusinessHours");
 		
 		/* initial settings */
 		ModelAndView mav = new ModelAndView();
@@ -64,6 +69,7 @@ public class BoothController {
 		
 //		Long uId 			= UUIDHelper.getUniqueLongId();
 		Long businessId 		= jsonObj.getLong("businessId");
+		Integer langNo			= jsonObj.getInt("langNo");
 		String day1StartTime 	= jsonObj.getString("day1StartTime");
 		String day1EndTime 		= jsonObj.getString("day1EndTime");
 		String day2StartTime 	= jsonObj.getString("day2StartTime");
@@ -83,14 +89,12 @@ public class BoothController {
 		logger.info("day1StartTime="+day1StartTime);
 		logger.info("day1EndTime="+day1EndTime);
 		logger.info("comment="+comment);
-		
-		
-		
 
 		
 		/*create a new record of BusinessHours into master table*/
 		BusinessHours businessHours = new BusinessHours();
 		businessHours.setBusinessId(businessId);
+		businessHours.setLangNo(langNo);
 		businessHours.setDay1StartTime(day1StartTime);
 		businessHours.setDay1EndTime(day1EndTime);
 		businessHours.setDay2StartTime(day2StartTime);
@@ -112,10 +116,10 @@ public class BoothController {
 		
 		
 		/* assemble model and view */
-		String viewName = "ad/booth";
+		String viewName = "ad/booth";	//TODO booth page does not exist yet
         mav.setViewName(viewName);
 		
-		logger.info("exiting... /ad/booth/saveBusinessHours");
+		logger.info("exiting... /advertiser/booth/saveBusinessHours");
 		return mav;
 	}
 

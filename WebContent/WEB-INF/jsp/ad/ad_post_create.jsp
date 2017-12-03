@@ -117,7 +117,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN THEME PANEL -->
                     <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Ad Post <small>create ad post</small></h1>
+                    <h1 class="page-title"> Advertiser | Ad Post <small>create an Ad post</small></h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
 							<li>
@@ -126,11 +126,15 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>
-								<a href="eventsDashboard">Ad</a>
+                                <a href="${webapp_name}/advertiser/">Advertiser</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+							<li>
+								<a href="#">Manage Ad Post</a>
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>
-								<a href="#">Ad Post</a>
+								<a href="#">Create an Ad Post</a>
 							</li>
 						</ul>
                         <div class="page-toolbar">
@@ -244,7 +248,6 @@ License: You must have a valid license purchased only from themeforest(the above
 						                    			<div class="portlet-body form">
 						                                    <form class="form-horizontal" role="form">
 						                                        <div class="form-body">
-						                                        	
 						                                        	<div class="form-group">
 						                                                <label class="col-md-3 control-label">Choose a language</label>
 						                                                <div class="col-md-9">
@@ -694,7 +697,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
 <!-- BEGIN CORE PLUGINS -->
-<script src="${webapp_name}/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.min.js"></script>
 <script src="${webapp_name}/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -725,7 +728,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <!-- <script src="${webapp_name}/assets/global/scripts/app.min.js" type="text/javascript"></script> -->
-<script src="${webapp_name}/assets/global/scripts/app.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/scripts/app.js"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
@@ -761,28 +764,47 @@ jQuery(document).ready(function() {
 	//var eventUUID = $("#eventUUID").val();
 	
 	EventNewsEdit.init('1011');		//TODO to change
-	
-	/*
-	var option1 =
-	    {
-	    		id    			      :   '1011',
-	    		index   		    	  :   '1'
-	};
-	 
-	 var option2 =
-	    {
-	    		id    			      :   '1011',
-	    		index   		    	  :   '2'
-	};
-	
-	 
-	EventNewsEdit.init(option1);		//TODO to change
-	EventNewsEdit.init(option2);	
-	*/
+
 })	
 	
 </script>
 <script>
+
+function clickUpload(id) {
+	
+	var path =  $("#ufile").val();
+	var filename = path.replace(/^.*[\\\/]/, '');
+	//var curl = window.location.href;
+	//alert("filename="+filename);
+	var file_data = $("#ufile").prop("files")[0]; // Getting the properties of file from file field
+	  var form_data = new FormData(); // Creating object of FormData class
+	  form_data.append("name", filename); // Adding extra parameters to form_data
+	  //form_data.append("curl", curl); 
+	  form_data.append("file", file_data); // Appending parameter named file with properties of file_field to form_data
+	  
+	  $.ajax({
+		url:'/acp/ad/adpost/imageUpload?eventUUID='+id,
+	    //dataType: 'script',
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    data: form_data, // Setting the data attribute of ajax with file_data
+	    type: 'post',
+	    error: function (xhr, status) {
+            alert(status);
+        },
+	    success: function(data) {
+	      // Do something after Ajax completes 
+	      //alert(data["url"]);
+	      $("#adPost-cover-img-url").val(data["url"]);
+	      $("#fileinput-new-img").attr("src",data["url"]);
+	      //for (var i in data) {
+	    	//  alert(i);
+	      //}
+	    }
+	  });
+}
+
 function testButtonConfirmLang(){
 	alert("ok");
 }

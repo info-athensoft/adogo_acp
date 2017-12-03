@@ -21,6 +21,10 @@ import com.adogo.ad.entity.MediaTypeConst;
 @Qualifier("adPostAudioDaoJdbcImpl")
 public class AdPostAudioDaoJdbcImpl implements AdPostAudioDao {
 	
+	private final static Logger logger = Logger.getLogger(AdPostAudioDaoJdbcImpl.class);
+	
+	private final String TABLE = "AD_POST_MEDIA";
+	
 	private NamedParameterJdbcTemplate jdbc;
 	/**
 	 * inject DataSource object
@@ -30,8 +34,6 @@ public class AdPostAudioDaoJdbcImpl implements AdPostAudioDao {
 	public void setDataSource(DataSource dataSource){
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
-	
-	private final static Logger logger = Logger.getLogger(AdPostAudioDaoJdbcImpl.class);
 
 	@Override
 	public List<AdPostAudio> findAll() {
@@ -47,7 +49,6 @@ public class AdPostAudioDaoJdbcImpl implements AdPostAudioDao {
 
 	@Override
 	public List<AdPostAudio> findByAdPostId(Long adPostId) {
-		final String TABLE = "AD_POST_MEDIA";
 		
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");

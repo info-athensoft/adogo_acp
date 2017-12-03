@@ -107,7 +107,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN THEME PANEL -->
                     <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Ad Post <small>edit ad post</small></h1>
+                    <h1 class="page-title"> Advertiser | Ad Post <small>edit Ad posts</small></h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
 							<li>
@@ -116,11 +116,15 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>
-								<a href="eventsDashboard">Ad</a>
+                                <a href="${webapp_name}/advertiser/">Advertiser</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+							<li>
+								<a href="#">Manage Ad Post</a>
 								<i class="fa fa-angle-right"></i>
 							</li>
 							<li>
-								<a href="#">Ad Post</a>
+								<a href="#">Edit Ad Post</a>
 							</li>
 						</ul>
                         <div class="page-toolbar">
@@ -142,48 +146,6 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Begin: life time stats -->
-                            <div class="portlet light">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="fa fa-shopping-cart"></i>Post an Ad <span class="caption-helper">composite an ad</span></div>
-                                    <div class="actions">
-                                        <a href="eventsNewsCreate" class="btn btn-circle btn-info">
-                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Create news </span>
-                                        </a>
-                                        <div class="btn-group">
-                                            <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-                                                <i class="fa fa-share"></i>
-                                                <span class="hidden-xs"> Tools </span>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li><a href="javascript:;"> Export to Excel </a></li>
-                                                <li><a href="javascript:;"> Export to CSV </a></li>
-                                                <li><a href="javascript:;"> Export to XML </a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="javascript:;"> Print Invoices </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="table-container">
-                                        <div class="table-actions-wrapper">
-                                            <span> </span>
-                                            <select class="table-group-action-input form-control input-inline input-small input-sm" name="groupOption">
-                                                <option value="">Select...</option>
-												<option value="1">Publish</option>
-												<option value="2">Wait to post</option>
-												<option value="3">Delete</option>
-												<option value="4">Out of date</option>
-												<option value="5">Suspend</option>
-                                            </select>
-                                            <button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
                             <!-- End: life time stats -->
                         </div>
                     </div>

@@ -1,8 +1,9 @@
-package com.adogo.ad.entity;
+package com.adogo.advertiser.entity;
 
 public class BusinessHours {
 	private Long uid;
 	private Long businessId;
+	private Integer langNo;
 	private String day1StartTime;
 	private String day1EndTime;
 	private String day2StartTime;
@@ -30,6 +31,12 @@ public class BusinessHours {
 	}
 	public void setBusinessId(Long businessId) {
 		this.businessId = businessId;
+	}
+	public Integer getLangNo() {
+		return langNo;
+	}
+	public void setLangNo(Integer langNo) {
+		this.langNo = langNo;
 	}
 	public String getDay1StartTime() {
 		return day1StartTime;
@@ -121,15 +128,16 @@ public class BusinessHours {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	
 	@Override
 	public String toString() {
-		return "BusinessHours [uid=" + uid + ", businessId=" + businessId + ", day1StartTime=" + day1StartTime
-				+ ", day1EndTime=" + day1EndTime + ", day2StartTime=" + day2StartTime + ", day2EndTime=" + day2EndTime
-				+ ", day3StartTime=" + day3StartTime + ", day3EndTime=" + day3EndTime + ", day4StartTime="
+		return "BusinessHours [uid=" + uid + ", businessId=" + businessId + ", langNo=" + langNo + ", day1StartTime="
+				+ day1StartTime + ", day1EndTime=" + day1EndTime + ", day2StartTime=" + day2StartTime + ", day2EndTime="
+				+ day2EndTime + ", day3StartTime=" + day3StartTime + ", day3EndTime=" + day3EndTime + ", day4StartTime="
 				+ day4StartTime + ", day4EndTime=" + day4EndTime + ", day5StartTime=" + day5StartTime + ", day5EndTime="
 				+ day5EndTime + ", day6StartTime=" + day6StartTime + ", day6EndTime=" + day6EndTime + ", day7StartTime="
 				+ day7StartTime + ", day7EndTime=" + day7EndTime + ", comment=" + comment + "]";
 	}
+	
+	
 	
 }

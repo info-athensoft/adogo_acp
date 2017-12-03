@@ -3,7 +3,7 @@
  * Module:  ad-adpost
  */
 
-/* event news - global variables and functions*/
+/* adPost - global variables and functions*/
 function getBusinessObject(){	
 //	create a json object
     var p1 = "";
