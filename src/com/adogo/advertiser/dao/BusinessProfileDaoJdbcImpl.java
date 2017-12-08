@@ -100,7 +100,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 	@Override
 	public BusinessProfile getBusinessProfileByBizId(long bizId) {
 		String sql = "SELECT * "
-				   + "FROM business_profile "
+				   + "FROM " + TABLE + " "
 				   + "WHERE 1=1 "
 				   + "AND biz_id = :biz_id";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();

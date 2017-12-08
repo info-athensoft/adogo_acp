@@ -209,7 +209,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Name</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" class="form-control" value="${businessProfile.getBizName()}" placeholder="Enter text">
                                                     <span class="help-block"> Your legal company name or real business name</span>
                                                 </div>
                                             </div>

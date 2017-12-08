@@ -165,9 +165,21 @@ public class AdvertiserController {
 	
 	
 	@RequestMapping("/biz/edit.html")
-	public String gotoEditBizProfile(){
+	public ModelAndView gotoEditBizProfile(){
+		logger.info("entering... /advertiser/biz/edit.html");
+		ModelAndView mav = new ModelAndView();
 		String viewName = "advertiser/advertiser_bizprofile_edit";
-		return viewName;
+		
+		//TODO To be passed by parameter
+		int bizId = 1002781507;
+		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
+		
+		Map<String,Object> model = mav.getModel();
+		model.put("businessProfile", businessProfile);
+		
+		mav.setViewName(viewName);
+		logger.info("exiting... /advertiser/biz/edit.html");
+		return mav;
 	}
 	
 }
