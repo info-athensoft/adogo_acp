@@ -1,6 +1,7 @@
 package com.adogo.advertiser.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -72,10 +74,12 @@ public class AdvertiserController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/industrycode/class/{parentIndustryCode}",method=RequestMethod.GET,produces="application/json")
+	//@RequestMapping(value="/industrycode/class/{parentIndustryCode}",method=RequestMethod.POST,produces="application/json")
+	@RequestMapping(value="/industrycode",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> getDataSubIndustyCode(@PathVariable String parentIndustryCode){
-		logger.info("entering RESTFUL API... /advertiser/industrycode/sub/"+parentIndustryCode);
+	//public Map<String,Object> getDataSubIndustyCode(@PathVariable String parentIndustryCode){
+	public Map<String,Object> getDataSubIndustyCode(@RequestParam String parentIndustryCode){
+		logger.info("entering RESTFUL API... /advertiser/industrycode/sub/");
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -170,12 +174,31 @@ public class AdvertiserController {
 		ModelAndView mav = new ModelAndView();
 		String viewName = "advertiser/advertiser_bizprofile_edit";
 		
+		Map<String,Object> model = mav.getModel();
 		//TODO To be passed by parameter
 		int bizId = 1002781507;
 		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
 		
-		Map<String,Object> model = mav.getModel();
 		model.put("businessProfile", businessProfile);
+		
+		HashMap<Integer,String> listOfBizCategories=new HashMap<Integer,String>();
+		listOfBizCategories.put(0,"Choose a legal form");
+		listOfBizCategories.put(1,"Solo business - Not registered");
+		listOfBizCategories.put(2,"Solo business - Registered");
+		listOfBizCategories.put(3,"Partnership");
+		listOfBizCategories.put(4,"Corporation, LLC");
+		model.put("listOfBizCategories", listOfBizCategories);
+		
+		final int LEVEL_1 = 1;
+//		final int LEVEL_2 = 2;
+//		final int LEVEL_3 = 3;
+//		final int LEVEL_4 = 4;
+//		final int LEVEL_5 = 5;
+		
+		List<IndustryCode> naicsLevel1 = new ArrayList<IndustryCode>();
+		naicsLevel1 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_1);
+		
+		model.put("NAICS_level_1", naicsLevel1);
 		
 		mav.setViewName(viewName);
 		logger.info("exiting... /advertiser/biz/edit.html");

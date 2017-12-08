@@ -217,7 +217,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business No.</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <input type="text" class="form-control" value="${businessProfile.getBizNo()}" placeholder="Enter text">
                                                     <span class="help-block"> Your business no. issued by government</span>
                                                 </div>
                                             </div>
@@ -225,7 +225,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Owner</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="Business owner">
+                                                    <input type="text" class="form-control" value="${businessProfile.getBizOwner()}" placeholder="Business owner">
                                                     <span class="help-block"> Business owner</span>
                                                 </div>
                                             </div>
@@ -236,11 +236,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <label class="col-md-3 control-label">Legal Form</label>
                                                 <div class="col-md-4">
                                                     <select class="form-control">
-                                                    	<option value="">Choose a legal form</option>
+                                                    <!-- 	<option value="">Choose a legal form</option>
                                                     	<option value="">Solo business - Not registered</option>
                                                     	<option value="">Solo business - Registered</option>
                                                     	<option value="">Partnership</option>
-                                                    	<option value="">Corporation, LLC</option>
+                                                    	<option value="">Corporation, LLC</option>  -->
+                                                    	<c:forEach var="category" items="${listOfBizCategories}">
+															<option value="${category.getKey()}" <c:if test="${category.getKey()==businessProfile.getLegalFormNo()}">selected="selected"</c:if>>${category.getValue()}</option>
+														</c:forEach>
                                                     </select>
                                                     <span class="help-block"> The legal form of your business</span>
                                                 </div>
@@ -249,7 +252,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Industry Code</label>
                                                 <div class="col-md-4">
-                                                    <select class="form-control" id="industryCodeLevel1" onchange="test(this);">
+                                                    <select class="form-control" id="industryCodeLevel1" onchange="industryCodeOnChange(this);">
                                                     	<option value="">Choose a category for your business</option>
                                                     	<c:forEach items="${NAICS_level_1}" var="item">
                                                     		<option value="${item.industryCode}">${item.industryName}</option>
@@ -465,7 +468,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
 
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/advertiser.js"></script>
+<!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/advertiser.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script> -->
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -477,16 +481,36 @@ License: You must have a valid license purchased only from themeforest(the above
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-
 function test(){
 	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
 	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
 	//alert(checkValue+" : "+checkText);
 	getSubIndustryCode(parentCode);
-	
 }
 
-
+function industryCodeOnChange(){
+	//alert('obj.val()='+obj.val());
+	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
+	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
+	//alert(parentCode+" : "+checkText);
+	//alert("/acp/advertiser/industrycode/class/{"+parentCode+"}");
+	
+	$.ajax({
+		type:"POST",
+		//url: "/acp/advertiser/industrycode/class/{"+parentCode+"}",		//TODO
+		//url: "/acp/advertiser/industrycode/class/"+parentCode,		//TODO
+		url: "/acp/advertiser/industrycode",		//TODO
+		dataType:"html",
+		data: {	parentIndustryCode : parentCode },
+		timeout : 10000,
+		beforeSend: function() { alert('beforeSend'); },		
+		complete: function() { alert('completed'); },
+		success:function(data){	
+			alert("ajax ok");
+			//window.location.href="/acp/advertiser/biz/register.html";
+		}		
+	});
+}
 
 </script>
 </body>
