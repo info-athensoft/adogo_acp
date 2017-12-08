@@ -1,5 +1,7 @@
 package com.adogo.advertiser.entity;
 
+import java.util.Date;
+
 public class Booth {
 	private Long globalId;
 	private Long userId;
@@ -8,13 +10,17 @@ public class Booth {
 	private Integer langNo;
 	private String bizName;
 	private String bizDesc;
-	private Integer boothStatus;
 	
+	
+	private Long boothId;			//bizId+langNo
 	private String boothName;
 	private Integer visitNum;
 	private Integer followerNum;
 	private Integer likeNum;
 	private Double boothScore;
+	
+	private Date createDate;
+	private Integer boothStatus;
 	
 	public Long getGlobalId() {
 		return globalId;
@@ -45,6 +51,12 @@ public class Booth {
 	}
 	public void setLangNo(Integer langNo) {
 		this.langNo = langNo;
+	}
+	public Long getBoothId() {
+		return boothId;
+	}
+	public void setBoothId(Long boothId) {
+		this.boothId = boothId;
 	}
 	public String getBizName() {
 		return bizName;
@@ -93,6 +105,12 @@ public class Booth {
 	}
 	public void setBoothScore(Double boothScore) {
 		this.boothScore = boothScore;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 	
 	

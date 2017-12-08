@@ -146,13 +146,169 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Begin: life time stats -->
-                            
+                            <div class="portlet light">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-shopping-cart"></i>Create a booth <span class="caption-helper">write contents for your booth to present</span></div>
+                                    <div class="actions">
+                                        <a href="#" class="btn btn-circle btn-info">
+                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Create </span>
+                                        </a>
+                                        <div class="btn-group">
+                                            <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
+                                                <i class="fa fa-share"></i>
+                                                <span class="hidden-xs"> Tools </span>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="javascript:;"> Export to Excel </a></li>
+                                                <li><a href="javascript:;"> Export to CSV </a></li>
+                                                <li><a href="javascript:;"> Export to XML </a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="javascript:;"> Print Invoices </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="table-container">
+                                        <div class="table-actions-wrapper">
+                                            <span> </span>
+                                            <select class="table-group-action-input form-control input-inline input-small input-sm" name="groupOption">
+                                                <option value="">Select...</option>
+												<option value="1">Publish</option>
+												<option value="2">Wait to post</option>
+												<option value="3">Delete</option>
+												<option value="4">Out of date</option>
+												<option value="5">Suspend</option>
+                                            </select>
+                                            <button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                             <!-- End: life time stats -->
                         </div>
                     </div>
                     
                     <div class="row">
                     	<div class="col-md-6">
+                    		
+                    		
+                    		<div class="portlet light">
+                    			<div class="portlet-title">
+                                    <div class="caption font-red-sunglo">
+                                        <i class="icon-settings"></i>
+                                        <span class="caption-subject sbold uppercase">Booth Basic Info.</span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-ban"></i> Ban </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;"> Make admin </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                    			<div class="portlet-body form">
+                                    <div class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                        	<div class="form-group">
+                                                <label class="col-md-3 control-label">User Id</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" placeholder="Enter text" disabled="disabled" value="">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Advertiser Id</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" value="1712010001">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Business Id</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" value="1166121722">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Business Name</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" value="AthensEDU">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Language</label>
+                                                <div class="col-md-9">
+                                                    <select id="lang_no" class="form-control" onchange="chooseLanguage();return false;">
+                                                    	<option value="0" selected="selected">--- Choose a language for the booth ---</option>
+                                                    	<option value="1033">English</option>
+                                                    	<option value="3084">French</option>
+                                                    	<option value="2052">Chinese (Simplified)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Booth Name</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" placeholder="Enter text">
+                                                    <span class="help-inline"> Shown on screen</span><span class="help-inline" id="langBoothName"></span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Category</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" class="form-control" placeholder="Enter text" id="categoryNo">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button class="btn btn-success" onclick="showCategoryList();return false;" id="boothCategoryChooser">&nbsp;&nbsp;&nbsp; Choose &nbsp;&nbsp;&nbsp;</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group" id="boothCategoryDiv">
+                                                <label class="col-md-3 control-label"></label>
+                                                <div class="col-md-9" id="boothCategoryList"></div>
+                                            </div>
+                                                                                        
+                                             
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Business Description</label>
+                                                <div class="col-md-9">
+                                                    <textarea class="form-control" rows="2"></textarea>
+                                                    <span class="help-inline"> Shown on screen</span><span class="help-inline" id="langBizDesc"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    		</div>
+                    		
+                    		
                     		
                     		<div class="portlet light">
                     			<div class="portlet-title">
@@ -187,9 +343,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </div>
                                 </div>
                     			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
+                                    <div class="form-horizontal" role="form">
                                         <div class="form-body">
-                                        
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Image Title</label>
                                                 <div class="col-md-9">
@@ -210,13 +365,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <textarea class="form-control" rows="2"></textarea>
                                                 </div>
                                             </div>
-                                            
-                                        	
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                     		</div>
-                    	
                     	
                     	
                     		<div class="portlet light">
@@ -280,11 +432,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </form>
                                 </div>
                     		</div>
-                    		
-                    		
-                    		
-                    		
-                    		
                     		
                     		
                     		<div class="portlet light">
@@ -415,7 +562,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     	</div>
                     	
                     	
-                    	
+                    	  
                     	<div class="col-md-6">
                     		<div class="portlet light">
                     			<div class="portlet-title">
@@ -450,7 +597,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </div>
                                 </div>
                     			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
+                                    <div class="form-horizontal" role="form">
                                         <div class="form-body">
                                         
                                         	<div class="row">
@@ -480,249 +627,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		                                            </div>
 	                                        	</div>
                                         	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhmsvleK8PbprHaMLNmWXoKofr2C67oZmUGCsWCN9U-T99fqdK" width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvx3KD_H2-JO2KR-7EaUKJQ0ahVF9iyBCTg3soIRoh-AAsBmlK"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaAS7SLrVIVvWYft53UQDhK0h1uf0tBsCWQl7AOzl_YmyTaCgm"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAN1rudxgC_XPsZ7YMBqFykZPxasit8eG2uQvcaYZkJAdM9jF-"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
-                                        	<div><br/></div>
-                                        	
-                                        	<div class="row">
-	                                        	<div class="col-md-3">
-	                                        		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AVF1BKRUvN28gJpDizcMZ9868BbpdVJJQGIRL0cnS19vM4nVqg"  width="100%"/>
-	                                        	</div>
-	                                        	<div class="col-md-9">
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Title</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                            
-		                                            <div class="form-group">
-		                                                <label class="col-md-3 control-label">URL</label>
-		                                                <div class="col-md-9">
-		                                                    <input type="text" class="form-control" placeholder="Enter text">
-		                                                </div>
-		                                            </div>
-		                                        	
-		                                        	<div class="form-group">
-		                                                <label class="col-md-3 control-label">Desc</label>
-		                                                <div class="col-md-9">
-		                                                    <textarea class="form-control" rows="2"></textarea>
-		                                                </div>
-		                                            </div>
-	                                        	</div>
-                                        	</div>
-                                        	
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                     		</div>
                     	</div>
@@ -769,9 +675,9 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/scripts/app.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/booth.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/booth-create.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/event-news-list.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -783,8 +689,42 @@ License: You must have a valid license purchased only from themeforest(the above
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-EventNewsList.init();
-//$("#menu-myevents").addClass("selected");
+//EventNewsList.init();
+
+function chooseLanguage(){
+	var langName=$("#lang_no").find("option:selected").text();
+	$("#langBoothName").text("in "+langName);
+	$("#langBizDesc").text("in "+langName);
+	//alert(checkText);
+}
+
+
+//TODO
+//may be a problem, not perfect yet
+function showCategoryList(){
+	//alert("ok");
+	//$("#boothCategoryList").show();
+	//$("#boothCategoryChooser").html("&nbsp;&nbsp;&nbsp;Collpase&nbsp;&nbsp;&nbsp;");
+	
+	$("#boothCategoryDiv").toggle(
+			function() {
+		    	$("#boothCategoryChooser").text("Collpase");
+			},
+			function() {
+			    $("#boothCategoryChooser").html("&nbsp;&nbsp;&nbsp;&nbsp;Choose&nbsp;&nbsp;&nbsp;&nbsp;");
+			}
+		);
+}
+
+$(document).ready(function(){
+	$("#boothCategoryDiv").hide();
+	
+	//init
+	$("#boothCategoryList").html(
+			"1,1,1,1<br/>1,1,1,1<br/>"
+	);
+			
+});
 
 </script>
 </body>

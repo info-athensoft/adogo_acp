@@ -157,6 +157,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <!-- END PAGE HEADER-->
+                    <!-- 
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat2 ">
@@ -264,40 +265,134 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                         </div>
                     </div>
+                    -->
+                    
                     <div class="row">
-                        
-                        
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                        </div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                        </div>
-                    </div>
+                    
+                    <!-- TEST -->
                     <div class="row">
                         <div class="col-lg-6 col-xs-12 col-sm-12">
-                        </div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                        	<c:forEach items="${listVOBizProfileBooth}" var="voBizProfileBooth">
+                        		<p>Business ID: ${voBizProfileBooth.bizProfile.bizId}</p>
+                        		<c:forEach items="${voBizProfileBooth.listBooth}" var="booth">
+                        			<p>Business Name: ${booth.bizName}</p>
+                        			<p>Business Desc: ${booth.bizDesc}</p>
+                        		</c:forEach>	
+                        	</c:forEach>
                         </div>
                     </div>
+                    <!-- END TEST -->
+                    
+                    
+                    
+                    <!-- PRETEST -->
+                    <c:forEach items="${listVOBizProfileBooth}" var="voBizProfileBooth">
                     <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                            <!-- BEGIN REGIONAL STATS PORTLET-->
-                            <!-- END REGIONAL STATS PORTLET-->
+                        <div class="col-lg-12 col-xs-12 col-sm-12">
+                            <div class="portlet light portlet-fit ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-microphone font-dark hide"></i>
+                                        <span class="caption-subject bold font-dark uppercase"> Business #1: ${voBizProfileBooth.bizProfile.bizId}</span>
+                                        <span class="caption-helper">managing booth</span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                            <label class="btn blue btn-outline btn-circle btn-sm active">
+                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                                            <label class="btn  blue btn-outline btn-circle btn-sm">
+                                                <input type="radio" name="options" class="toggle" id="option2">Tools</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <span class="caption-subject bold font-dark"> Business ID at Adogo: </span><br/>
+                                            <span class="caption-subject bold font-dark"> Primary Business Name: </span><br/>
+                                            <span class="caption-subject bold font-dark"> Secondary Business Name: </span><br/>
+                                            <span class="caption-subject bold font-dark"> Industry Code: </span><br/>
+                                            <span class="caption-subject bold font-dark"> Created Date: </span><br/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="caption-subject font-dark"> ${voBizProfileBooth.bizProfile.bizId}</span><br/>
+                                            <span class="caption-subject font-dark"> ${voBizProfileBooth.bizProfile.bizName}</span><br/>
+                                            <span class="caption-subject font-dark"> ${voBizProfileBooth.bizProfile.bizName2}</span><br/>
+                                            <span class="caption-subject font-dark"> ${voBizProfileBooth.bizProfile.industryCode}</span><br/>
+                                            <span class="caption-subject font-dark"> ${voBizProfileBooth.bizProfile.createDate}</span><br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="portlet light portlet-fit ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-microphone font-dark hide"></i>
+                                        <span class="caption-subject bold font-dark uppercase"> Booths by language</span>
+                                        <span class="caption-helper">default option...</span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                            <label class="btn blue btn-outline btn-circle btn-sm active">
+                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                                            <label class="btn  blue btn-outline btn-circle btn-sm">
+                                                <input type="radio" name="options" class="toggle" id="option2">Tools</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                    	<div class="col-sm-12 col-md-3">
+                                            <div class="thumbnail">
+                                                <img src="${webapp_name}/assets/athensoft/booth-logo/03.jpg" alt="" style="width: 100%;">
+                                                <div class="caption">
+                                                    <h3>CREATE A NEW BOOTH</h3>
+                                                    <p> Create a booth in a specific language for the online branding precence of your business simply by 3 steps, please click on the Help button for details</p>
+                                                    <p>
+                                                        <a href="/acp/advertiser/booth/create" class="btn red"> Create Now </a>
+                                                        <a href="javascript:;" class="btn default"> Help </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                    	<c:forEach items="${voBizProfileBooth.listBooth}" var="booth">
+                                    	<div class="col-sm-12 col-md-3">
+                                            <div class="thumbnail">
+                                                <img src="${webapp_name}/assets/athensoft/booth-logo/01.jpg" alt="" style="width: 100%;">
+                                                <div class="caption">
+                                                    <h3>${booth.bizName}</h3>
+                                                    <p> ${booth.bizDesc} </p>
+                                                    <p>
+                                                        <a href="/acp/advertiser/booth/edit.html?boothId=${booth.boothId}" class="btn blue"> Edit </a>
+                                                        <a href="javascript:;" class="btn default"> Preview </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </c:forEach>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                            <!-- BEGIN PORTLET-->
-                            <!-- END PORTLET-->
-                        </div>
                     </div>
+                    </c:forEach>
+                    <!-- END PRETEST -->
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <!-- 
                     
                     <div class="row">
                         <div class="col-lg-12 col-xs-12 col-sm-12">
@@ -337,7 +432,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         </a>
                                                     </div>
                                                     <div class="mt-footer-button">
-                                                        <!-- <button type="button" class="btn btn-circle btn-danger btn-sm">Apply</button> -->
                                                         <a class="btn btn-circle btn-danger btn-sm" href="/acp/uaas/advertiser/apply">Apply</a>
                                                     </div>
                                                 </div>
@@ -423,8 +517,9 @@ License: You must have a valid license purchased only from themeforest(the above
                             
                         </div>
                     </div>
+                     -->
                     
-                    
+                    <!--
                     <div class="row">
                         <div class="col-lg-12 col-xs-12 col-sm-12">
                             <div class="portlet light portlet-fit ">
@@ -537,6 +632,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             
                         </div>
                     </div>
+                    -->
                     
                 </div>
                 <!-- END CONTENT BODY -->
