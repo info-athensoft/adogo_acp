@@ -46,6 +46,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("lang_no, ");
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
+		sbf.append("booth_name, ");
 		sbf.append("biz_desc, ");
 		sbf.append("booth_status ");
 		sbf.append(" FROM "+TABLE);
@@ -70,6 +71,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("lang_no, ");
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
+		sbf.append("booth_name, ");
 		sbf.append("biz_desc, ");
 		sbf.append("booth_status ");
 		sbf.append(" FROM "+TABLE);
@@ -94,6 +96,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("lang_no, ");
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
+		sbf.append("booth_name, ");
 		sbf.append("biz_desc, ");
 		sbf.append("booth_status ");
 		sbf.append(" FROM "+TABLE);
@@ -118,6 +121,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("lang_no, ");
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
+		sbf.append("booth_name, ");
 		sbf.append("biz_desc, ");
 		sbf.append("booth_status ");
 		sbf.append(" FROM "+TABLE);
@@ -188,6 +192,8 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		paramSource.addValue("create_date", x.getCreateDate());
 		paramSource.addValue("booth_status", x.getBoothStatus());
 		
+		logger.info(sql);
+		
 		return jdbc.update(sql,paramSource);
 	}
 
@@ -199,6 +205,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 			x.setAdvertiserId(rs.getLong("advertiser_id"));
 			x.setBizId(rs.getLong("biz_id"));
 			x.setBoothId(rs.getLong("booth_id"));
+			x.setBoothName(rs.getString("booth_name"));
 			x.setLangNo(rs.getInt("lang_no"));
 			x.setBizName(rs.getString("biz_name"));
 			x.setBizDesc(rs.getString("biz_desc"));

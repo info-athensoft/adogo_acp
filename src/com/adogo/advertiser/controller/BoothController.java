@@ -131,10 +131,61 @@ public class BoothController {
 	}
 	
 	
-	@RequestMapping("/create")
-	public String gotoCreate(){
+	@RequestMapping("/create.html")
+	public ModelAndView gotoCreate(@RequestParam long bizId){
+		logger.info("entering... /advertiser/booth/create.html");
+		
+		// initial settings 
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		
+		model.put("bizId", bizId);
+		
 		String viewName = "advertiser/booth_create";
-		return viewName;
+		mav.setViewName(viewName);
+		
+		logger.info("exiting... /advertiser/booth/create.html");
+		return mav;
+	}
+	
+	
+	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> createBooth(@RequestParam String boothJSONString){		
+		logger.info("entering... /advertiser/booth/create");
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		/* prepare data */		
+		JSONObject jsonObj= new JSONObject(boothJSONString);
+		
+		Long userId 			= jsonObj.getLong("userId");
+		Long advertiserId		= jsonObj.getLong("advertiserId");
+		Long bizId				= jsonObj.getLong("bizId");
+		String bizName			= jsonObj.getString("bizName");
+		Integer langNo			= jsonObj.getInt("langNo");
+		String langBoothName	= jsonObj.getString("langBoothName");
+		Integer categoryNo		= jsonObj.getInt("categoryNo");
+		String langBizDesc		= jsonObj.getString("langBizDesc");
+		
+		/*create a new record of Booth into table*/
+		Booth booth = new Booth();
+		booth.setUserId(userId);
+		booth.setAdvertiserId(advertiserId);
+		booth.setBizId(bizId);
+		booth.setBizName(bizName);
+		booth.setLangNo(langNo);
+		booth.setBoothName(langBoothName);
+		booth.setBizDesc(langBizDesc);
+		
+		this.boothService.createBooth(booth);
+		
+		/* assemble model and view */
+		Map<String,Object> model = mav.getModel();
+		
+		logger.info("exiting... /advertiser/booth/create");
+		return model;
 	}
 	
 	@RequestMapping("/edit.html")
@@ -172,7 +223,7 @@ public class BoothController {
 	 */
 	@RequestMapping(value="/saveBusinessHours",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> saveAdPost(@RequestParam String businessHoursJSONString){		
+	public Map<String,Object> saveBusinessHours(@RequestParam String businessHoursJSONString){		
 		logger.info("entering... /advertiser/booth/saveBusinessHours");
 		
 		/* initial settings */

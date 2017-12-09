@@ -92,7 +92,7 @@
 								View Booth</a>
 							</li>
 							<li class="nav-item  ">
-								<a href="/acp/advertiser/booth/create">
+								<a href="/acp/advertiser/booth/create.html">
 								<i class="icon-paper-plane"></i>
 								Create a Booth</a>
 							</li>

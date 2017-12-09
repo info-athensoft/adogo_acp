@@ -203,7 +203,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <span class="caption-subject sbold uppercase">Booth Basic Info.</span>
                                     </div>
                                     <div class="actions">
-                                    	<button class="btn btn-success" onclick=";; return false;">
+                                    	<button class="btn btn-success" onclick="createBooth(); return false;">
                                                 <i class="fa fa-check"></i> Quick Save</button>
                                         <div class="btn-group">
                                             <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
@@ -236,35 +236,35 @@ License: You must have a valid license purchased only from themeforest(the above
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">User Id</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text" disabled="disabled" value="">
+                                                    <input type="text" class="form-control" placeholder="Enter text" disabled="disabled" id="userId" value="12345678">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Advertiser Id</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" value="1712010001">
+                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" id="advertiserId" value="1712010001">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Id</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" value="1166121722">
+                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" id="bizId" value="${bizId}">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Name</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" value="AthensEDU">
+                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" id="bizName" value="AthensEDU">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Language</label>
                                                 <div class="col-md-9">
-                                                    <select id="lang_no" class="form-control" onchange="chooseLanguage();return false;">
+                                                    <select id="langNo" class="form-control" onchange="chooseLanguage();return false;">
                                                     	<option value="0" selected="selected">--- Choose a language for the booth ---</option>
                                                     	<option value="1033">English</option>
                                                     	<option value="3084">French</option>
@@ -276,8 +276,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Booth Name</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text">
-                                                    <span class="help-inline"> Shown on screen</span><span class="help-inline" id="langBoothName"></span>
+                                                    <input type="text" class="form-control" placeholder="Enter text" id="langBoothName">
+                                                    <span class="help-inline"> Shown on screen</span><span class="help-inline"></span>
                                                 </div>
                                             </div>
                                             
@@ -301,8 +301,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Description</label>
                                                 <div class="col-md-9">
-                                                    <textarea class="form-control" rows="2"></textarea>
-                                                    <span class="help-inline"> Shown on screen</span><span class="help-inline" id="langBizDesc"></span>
+                                                    <textarea class="form-control" rows="2" id="langBizDesc"></textarea>
+                                                    <span class="help-inline"> Shown on screen</span><span class="help-inline"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -694,7 +694,7 @@ License: You must have a valid license purchased only from themeforest(the above
 //EventNewsList.init();
 
 function chooseLanguage(){
-	var langName=$("#lang_no").find("option:selected").text();
+	var langName=$("#langNo").find("option:selected").text();
 	$("#langBoothName").text("in "+langName);
 	$("#langBizDesc").text("in "+langName);
 	//alert(checkText);

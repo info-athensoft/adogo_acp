@@ -277,7 +277,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         		<p>Business ID: ${voBizProfileBooth.bizProfile.bizId}</p>
                         		<c:forEach items="${voBizProfileBooth.listBooth}" var="booth">
                         			<p>Business Name: ${booth.bizName}</p>
-                        			<p>Business Desc: ${booth.bizDesc}</p>
+                        			<p>Booth Name: ${booth.boothName}</p>
+                        			<p>Booth Desc: ${booth.bizDesc}</p>
                         		</c:forEach>	
                         	</c:forEach>
                         </div>
@@ -294,7 +295,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Business #1: ${voBizProfileBooth.bizProfile.bizId}</span>
+                                        <span class="caption-subject bold font-dark uppercase"> Business #: ${voBizProfileBooth.bizProfile.bizId}</span>
                                         <span class="caption-helper">managing booth</span>
                                     </div>
                                     <div class="actions">
@@ -351,7 +352,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <h3>CREATE A NEW BOOTH</h3>
                                                     <p> Create a booth in a specific language for the online branding precence of your business simply by 3 steps, please click on the Help button for details</p>
                                                     <p>
-                                                        <a href="/acp/advertiser/booth/create" class="btn red"> Create Now </a>
+                                                        <a href="/acp/advertiser/booth/create.html?bizId=${voBizProfileBooth.bizProfile.bizId}" class="btn red"> Create Now </a>
                                                         <a href="javascript:;" class="btn default"> Help </a>
                                                     </p>
                                                 </div>
@@ -363,7 +364,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="thumbnail">
                                                 <img src="${webapp_name}/assets/athensoft/booth-logo/01.jpg" alt="" style="width: 100%;">
                                                 <div class="caption">
-                                                    <h3>${booth.bizName}</h3>
+                                                    <h3>${booth.boothName}</h3>
                                                     <p> ${booth.bizDesc} </p>
                                                     <p>
                                                         <a href="/acp/advertiser/booth/edit.html?boothId=${booth.boothId}" class="btn blue"> Edit </a>
