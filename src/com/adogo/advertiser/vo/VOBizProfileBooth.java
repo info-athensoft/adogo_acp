@@ -1,7 +1,10 @@
-package com.adogo.advertiser.entity;
+package com.adogo.advertiser.vo;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.adogo.advertiser.entity.Booth;
+import com.adogo.advertiser.entity.BusinessProfile;
 
 public class VOBizProfileBooth{
 	

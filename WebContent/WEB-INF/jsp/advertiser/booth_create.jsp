@@ -203,6 +203,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <span class="caption-subject sbold uppercase">Booth Basic Info.</span>
                                     </div>
                                     <div class="actions">
+                                    	<button class="btn btn-success" onclick=";; return false;">
+                                                <i class="fa fa-check"></i> Quick Save</button>
                                         <div class="btn-group">
                                             <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
                                                 <i class="fa fa-angle-down"></i>
