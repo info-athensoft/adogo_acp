@@ -209,7 +209,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Name</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" value="${businessProfile.getBizName()}" placeholder="Enter text">
+                                                    <input type="text" id="bizName" class="form-control" value="${businessProfile.getBizName()}" placeholder="Enter text">
                                                     <span class="help-block"> Your legal company name or real business name</span>
                                                 </div>
                                             </div>
@@ -217,7 +217,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business No.</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" value="${businessProfile.getBizNo()}" placeholder="Enter text">
+                                                    <input type="text" id="bizNo" class="form-control" value="${businessProfile.getBizNo()}" placeholder="Enter text">
                                                     <span class="help-block"> Your business no. issued by government</span>
                                                 </div>
                                             </div>
@@ -225,7 +225,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Owner</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" value="${businessProfile.getBizOwner()}" placeholder="Business owner">
+                                                    <input type="text" id="bizOwner" class="form-control" value="${businessProfile.getBizOwner()}" placeholder="Business owner">
                                                     <span class="help-block"> Business owner</span>
                                                 </div>
                                             </div>
@@ -235,7 +235,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Legal Form</label>
                                                 <div class="col-md-4">
-                                                    <select class="form-control">
+                                                    <select id="legalFormNo" class="form-control">
                                                     <!-- 	<option value="">Choose a legal form</option>
                                                     	<option value="">Solo business - Not registered</option>
                                                     	<option value="">Solo business - Registered</option>
@@ -252,43 +252,52 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Industry Code</label>
                                                 <div class="col-md-4">
-                                                    <select class="form-control" id="industryCodeLevel1" onchange="industryCodeOnChange(this);">
+                                                    <select class="form-control" id="industryCodeLevel1" onchange="industryCodeOnChange(1);">
                                                     	<option value="">Choose a category for your business</option>
                                                     	<c:forEach items="${NAICS_level_1}" var="item">
-                                                    		<option value="${item.industryCode}">${item.industryName}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel1}">selected="selected"</c:if>>${item.getIndustryName()}</option>
                                                     	</c:forEach>
-                                                    	
                                                     </select>
                                                     <p></p>
-                                                    <select class="form-control" id="industryCodeLevel2">
-                                                    	<option value="">--/--</option>
+                                                    <select class="form-control" id="industryCodeLevel2" onchange="industryCodeOnChange(2);">
+                                                    	<option value="">Choose sub category for your business</option>
+                                                    	<c:forEach items="${NAICS_level_2}" var="item">
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel2}">selected="selected"</c:if>>${item.getIndustryName()}</option>
+                                                    	</c:forEach>
                                                     </select>
                                                     <p></p>
-                                                    <select class="form-control" id="industryCodeLevel3">
-                                                    	<option value="">--/--</option>
+                                                    <select class="form-control" id="industryCodeLevel3" onchange="industryCodeOnChange(3);">
+                                                    	<option value="">Choose sub category for your business</option>
+                                                    	<c:forEach items="${NAICS_level_3}" var="item">
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel3}">selected="selected"</c:if>>${item.getIndustryName()}</option>
+                                                    	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel4">
-                                                    	<option value="">--/--</option>
+                                                    	<option value="">Choose sub category for your business</option>
+                                                    	<c:forEach items="${NAICS_level_4}" var="item">
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==businessProfile.getIndustryCode()}">selected="selected"</c:if>>${item.getIndustryName()}</option>
+                                                    	</c:forEach>
                                                     </select>
                                                     <span class="help-block"> Select the industry code for your business </span>
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
+                                            	<c:set var="bizType" value="${businessProfile.getBizType()}" />
                                                 <label class="col-md-3 control-label">Business Type</label>
                                                 <div class="col-md-4">
                                                     <div class="mt-checkbox-list mt-checkbox-inline">
 			                                            <label class="mt-checkbox mt-checkbox-outline"> Product
-			                                                <input type="checkbox" value="1" name="businessType" />
+			                                                <input type="checkbox" value="1" class="businessType" name="businessType[]" <c:if test="${bizType==1||bizType==3||bizType==5||bizType==7}">checked</c:if> />
 			                                                <span></span>
 			                                            </label>
 			                                            <label class="mt-checkbox mt-checkbox-outline"> e-Product
-			                                                <input type="checkbox" value="2" name="businessType" />
+			                                                <input type="checkbox" value="2" class="businessType" name="businessType[]" <c:if test="${bizType==2||bizType==3||bizType==6||bizType==7}">checked</c:if> />
 			                                                <span></span>
 			                                            </label>
 			                                            <label class="mt-checkbox mt-checkbox-outline"> Service
-			                                                <input type="checkbox" value="3" name="businessType" />
+			                                                <input type="checkbox" value="4" class="businessType" name="businessType[]" <c:if test="${bizType==4||bizType==5||bizType==6||bizType==7}">checked</c:if> />
 			                                                <span></span>
 			                                            </label>
 			                                        </div>
@@ -468,8 +477,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
 
-<!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/advertiser.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script> -->
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
+<!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script> -->
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -488,28 +497,45 @@ function test(){
 	getSubIndustryCode(parentCode);
 }
 
-function industryCodeOnChange(){
-	//alert('obj.val()='+obj.val());
-	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
-	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
-	//alert(parentCode+" : "+checkText);
-	//alert("/acp/advertiser/industrycode/class/{"+parentCode+"}");
-	
+function industryCodeOnChange(level){
+	//var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
+	var parentCode=$("#industryCodeLevel"+level).val();  //Select - Value
+	alert(parentCode+" : "+checkText);
 	$.ajax({
-		type:"POST",
-		//url: "/acp/advertiser/industrycode/class/{"+parentCode+"}",		//TODO
-		//url: "/acp/advertiser/industrycode/class/"+parentCode,		//TODO
-		url: "/acp/advertiser/industrycode",		//TODO
-		dataType:"html",
-		data: {	parentIndustryCode : parentCode },
+		type:"GET",
+		url: "/acp/advertiser/industrycode/class/"+parentCode,		//TODO
+		//url: "/acp/advertiser/industrycode",		 //working
+		dataType:'json',
+		//data: {	parentIndustryCode : parentCode },
 		timeout : 10000,
 		beforeSend: function() { alert('beforeSend'); },		
 		complete: function() { alert('completed'); },
 		success:function(data){	
-			alert("ajax ok");
-			//window.location.href="/acp/advertiser/biz/register.html";
+			var listIndustryCode = data.listIndustryCode;
+			var $el = $("#industryCodeLevel"+(level+1));
+			$el.empty();
+			//Choose sub category for your business
+			$el.append($("<option></option>")
+	       	   .attr("value", "").text("Choose sub category for your business"));
+			listIndustryCode.forEach(function(indCode, index) {
+				//alert("IndustryCode.name:"+indCode.industryName);
+				$el.append($("<option></option>")
+			       .attr("value", indCode.industryCode).text(indCode.industryName));
+				});
+			//reset the rest levels
+			for (i=level+2; i <= 4; i++) { 
+				$("#industryCodeLevel"+i)find('option').not(':first').remove();
+			} 
 		}		
 	});
+}
+
+function setBizTypeValue(){
+	var val = 0;
+    $('input.businessType:checkbox:checked').each(function(i){
+      val += parseInt($(this).val());
+    });
+    $('#businessType').val(val);
 }
 
 </script>

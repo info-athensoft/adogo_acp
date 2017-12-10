@@ -9,5 +9,9 @@ public interface IndustryCodeDao {
 	
 	public List<IndustryCode> findByLevelNo(int levelNo);
 	
+	public List<IndustryCode> findByLevelNo(int levelNo, String industryCode);
+	
+	public List<IndustryCode> findLevelSelected(int levelNo, String industryCode);
+	
 	public List<IndustryCode> findByParentCode(String parentCode);
 }

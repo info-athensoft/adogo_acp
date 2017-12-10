@@ -72,6 +72,50 @@ public class IndustryCodeDaoJDBCImpl implements IndustryCodeDao {
 		paramSource.addValue("level_no", levelNo);
 		return jdbc.query(sql,paramSource,new IndustryCodeRowMapper());
 	}
+	
+	@Override
+	public List<IndustryCode> findByLevelNo(int levelNo, String industryCode) {
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("uid, ");
+		sbf.append("industry_code, ");
+		sbf.append("parent_code, ");
+		sbf.append("industry_name, ");
+		sbf.append("level_no, ");
+		sbf.append("region_tag ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE level_no=:level_no and industry_code LIKE ':str%'");
+		sbf.append(" ORDER BY industry_code");
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("level_no", levelNo);
+		paramSource.addValue("str", industryCode.substring(0, levelNo));
+		return jdbc.query(sql,paramSource,new IndustryCodeRowMapper());
+	}
+	
+	@Override
+	public List<IndustryCode> findLevelSelected(int levelNo, String industryCode) {
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("uid, ");
+		sbf.append("industry_code, ");
+		sbf.append("parent_code, ");
+		sbf.append("industry_name, ");
+		sbf.append("level_no, ");
+		sbf.append("region_tag ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE level_no=:level_no and industry_code LIKE ':str%'");
+		sbf.append(" ORDER BY industry_code");
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("level_no", levelNo);
+		paramSource.addValue("str", industryCode.substring(0, levelNo+1));
+		return jdbc.query(sql,paramSource,new IndustryCodeRowMapper());
+	}
 
 	@Override
 	public List<IndustryCode> findByParentCode(String parentCode) {

@@ -57,7 +57,29 @@ function getSubIndustryCode(parentIndustryCode,nextLevelIndex){
 	
 }
 
-
+function saveAdvertiserProfile(){
+	alert('saveAdvertiserProfile called!');
+	var businessObject = getBusinessObject();
+	
+	//alert("saveAdPost(), adPostLang="+adPostLang);
+	
+	$.ajax({
+		type:"post",
+		url:"/acp/advertiser/saveAdvertiserProfile",
+		dataType:"json",
+		data: {	bizProfileJSONString : JSON.stringify(businessObject) },
+		timeout : 5000,
+		success:function(data){	
+//			var msg = data.info_msg;
+			//var userAccount = data.userAccount;
+/*				$("#sec_activate").html(msg);
+			$("#ua1").text(userAccount.acctId);
+*/				
+			//alert(msg);
+			//location = "goactivateresult?resultMsg="+msg;
+		}		
+	});
+}
 
 
 /* bizProfile - global variables and functions*/
@@ -67,7 +89,8 @@ function getBusinessObject(){
     var p2 = $("#bizNo").val();
     var p3 = $("#bizOwner").val();
     var p4 = $("#legalFormNo").val();
-    var p5 = $("#industryCode").val();
+    var p5 = $("#industryCodeLevel4").val();
+    var p6 = getBizTypeValue(); //$("#businessType").val();
     
     var businessObject =
     {
@@ -75,11 +98,19 @@ function getBusinessObject(){
     		bizNo    			      	  :   p2,
     		bizOwner    			      :   p3,
     		legalFormNo    			      :   p4,
-    		industryCode    			  :   p5
-
+    		industryCode    			  :   p5,
+    		businessType    			  :   p6
     };
     
     return businessObject;
+}
+
+function getBizTypeValue(){
+	var val = 0;
+    $('input.businessType:checkbox:checked').each(function(i){
+      val += parseInt($(this).val());
+    });
+    return val;
 }
 
 

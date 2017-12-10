@@ -158,13 +158,21 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 	
 	@Override
 	public int update(BusinessProfile bp) {
-		String sql = "UPDATE business_profile "
-	               + "SET biz_owner = :biz_owner "
+		String sql = "UPDATE " + TABLE
+	               + " SET biz_name = :biz_name, "
+	               + "biz_owner = :biz_owner, "
+	               + "legal_form_no = :legal_form_no, "
+	               + "industry_code = :industry_code, "
+	               + "biz_type = :biz_type "
 				   + "WHERE 1=1 "
 				   + "AND biz_no = :biz_no";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("biz_no", bp.getBizNo());
+		paramSource.addValue("biz_name", bp.getBizName());
 		paramSource.addValue("biz_owner", bp.getBizOwner());
+		paramSource.addValue("legal_form_no", bp.getLegalFormNo());
+		paramSource.addValue("industry_code", bp.getIndustryCode());
+		paramSource.addValue("biz_type", bp.getBizType());
 		return jdbc.update(sql,paramSource);
 	}
 	
