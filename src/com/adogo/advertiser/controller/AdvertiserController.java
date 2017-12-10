@@ -131,7 +131,7 @@ public class AdvertiserController {
 		Map<String, Object> model = mav.getModel();
 		
 		//TODO
-		long advertiserId = 1712010001;
+		long advertiserId = 1712010001L;
 		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId);
 		model.put("listBizProfile", listBizProfile);
 				

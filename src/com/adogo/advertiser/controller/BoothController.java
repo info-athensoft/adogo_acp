@@ -1,6 +1,8 @@
 package com.adogo.advertiser.controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -13,14 +15,35 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.adogo.advertiser.entity.Booth;
 import com.adogo.advertiser.entity.BusinessHours;
+import com.adogo.advertiser.entity.BusinessProfile;
+import com.adogo.advertiser.service.BoothService;
 import com.adogo.advertiser.service.BusinessHoursService;
+import com.adogo.advertiser.service.BusinessProfileService;
+import com.adogo.advertiser.vo.VOBizProfileBooth;
 
 @Controller
 @RequestMapping("/advertiser/booth")
 public class BoothController {
 	
 	private static final Logger logger = Logger.getLogger(BoothController.class);
+	
+	@Autowired
+	private BoothService boothService;
+		
+	@Autowired
+	public void setBoothService(BoothService boothService) {
+		this.boothService = boothService;
+	}
+	
+	@Autowired
+	private BusinessProfileService businessProfileService;
+		
+	@Autowired
+	public void setBusinessProfileService(BusinessProfileService businessProfileService) {
+		this.businessProfileService = businessProfileService;
+	}
 	
 	@Autowired
 	private BusinessHoursService businessHoursService;
@@ -31,9 +54,74 @@ public class BoothController {
 	}
 	
 	@RequestMapping("/")
-	public String gotoBoothIndex(){
-		String viewName = "advertiser/booth_index";
-		return viewName;
+	public ModelAndView gotoBoothIndex(){
+//	public ModelAndView gotoBoothIndex(@RequestParam long advertiserId){
+		logger.info("entering... /advertiser/booth/");
+		
+		long advertiserId = 1712010001L;	//TODO test: get from session
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		/* assemble model and view */
+		Map<String,Object> model = mav.getModel();
+		
+		//load business profiles
+		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId);
+		//test
+		System.out.println("listBizProfile.size()="+listBizProfile.size());
+		
+		//load booths
+		List<Booth> listBooth = boothService.getBoothByAdvertiserId(advertiserId);
+		//test
+		System.out.println("listBooth.size()="+listBooth.size());
+		
+		
+		//
+		List<VOBizProfileBooth> listVOBizProfileBooth = new ArrayList<VOBizProfileBooth>();
+		
+		
+		//separate listBooth into sub-lists by bizId
+		int numOfBizProfile = 0;
+		if(listBizProfile!=null){
+			numOfBizProfile = listBizProfile.size();
+			
+		}else{
+			logger.info("INFO: Current Advertiser does not have any booth yet.");
+		}
+		
+		
+		for(BusinessProfile bizProfile: listBizProfile){
+			long currentBizId = bizProfile.getBizId();
+			String strCurrentBizId = String.valueOf(currentBizId);
+			List<Booth> currentSubListBooth = boothService.getSubListBoothByBizId(listBooth, currentBizId);
+			
+			VOBizProfileBooth vo_bizProfileBooth = new VOBizProfileBooth();
+			vo_bizProfileBooth.setBizProfile(bizProfile);
+			vo_bizProfileBooth.setListBooth(currentSubListBooth);
+			listVOBizProfileBooth.add(vo_bizProfileBooth);
+			
+			//test
+			System.out.println("\t "+strCurrentBizId+"\t"+currentSubListBooth.size());
+		}
+		
+		model.put("listVOBizProfileBooth", listVOBizProfileBooth);
+		model.put("listBizProfile", listBizProfile);
+		
+		String viewName = "advertiser/booth_index";	//TODO booth page does not exist yet
+        mav.setViewName(viewName);
+		
+        //TODO test
+        System.out.println("listBizProfile.size()="+listBizProfile.size());
+        System.out.println(listBizProfile);
+        
+        System.out.println("listVOBizProfileBooth.size()="+listVOBizProfileBooth.size());
+        System.out.println(listVOBizProfileBooth);
+        
+        //end of test
+        
+		logger.info("exiting... /advertiser/booth/");
+		return mav;
 	}
 	
 	@RequestMapping("/index")
@@ -43,16 +131,88 @@ public class BoothController {
 	}
 	
 	
-	@RequestMapping("/create")
-	public String gotoCreate(){
+	@RequestMapping("/create.html")
+	public ModelAndView gotoCreate(@RequestParam long bizId){
+		logger.info("entering... /advertiser/booth/create.html");
+		
+		// initial settings 
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		
+		model.put("bizId", bizId);
+		
 		String viewName = "advertiser/booth_create";
-		return viewName;
+		mav.setViewName(viewName);
+		
+		logger.info("exiting... /advertiser/booth/create.html");
+		return mav;
 	}
 	
-	@RequestMapping("/edit")
-	public String gotoEdit(){
+	
+	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> createBooth(@RequestParam String boothJSONString){		
+		logger.info("entering... /advertiser/booth/create");
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		/* prepare data */		
+		JSONObject jsonObj= new JSONObject(boothJSONString);
+		
+		Long userId 			= jsonObj.getLong("userId");
+		Long advertiserId		= jsonObj.getLong("advertiserId");
+		Long bizId				= jsonObj.getLong("bizId");
+		String bizName			= jsonObj.getString("bizName");
+		Integer langNo			= jsonObj.getInt("langNo");
+		String langBoothName	= jsonObj.getString("langBoothName");
+		Integer categoryNo		= jsonObj.getInt("categoryNo");
+		String langBizDesc		= jsonObj.getString("langBizDesc");
+		
+		/*create a new record of Booth into table*/
+		Booth booth = new Booth();
+		booth.setUserId(userId);
+		booth.setAdvertiserId(advertiserId);
+		booth.setBizId(bizId);
+		booth.setBizName(bizName);
+		booth.setLangNo(langNo);
+		booth.setBoothName(langBoothName);
+		booth.setBizDesc(langBizDesc);
+		
+		this.boothService.createBooth(booth);
+		
+		/* assemble model and view */
+		Map<String,Object> model = mav.getModel();
+		
+		logger.info("exiting... /advertiser/booth/create");
+		return model;
+	}
+	
+	@RequestMapping("/edit.html")
+	public ModelAndView gotoEdit(@RequestParam Long boothId){
+		logger.info("entering... /advertiser/booth/edit.html");
+		
+		System.out.println("boothId="+boothId);
+		
+		// initial settings 
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		
+		//TODO
+//		Booth booth = new Booth();
+//		booth.setBoothId(boothId);
+//		booth.setLangNo(2052);
+//		booth.setLangNo(3084);
+		
+		Booth booth = boothService.getBoothByBoothId(boothId);
+		
+		model.put("booth", booth);
+		
 		String viewName = "advertiser/booth_edit";
-		return viewName;
+		mav.setViewName(viewName);
+		
+		logger.info("exiting... /advertiser/booth/edit.html");
+		return mav;
 	}
 	
 	/**
@@ -63,7 +223,7 @@ public class BoothController {
 	 */
 	@RequestMapping(value="/saveBusinessHours",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> saveAdPost(@RequestParam String businessHoursJSONString){		
+	public Map<String,Object> saveBusinessHours(@RequestParam String businessHoursJSONString){		
 		logger.info("entering... /advertiser/booth/saveBusinessHours");
 		
 		/* initial settings */
