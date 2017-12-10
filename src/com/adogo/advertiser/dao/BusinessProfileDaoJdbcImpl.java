@@ -51,10 +51,11 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("legal_form_no, ");
 		sbf.append("industry_code, ");
 		sbf.append("media_desc, ");
-//		sbf.append("establish_date, ");
-//		sbf.append("create_date, ");
+		sbf.append("establish_date, ");
+		sbf.append("create_date, ");
 		sbf.append("biz_type, ");
 		sbf.append("biz_owner, ");
+		sbf.append("biz_desc, ");
 		sbf.append("biz_status ");
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
@@ -85,6 +86,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("create_date, ");
 		sbf.append("biz_type, ");
 		sbf.append("biz_owner, ");
+		sbf.append("biz_desc, ");
 		sbf.append("biz_status ");
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
@@ -131,6 +133,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("industry_code,");
 		sbf.append("legal_form_no,");
 		sbf.append("create_date,");
+		sbf.append("biz_desc,");
 		sbf.append("biz_status) ");
 		sbf.append("VALUES(");
 		sbf.append(":biz_id,");
@@ -140,6 +143,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(":industry_code,");
 		sbf.append(":legal_form_no,");
 		sbf.append(":create_date,");
+		sbf.append(":biz_desc,");
 		sbf.append(":biz_status)");
 		String sql = sbf.toString();
 		
@@ -152,6 +156,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		paramSource.addValue("legal_form_no", x.getLegalFormNo());
 		paramSource.addValue("create_date", x.getCreateDate());
 		paramSource.addValue("biz_status", x.getBizStatus());
+		paramSource.addValue("biz_desc", x.getBizDesc());
 		
 		return jdbc.update(sql,paramSource);
 	}
@@ -191,6 +196,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 			x.setBizType(rs.getInt("biz_type"));
 			x.setBizOwner(rs.getString("biz_owner"));			
 			x.setBizStatus(rs.getInt("biz_status"));
+			x.setBizDesc(rs.getString("biz_desc"));
 			
 			Timestamp ed = rs.getTimestamp("establish_date");
 			if (ed != null) {	x.setEstablishDate(new Date(ed.getTime())); }

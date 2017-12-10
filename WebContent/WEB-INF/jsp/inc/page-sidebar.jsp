@@ -68,6 +68,11 @@
 					 	</a>
 						<ul class="sub-menu">
 							<li class="nav-item">
+								<a href="/acp/advertiser/biz/">
+								<i class="icon-paper-plane"></i>
+								View Business</a>
+							</li>
+							<li class="nav-item">
 								<a href="/acp/advertiser/biz/register.html"  class="nav-link nav-toggle">
 								<i class="icon-pencil"></i>
 								Register my Business</a>

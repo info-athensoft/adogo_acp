@@ -132,40 +132,49 @@
                   </div>
               </div>
             <!-- END PAGE HEADER-->
-            <!-- BEGIN ROW 1 -->
+            
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Begin: life time stats -->
-                    <div class="portlet light">
+                    <div class="portlet light portlet-fit ">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-shopping-cart"></i>Register a business <span class="caption-helper">under advertiser</span></div>
-                            <div class="actions">
-                                <a href="#" class="btn btn-circle btn-info">
-                                    <i class="fa fa-plus"></i><span class="hidden-xs"> Register </span>
-                                </a>
-                                <div class="btn-group">
-                                    <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-                                        <i class="fa fa-share"></i>
-                                        <span class="hidden-xs"> Tools </span>
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:;"> Export to Excel </a></li>
-                                        <li><a href="javascript:;"> Export to CSV </a></li>
-                                        <li><a href="javascript:;"> Export to XML </a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="javascript:;"> Print  </a></li>
-                                    </ul>
-                                </div>
+                                <i class=" icon-layers font-green"></i>
+                                <span class="caption-subject font-green bold uppercase">Quick steps</span>
                             </div>
                         </div>
-                       
+                        <div class="portlet-body">
+                            <div class="mt-element-step">
+                                
+                                <div class="row step-thin">
+                                    <div class="mt-step-desc">
+                                        <div class="font-dark bold uppercase">Register a business</div>
+                                        <div class="caption-desc font-grey-cascade"></div>
+                                        <br/>
+                                    </div>
+                                    <div class="col-md-4 bg-grey mt-step-col">
+                                        <div class="mt-step-number bg-white font-grey">1</div>
+                                        <div class="mt-step-title uppercase font-grey-cascade">Start</div>
+                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                    </div>
+                                    <div class="col-md-4 bg-grey mt-step-col done">
+                                        <div class="mt-step-number bg-white font-grey">2</div>
+                                        <div class="mt-step-title uppercase font-grey-cascade">Edit</div>
+                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                    </div>
+                                    <div class="col-md-4 bg-grey mt-step-col">
+                                        <div class="mt-step-number bg-white font-grey">3</div>
+                                        <div class="mt-step-title uppercase font-grey-cascade">Submit</div>
+                                        <div class="mt-step-content font-grey-cascade">Complete your payment</div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
-                    <!-- End: life time stats -->
                 </div>
             </div>
-            <!-- END ROW 1 -->
+            
+            
             <!-- BEGIN ROW 2 -->
             <div class="row">
             	<!-- BEGIN SECTION 1 -->

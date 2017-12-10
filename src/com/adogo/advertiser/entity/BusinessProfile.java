@@ -17,6 +17,7 @@ public class BusinessProfile {
 	private Date	establishDate;	//official registration date at govern.
 	private Date	createDate;		//registration date at Adogo
 	private Integer	bizStatus;
+	private String  bizDesc;		//business description
 
 	public Long getGlobalId() {
 		return globalId;
@@ -101,6 +102,12 @@ public class BusinessProfile {
 	}
 	public void setIndustryCode(String industryCode) {
 		this.industryCode = industryCode;
+	}
+	public String getBizDesc() {
+		return bizDesc;
+	}
+	public void setBizDesc(String bizDesc) {
+		this.bizDesc = bizDesc;
 	}
 	
 	
