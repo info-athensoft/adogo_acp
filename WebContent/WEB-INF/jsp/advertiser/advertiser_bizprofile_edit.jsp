@@ -498,6 +498,7 @@ function test(){
 }
 
 function industryCodeOnChange(level){
+	alert("industryCodeOnChange(level)");
 	//var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
 	var parentCode=$("#industryCodeLevel"+level).val();  //Select - Value
 	alert(parentCode+" : "+checkText);
@@ -524,7 +525,7 @@ function industryCodeOnChange(level){
 				});
 			//reset the rest levels
 			for (i=level+2; i <= 4; i++) { 
-				$("#industryCodeLevel"+i)find('option').not(':first').remove();
+				$("#industryCodeLevel"+i).find('option').not(':first').remove();
 			} 
 		}		
 	});

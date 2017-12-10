@@ -28,7 +28,7 @@ public class BusinessProfileService {
 		return businessProfileDao.getBusinessProfileByAdvertiserId(advertiserId);
 	}
 	
-	public BusinessProfile getBusinessProfileByBizId(int biz_id){
+	public BusinessProfile getBusinessProfileByBizId(long biz_id){
 		return businessProfileDao.getBusinessProfileByBizId(biz_id);
 	}
 	

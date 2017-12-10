@@ -183,13 +183,15 @@ public class AdvertiserController {
 		String viewName = "advertiser/advertiser_bizprofile_edit";
 		
 		Map<String,Object> model = mav.getModel();
+		
 		//TODO To be passed by parameter
-		int bizId = 1002781507;
+		long bizId = 1002781507L;
 		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
 		String bizCode = businessProfile.getIndustryCode();
 		
 		model.put("businessProfile", businessProfile);
 		
+		//TODO to optimize data load later
 		HashMap<Integer,String> listOfBizCategories=new HashMap<Integer,String>();
 		listOfBizCategories.put(0,"Choose a legal form");
 		listOfBizCategories.put(1,"Solo business - Not registered");
