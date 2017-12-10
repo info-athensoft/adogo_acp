@@ -157,120 +157,60 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <!-- END PAGE HEADER-->
-                    <!-- 
+                    
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 ">
-                                <div class="display">
-                                    <div class="number">
-                                        <h3 class="font-green-sharp">
-                                            <span data-counter="counterup" data-value="7800">0</span>
-                                            <small class="font-green-sharp">$</small>
-                                        </h3>
-                                        <small>TOTAL PROFIT</small>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="icon-pie-chart"></i>
+                        <div class="col-md-12">
+                            <div class="portlet light portlet-fit ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class=" icon-layers font-green"></i>
+                                        <span class="caption-subject font-green bold uppercase">Quick steps</span>
                                     </div>
                                 </div>
-                                <div class="progress-info">
-                                    <div class="progress">
-                                        <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
-                                            <span class="sr-only">76% progress</span>
-                                        </span>
-                                    </div>
-                                    <div class="status">
-                                        <div class="status-title"> progress </div>
-                                        <div class="status-number"> 76% </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 ">
-                                <div class="display">
-                                    <div class="number">
-                                        <h3 class="font-red-haze">
-                                            <span data-counter="counterup" data-value="1349">0</span>
-                                        </h3>
-                                        <small>NEW FEEDBACKS</small>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="icon-like"></i>
-                                    </div>
-                                </div>
-                                <div class="progress-info">
-                                    <div class="progress">
-                                        <span style="width: 85%;" class="progress-bar progress-bar-success red-haze">
-                                            <span class="sr-only">85% change</span>
-                                        </span>
-                                    </div>
-                                    <div class="status">
-                                        <div class="status-title"> change </div>
-                                        <div class="status-number"> 85% </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 ">
-                                <div class="display">
-                                    <div class="number">
-                                        <h3 class="font-blue-sharp">
-                                            <span data-counter="counterup" data-value="567"></span>
-                                        </h3>
-                                        <small>NEW ORDERS</small>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="icon-basket"></i>
-                                    </div>
-                                </div>
-                                <div class="progress-info">
-                                    <div class="progress">
-                                        <span style="width: 45%;" class="progress-bar progress-bar-success blue-sharp">
-                                            <span class="sr-only">45% grow</span>
-                                        </span>
-                                    </div>
-                                    <div class="status">
-                                        <div class="status-title"> grow </div>
-                                        <div class="status-number"> 45% </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="dashboard-stat2 ">
-                                <div class="display">
-                                    <div class="number">
-                                        <h3 class="font-purple-soft">
-                                            <span data-counter="counterup" data-value="276"></span>
-                                        </h3>
-                                        <small>NEW USERS</small>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="icon-user"></i>
-                                    </div>
-                                </div>
-                                <div class="progress-info">
-                                    <div class="progress">
-                                        <span style="width: 57%;" class="progress-bar progress-bar-success purple-soft">
-                                            <span class="sr-only">56% change</span>
-                                        </span>
-                                    </div>
-                                    <div class="status">
-                                        <div class="status-title"> change </div>
-                                        <div class="status-number"> 57% </div>
+                                <div class="portlet-body">
+                                    <div class="mt-element-step">
+                                        
+                                        <div class="row step-thin">
+                                            <div class="mt-step-desc">
+                                                <div class="font-dark bold uppercase">Publish a booth</div>
+                                                <div class="caption-desc font-grey-cascade"></div>
+                                                <br/>
+                                            </div>
+                                            <div class="col-md-3 bg-grey mt-step-col done">
+                                                <div class="mt-step-number bg-white font-grey">1</div>
+                                                <div class="mt-step-title uppercase font-grey-cascade">Choose Business</div>
+                                                <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                            </div>
+                                            <div class="col-md-3 bg-grey mt-step-col">
+                                                <div class="mt-step-number bg-white font-grey">2</div>
+                                                <div class="mt-step-title uppercase font-grey-cascade">Create Booth</div>
+                                                <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                            </div>
+                                            <div class="col-md-3 bg-grey mt-step-col">
+                                                <div class="mt-step-number bg-white font-grey">3</div>
+                                                <div class="mt-step-title uppercase font-grey-cascade">Edit Content</div>
+                                                <div class="mt-step-content font-grey-cascade">Complete your payment</div>
+                                            </div>
+                                            <div class="col-md-3 bg-grey mt-step-col">
+                                                <div class="mt-step-number bg-white font-grey">4</div>
+                                                <div class="mt-step-title uppercase font-grey-cascade">Publish Booth</div>
+                                                <div class="mt-step-content font-grey-cascade">Receive item integration</div>
+                                            </div>
+                                        </div>
+                                        
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    -->
+                    
                     
                     <div class="row">
                     </div>
                     
                     <!-- TEST -->
+                    <!-- 
                     <div class="row">
                         <div class="col-lg-6 col-xs-12 col-sm-12">
                         	<c:forEach items="${listVOBizProfileBooth}" var="voBizProfileBooth">
@@ -283,6 +223,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         	</c:forEach>
                         </div>
                     </div>
+                     -->
                     <!-- END TEST -->
                     
                     
