@@ -56,6 +56,10 @@ function getSubIndustryCode(parentIndustryCode,nextLevelIndex){
 	});
 	
 }
+/*
+function editbizProfile(bizId){
+	alert('editbizProfile called!! bizId='+bizId);
+} */
 
 function saveAdvertiserProfile(){
 	alert('saveAdvertiserProfile called!');

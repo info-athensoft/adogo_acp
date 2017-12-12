@@ -177,16 +177,21 @@ public class AdvertiserController {
 	
 	
 	@RequestMapping("/biz/edit.html")
+	//@RequestMapping(value="/biz/edit.html",method=RequestMethod.GET,produces="application/json")
+	//@ResponseBody
 	public ModelAndView gotoEditBizProfile(){
+	//public ModelAndView gotoEditBizProfile(@RequestParam String bizProfile){
 		logger.info("entering... /advertiser/biz/edit.html");
+		//logger.info("bizId=" + bizId);
+		
 		ModelAndView mav = new ModelAndView();
 		String viewName = "advertiser/advertiser_bizprofile_edit";
 		
 		Map<String,Object> model = mav.getModel();
 		
 		//TODO To be passed by parameter
-		long bizId = 1002781507L;
-		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
+		long bId = 1002781507L;//Long.parseLong(bizId);
+		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bId);
 		String bizCode = businessProfile.getIndustryCode();
 		
 		model.put("businessProfile", businessProfile);

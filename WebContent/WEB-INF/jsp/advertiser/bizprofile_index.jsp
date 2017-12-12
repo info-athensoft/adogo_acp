@@ -270,8 +270,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <label class="btn blue btn-outline btn-circle btn-sm active">
-                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                                            <label class="btn blue btn-outline btn-circle btn-sm active" onclick="editbizProfile('${bizProfile.bizId}'); ">
+                                                <input type="radio" name="options" class="toggle" id="option1">Edit</label>
                                             <label class="btn  blue btn-outline btn-circle btn-sm">
                                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                                         </div>
@@ -378,7 +378,21 @@ License: You must have a valid license purchased only from themeforest(the above
    <script src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
    <!-- END THEME LAYOUT SCRIPTS -->
    <script>
-       
+   function editbizProfile(bizId){
+		//alert('editbizProfile called! bizId='+bizId);
+		
+		$.ajax({
+			//type:"GET",
+			url:"/acp/advertiser/biz/edit.html",
+			//dataType:"json",
+			//data: {	bizId : bizId },
+			timeout : 10000,
+			//beforeSend: function() { alert('beforeSend'); },		
+			//complete: function() { alert('completed'); },
+			success:function(data){	
+			}		
+		}); 
+	}  
    </script>
 </body>
 
