@@ -279,15 +279,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="row">
                                         <div class="col-md-2">
                                             <span class="caption-subject bold font-dark"> Business ID at Adogo: </span><br/>
-                                            <span class="caption-subject bold font-dark"> Primary Business Name: </span><br/>
-                                            <span class="caption-subject bold font-dark"> Secondary Business Name: </span><br/>
+                                            <span class="caption-subject bold font-dark"> Business Name: </span><br/>
                                             <span class="caption-subject bold font-dark"> Industry Code: </span><br/>
                                             <span class="caption-subject bold font-dark"> Created Date: </span><br/>
                                         </div>
                                         <div class="col-md-6">
                                             <span class="caption-subject font-dark"> ${bizProfile.bizId}</span><br/>
                                             <span class="caption-subject font-dark"> ${bizProfile.bizName}</span><br/>
-                                            <span class="caption-subject font-dark"> ${bizProfile.bizName2}</span><br/>
                                             <span class="caption-subject font-dark"> ${bizProfile.industryCode}</span><br/>
                                             <span class="caption-subject font-dark"> ${bizProfile.createDate}</span><br/>
                                         </div>

@@ -1,4 +1,4 @@
-package com.adogo.admin.controller;
+package com.athensoft.global.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +19,5 @@ public class GlobalController {
 	public String gotoIndex2(){
 		return "index_sample";
 	}
-	
-	/*
-	@RequestMapping("/dashboard")
-	public String gotoDashboard(){
-		return "index_dashboard";
-	}*/
-	
+		
 }

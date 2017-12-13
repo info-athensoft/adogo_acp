@@ -1,4 +1,4 @@
-package com.adogo.admin.service;
+package test.service;
 
 import java.sql.Blob;
 
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adogo.admin.dao.TestEditorSfzDao;
-import com.adogo.admin.entity.TestEditorSfz;
+import test.dao.TestEditorSfzDao;
+import test.entity.TestEditorSfz;
 
 
 @Service

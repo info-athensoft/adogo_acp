@@ -1,8 +1,8 @@
-package com.adogo.admin.dao;
+package test.dao;
 
 import java.sql.Blob;
 
-import com.adogo.admin.entity.TestEditorSfz;
+import test.entity.TestEditorSfz;
 
 public interface TestEditorSfzDao {
 	

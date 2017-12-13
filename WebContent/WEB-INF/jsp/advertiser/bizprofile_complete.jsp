@@ -198,15 +198,13 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <span class="caption-subject bold font-dark"> Business ID at Adogo: </span><br/>
-                                    <span class="caption-subject bold font-dark"> Primary Business Name: </span><br/>
-                                    <span class="caption-subject bold font-dark"> Secondary Business Name: </span><br/>
+                                    <span class="caption-subject bold font-dark"> Business Name: </span><br/>
                                     <span class="caption-subject bold font-dark"> Industry Code: </span><br/>
                                     <span class="caption-subject bold font-dark"> Created Date: </span><br/>
                                 </div>
                                 <div class="col-md-6">
                                     <span class="caption-subject font-dark"> ${bizProfile.bizId}</span><br/>
                                     <span class="caption-subject font-dark"> ${bizProfile.bizName}</span><br/>
-                                    <span class="caption-subject font-dark"> ${bizProfile.bizName2}</span><br/>
                                     <span class="caption-subject font-dark"> ${bizProfile.industryCode}</span><br/>
                                     <span class="caption-subject font-dark"> ${bizProfile.createDate}</span><br/>
                                 </div>
@@ -245,53 +243,45 @@
 	                        <!-- BEGIN FORM-->
 	                        <form action="#" class="form-horizontal">
 	                        	<div class="form-body">
-	                    			
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Website Address</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your website or home page">
-	                                    </div>
-	                                 </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Facebook</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="URL of your facebook homepage">
 	                                    </div>
 	                                 </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">LinkedIn</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="URL of your LinkedIn homepage">
 	                                   	</div>
 	                                </div>
 	                                 
 	                             	<div class="form-group">
 	                                	<label class="col-md-3 control-label">Twitter</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="URL of your Twitter homepage">
 	                                    </div>
 	                                </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Youtube</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="URL of your Youtube homepage">
 	                                    </div>
 	                                 </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Instagram</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="URL of your Instagram homepage">
 	                                    </div>
 	                                </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Pinterest</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="URL of your Pinterest homepage">
 	                                    </div>
 	                                </div>

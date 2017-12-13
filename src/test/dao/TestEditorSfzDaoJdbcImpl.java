@@ -1,4 +1,4 @@
-package com.adogo.admin.dao;
+package test.dao;
 
 import java.sql.Blob;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.admin.entity.TestEditorSfz;
+import test.entity.TestEditorSfz;
 
 @Component
 @Qualifier("testEditorSfzDaoJdbcImpl")

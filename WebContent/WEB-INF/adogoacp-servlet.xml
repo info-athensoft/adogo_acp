@@ -11,11 +11,12 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<!-- Component auto-scan support -->
-	<context:component-scan base-package="com.adogo.admin.controller"></context:component-scan>
-	<context:component-scan base-package="com.adogo.ad.controller"></context:component-scan>
-	<context:component-scan base-package="com.adogo.advertiser.controller"></context:component-scan>
+	<context:component-scan base-package="com.adogo.global.controller"></context:component-scan>
 	<context:component-scan base-package="com.adogo.uaas.controller"></context:component-scan>
+	<context:component-scan base-package="com.adogo.advertiser.controller"></context:component-scan>
+	<context:component-scan base-package="com.adogo.ad.controller"></context:component-scan>
 	
+	<context:component-scan base-package="com.adogo.test.controller"></context:component-scan>
 
 	<!-- View Resolver -->
 	<bean id="jspViewResolver"
