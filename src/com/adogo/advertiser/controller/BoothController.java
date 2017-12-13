@@ -189,7 +189,7 @@ public class BoothController {
 	}
 	
 	@RequestMapping("/edit.html")
-	public ModelAndView gotoEdit(@RequestParam Long boothId){
+	public ModelAndView gotoBoothEdit(@RequestParam Long boothId){
 		logger.info("entering... /advertiser/booth/edit.html");
 		
 		System.out.println("boothId="+boothId);

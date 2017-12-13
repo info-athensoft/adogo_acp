@@ -34,8 +34,11 @@ public class Address {
 	@SuppressWarnings("unused")
 	private final int ADDR_OUTLET = 2;
 	
-	
+	private Long	globalId;
+	private Long	bizId;
+	private Long 	advertiserId;
 	private Integer langNo;			//language number
+	private Integer locationType;
 	
 	private Integer	addrType;
 	private String	addrName;

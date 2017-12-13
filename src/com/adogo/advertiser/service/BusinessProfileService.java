@@ -2,16 +2,20 @@ package com.adogo.advertiser.service;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.adogo.advertiser.controller.BusinessProfileController;
 import com.adogo.advertiser.dao.BusinessProfileDao;
 import com.adogo.advertiser.entity.BusinessProfile;
 
 @Service
 public class BusinessProfileService {
-
+	
+	private static final Logger logger = Logger.getLogger(BusinessProfileService.class);
+	
 	private BusinessProfileDao businessProfileDao;
 
 	@Autowired
@@ -41,6 +45,8 @@ public class BusinessProfileService {
 	}
 	
 	public void saveBusinessProfile(BusinessProfile bp){
+		logger.info("enter saveBusinessProfile(BusinessProfile bp)");
 		businessProfileDao.create(bp);
+		logger.info("exit saveBusinessProfile(BusinessProfile bp)");
 	}
 }

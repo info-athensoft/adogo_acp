@@ -169,7 +169,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <div class="portlet-body">
                                     <div class="mt-element-step">
-                                        
                                         <div class="row step-thin">
                                             <div class="mt-step-desc">
                                                 <div class="font-dark bold uppercase">Register a business</div>
@@ -177,22 +176,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <br/>
                                             </div>
                                             <div class="col-md-4 bg-grey mt-step-col done">
-                                                <div class="mt-step-number bg-white font-grey">1</div>
-                                                <div class="mt-step-title uppercase font-grey-cascade">Start</div>
-                                                <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
-                                            </div>
-                                            <div class="col-md-4 bg-grey mt-step-col">
-                                                <div class="mt-step-number bg-white font-grey">2</div>
-                                                <div class="mt-step-title uppercase font-grey-cascade">Edit</div>
-                                                <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
-                                            </div>
-                                            <div class="col-md-4 bg-grey mt-step-col">
-                                                <div class="mt-step-number bg-white font-grey">3</div>
-                                                <div class="mt-step-title uppercase font-grey-cascade">Submit</div>
-                                                <div class="mt-step-content font-grey-cascade">Complete your payment</div>
-                                            </div>
+		                                        <div class="mt-step-number bg-white font-grey">1</div>
+		                                        <div class="mt-step-title uppercase font-grey-cascade">Start</div>
+		                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+		                                    </div>
+		                                    <div class="col-md-4 bg-grey mt-step-col">
+		                                        <div class="mt-step-number bg-white font-grey">2</div>
+		                                        <div class="mt-step-title uppercase font-grey-cascade">Create</div>
+		                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+		                                    </div>
+		                                    <div class="col-md-4 bg-grey mt-step-col">
+		                                        <div class="mt-step-number bg-white font-grey">3</div>
+		                                        <div class="mt-step-title uppercase font-grey-cascade">Complete</div>
+		                                        <div class="mt-step-content font-grey-cascade">Complete your payment</div>
+		                                    </div>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>

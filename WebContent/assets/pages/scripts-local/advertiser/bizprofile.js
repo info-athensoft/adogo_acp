@@ -89,17 +89,30 @@ function getBusinessObject(){
     var p2 = $("#bizNo").val();
     var p3 = $("#bizOwner").val();
     var p4 = $("#legalFormNo").val();
-    var p5 = $("#industryCodeLevel4").val();
-    var p6 = getBizTypeValue(); //$("#businessType").val();
+//  var p5 = $("#industryCodeLevel4").val();
+    var p5 = $("#industryCode").val();
+//    var p6 = getBizTypeValue(); 				//$("#businessType").val();
+    var p6 = $("#bizType").val();
+    var p7 = $("#bizPhone").val();
+    var p8 = $("#bizFax").val();
+    var p9 = $("#bizEmail").val();
+    var p10 = $("#bizWebsite").val();
+    var p11 = $("#bizDesc").val();
+    
     
     var businessObject =
     {
-    		bizName    			      	  :   p1,
-    		bizNo    			      	  :   p2,
-    		bizOwner    			      :   p3,
-    		legalFormNo    			      :   p4,
-    		industryCode    			  :   p5,
-    		businessType    			  :   p6
+    		bizName    		:   p1,
+    		bizNo    		:   p2,
+    		bizOwner    	:   p3,
+    		legalFormNo    	:   p4,
+    		industryCode    :   p5,
+    		bizType    		:   p6,
+    		bizPhone		:	p7,	
+    		bizFax			:	p8,	
+    		bizEmail		:	p9,	
+    		bizWebsite		:	p10,
+    		bizDesc			:	p11
     };
     
     return businessObject;
