@@ -176,13 +176,13 @@ public class AdvertiserController {
 	
 	
 	
-	@RequestMapping("/biz/edit.html")
-	//@RequestMapping(value="/biz/edit.html",method=RequestMethod.GET,produces="application/json")
-	//@ResponseBody
-	public ModelAndView gotoEditBizProfile(){
-	//public ModelAndView gotoEditBizProfile(@RequestParam String bizProfile){
+	//@RequestMapping("/biz/edit.html")
+	@RequestMapping(value="/biz/edit.html",method=RequestMethod.GET)
+	@ResponseBody
+	//public ModelAndView gotoEditBizProfile(){
+	public ModelAndView gotoEditBizProfile(@RequestParam String bizId){
 		logger.info("entering... /advertiser/biz/edit.html");
-		//logger.info("bizId=" + bizId);
+		logger.info("bizId=" + bizId);
 		
 		ModelAndView mav = new ModelAndView();
 		String viewName = "advertiser/advertiser_bizprofile_edit";

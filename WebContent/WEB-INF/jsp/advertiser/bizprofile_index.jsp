@@ -267,11 +267,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <i class="icon-microphone font-dark hide"></i>
                                         <span class="caption-subject bold font-dark uppercase"> Business #: ${bizProfile.bizId}</span>
                                         <span class="caption-helper">managing business</span>
+                                        <a href="/acp/advertiser/biz/edit.html?bizId=${bizProfile.bizId}"> Edit </a>
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <label class="btn blue btn-outline btn-circle btn-sm active" onclick="editbizProfile('${bizProfile.bizId}'); ">
-                                                <input type="radio" name="options" class="toggle" id="option1">Edit</label>
+                                          
+                                            <label class="btn blue btn-outline btn-circle btn-sm active">
+                                              
+                                                <input type="radio" name="options" class="toggle" id="option1" onclick="editbizProfile('${bizProfile.bizId}'); return false;" />Edit</label>
+                                          
                                             <label class="btn  blue btn-outline btn-circle btn-sm">
                                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                                         </div>
@@ -382,14 +386,15 @@ License: You must have a valid license purchased only from themeforest(the above
 		//alert('editbizProfile called! bizId='+bizId);
 		
 		$.ajax({
-			//type:"GET",
+			type:"GET",
 			url:"/acp/advertiser/biz/edit.html",
-			//dataType:"json",
-			//data: {	bizId : bizId },
+			dataType:"html",
+			data: {	bizId : bizId },
 			timeout : 10000,
 			//beforeSend: function() { alert('beforeSend'); },		
 			//complete: function() { alert('completed'); },
 			success:function(data){	
+				//alert('successful');
 			}		
 		}); 
 	}  

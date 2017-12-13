@@ -78,7 +78,7 @@
 								Register my Business</a>
 							</li>
 							<li class="nav-item  ">
-								<a href="/acp/advertiser/biz/edit.html"  class="nav-link nav-toggle">
+								<a href="/acp/advertiser/biz/edit.html?bizId=1002781507"  class="nav-link nav-toggle">
 								<i class="icon-pencil"></i>
 								Edit Business Profile</a>
 							</li>							
