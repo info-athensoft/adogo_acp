@@ -11,5 +11,5 @@
 	<context:component-scan base-package="com.adogo.advertiser.dao"></context:component-scan>
 	<context:component-scan base-package="com.adogo.ad.dao"></context:component-scan>
 	
-	<context:component-scan base-package="com.adogo.test.dao"></context:component-scan>
+	<context:component-scan base-package="test.dao"></context:component-scan>
 </beans>

@@ -7,7 +7,7 @@
 
 
 <!-- page variables  -->
-<c:set var="inc_dir" value="inc"/>
+<c:set var="inc_dir" value="../inc"/>
 <!-- ENDS page variables -->
 
 <!DOCTYPE html>

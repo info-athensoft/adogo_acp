@@ -16,7 +16,7 @@
 	<context:component-scan base-package="com.adogo.advertiser.controller"></context:component-scan>
 	<context:component-scan base-package="com.adogo.ad.controller"></context:component-scan>
 	
-	<context:component-scan base-package="com.adogo.test.controller"></context:component-scan>
+	<context:component-scan base-package="test.controller"></context:component-scan>
 
 	<!-- View Resolver -->
 	<bean id="jspViewResolver"

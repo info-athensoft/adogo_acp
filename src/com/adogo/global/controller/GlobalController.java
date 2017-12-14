@@ -14,17 +14,17 @@ public class GlobalController {
 	@RequestMapping("")
 	public String gotoIndex(){
 		logger.info("entering.. /");
+		logger.info("exiting.. /");
 		return "index";
 	}
 	
 	@RequestMapping("/index")
 	public String gotoIndex1(){
+		logger.info("entering.. /index");
+		logger.info("exiting.. /index");
 		return "index";
 	}
 	
-	@RequestMapping("/index-sample")
-	public String gotoIndex2(){
-		return "index_sample";
-	}
+	
 		
 }
