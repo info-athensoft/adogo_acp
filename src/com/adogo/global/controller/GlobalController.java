@@ -1,12 +1,19 @@
-package com.athensoft.global.controller;
+package com.adogo.global.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
+@RequestMapping("/")
 public class GlobalController {
-	@RequestMapping("/")
+	
+	private static final Logger logger = Logger.getLogger(GlobalController.class);
+	
+	@RequestMapping("")
 	public String gotoIndex(){
+		logger.info("entering.. /");
 		return "index";
 	}
 	
