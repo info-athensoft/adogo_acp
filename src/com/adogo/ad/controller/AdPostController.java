@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -64,7 +63,7 @@ public class AdPostController {
 	private String name;
 	private String user;
 	private String time;
-	private String curl;
+//	private String curl;		//TODO
 	
 	private static Properties pro = new Properties();
 	
@@ -690,6 +689,15 @@ public class AdPostController {
 		
 	}
 
+	
+	//TODO
+	public void test(){
+		AdPostBody adPostBody = new AdPostBody();
+		String mediaTitle = "mediaTitle";
+		String mediaUrl = "mediaUrl";
+		String mediaDesc = "mediaDesc";
+		this.getAdPostGalleryImage(adPostBody, mediaTitle, mediaUrl, mediaDesc);
+	}
 	
 }
 

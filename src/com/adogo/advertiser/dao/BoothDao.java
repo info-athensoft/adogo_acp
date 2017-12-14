@@ -3,7 +3,6 @@ package com.adogo.advertiser.dao;
 import java.util.List;
 
 import com.adogo.advertiser.entity.Booth;
-import com.adogo.advertiser.entity.BusinessProfile;
 
 public interface BoothDao {
 	public List<Booth> findBoothByUserId(long userId);

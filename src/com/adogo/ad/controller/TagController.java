@@ -3,9 +3,7 @@ package com.adogo.ad.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
 
 @Controller
@@ -20,5 +18,11 @@ public class TagController {
 		this.adTagService = adTagService;
 	}
 	
+	
+	
+	//TODO
+	public void test(){
+		System.out.println(this.adTagService);
+	}
 	
 }

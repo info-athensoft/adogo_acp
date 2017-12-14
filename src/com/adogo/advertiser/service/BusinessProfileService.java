@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.adogo.advertiser.controller.BusinessProfileController;
 import com.adogo.advertiser.dao.BusinessProfileDao;
 import com.adogo.advertiser.entity.BusinessProfile;
 

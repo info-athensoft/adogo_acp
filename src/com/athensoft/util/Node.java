@@ -3,7 +3,6 @@ package com.athensoft.util;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
  
 public class Node {
@@ -193,7 +192,8 @@ public void setState(List<Entry<String, String>> state) {
 //	  Node.getNodeByKey(treeRootNode, "key-165");
 	  long parentNo = 1;
 //  	logger.info("parent_no="+parentNo);
-  	Node myNode = Node.getNodeByKey(treeRootNode, Long.toString(parentNo));
+	  Node myNode = Node.getNodeByKey(treeRootNode, Long.toString(parentNo));
+	  System.out.println(myNode);
  }
  
 }

@@ -30,24 +30,29 @@ public class TestTime
 
      // Time an event in a program to nanosecond precision
      long startTime = System.nanoTime();
+     
+     long j = 0L;
+     
      for (long i = 0; i < 1000000; i++)
      {
-        long j = i - (i / 2) + (i / 3) - (i / 4) + (i / 5);
+       j= i - (i / 2) + (i / 3) - (i / 4) + (i / 5);
      }
      long endTime = System.nanoTime();
      long elapsedTime = endTime - startTime; 
      double seconds = elapsedTime / 1.0E09;
      System.out.println ("Elapsed Time = " + seconds + " seconds");
+     System.out.println ("j = " + j);
 
      // Time an event in a program to millisecond precision
      startTime = System.currentTimeMillis();
      for (long i = 0; i < 1000000; i++)
      {
-        long j = i - (i / 2) + (i / 3) - (i / 4) + (i / 5);
+        j = i - (i / 2) + (i / 3) - (i / 4) + (i / 5);
      }
      endTime = System.currentTimeMillis();
      elapsedTime = endTime - startTime;
      seconds = elapsedTime / 1.0E03;
      System.out.println ("Elapsed Time = " + seconds + " seconds");
+     System.out.println ("j = " + j);
   }
 }

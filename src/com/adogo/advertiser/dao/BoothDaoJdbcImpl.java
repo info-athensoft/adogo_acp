@@ -47,6 +47,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
 		sbf.append("booth_name, ");
+		sbf.append("category_no, ");
 		sbf.append("biz_desc, ");
 		sbf.append("booth_status ");
 		sbf.append(" FROM "+TABLE);
@@ -72,6 +73,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
 		sbf.append("booth_name, ");
+		sbf.append("category_no, ");
 		sbf.append("biz_desc, ");
 		sbf.append("booth_status ");
 		sbf.append(" FROM "+TABLE);
@@ -97,6 +99,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
 		sbf.append("booth_name, ");
+		sbf.append("category_no, ");
 		sbf.append("biz_desc, ");
 		sbf.append("booth_status ");
 		sbf.append(" FROM "+TABLE);
@@ -122,6 +125,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
 		sbf.append("booth_name, ");
+		sbf.append("category_no, ");
 		sbf.append("biz_desc, ");
 		sbf.append("booth_status ");
 		sbf.append(" FROM "+TABLE);
@@ -166,6 +170,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append(":lang_no,");
 		sbf.append(":booth_id,");
 		sbf.append(":biz_name,");
+		sbf.append(":category_no,");
 		sbf.append(":biz_desc,");
 		sbf.append(":booth_name,");
 		sbf.append(":visit_num,");
@@ -185,6 +190,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		paramSource.addValue("biz_name", x.getBizName());
 		paramSource.addValue("biz_desc", x.getBizDesc());
 		paramSource.addValue("booth_name", x.getBoothName());
+		paramSource.addValue("category_no", x.getCategoryNo());
 		paramSource.addValue("visit_num", x.getVisitNum());
 		paramSource.addValue("follower_num", x.getFollowerNum());
 		paramSource.addValue("like_num", x.getLikeNum());
@@ -206,6 +212,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 			x.setBizId(rs.getLong("biz_id"));
 			x.setBoothId(rs.getLong("booth_id"));
 			x.setBoothName(rs.getString("booth_name"));
+			x.setCategoryNo(rs.getInt("category_no"));
 			x.setLangNo(rs.getInt("lang_no"));
 			x.setBizName(rs.getString("biz_name"));
 			x.setBizDesc(rs.getString("biz_desc"));
