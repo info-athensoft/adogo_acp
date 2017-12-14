@@ -255,31 +255,33 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <select class="form-control" id="industryCodeLevel1" onchange="industryCodeOnChange(1);">
                                                     	<option value="">Choose a category for your business</option>
                                                     	<c:forEach items="${NAICS_level_1}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel1}">selected="selected"</c:if>>${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel1}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel2" onchange="industryCodeOnChange(2);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_2}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel2}">selected="selected"</c:if>>${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel2}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel3" onchange="industryCodeOnChange(3);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_3}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel3}">selected="selected"</c:if>>${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel3}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
-                                                    <select class="form-control" id="industryCodeLevel4">
+                                                    <select class="form-control" id="industryCodeLevel4" onchange="industryCodeOnChange(4);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_4}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==businessProfile.getIndustryCode()}">selected="selected"</c:if>>${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==businessProfile.getIndustryCode()}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <span class="help-block"> Select the industry code for your business </span>
+			                                        <p></p>
+			                                        <input type="text" class="form-control" value="${businessProfile.getIndustryCode()}" placeholder="industryCode" id="industryCode" />
                                                 </div>
                                             </div>
                                             
@@ -307,7 +309,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Description</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" placeholder="Brief description of your business">
+                                                    <input type="text" id="bizDesc" class="form-control" value="${businessProfile.getBizDesc()}" placeholder="Brief description of your business">
                                                     <span class="help-block"> Your business description</span>
                                                 </div>
                                             </div>
@@ -418,7 +420,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-offset-3 col-md-4">
-                                                    <button type="submit" class="btn green" onclick="saveAdvertiserProfile();">Submit</button>
+                                                    <button type="submit" class="btn green" onclick="saveAdvertiserProfile(); return false;">Submit</button>
                                                     <button type="button" class="btn default" onclick="cancelAdvertiserApply()">Cancel</button>
                                                 </div>
                                             </div>
@@ -499,37 +501,41 @@ function test(){
 }
 
 function industryCodeOnChange(level){
-	alert("industryCodeOnChange(level)");
+	//alert("industryCodeOnChange(level)");
 	//var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
 	var parentCode=$("#industryCodeLevel"+level).val();  //Select - Value
-	alert(parentCode+" : "+checkText);
-	$.ajax({
-		type:"GET",
-		url: "/acp/advertiser/industrycode/class/"+parentCode,		//TODO
-		//url: "/acp/advertiser/industrycode",		 //working
-		dataType:'json',
-		//data: {	parentIndustryCode : parentCode },
-		timeout : 10000,
-		beforeSend: function() { alert('beforeSend'); },		
-		complete: function() { alert('completed'); },
-		success:function(data){	
-			var listIndustryCode = data.listIndustryCode;
-			var $el = $("#industryCodeLevel"+(level+1));
-			$el.empty();
-			//Choose sub category for your business
-			$el.append($("<option></option>")
-	       	   .attr("value", "").text("Choose sub category for your business"));
-			listIndustryCode.forEach(function(indCode, index) {
-				//alert("IndustryCode.name:"+indCode.industryName);
+	$("#industryCode").val(parentCode);
+	//alert(parentCode+" : "+parentCode);
+	if (level<4) {
+		$.ajax({
+			type:"GET",
+			url: "/acp/advertiser/industrycode/class/"+parentCode,		//TODO
+			//url: "/acp/advertiser/industrycode",		 //working
+			dataType:'json',
+			//data: {	parentIndustryCode : parentCode },
+			timeout : 10000,
+			//beforeSend: function() { alert('beforeSend'); },		
+			//complete: function() { alert('completed'); },
+			success:function(data){	
+				var listIndustryCode = data.listIndustryCode;
+				var $el = $("#industryCodeLevel"+(level+1));
+				$el.empty();
+				//Choose sub category for your business
 				$el.append($("<option></option>")
-			       .attr("value", indCode.industryCode).text(indCode.industryName));
-				});
-			//reset the rest levels
-			for (i=level+2; i <= 4; i++) { 
-				$("#industryCodeLevel"+i).find('option').not(':first').remove();
-			} 
-		}		
-	});
+		       	   .attr("value", "").text("Choose sub category for your business"));
+				listIndustryCode.forEach(function(indCode, index) {
+					//alert("IndustryCode.name:"+indCode.industryName);
+					$el.append($("<option></option>")
+				       .attr("value", indCode.industryCode).text(indCode.industryCode + " " + indCode.industryName));
+					});
+				//reset the rest levels
+				for (i=level+2; i <= 4; i++) { 
+					$("#industryCodeLevel"+i).find('option:first').attr("value", "").text("--/--");
+					$("#industryCodeLevel"+i).find('option').not(':first').remove();
+				} 
+			}		
+		});
+	}
 }
 
 function setBizTypeValue(){

@@ -62,15 +62,15 @@ function editbizProfile(bizId){
 } */
 
 function saveAdvertiserProfile(){
-	alert('saveAdvertiserProfile called!');
+	//alert('saveAdvertiserProfile called!');
 	var businessObject = getBusinessObject();
 	
 	//alert("saveAdPost(), adPostLang="+adPostLang);
 	
 	$.ajax({
-		type:"post",
+		type:"POST",
 		url:"/acp/advertiser/saveAdvertiserProfile",
-		dataType:"json",
+		//dataType:"html",
 		data: {	bizProfileJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
 		success:function(data){	
@@ -79,7 +79,7 @@ function saveAdvertiserProfile(){
 /*				$("#sec_activate").html(msg);
 			$("#ua1").text(userAccount.acctId);
 */				
-			//alert(msg);
+			alert('Saved successfully!');
 			//location = "goactivateresult?resultMsg="+msg;
 		}		
 	});
@@ -93,8 +93,9 @@ function getBusinessObject(){
     var p2 = $("#bizNo").val();
     var p3 = $("#bizOwner").val();
     var p4 = $("#legalFormNo").val();
-    var p5 = $("#industryCodeLevel4").val();
+    var p5 = $("#industryCode").val();
     var p6 = getBizTypeValue(); //$("#businessType").val();
+    var p7 = $("#bizDesc").val();
     
     var businessObject =
     {
@@ -103,7 +104,8 @@ function getBusinessObject(){
     		bizOwner    			      :   p3,
     		legalFormNo    			      :   p4,
     		industryCode    			  :   p5,
-    		businessType    			  :   p6
+    		businessType    			  :   p6,
+    		bizDesc    			          :   p7
     };
     
     return businessObject;

@@ -168,7 +168,8 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 	               + "biz_owner = :biz_owner, "
 	               + "legal_form_no = :legal_form_no, "
 	               + "industry_code = :industry_code, "
-	               + "biz_type = :biz_type "
+	               + "biz_type = :biz_type, "
+	               + "biz_desc = :biz_desc "
 				   + "WHERE 1=1 "
 				   + "AND biz_no = :biz_no";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
@@ -178,6 +179,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		paramSource.addValue("legal_form_no", bp.getLegalFormNo());
 		paramSource.addValue("industry_code", bp.getIndustryCode());
 		paramSource.addValue("biz_type", bp.getBizType());
+		paramSource.addValue("biz_desc", bp.getBizDesc());
 		return jdbc.update(sql,paramSource);
 	}
 	

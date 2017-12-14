@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,17 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.ad.entity.AdPostAudio;
-import com.adogo.ad.entity.AdPostBody;
-import com.adogo.ad.entity.AdPostCoverImage;
-import com.adogo.ad.entity.AdPostHead;
-import com.adogo.ad.entity.AdPostText;
-import com.adogo.ad.entity.AdPostVideo;
 import com.adogo.advertiser.entity.BusinessProfile;
 import com.adogo.advertiser.entity.IndustryCode;
 import com.adogo.advertiser.service.BusinessProfileService;
 import com.adogo.advertiser.service.IndustryCodeService;
-import com.athensoft.util.id.UUIDHelper;
 
 @Controller
 @RequestMapping("/advertiser")
@@ -97,7 +91,12 @@ public class AdvertiserController {
 		//retrieve data from database via service and dao		
 		List<IndustryCode> listIndustryCode = new ArrayList<IndustryCode>();
 		
-		listIndustryCode = industryCodeService.getIndustryCodeByParentCode(parentIndustryCode);
+		String[] codes = parentIndustryCode.split("-");
+		for(String code : codes){
+			listIndustryCode.addAll(industryCodeService.getIndustryCodeByParentCode(code));
+		}
+		
+//		listIndustryCode = industryCodeService.getIndustryCodeByParentCode(parentIndustryCode);
 		
 		model.put("listIndustryCode", listIndustryCode);
 		
@@ -190,7 +189,7 @@ public class AdvertiserController {
 		Map<String,Object> model = mav.getModel();
 		
 		//TODO To be passed by parameter
-		long bId = 1002781507L;//Long.parseLong(bizId);
+		long bId = Long.parseLong(bizId);
 		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bId);
 		String bizCode = businessProfile.getIndustryCode();
 		
@@ -213,15 +212,15 @@ public class AdvertiserController {
 		
 		List<IndustryCode> naicsLevel1 = new ArrayList<IndustryCode>();
 		naicsLevel1 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_1);
-		String selectedCodeLevel1 = bizCode.substring(0, 2);
+		String selectedCodeLevel1 = StringUtils.isEmpty(bizCode) ? "" : bizCode.substring(0, 2);
 		
 		List<IndustryCode> naicsLevel2 = new ArrayList<IndustryCode>();
 		naicsLevel2 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_2, bizCode);
-		String selectedCodeLevel2 = bizCode.substring(0, 3);
+		String selectedCodeLevel2 = StringUtils.isEmpty(bizCode) ? "" : bizCode.substring(0, 3);
 		
 		List<IndustryCode> naicsLevel3 = new ArrayList<IndustryCode>();
 		naicsLevel3 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_3, bizCode);
-		String selectedCodeLevel3 = bizCode.substring(0, 4);
+		String selectedCodeLevel3 = StringUtils.isEmpty(bizCode) ? "" : bizCode.substring(0, 4);
 		
 		List<IndustryCode> naicsLevel4 = new ArrayList<IndustryCode>();
 		naicsLevel4 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_4, bizCode);
@@ -247,12 +246,14 @@ public class AdvertiserController {
 	 * 
 	 * @author sfz
 	 */
-	@RequestMapping("/saveAdvertiserProfile")
-	public ModelAndView saveAdvertiserProfile(@RequestParam String bizProfileJSONString){		
+	@RequestMapping(value="/saveAdvertiserProfile",method=RequestMethod.POST)
+	@ResponseBody
+//	public ModelAndView saveAdvertiserProfile(@RequestParam String bizProfileJSONString){	
+	public String saveAdvertiserProfile(@RequestParam String bizProfileJSONString){	
 		logger.info("entering... /advertiser/biz/saveAdvertiserProfile");
 		
 		/* initial settings */
-		ModelAndView mav = new ModelAndView();
+		//ModelAndView mav = new ModelAndView();
 		
 		/* prepare data */		
 		JSONObject jsonObj= new JSONObject(bizProfileJSONString);
@@ -263,6 +264,7 @@ public class AdvertiserController {
 		Integer legalFormNo	= jsonObj.getInt("legalFormNo");
 		String industryCode	= jsonObj.getString("industryCode");
 		Integer businessType 	= jsonObj.getInt("businessType");
+		String bizDesc 	= jsonObj.getString("bizDesc");
 		
 		logger.info("bizName="+bizName);
 		logger.info("bizNo="+bizNo);
@@ -270,6 +272,7 @@ public class AdvertiserController {
 		logger.info("legalFormNo="+legalFormNo);
 		logger.info("industryCode="+industryCode);
 		logger.info("businessType="+businessType);
+		logger.info("bizDesc="+bizDesc);
 		
 		
 		BusinessProfile bp = new BusinessProfile();
@@ -279,16 +282,16 @@ public class AdvertiserController {
 		bp.setLegalFormNo(legalFormNo);
 		bp.setIndustryCode(industryCode);
 		bp.setBizType(businessType);
-		
+		bp.setBizDesc(bizDesc);
 				
 		this.businessProfileService.updateBusinessProfile(bp);
 		
 		/* assemble model and view */
-		String viewName = ""; //"/advertiser/biz/edit.html";
-        mav.setViewName(viewName);
+		String viewName = "/advertiser/biz"; //"/advertiser/biz/edit.html";
+        //mav.setViewName(viewName);
 		
 		logger.info("exiting... /advertiser/biz/saveAdvertiserProfile");
-		return mav;
+		return viewName;// mav;
 	}
 	
 }
