@@ -75,7 +75,7 @@ public class IndustryCodeDaoJDBCImpl implements IndustryCodeDao {
 	
 	@Override
 	public List<IndustryCode> findByLevelNo(int levelNo, String industryCode) {
-		
+		//(str between substring_index(parent_code,'-',1) and substring_index(parent_code,'-',-1))
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");
 		sbf.append("uid, ");

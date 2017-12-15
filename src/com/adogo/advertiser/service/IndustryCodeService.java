@@ -34,7 +34,7 @@ public class IndustryCodeService {
 	
 	public List<IndustryCode> getIndustryCodeByLevelNo(int levelNo, String industryCode){
 		List<IndustryCode> list = new ArrayList<IndustryCode>();
-		list = industryCodeDao.findByLevelNo(levelNo);
+		list = industryCodeDao.findByLevelNo(levelNo, industryCode);
 		return list;
 	}
 	
