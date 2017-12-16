@@ -28,11 +28,9 @@ public class Address {
 	private final int PORT_TYPE_APP=4;
 	
 	
-	@SuppressWarnings("unused")
-	private final int ADDR_HQ = 1;
+	public static final int ADDR_HQ = 1;
 	
-	@SuppressWarnings("unused")
-	private final int ADDR_OUTLET = 2;
+	public static final int ADDR_OUTLET = 2;
 	
 	private Long	globalId;
 	private Long	bizId;

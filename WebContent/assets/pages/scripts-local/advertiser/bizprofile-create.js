@@ -6,7 +6,7 @@
 
 /**/
 function saveBusinessProfile(){
-	alert("saveBusinessProfile()");
+	//alert("saveBusinessProfile()");
 	
 	var businessObject = getBusinessObject();
 	
@@ -17,7 +17,7 @@ function saveBusinessProfile(){
 		data: {	businessProfileJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
 		success:function(data){	
-			alert("saveBusinessProfile ajax ok");
+//			alert("saveBusinessProfile ajax ok");
 			//window.location.href="/acp/advertiser/biz/register.html";
 //			var businessProfile = JSON.stringify(data.businessProfile);
 			var b = data.businessProfile;

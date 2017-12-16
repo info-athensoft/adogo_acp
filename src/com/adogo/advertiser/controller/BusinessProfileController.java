@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.adogo.advertiser.entity.Address;
 import com.adogo.advertiser.entity.BusinessProfile;
 import com.adogo.advertiser.entity.BusinessStatus;
 import com.adogo.advertiser.service.BusinessProfileService;
@@ -112,6 +113,14 @@ public class BusinessProfileController {
 		String bizWebsite	= jsonObj.getString("bizWebsite");
 		String bizDesc		= jsonObj.getString("bizDesc");
 		
+		String streetNo		= jsonObj.getString("streetNo");
+		String streetType	= jsonObj.getString("streetType");
+		String streetName	= jsonObj.getString("streetName");
+		String portNo		= jsonObj.getString("portNo");
+		String cityName		= jsonObj.getString("cityName");
+		String provName		= jsonObj.getString("provName");
+		String postalCode	= jsonObj.getString("postalCode");
+		
 		/*create a new record of BusinessHours into master table*/
 		BusinessProfile businessProfile = new BusinessProfile();
 		businessProfile.setAdvertiserId(Long.parseLong(advertiserId));		//TODO
@@ -131,6 +140,18 @@ public class BusinessProfileController {
 		businessProfile.setEstablishDate(new Date());						//TODO
 		businessProfile.setBizDesc(bizDesc);
 		businessProfile.setBizStatus(BusinessStatus.ACTIVE);
+		
+		Address hqAddress = new Address();
+		hqAddress.setStreetNo(streetNo);
+		hqAddress.setStreetType(Integer.parseInt(streetType));
+		hqAddress.setStreetName(streetName);
+		hqAddress.setPortNo(portNo);
+		hqAddress.setCityName(cityName);
+		hqAddress.setProvName(provName);
+		hqAddress.setPostalCode(postalCode);
+		hqAddress.setAddrType(Address.ADDR_HQ);
+		
+		businessProfile.setHqAddress(hqAddress);
 		
 		logger.info(businessProfile.toString());
 		
