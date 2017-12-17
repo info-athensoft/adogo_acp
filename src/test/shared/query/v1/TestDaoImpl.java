@@ -1,4 +1,4 @@
-package test.shared.query;
+package test.shared.query.v1;
 
 public class TestDaoImpl {
 	

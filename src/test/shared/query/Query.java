@@ -1,18 +1,15 @@
 package test.shared.query;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
-/**
- * multiple criteria of query
- * @author Athens
- *
- */
-public class Query {
-	private List<String> argNameList = new ArrayList<String>();
-	private List<Object> argValueList = new ArrayList<Object>();
-	private List<Class<?>> argTypeList = new ArrayList<Class<?>>();
+public interface Query {
+	public static final String ORDER_ASC = "";
+	public static final String ORDER_DESC = "DESC";
 	
+	public String and(String queryString);
 	
+	public String or(String queryString);
 	
+	public String orderBy(Map<String,String> orderSequence);
+
 }
