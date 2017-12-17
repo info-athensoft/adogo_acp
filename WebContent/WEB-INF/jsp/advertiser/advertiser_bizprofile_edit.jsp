@@ -255,21 +255,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <select class="form-control" id="industryCodeLevel1" onchange="industryCodeOnChange(1);">
                                                     	<option value="">Choose a category for your business</option>
                                                     	<c:forEach items="${NAICS_level_1}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel1}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${businessProfile.isSubIndustrySelected(item.getIndustryCode(),1)}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel2" onchange="industryCodeOnChange(2);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_2}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel2}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${businessProfile.isSubIndustrySelected(item.getIndustryCode(),2)}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel3" onchange="industryCodeOnChange(3);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_3}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel3}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${businessProfile.isSubIndustrySelected(item.getIndustryCode(),3)}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
@@ -413,6 +413,26 @@ License: You must have a valid license purchased only from themeforest(the above
 	                                                    <input type="text" class="form-control" placeholder="URL of your Pinterest homepage">
 	                                                </div>
 	                                            </div>
+	                                            
+	                                            <!-- BEGIN MY CATEGORY TEST -->
+	                                            <div class="form-group">
+	                                                <label class="col-md-3 control-label">TEST Category</label>
+	                                                <div class="col-md-7">
+	                                                    <input type="text" class="form-control" placeholder="Enter text" id="categoryNo">
+	                                                </div>
+	                                                <div class="col-md-2">
+	                                                    <button class="btn btn-success" onclick="showCategoryList();return false;" id="boothCategoryChooser">&nbsp;&nbsp;&nbsp; Choose &nbsp;&nbsp;&nbsp;</button>
+	                                                </div>
+	                                            </div>
+	                                            
+	                                            <div class="form-group" id="boothCategoryDiv">
+	                                                <label class="col-md-3 control-label"></label>
+	                                                <div class="col-md-9" id="boothCategoryList">
+	                                                	<select id="boothCategorySelection" onchange="boothCategorySelectionOnchange(this);" multiple>
+														</select>
+	                                                </div>
+	                                            </div>
+	                                            <!-- END MY CATEGORY TEST -->
                                              
                                             </div>                                                        
                                             
@@ -545,6 +565,62 @@ function setBizTypeValue(){
     });
     $('#businessType').val(val);
 }
+
+function showCategoryList(){
+	//alert("ok");
+	//$("#boothCategoryList").show();
+	//$("#boothCategoryChooser").html("&nbsp;&nbsp;&nbsp;Collpase&nbsp;&nbsp;&nbsp;");
+	
+	$.ajax({
+		type:"GET",
+		url:"/acp/advertiser/categoryChooseClick",
+		dataType:"json",
+		//data: { },
+		timeout : 5000,
+		success:function(data){	
+			//alert('return successfully!'+ data.categoryList.length);
+			var list = data.categoryList;
+			var $el = $("#boothCategorySelection");
+			//$el.empty();
+//			$el.append($("<option></option>")
+//	       	   .attr("value", "").text("Choose the category"));
+			list.forEach(function(cat, index) {
+				//alert("IndustryCode.name:"+indCode.industryName);
+				$el.append($("<option></option>")
+			       .attr("value", cat.industryCode).text(cat.industryCode + " : " + cat.industryName));
+				});
+			
+			$("#boothCategoryDiv").toggle(
+					function() {
+				    	$("#boothCategoryChooser").text("Collpase");
+					},
+					function() {
+					    $("#boothCategoryChooser").html("&nbsp;&nbsp;&nbsp;&nbsp;Choose&nbsp;&nbsp;&nbsp;&nbsp;");
+					}
+				);
+		}		
+	});
+	
+	
+}
+
+function boothCategorySelectionOnchange(sel) {
+	var sv = sel.options[sel.selectedIndex].value;
+	var st = sel.options[sel.selectedIndex].text;
+	//alert('value:'+sv+' text:'+st);
+	$('#categoryNo').val(st);
+	$("#boothCategoryDiv").hide();
+}
+
+$(document).ready(function(){
+	$("#boothCategoryDiv").hide();
+	
+	//init
+//	$("#boothCategoryList").html(
+//			"1,1,1,1<br/>1,1,1,1<br/>"
+//	);
+			
+});
 
 </script>
 </body>

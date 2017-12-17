@@ -110,5 +110,20 @@ public class BusinessProfile {
 		this.bizDesc = bizDesc;
 	}
 	
-	
+	public boolean isSubIndustrySelected(String subIndustryCode, int level) {
+		String parentIndustryCode = this.industryCode.substring(0, level+1);
+		if (subIndustryCode.indexOf("-")!=-1) {
+			String[] codes = subIndustryCode.split("-");
+			if ((Integer.parseInt(parentIndustryCode) >= Integer.parseInt(codes[0])) && Integer.parseInt(parentIndustryCode) <=Integer.parseInt(codes[1])) {
+				System.out.println("level="+level +" Return True! subIndustryCode="+subIndustryCode);
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return parentIndustryCode.equals(subIndustryCode);
+		}
+	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
@@ -90,14 +91,16 @@ public class AdvertiserController {
 		
 		//retrieve data from database via service and dao		
 		List<IndustryCode> listIndustryCode = new ArrayList<IndustryCode>();
-		
-		String[] codes = parentIndustryCode.split("-");
-		for(String code : codes){
-			listIndustryCode.addAll(industryCodeService.getIndustryCodeByParentCode(code));
+		if (parentIndustryCode.indexOf("-")!=-1) {
+			String[] codes = parentIndustryCode.split("-");
+			int[] arrayCode = IntStream.rangeClosed(Integer.parseInt(codes[0]), Integer.parseInt(codes[1])).toArray();
+			for(int code : arrayCode){
+				listIndustryCode.addAll(industryCodeService.getIndustryCodeByParentCode(Integer.toString(code)));
+			}
 		}
-		
-//		listIndustryCode = industryCodeService.getIndustryCodeByParentCode(parentIndustryCode);
-		
+		else {
+			listIndustryCode = industryCodeService.getIndustryCodeByParentCode(parentIndustryCode);
+		}
 		model.put("listIndustryCode", listIndustryCode);
 		
 		logger.info("exiting RESTFUL API... /advertiser/industrycode/sub/");
@@ -217,13 +220,16 @@ public class AdvertiserController {
 		List<IndustryCode> naicsLevel2 = new ArrayList<IndustryCode>();
 		naicsLevel2 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_2, bizCode);
 		String selectedCodeLevel2 = StringUtils.isEmpty(bizCode) ? "" : bizCode.substring(0, 3);
+		logger.info("naicsLevel2 size="+naicsLevel2.size() +"  selectedCodeLevel2="+selectedCodeLevel2);
 		
 		List<IndustryCode> naicsLevel3 = new ArrayList<IndustryCode>();
 		naicsLevel3 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_3, bizCode);
 		String selectedCodeLevel3 = StringUtils.isEmpty(bizCode) ? "" : bizCode.substring(0, 4);
+		logger.info("naicsLevel3 size="+naicsLevel3.size() +"  selectedCodeLevel3="+selectedCodeLevel3);
 		
 		List<IndustryCode> naicsLevel4 = new ArrayList<IndustryCode>();
 		naicsLevel4 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_4, bizCode);
+		String selectedCodeLevel4 = StringUtils.isEmpty(bizCode) ? "" : bizCode.substring(0, 5);
 		
 		model.put("NAICS_level_1", naicsLevel1);
 		model.put("NAICS_level_2", naicsLevel2);
@@ -233,7 +239,7 @@ public class AdvertiserController {
 		model.put("selectedCodeLevel1", selectedCodeLevel1);
 		model.put("selectedCodeLevel2", selectedCodeLevel2);
 		model.put("selectedCodeLevel3", selectedCodeLevel3);
-//		model.put("selectedCodeLevel4", selectedCodeLevel4);
+		model.put("selectedCodeLevel4", selectedCodeLevel4);
 		
 		mav.setViewName(viewName);
 		logger.info("exiting... /advertiser/biz/edit.html");
@@ -294,4 +300,22 @@ public class AdvertiserController {
 		return viewName;// mav;
 	}
 	
+	@RequestMapping(value="/categoryChooseClick",method=RequestMethod.GET,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> categoryChooseClick(){
+		logger.info("entering categoryChooseClick");
+		
+		ModelAndView mav = new ModelAndView();
+		
+		//data
+		Map<String, Object> model = mav.getModel();
+		
+		//retrieve data from database via service and dao		
+		List<IndustryCode> categoryList = new ArrayList<IndustryCode>();
+		categoryList = industryCodeService.getIndustryCodeByLevelNo(1);
+		model.put("categoryList", categoryList);
+		
+		logger.info("exiting categoryChooseClick");
+		return model;
+	}
 }
