@@ -253,7 +253,7 @@ public class AdvertiserController {
 	 * @author sfz
 	 */
 	@RequestMapping(value="/saveAdvertiserProfile",method=RequestMethod.POST)
-	@ResponseBody
+//	@ResponseBody
 //	public ModelAndView saveAdvertiserProfile(@RequestParam String bizProfileJSONString){	
 	public String saveAdvertiserProfile(@RequestParam String bizProfileJSONString){	
 		logger.info("entering... /advertiser/biz/saveAdvertiserProfile");
@@ -293,7 +293,7 @@ public class AdvertiserController {
 		this.businessProfileService.updateBusinessProfile(bp);
 		
 		/* assemble model and view */
-		String viewName = "/advertiser/biz"; //"/advertiser/biz/edit.html";
+		String viewName = "/advertiser/bizprofile_index"; //"/advertiser/biz/edit.html";
         //mav.setViewName(viewName);
 		
 		logger.info("exiting... /advertiser/biz/saveAdvertiserProfile");

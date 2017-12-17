@@ -70,7 +70,7 @@ function saveAdvertiserProfile(){
 	$.ajax({
 		type:"POST",
 		url:"/acp/advertiser/saveAdvertiserProfile",
-		//dataType:"html",
+		dataType:"html",
 		data: {	bizProfileJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
 		success:function(data){	
