@@ -10,6 +10,13 @@
 	<!-- Annotation support -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
+	<mvc:interceptors>
+		<mvc:interceptor>
+            <mvc:mapping path="/advertiser/*"/>
+            <bean class="test.web.interceptor.TestInterceptor"/>
+        </mvc:interceptor>
+	</mvc:interceptors>
+	
 	<!-- Component auto-scan support -->
 	<context:component-scan base-package="com.adogo.global.controller"></context:component-scan>
 	<context:component-scan base-package="com.adogo.uaas.controller"></context:component-scan>
