@@ -7,46 +7,35 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 
 public class QueryEntry {
 	
-	private static final String EQUAL_TO 		= "=";
-	private static final String NOT_EQUAL_TO	= "!=";
-	private static final String GREATER_THAN	= ">";
-	private static final String LESS_THAN		= "<";
-	private static final String NO_LESS_THAN	= ">=";
-	private static final String NO_GREATER_THAN	= "<=";
-
-	
-	
-	private String argName;
+	private String fieldName;
+	private String argValueName;
 	private Object argValue;
 	private Class<?> argType;
 	private String operator;
 	
-	public QueryEntry(String argName, Object argValue, Class<?> argType, String operator) {
-		this.argName = argName;
+	public QueryEntry(String fieldName, String argValueName, Object argValue, Class<?> argType, String operator) {
+		this.fieldName = fieldName;
+		this.argValueName = argValueName;
 		this.argValue = argValue;
 		this.argType = argType;
 		this.operator = operator;
 	}
 	
-	public QueryEntry(String argName, Object argValue, Class<?> argType) {
-		this.argName = argName;
+	public QueryEntry(String fieldName, String argValueName, Object argValue, Class<?> argType) {
+		this.fieldName = fieldName;
+		this.argValueName = argValueName;
 		this.argValue = argValue;
 		this.argType = argType;
-		this.operator = EQUAL_TO;
+		this.operator = QueryOperator.EQUAL_TO;
 	}
 	
-	@Override
-	public String toString() {
-		return "QueryEntry [argName=" + argName + ", argValue=" + argValue + ", argType=" + argType + "]";
+		
+	public String and(){
+		return " AND "+this.getFieldName()+this.getOperator()+":"+this.getArgValueName();
 	}
 	
-	
-	public String getAndString(){
-		return " AND "+this.getArgName()+this.getOperator()+":"+this.getArgName();
-	}
-	
-	public String getOrString(){
-		return " OR "+this.getArgName()+this.getOperator()+":"+this.getArgName();
+	public String or(){
+		return " OR "+this.getFieldName()+this.getOperator()+":"+this.getArgValueName();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -54,11 +43,15 @@ public class QueryEntry {
 		return (T)argValue;
 	}
 	
+	public void setArgValue(Object argValue){
+		this.argValue = argValue;
+	}
+	
 	
 	public static void main(String[] args) {
-		QueryEntry qryEntry1 = new QueryEntry("biz_id", 12345, Integer.TYPE, QueryEntry.GREATER_THAN);
-		QueryEntry qryEntry2 = new QueryEntry("biz_name", "Biz Inc", String.class);
-		QueryEntry qryEntry3 = new QueryEntry("biz_score", 9.5, Double.TYPE);
+		QueryEntry qryEntry1 = new QueryEntry("biz_id", "bizId",12345, Integer.TYPE, QueryOperator.GREATER_THAN);
+		QueryEntry qryEntry2 = new QueryEntry("biz_name", "bizName","Biz Inc", String.class);
+		QueryEntry qryEntry3 = new QueryEntry("biz_score", "bizScore",9.5, Double.TYPE);
 		
 //		System.out.println(qryEntry1);
 //		System.out.println(qryEntry2);
@@ -75,9 +68,9 @@ public class QueryEntry {
 		
 		
 		for(QueryEntry qry: listQueryEntry){
-			System.out.println(qry.getAndString());
-			System.out.println(qry.getOrString());
-			paramSource.addValue(qry.getArgName(), qry.getArgValue(qry.argType));
+			System.out.println(qry.and());
+			System.out.println(qry.or());
+			paramSource.addValue(qry.getArgValueName(), qry.getArgValue(qry.argType));
 			System.out.println(qry.getArgValue(qry.argType));
 		}
 		
@@ -85,19 +78,19 @@ public class QueryEntry {
 	}
 
 
-	public String getArgName() {
-		return argName;
+	public String getFieldName() {
+		return fieldName;
 	}
-	public void setArgName(String argName) {
-		this.argName = argName;
-	}
-	
-	public Object getArgValue() {
-		return argValue;
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
 	}
 	
-	public void setArgValue(Object argValue) {
-		this.argValue = argValue;
+	public String getArgValueName() {
+		return argValueName;
+	}
+	
+	public void setArgValueName(String argValueName) {
+		this.argValueName = argValueName;
 	}
 	public Class<?> getArgType() {
 		return argType;

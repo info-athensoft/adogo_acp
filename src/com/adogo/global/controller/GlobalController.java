@@ -16,6 +16,7 @@ public class GlobalController {
 		logger.info("entering.. /");
 		logger.info("exiting.. /");
 		return "index";
+//		return "uaas/page_user_login_4";
 	}
 	
 	@RequestMapping("/index")

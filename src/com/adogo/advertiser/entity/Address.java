@@ -28,8 +28,7 @@ public class Address {
 	private final int PORT_TYPE_APP=4;
 	
 	
-	public static final int ADDR_HQ = 1;
-	
+	public static final int ADDR_HQ = 1;	
 	public static final int ADDR_OUTLET = 2;
 	
 	private Long	globalId;

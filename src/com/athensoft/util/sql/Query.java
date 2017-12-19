@@ -4,37 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Query {
-	private List<QueryEntry> queryList = new ArrayList<QueryEntry>();
+	private List<QueryExpression> queryEntryList = new ArrayList<QueryExpression>();
 	
-	public Query add(QueryEntry qe){
-		this.queryList.add(qe);
+	public Query add(QueryExpression qe){
+		this.queryEntryList.add(qe);
 		return this;
 	}
 	
-	public Query remove(QueryEntry qe){
-		this.queryList.remove(qe);
+	public Query remove(QueryExpression qe){
+		this.queryEntryList.remove(qe);
 		return this;
 	}
 	
 	public int size(){
-		return this.queryList.size();
+		return this.queryEntryList.size();
 	}
 	
 
-	public List<QueryEntry> getQueryList() {
-		return queryList;
+	public List<QueryExpression> getQueryEntryList() {
+		return queryEntryList;
 	}
 
-	public void setQueryList(List<QueryEntry> queryList) {
-		this.queryList = queryList;
+	public void setQueryList(List<QueryExpression> queryEntryList) {
+		this.queryEntryList = queryEntryList;
 	}
 	
-	
-	//TODO
-	public static void main(String[] args) {
-		Query q = new Query();
-		q.add(new QueryEntry()).add(new QueryEntry());
-		
-		System.out.println(q.size());
+	public String toSQLString(){
+		StringBuffer sbf = new StringBuffer();
+		for(QueryExpression qryEntry: queryEntryList){
+			sbf.append(qryEntry.and());
+		}
+		return sbf.toString();
 	}
+	
 }

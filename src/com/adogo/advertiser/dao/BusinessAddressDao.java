@@ -10,6 +10,7 @@ public interface BusinessAddressDao {
 	public List<Address> findByBizId(long bizId);
 	public List<Address> findByQuery(Query query);
 	
+	
 	public int create(Address addr);
 	public int update(Address addr);
 }
