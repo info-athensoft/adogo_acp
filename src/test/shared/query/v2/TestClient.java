@@ -1,8 +1,8 @@
-package com.athensoft.util.sql;
+package test.shared.query.v2;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 
-import com.athensoft.util.sql.QueryExpression;
+import test.shared.query.v2.QueryExpression;
 
 public class TestClient {
 		public static void main(String[] args) {

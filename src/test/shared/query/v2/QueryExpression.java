@@ -1,4 +1,4 @@
-package com.athensoft.util.sql;
+package test.shared.query.v2;
 
 public class QueryExpression extends AbstractSQLClause{
 	private String fieldName;
