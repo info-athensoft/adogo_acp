@@ -3,7 +3,8 @@ package com.adogo.advertiser.dao;
 import java.util.List;
 
 import com.adogo.advertiser.entity.Address;
-import com.athensoft.util.sql.Query;
+
+import test.shared.query.v2.Query;
 
 public interface BusinessAddressDao {
 	

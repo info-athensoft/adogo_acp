@@ -1,4 +1,4 @@
-package com.athensoft.util.sql;
+package test.shared.query.v2;
 
 import java.util.Iterator;
 import java.util.Map;

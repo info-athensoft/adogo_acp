@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
 import com.adogo.advertiser.entity.Address;
-import com.athensoft.util.sql.Query;
+import test.shared.query.v2.Query;
 
 @Component
 @Qualifier("businessAddressDaoJdbcImpl")
