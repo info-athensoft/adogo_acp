@@ -1,4 +1,4 @@
-package test.shared.query.v3;
+package com.athensoft.util.sql;
 
 public class QueryExpression {
 	protected String fieldName;
