@@ -1,4 +1,4 @@
-package test.athensoft.shared;
+package test.shared.adpost;
 
 import java.util.ArrayList;
 import java.util.List;

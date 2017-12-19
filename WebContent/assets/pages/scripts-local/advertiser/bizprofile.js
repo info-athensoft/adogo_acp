@@ -93,19 +93,44 @@ function getBusinessObject(){
     var p2 = $("#bizNo").val();
     var p3 = $("#bizOwner").val();
     var p4 = $("#legalFormNo").val();
+//  var p5 = $("#industryCodeLevel4").val();
     var p5 = $("#industryCode").val();
-    var p6 = getBizTypeValue(); //$("#businessType").val();
-    var p7 = $("#bizDesc").val();
+//  var p6 = getBizTypeValue(); 				//$("#businessType").val();
+    var p6 = $("#bizType").val();
+    var p7 = $("#bizPhone").val();
+    var p8 = $("#bizFax").val();
+    var p9 = $("#bizEmail").val();
+    var p10 = $("#bizWebsite").val();
+    var p11 = $("#bizDesc").val();
+    
+    var p12 = $("#streetNo").val();
+    var p13 = $("#streetType").val();
+    var p14 = $("#streetName").val();
+    var p15 = $("#portNo").val();
+    var p16 = $("#cityName").val();
+    var p17 = $("#provName").val();
+    var p18 = $("#postalCode").val();
     
     var businessObject =
     {
-    		bizName    			      	  :   p1,
-    		bizNo    			      	  :   p2,
-    		bizOwner    			      :   p3,
-    		legalFormNo    			      :   p4,
-    		industryCode    			  :   p5,
-    		businessType    			  :   p6,
-    		bizDesc    			          :   p7
+    		bizName    		:   p1,
+    		bizNo    		:   p2,
+    		bizOwner    	:   p3,
+    		legalFormNo    	:   p4,
+    		industryCode    :   p5,
+    		bizType    		:   p6,
+    		bizPhone		:	p7,	
+    		bizFax			:	p8,	
+    		bizEmail		:	p9,	
+    		bizWebsite		:	p10,
+    		bizDesc			:	p11,
+    		streetNo		:	p12,
+    		streetType		:	p13,
+    		streetName		:	p14,
+    		portNo			:	p15,
+    		cityName		:	p16,
+    		provName		:	p17,
+    		postalCode		:	p18
     };
     
     return businessObject;

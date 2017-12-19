@@ -1,4 +1,4 @@
-package com.adogo.admin.entity;
+package test.entity;
 
 import java.sql.Blob;
 

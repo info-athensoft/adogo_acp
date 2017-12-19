@@ -83,10 +83,8 @@ public class BoothController {
 		
 		//separate listBooth into sub-lists by bizId
 		int numOfBizProfile = 0;
-		if(listBizProfile!=null){
-			numOfBizProfile = listBizProfile.size();
-			
-		}else{
+		numOfBizProfile = listBizProfile.size();
+		if(numOfBizProfile==0){
 			logger.info("INFO: Current Advertiser does not have any booth yet.");
 		}
 		
@@ -177,6 +175,7 @@ public class BoothController {
 		booth.setBizName(bizName);
 		booth.setLangNo(langNo);
 		booth.setBoothName(langBoothName);
+		booth.setCategoryNo(categoryNo);
 		booth.setBizDesc(langBizDesc);
 		
 		this.boothService.createBooth(booth);
@@ -189,7 +188,7 @@ public class BoothController {
 	}
 	
 	@RequestMapping("/edit.html")
-	public ModelAndView gotoEdit(@RequestParam Long boothId){
+	public ModelAndView gotoBoothEdit(@RequestParam Long boothId){
 		logger.info("entering... /advertiser/booth/edit.html");
 		
 		System.out.println("boothId="+boothId);

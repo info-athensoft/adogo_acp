@@ -1,6 +1,5 @@
 package com.adogo.advertiser.controller;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -13,19 +12,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.advertiser.entity.Booth;
+import com.adogo.advertiser.entity.Address;
 import com.adogo.advertiser.entity.BusinessProfile;
 import com.adogo.advertiser.entity.BusinessStatus;
 import com.adogo.advertiser.service.BusinessProfileService;
-import com.adogo.advertiser.vo.VOBizProfileBooth;
 import com.athensoft.util.id.UUIDHelper;
 
 @Controller
 @RequestMapping("/advertiser/biz")
 public class BusinessProfileController {
-private static final Logger logger = Logger.getLogger(BusinessProfileController.class);
+	private static final Logger logger = Logger.getLogger(BusinessProfileController.class);
 	
 	@Autowired
 	private BusinessProfileService businessProfileService;
@@ -64,8 +63,31 @@ private static final Logger logger = Logger.getLogger(BusinessProfileController.
 	}
 	
 	
-	@RequestMapping(value="/create",method=RequestMethod.POST)
-	public ModelAndView createBusinessProfile(@RequestParam String businessProfileJSONString){		
+	@RequestMapping("/complete.html")
+	public ModelAndView gotoBizProfileComplete(@RequestParam long bizId){
+		logger.info("entering... /advertiser/biz/complete.html");
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		/* assemble model and view */
+		Map<String,Object> model = mav.getModel();
+		
+		BusinessProfile businessProfile = businessProfileService.getBusinessProfileByBizId(bizId);
+		
+		/* assemble data */
+        model.put("bizProfile", businessProfile);
+		
+		String viewName = "advertiser/bizprofile_complete";	
+        mav.setViewName(viewName);
+		
+		logger.info("exiting... /advertiser/biz/complete.html");
+		return mav;
+	}
+	
+	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> createBusinessProfile(@RequestParam String businessProfileJSONString){		
 		logger.info("entering... /advertiser/biz/create");
 		
 		/* initial settings */
@@ -74,34 +96,77 @@ private static final Logger logger = Logger.getLogger(BusinessProfileController.
 		/* prepare data */		
 		JSONObject jsonObj= new JSONObject(businessProfileJSONString);
 		
-		Long bizId			= UUIDHelper.getUniqueLongIdUUID();
+		//TODO Hard Code 
+		String advertiserId = "1712010001";
 		
+//		String advertiserId	= jsonObj.getString("advertiserId");		
+		Long bizId			= UUIDHelper.getUniqueLongIdUUID();
 		String bizName 		= jsonObj.getString("bizName");
 		String bizNo		= jsonObj.getString("bizNo");
 		String bizOwner		= jsonObj.getString("bizOwner");
 		String legalFormNo	= jsonObj.getString("legalFormNo");
 		String industryCode	= jsonObj.getString("industryCode");
+		String bizType		= jsonObj.getString("bizType");
+		String bizPhone		= jsonObj.getString("bizPhone");
+		String bizFax		= jsonObj.getString("bizFax");
+		String bizEmail		= jsonObj.getString("bizEmail");
+		String bizWebsite	= jsonObj.getString("bizWebsite");
+		String bizDesc		= jsonObj.getString("bizDesc");
 		
+		String streetNo		= jsonObj.getString("streetNo");
+		String streetType	= jsonObj.getString("streetType");
+		String streetName	= jsonObj.getString("streetName");
+		String portNo		= jsonObj.getString("portNo");
+		String cityName		= jsonObj.getString("cityName");
+		String provName		= jsonObj.getString("provName");
+		String postalCode	= jsonObj.getString("postalCode");
 		
 		/*create a new record of BusinessHours into master table*/
 		BusinessProfile businessProfile = new BusinessProfile();
+		businessProfile.setAdvertiserId(Long.parseLong(advertiserId));		//TODO
 		businessProfile.setBizId(bizId);
 		businessProfile.setBizName(bizName);
 		businessProfile.setBizNo(bizNo);
 		businessProfile.setBizOwner(bizOwner);
 		businessProfile.setLegalFormNo(Integer.parseInt(legalFormNo));		//TODO
 		businessProfile.setIndustryCode(industryCode);
+		if(bizType==null || (bizType.trim()).equals("")) {bizType="0";}
+		businessProfile.setBizType(Integer.parseInt(bizType));
+		businessProfile.setBizPhone(bizPhone);
+		businessProfile.setBizFax(bizFax);
+		businessProfile.setBizEmail(bizEmail);
+		businessProfile.setBizWebsite(bizWebsite);
 		businessProfile.setCreateDate(new Date());							//TODO
+		businessProfile.setEstablishDate(new Date());						//TODO
+		businessProfile.setBizDesc(bizDesc);
 		businessProfile.setBizStatus(BusinessStatus.ACTIVE);
+		
+		Address hqAddress = new Address();
+		hqAddress.setStreetNo(streetNo);
+		hqAddress.setStreetType(Integer.parseInt(streetType));
+		hqAddress.setStreetName(streetName);
+		hqAddress.setPortNo(portNo);
+		hqAddress.setCityName(cityName);
+		hqAddress.setProvName(provName);
+		hqAddress.setPostalCode(postalCode);
+		hqAddress.setAddrType(Address.ADDR_HQ);
+		
+		businessProfile.setHqAddress(hqAddress);
+		
+		logger.info(businessProfile.toString());
 		
 		this.businessProfileService.saveBusinessProfile(businessProfile); 
 		
 		/* assemble model and view */
-		String viewName = "advertiser/advertiser_dashboard";	
-        mav.setViewName(viewName);
+		//String viewName = "advertiser/bizprofile_complete";	
+        //mav.setViewName(viewName);
+        
+        /* assemble data */
+        Map<String,Object> model = mav.getModel();
+        model.put("businessProfile", businessProfile);
 		
-		logger.info("exiting... /advertiser/biz/list");
-		return mav;
+		logger.info("exiting... /advertiser/biz/create");
+		return model;
 	}
 	
 	/*

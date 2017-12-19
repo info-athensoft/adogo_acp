@@ -1,4 +1,4 @@
-package com.adogo.admin.controller;
+package test.controller;
 
 import java.util.Map;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.admin.entity.TestEditorSfz;
-import com.adogo.admin.service.TestEditorSfzService;
+import test.entity.TestEditorSfz;
+import test.service.TestEditorSfzService;
 
 @Controller
 public class TestEditorController {

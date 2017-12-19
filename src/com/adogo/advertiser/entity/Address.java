@@ -28,14 +28,14 @@ public class Address {
 	private final int PORT_TYPE_APP=4;
 	
 	
-	@SuppressWarnings("unused")
-	private final int ADDR_HQ = 1;
+	public static final int ADDR_HQ = 1;	
+	public static final int ADDR_OUTLET = 2;
 	
-	@SuppressWarnings("unused")
-	private final int ADDR_OUTLET = 2;
-	
-	
+	private Long	globalId;
+	private Long	bizId;
+	private Long 	advertiserId;
 	private Integer langNo;			//language number
+	private Integer locationType;
 	
 	private Integer	addrType;
 	private String	addrName;
@@ -198,16 +198,40 @@ public class Address {
 	public void setPostalCodeLow(String postalCodeLow) {
 		this.postalCodeLow = postalCodeLow;
 	}
-	
+	public Long getGlobalId() {
+		return globalId;
+	}
+	public void setGlobalId(Long globalId) {
+		this.globalId = globalId;
+	}
+	public Long getBizId() {
+		return bizId;
+	}
+	public void setBizId(Long bizId) {
+		this.bizId = bizId;
+	}
+	public Long getAdvertiserId() {
+		return advertiserId;
+	}
+	public void setAdvertiserId(Long advertiserId) {
+		this.advertiserId = advertiserId;
+	}
+	public Integer getLocationType() {
+		return locationType;
+	}
+	public void setLocationType(Integer locationType) {
+		this.locationType = locationType;
+	}
 	@Override
 	public String toString() {
-		return "Address [langNo=" + langNo + ", addrType=" + addrType + ", addrName=" + addrName + ", streetNo="
-				+ streetNo + ", streetType=" + streetType + ", streetName=" + streetName + ", portType=" + portType
-				+ ", portNo=" + portNo + ", addrLine1=" + addrLine1 + ", addrLine2=" + addrLine2 + ", districtionName="
-				+ districtionName + ", districtionNo=" + districtionNo + ", cityName=" + cityName + ", cityNo=" + cityNo
-				+ ", areaName=" + areaName + ", areaNo=" + areaNo + ", provName=" + provName + ", provShortName="
-				+ provShortName + ", provNo=" + provNo + ", postalCode=" + postalCode + ", postalCodeHigh="
-				+ postalCodeHigh + ", postalCodeLow=" + postalCodeLow + "]";
+		return "Address [globalId=" + globalId + ", bizId=" + bizId + ", advertiserId=" + advertiserId + ", langNo="
+				+ langNo + ", locationType=" + locationType + ", addrType=" + addrType + ", addrName=" + addrName
+				+ ", streetNo=" + streetNo + ", streetType=" + streetType + ", streetName=" + streetName + ", portType="
+				+ portType + ", portNo=" + portNo + ", addrLine1=" + addrLine1 + ", addrLine2=" + addrLine2
+				+ ", districtionName=" + districtionName + ", districtionNo=" + districtionNo + ", cityName=" + cityName
+				+ ", cityNo=" + cityNo + ", areaName=" + areaName + ", areaNo=" + areaNo + ", provName=" + provName
+				+ ", provShortName=" + provShortName + ", provNo=" + provNo + ", postalCode=" + postalCode
+				+ ", postalCodeHigh=" + postalCodeHigh + ", postalCodeLow=" + postalCodeLow + "]";
 	}
 	
 }

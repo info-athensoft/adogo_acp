@@ -1,7 +1,5 @@
 package com.adogo.uaas.controller;
 
-import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -174,4 +172,9 @@ public class UserAccountController {
         
 	}
 	
+	//TODO
+	public void test(){
+		UserAccount obj = new UserAccount();
+		convertToJson(obj);
+	}
 }

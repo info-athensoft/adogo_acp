@@ -158,12 +158,12 @@
                                     </div>
                                     <div class="col-md-4 bg-grey mt-step-col done">
                                         <div class="mt-step-number bg-white font-grey">2</div>
-                                        <div class="mt-step-title uppercase font-grey-cascade">Edit</div>
+                                        <div class="mt-step-title uppercase font-grey-cascade">Create</div>
                                         <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
                                     </div>
                                     <div class="col-md-4 bg-grey mt-step-col">
                                         <div class="mt-step-number bg-white font-grey">3</div>
-                                        <div class="mt-step-title uppercase font-grey-cascade">Submit</div>
+                                        <div class="mt-step-title uppercase font-grey-cascade">Complete</div>
                                         <div class="mt-step-content font-grey-cascade">Complete your payment</div>
                                     </div>
                                 </div>
@@ -178,9 +178,8 @@
             <!-- BEGIN ROW 2 -->
             <div class="row">
             	<!-- BEGIN SECTION 1 -->
-            	<div class="col-md-12">
-            		
-            		<div class="portlet light ">
+            	<div class="col-md-6">
+            		<div class="portlet light">
 	                    <div class="portlet-title">
 	                         <div class="caption">
 	                             <i class="icon-equalizer font-red-sunglo"></i>
@@ -206,7 +205,7 @@
 	                        	<div class="form-body">
 		                            <div class="form-group">
 		                               <label class="col-md-3 control-label">Business Name</label>
-		                               <div class="col-md-4">
+		                               <div class="col-md-9">
 		                                   <input type="text" class="form-control" placeholder="" id="bizName">
 		                                   <span class="help-block"> Your legal company name or real business name</span>
 		                               </div>
@@ -214,7 +213,7 @@
 	                                
 	                                <div class="form-group">
 	                                    <label class="col-md-3 control-label">Business No.</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                        <input type="text" class="form-control" placeholder="" id="bizNo">
 	                                        <span class="help-block"> Your business no. issued by government</span>
 	                                    </div>
@@ -222,7 +221,7 @@
 	                                
 	                                <div class="form-group">
 	                                    <label class="col-md-3 control-label">Business Owner</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                        <input type="text" class="form-control" placeholder="Business owner" id="bizOwner">
 	                                        <span class="help-block"> Business owner</span>
 	                                    </div>
@@ -230,7 +229,7 @@
 	                                
 	                                <div class="form-group">
 	                                    <label class="col-md-3 control-label">Legal Form</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                        <select class="form-control" id="legalFormNo">
 	                                        	<option value="">Choose a legal form</option>
 	                                        	<option value="1">Solo business - Not registered</option>
@@ -244,7 +243,7 @@
 	                                
 	                                <div class="form-group">
 	                                    <label class="col-md-3 control-label">Industry Code</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                        <select class="form-control" id="industryCodeLevel1" onchange="getSubIndustryCode1();">
 	                                        	<option value="">Choose a category for your business</option>
 	                                        	<c:forEach items="${NAICS_level_1}" var="item">
@@ -271,64 +270,102 @@
 	                                
 	                                <div class="form-group">
 	                                    <label class="col-md-3 control-label">Business Type</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                        <div class="mt-checkbox-list mt-checkbox-inline">
-	                                   <label class="mt-checkbox mt-checkbox-outline"> Product
-	                                       <input type="checkbox" value="1" name="businessType" />
-	                                       <span></span>
-	                                   </label>
-	                                   <label class="mt-checkbox mt-checkbox-outline"> e-Product
-	                                       <input type="checkbox" value="2" name="businessType" />
-	                                       <span></span>
-	                                   </label>
-	                                   <label class="mt-checkbox mt-checkbox-outline"> Service
-	                                       <input type="checkbox" value="3" name="businessType" />
-	                                       <span></span>
-	                                   </label>
-	                               </div>
+			                                   <label class="mt-checkbox mt-checkbox-outline"> Product
+			                                       <input type="checkbox" value="1" name="businessType" />
+			                                       <span></span>
+			                                   </label>
+			                                   <label class="mt-checkbox mt-checkbox-outline"> e-Product
+			                                       <input type="checkbox" value="2" name="businessType" />
+			                                       <span></span>
+			                                   </label>
+			                                   <label class="mt-checkbox mt-checkbox-outline"> Service
+			                                       <input type="checkbox" value="3" name="businessType" />
+			                                       <span></span>
+			                                   </label>
+			                                   <input type="text" class="form-control" placeholder="industryCode" id="bizType">
+			                               </div>
 	                                    </div>
 	                                </div>
 	                                
 	                                <div class="form-group">
 	                                    <label class="col-md-3 control-label">Business Description</label>
-	                                    <div class="col-md-4">
-	                                        <input type="text" class="form-control" placeholder="Brief description of your business">
+	                                    <div class="col-md-9">
+	                                        <input type="text" class="form-control" placeholder="Brief description of your business" id="bizDesc">
 	                                        <span class="help-block"> Your business description</span>
 	                                    </div>
 	                                </div>
+	                                
+	                            </div>
+	                            
+	                        </form>
+	                        <!-- END FORM-->
+	                    </div>
+                 	</div>
+    		
+            	
+            	<!-- END SECTION 1 -->
+            	
+            	<!-- BEGIN SECTION 2 -->
+            	
+            		<div class="portlet light">
+            			<div class="portlet-title">
+	                         <div class="caption">
+	                             <i class="icon-equalizer font-red-sunglo"></i>
+	                             <span class="caption-subject font-red-sunglo bold uppercase">Contact Info.</span>
+	                             <span class="caption-helper"></span>
+	                         </div>
+	                         <div class="actions">
+	                             <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                 <i class="icon-cloud-upload"></i>
+	                             </a>
+	                             <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                 <i class="icon-wrench"></i>
+	                             </a>
+	                             <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                 <i class="icon-trash"></i>
+	                             </a>
+	                         </div>
+	                     </div>
+	                     <div class="portlet-body form">
+	                        <!-- BEGIN FORM-->
+	                        <form action="#" class="form-horizontal">
+	                        	<div class="form-body">
+		                            
 	                                
 	                    			<div class="form-group">
 	                                    <label class="col-md-3 control-label">Head Office Address</label>
 	                                    <div class="col-md-9">
 	                                    	<div class="row">
 	                                    		<div class="col-md-2">
-	                                    			<input type="text" class="form-control" placeholder="Street no.">
+	                                    			<input type="text" class="form-control" placeholder="Street no." id="streetNo">
 	                                    		</div>
 	                                    		<div class="col-md-2">
-	                                    			<select class="form-control">
-	                                          	<option value="">Rue</option>
-	                                          	<option value="">Avenue/Av.</option>
-	                                          	<option value="">Boulevard/Blvd.</option>
-	                                          	<option value="">St.</option>
+	                                    			<select class="form-control" id="streetType">
+			                                          	<option value="21">Rue</option>
+			                                          	<option value="22">Avenue/Av.</option>
+			                                          	<option value="23">Boulevard/Blvd.</option>
+			                                          	<option value="11">St.</option>
 	                                        		</select>
 	                                    		</div>
 	                                    		<div class="col-md-6">
-	                                    			<input type="text" class="form-control" placeholder="Street name">
+	                                    			<input type="text" class="form-control" placeholder="Street name" id="streetName">
 	                                    		</div>
 	                                    		<div class="col-md-2">
-	                                    			<input type="text" class="form-control" placeholder="Port no.">
+	                                    			<input type="text" class="form-control" placeholder="Port no." id="portNo">
 	                                    		</div>
 	                                    	</div>
 	                                    	<p></p>
 	                                    	<div class="row">
 	                                    		<div class="col-md-4">
-	                                    			<input type="text" class="form-control" placeholder="City">
+	                                    			<input type="text" class="form-control" placeholder="City" id="cityName">
 	                                    		</div>
 	                                    		<div class="col-md-4">
-	                                    			<input type="text" class="form-control" placeholder="Province">
+	                                    			<input type="text" class="form-control" placeholder="Province" id="provName">
 	                                    		</div>
 	                                    		<div class="col-md-4">
-	                                    			<input type="text" class="form-control" placeholder="Postal code">
+	                                    			<input type="text" class="form-control" placeholder="Postal code" id="postalCode">
 	                                    		</div>
 	                                    	</div>
 	                                    </div>
@@ -337,70 +374,35 @@
 	                          		<div class="form-group">
 	                                    <label class="col-md-3 control-label">Phone no.</label>
 	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="Phone no.">
+	                                    	<input type="text" class="form-control" placeholder="Phone no." id="bizPhone">
 	                                    </div>
 	                                 </div>
 	                                 
 	                         		<div class="form-group">
 	                                    <label class="col-md-3 control-label">Fax no.</label>
 	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="Fax no.">
+	                                    	<input type="text" class="form-control" placeholder="Fax no." id="bizFax">
+	                                    </div>
+	                                 </div>
+	                                 
+	                                 <div class="form-group">
+	                                    <label class="col-md-3 control-label">Email</label>
+	                                    <div class="col-md-4">
+	                                    	<input type="text" class="form-control" placeholder="email" id="bizEmail">
 	                                    </div>
 	                                 </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Website Address</label>
 	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your website or home page">
+	                                    	<input type="text" class="form-control" placeholder="URL of your website or home page" id="bizWebsite">
 	                                    </div>
 	                                 </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Facebook</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your facebook homepage">
-	                                    </div>
-	                                 </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">LinkedIn</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your LinkedIn homepage">
-	                                   	</div>
-	                                </div>
-	                                 
-	                             	<div class="form-group">
-	                                	<label class="col-md-3 control-label">Twitter</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Twitter homepage">
-	                                    </div>
-	                                </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Youtube</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Youtube homepage">
-	                                    </div>
-	                                 </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Instagram</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Instagram homepage">
-	                                    </div>
-	                                </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Pinterest</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Pinterest homepage">
-	                                    </div>
-	                                </div>
 	                            </div>
 	                            <div class="form-actions">
 	                                <div class="row">
 	                                    <div class="col-md-offset-3 col-md-4">
-	                                        <button type="submit" class="btn green" onclick="saveBusinessProfile();">Register now</button>
+	                                        <button type="submit" class="btn green" onclick="saveBusinessProfile();">Create Business Now</button>
 	                                        <button type="button" class="btn default" onclick="cancelBusinessRegistration()">Cancel</button>
 	                                    </div>
 	                                </div>
@@ -408,10 +410,11 @@
 	                        </form>
 	                        <!-- END FORM-->
 	                    </div>
-                 	</div>
-            		
+                 	
+	                    
+            		</div>
             	</div>
-            	<!-- BEGIN SECTION 1 -->
+            	<!-- END SECTION 2 -->
             </div>
             <!-- END ROW 2 -->
         </div>

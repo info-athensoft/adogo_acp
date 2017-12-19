@@ -18,6 +18,12 @@ public class BusinessProfile {
 	private Date	createDate;		//registration date at Adogo
 	private Integer	bizStatus;
 	private String  bizDesc;		//business description
+	
+	private String	bizPhone;
+	private String 	bizFax;
+	private String	bizEmail;
+	private String	bizWebsite;		//website
+	private Address hqAddress;		//headquarters address
 
 	public Long getGlobalId() {
 		return globalId;
@@ -108,6 +114,46 @@ public class BusinessProfile {
 	}
 	public void setBizDesc(String bizDesc) {
 		this.bizDesc = bizDesc;
+	}
+	public Address getHqAddress() {
+		return hqAddress;
+	}
+	public void setHqAddress(Address hqAddress) {
+		this.hqAddress = hqAddress;
+	}
+	public String getBizEmail() {
+		return bizEmail;
+	}
+	public void setBizEmail(String bizEmail) {
+		this.bizEmail = bizEmail;
+	}
+	public String getBizWebsite() {
+		return bizWebsite;
+	}
+	public void setBizWebsite(String bizWebsite) {
+		this.bizWebsite = bizWebsite;
+	}
+	public String getBizPhone() {
+		return bizPhone;
+	}
+	public void setBizPhone(String bizPhone) {
+		this.bizPhone = bizPhone;
+	}
+	public String getBizFax() {
+		return bizFax;
+	}
+	public void setBizFax(String bizFax) {
+		this.bizFax = bizFax;
+	}
+	
+	@Override
+	public String toString() {
+		return "BusinessProfile [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId
+				+ ", bizId=" + bizId + ", bizNo=" + bizNo + ", bizName=" + bizName + ", bizName2=" + bizName2
+				+ ", legalFormNo=" + legalFormNo + ", industryCode=" + industryCode + ", bizType=" + bizType
+				+ ", bizOwner=" + bizOwner + ", establishDate=" + establishDate + ", createDate=" + createDate
+				+ ", bizStatus=" + bizStatus + ", bizDesc=" + bizDesc + ", bizPhone=" + bizPhone + ", bizFax=" + bizFax
+				+ ", bizEmail=" + bizEmail + ", bizWebsite=" + bizWebsite + ", hqAddress=" + hqAddress + "]";
 	}
 	
 	public boolean isSubIndustrySelected(String subIndustryCode, int level) {

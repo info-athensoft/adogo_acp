@@ -14,6 +14,7 @@ public class Booth {
 	
 	private Long boothId;			//bizId+langNo
 	private String boothName;
+	private Integer categoryNo;
 	private Integer visitNum;
 	private Integer followerNum;
 	private Integer likeNum;
@@ -111,6 +112,12 @@ public class Booth {
 	}
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+	public Integer getCategoryNo() {
+		return categoryNo;
+	}
+	public void setCategoryNo(Integer categoryNo) {
+		this.categoryNo = categoryNo;
 	}
 	
 	
