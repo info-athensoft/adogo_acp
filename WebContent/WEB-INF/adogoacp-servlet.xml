@@ -12,7 +12,7 @@
 	
 	<mvc:interceptors>
 		<mvc:interceptor>
-            <mvc:mapping path="/advertiser/*"/>
+            <mvc:mapping path="/advertiser/*/*"/>
             <bean class="test.web.interceptor.TestInterceptor"/>
         </mvc:interceptor>
 	</mvc:interceptors>

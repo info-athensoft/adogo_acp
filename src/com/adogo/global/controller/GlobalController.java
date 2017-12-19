@@ -3,6 +3,7 @@ package com.adogo.global.controller;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -20,8 +21,8 @@ public class GlobalController {
 	}
 	
 	@RequestMapping("/index")
-	public String gotoIndex1(){
-		logger.info("entering.. /index");
+	public String gotoIndex1(@RequestParam String  username){
+		logger.info("entering.. /index   userName="+username);
 		logger.info("exiting.. /index");
 		return "index";
 	}

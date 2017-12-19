@@ -411,7 +411,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <p> Enter your account details below: </p>
                 <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <label  class="control-label visible-ie8 visible-ie9">Username</label>
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
                         <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
