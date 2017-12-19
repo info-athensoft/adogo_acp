@@ -44,6 +44,10 @@ public class UserAccountService {
 		return userAccoutDao.findById(acctId);
 	}
 
+	public UserAccount findByName(String name) {
+		return userAccoutDao.findByName(name);
+	}
+	
 	public void delete(long acctId) {
 		userAccoutDao.delete(acctId);
 	}

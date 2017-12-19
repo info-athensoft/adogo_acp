@@ -1,5 +1,6 @@
 package test.web.interceptor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -7,29 +8,46 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.adogo.uaas.entity.UserAccount;
+
+import test.service.TestUserRoleService;
 
 
 public class TestInterceptor extends HandlerInterceptorAdapter {
     private static final String[] DEST_URI = {"/event/act"};
     private HashMap<Long, Long> hitCounts = new HashMap<Long, Long>();
     
-//    @Autowired
-//	private BoothService boothService;
-/*		
+    @Autowired
+	private TestUserRoleService testUserRoleService;
+		
 	@Autowired
-	public void setBoothService(BoothService boothService) {
-		this.boothService = boothService;
+	public void setTestUserRoleService(TestUserRoleService testUserRoleService) {
+		this.testUserRoleService = testUserRoleService;
 	}
-*/ 
+ 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
     	System.out.println("===========TestInterceptor preHandle");
-    	System.out.println(">>>>>>hitCounts.size(): " + hitCounts.size());
-/*8    	if (hitCounts.size() == 0) {
+    	HttpSession httpSession = request.getSession(false);
+        // get whatever session parameter you want
+    	UserAccount userAccount = (UserAccount) httpSession.getAttribute("userAccount");
+//    	String userName = httpSession.getAttribute("userName").toString();
+    	String userName = userAccount.getAcctName();
+    	long acctId = userAccount.getAcctId();
+    	System.out.println(">>>>>>userName: " + userName + ">>>>>>acctId: " + acctId);
+    	
+    	
+    	ArrayList<Integer> roleIdList = this.testUserRoleService.getRoleIdListByAcctId(acctId);
+    	
+    	System.out.println(">>>>>>roleIdList: " + roleIdList + ">>>>>>" );
+    	
+/*    	if (hitCounts.size() == 0) {
     		System.out.println(">>>>>>>>>>>>> hitCounts initialization >>>>>>>>>>>>>>");
     		List<Booth> booths = boothService.findAll();
     		for(Booth booth : booths){
