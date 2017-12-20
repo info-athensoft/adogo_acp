@@ -32,7 +32,7 @@ public class TestUserRoleDaoJdbcImpl implements TestUserRoleDao {
 
 	@Override
 	public ArrayList<Integer> getRoleIdListByAcctId(long acctId) {
-		String sql = "select * from UAAS_ROLE where acct_id=:acct_id";
+		String sql = "select * from UAAS_ASSO_USER_ROLE where acct_id=:acct_id";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acct_id", acctId);
 		List<TestUserRole> x = new ArrayList<TestUserRole>();
