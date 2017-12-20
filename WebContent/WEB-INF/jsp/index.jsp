@@ -693,9 +693,15 @@ License: You must have a valid license purchased only from themeforest(the above
    <script src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
    <script src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
    <!-- END THEME LAYOUT SCRIPTS -->
-   <script>
-       
-   </script>
+   
+   <c:if test="${not empty warningMsg}">
+	    <script>
+	    window.addEventListener("load",function(){
+	         alert("${warningMsg}");
+	    });
+	    </script>
+	</c:if>
+	
 </body>
 
 </html>

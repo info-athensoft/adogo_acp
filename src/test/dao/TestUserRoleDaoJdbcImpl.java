@@ -24,6 +24,7 @@ import test.entity.TestUserRole;
 public class TestUserRoleDaoJdbcImpl implements TestUserRoleDao {
 	
 	private NamedParameterJdbcTemplate jdbc;
+	private final String TABLE = "UAAS_ASSO_USER_ROLE";
 	
 	@Autowired
 	public void setDataSource(DataSource dataSource){
@@ -32,7 +33,17 @@ public class TestUserRoleDaoJdbcImpl implements TestUserRoleDao {
 
 	@Override
 	public ArrayList<Integer> getRoleIdListByAcctId(long acctId) {
-		String sql = "select * from UAAS_ASSO_USER_ROLE where acct_id=:acct_id";
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("g_id, ");
+		sbf.append("acct_id, ");
+		sbf.append("role_id ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE acct_id=:acct_id");
+		String sql = sbf.toString();
+		
+//		String sql = "select * from UAAS_ASSO_USER_ROLE where acct_id=:acct_id";
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acct_id", acctId);
 		List<TestUserRole> x = new ArrayList<TestUserRole>();
