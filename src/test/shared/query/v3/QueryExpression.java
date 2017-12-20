@@ -4,6 +4,16 @@ public class QueryExpression {
 	protected String fieldName;
 	protected String operator;
 	
+	public QueryExpression(){
+		
+	}
+	
+	public QueryExpression(String fieldName, String operator) {
+		super();
+		this.fieldName = fieldName;
+		this.operator = operator;
+	}
+
 	public String toExprString(){
 		return "";
 	}

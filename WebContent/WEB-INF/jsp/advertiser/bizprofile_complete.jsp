@@ -247,51 +247,57 @@
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Facebook</label>
 	                                    <div class="col-md-9">
-	                                    	<input type="text" class="form-control" placeholder="URL of your facebook homepage">
+	                                    	<input type="hidden" id="presenceNo1" value="1"/>
+	                                    	<input type="text" class="form-control" placeholder="URL of your facebook homepage" id="presenceURL1"/>
 	                                    </div>
 	                                 </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">LinkedIn</label>
 	                                    <div class="col-md-9">
-	                                    	<input type="text" class="form-control" placeholder="URL of your LinkedIn homepage">
+	                                    	<input type="hidden" id="presenceNo2" value="2"/>
+	                                    	<input type="text" class="form-control" placeholder="URL of your LinkedIn homepage" id="presenceURL2"/>
 	                                   	</div>
 	                                </div>
 	                                 
 	                             	<div class="form-group">
 	                                	<label class="col-md-3 control-label">Twitter</label>
 	                                    <div class="col-md-9">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Twitter homepage">
+	                                    	<input type="hidden" id="presenceNo3" value="3"/>
+	                                    	<input type="text" class="form-control" placeholder="URL of your Twitter homepage" id="presenceURL3"/>
 	                                    </div>
 	                                </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Youtube</label>
 	                                    <div class="col-md-9">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Youtube homepage">
+	                                    	<input type="hidden" id="presenceNo4" value="4"/>
+	                                    	<input type="text" class="form-control" placeholder="URL of your Youtube homepage" id="presenceURL4"/>
 	                                    </div>
 	                                 </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Instagram</label>
 	                                    <div class="col-md-9">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Instagram homepage">
+	                                    	<input type="hidden" id="presenceNo5" value="5"/>
+	                                    	<input type="text" class="form-control" placeholder="URL of your Instagram homepage" id="presenceURL5"/>
 	                                    </div>
 	                                </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Pinterest</label>
 	                                    <div class="col-md-9">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Pinterest homepage">
+	                                    	<input type="hidden" id="presenceNo6" value="6"/>
+	                                    	<input type="text" class="form-control" placeholder="URL of your Pinterest homepage" id="presenceURL6"/>
 	                                    </div>
 	                                </div>
 	                            </div>
 	                            <div class="form-actions">
 	                                <div class="row">
-	                                    <div class="col-md-offset-3 col-md-4">
-	                                        <button type="submit" class="btn green" onclick="saveBusinessProfile();">Save</button>
-	                                        <button type="submit" class="btn default" onclick="">Skip</button>
-	                                        <button type="button" class="btn default" onclick="cancelBusinessRegistration()">Cancel</button>
+	                                    <div class="col-md-offset-3 col-md-6">
+	                                        <button type="submit" class="btn green" onclick="saveBusinessOnlinePresence();">Save and Complete</button>
+	                                        <button type="submit" class="btn default" onclick="">I'll do it later</button>
+	                                        <button type="button" class="btn default" onclick="">Cancel</button>
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -355,7 +361,7 @@
 <!-- commented by Athens on 2017-11-30 -->
 <!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script> -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-create.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-complete.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.adogo.advertiser.dao.BusinessAddressDao;
-import com.adogo.advertiser.entity.Address;
+import com.adogo.advertiser.entity.BusinessAddress;
 
 @Service
 public class BusinessAddressService {
@@ -27,10 +27,10 @@ public class BusinessAddressService {
 	 * @param bizId
 	 * @return
 	 */
-	public Address getHQAddressByBizId(long bizId){
-		Address hqAddress = null;
+	public BusinessAddress getHQAddressByBizId(long bizId){
+		BusinessAddress hqAddress = null;
 		
-		List<Address> bizAddressList = new ArrayList<Address>();
+		List<BusinessAddress> bizAddressList = new ArrayList<BusinessAddress>();
 		bizAddressList = businessAddressDao.findByBizId(bizId);
 		if(bizAddressList.size()>0){
 			hqAddress = bizAddressList.get(0);
@@ -40,12 +40,12 @@ public class BusinessAddressService {
 	
 	
 	/**
-	 * get all business address
+	 * get all business addresses
 	 * @param bizId
 	 * @return
 	 */
-	public List<Address> getAllAddressByBizId(long bizId){
-		List<Address> bizAddressList = new ArrayList<Address>();
+	public List<BusinessAddress> getBusinessAddressByBizId(long bizId){
+		List<BusinessAddress> bizAddressList = new ArrayList<BusinessAddress>();
 		bizAddressList = businessAddressDao.findByBizId(bizId);
 		return bizAddressList;
 	}

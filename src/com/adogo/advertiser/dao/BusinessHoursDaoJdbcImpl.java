@@ -21,7 +21,7 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 	
 	private static final Logger logger = Logger.getLogger(BusinessHoursDaoJdbcImpl.class);
 	
-	private final String TABLE1 = "BOOTH_BIZ_HOURS";
+	private final String TABLE1 = "BIZ_HOURS";
 	
 	private NamedParameterJdbcTemplate jdbc;
 	

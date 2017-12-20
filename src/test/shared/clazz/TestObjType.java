@@ -8,7 +8,7 @@ public class TestObjType {
 	
 	public static void main(String[] args) {
 		
-		TestObjType obj = new TestObjType();
+		//TestObjType obj = new TestObjType();
 		
 		
 		List<Object> value = new ArrayList<Object>();

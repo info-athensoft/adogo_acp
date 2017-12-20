@@ -102,10 +102,11 @@ function getBusinessObject(){
     var p12 = $("#streetNo").val();
     var p13 = $("#streetType").val();
     var p14 = $("#streetName").val();
-    var p15 = $("#portNo").val();
-    var p16 = $("#cityName").val();
-    var p17 = $("#provName").val();
-    var p18 = $("#postalCode").val();
+    var p15 = $("#portType").val();
+    var p16 = $("#portNo").val();
+    var p17 = $("#cityName").val();
+    var p18 = $("#provName").val();
+    var p19 = $("#postalCode").val();
     
     
     var businessObject =
@@ -124,10 +125,11 @@ function getBusinessObject(){
     		streetNo		:	p12,
     		streetType		:	p13,
     		streetName		:	p14,
-    		portNo			:	p15,
-    		cityName		:	p16,
-    		provName		:	p17,
-    		postalCode		:	p18
+    		portType		:	p15,
+    		portNo			:	p16,
+    		cityName		:	p17,
+    		provName		:	p18,
+    		postalCode		:	p19
     };
     
     return businessObject;

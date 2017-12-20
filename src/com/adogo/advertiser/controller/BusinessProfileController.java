@@ -1,5 +1,6 @@
 package com.adogo.advertiser.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.advertiser.entity.Address;
+import com.adogo.advertiser.entity.BusinessAddress;
+import com.adogo.advertiser.entity.BusinessOnlinePresence;
 import com.adogo.advertiser.entity.BusinessProfile;
 import com.adogo.advertiser.entity.BusinessStatus;
 import com.adogo.advertiser.service.BusinessProfileService;
@@ -34,6 +36,14 @@ public class BusinessProfileController {
 		this.businessProfileService = businessProfileService;
 	}
 	
+	@Autowired
+	private BusinessOnlinePresenceService businessOnlinePresenceService;
+		
+	@Autowired
+	public void setBusinessOnlinePresenceService(BusinessOnlinePresenceService businessOnlinePresenceService) {
+		this.businessOnlinePresenceService = businessOnlinePresenceService;
+	}
+	
 	
 	@RequestMapping("/")
 	public ModelAndView gotoBizProfileIndex(){
@@ -50,8 +60,9 @@ public class BusinessProfileController {
 		
 		//load business profiles
 		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId);
+		
 		//test
-		System.out.println("listBizProfile.size()="+listBizProfile.size());
+//		System.out.println("listBizProfile.size()="+listBizProfile.size());
 		
 		model.put("listBizProfile", listBizProfile);
 		
@@ -85,6 +96,72 @@ public class BusinessProfileController {
 		return mav;
 	}
 	
+	
+	@RequestMapping(value="/complete",method=RequestMethod.POST,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> completeBusinessProfile(@RequestParam String businessProfileJSONString){		
+		logger.info("entering... /advertiser/biz/complete");
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		/* prepare data */		
+		JSONObject jsonObj= new JSONObject(businessProfileJSONString);
+		
+		String bizId		= jsonObj.getString("bizId");
+		String userId		= jsonObj.getString("userId");
+		String advertiserId	= jsonObj.getString("advertiserId");
+		
+		/* populate presence id and url */
+		final int PRESENCE_COUNT = 6;				//TODO HardCode
+		String[] presenceNo = new String[PRESENCE_COUNT];
+		String[] presenceURL = new String[PRESENCE_COUNT];
+		
+		List<BusinessOnlinePresence> bizOnlinePresenceList = new ArrayList<BusinessOnlinePresence>();
+		
+		for(int i =0 ; i<PRESENCE_COUNT; i++){
+			String strNo = "presenceNo"+(i+1);
+			presenceNo[i] = jsonObj.getString(strNo);
+			
+			String strURL = "presenceURL"+(i+1);
+			presenceURL[i] = jsonObj.getString(strURL);
+
+			BusinessOnlinePresence bop = new BusinessOnlinePresence();
+			bop.setBizId(Long.parseLong(bizId));
+			bop.setUserId(Long.parseLong(userId));
+			bop.setAdvertiserId(Long.parseLong(advertiserId));
+			bop.setPresenceNo(Integer.parseInt(presenceNo[i]));
+			bop.setPresenceURL(presenceURL[i]);
+			
+			bizOnlinePresenceList.add(bop);
+		}
+		
+		/*create a new record of BusinessOnlinePresence into master table*/
+		
+//		BusinessProfile businessProfile = new BusinessProfile();
+//		businessProfile.setBizId(Long.parseLong(bizId));
+//		businessProfile.setUserId(Long.parseLong(userId));
+//		businessProfile.setAdvertiserId(Long.parseLong(advertiserId));	
+//			
+//		businessProfile.setBusinessOnlinePresenceList(bizOnlinePresenceList);
+		
+		logger.info(bizOnlinePresenceList.toString());
+		
+		this.businessOnlinePresenceService.saveBusinessOnlinePresence(bizOnlinePresenceList); 
+		
+		/* assemble model and view */
+		//String viewName = "advertiser/bizprofile_complete";	
+        //mav.setViewName(viewName);
+        
+        /* assemble data */
+        Map<String,Object> model = mav.getModel();
+        model.put("bizOnlinePresenceList", bizOnlinePresenceList);
+		
+		logger.info("exiting... /advertiser/biz/complete");
+		return model;
+	}
+	
+	
 	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
 	public Map<String,Object> createBusinessProfile(@RequestParam String businessProfileJSONString){		
@@ -116,6 +193,7 @@ public class BusinessProfileController {
 		String streetNo		= jsonObj.getString("streetNo");
 		String streetType	= jsonObj.getString("streetType");
 		String streetName	= jsonObj.getString("streetName");
+		String portType		= jsonObj.getString("portType");
 		String portNo		= jsonObj.getString("portNo");
 		String cityName		= jsonObj.getString("cityName");
 		String provName		= jsonObj.getString("provName");
@@ -141,15 +219,16 @@ public class BusinessProfileController {
 		businessProfile.setBizDesc(bizDesc);
 		businessProfile.setBizStatus(BusinessStatus.ACTIVE);
 		
-		Address hqAddress = new Address();
+		BusinessAddress hqAddress = new BusinessAddress();
 		hqAddress.setStreetNo(streetNo);
-		hqAddress.setStreetType(Integer.parseInt(streetType));
+		hqAddress.setStreetType(streetType);
 		hqAddress.setStreetName(streetName);
+		hqAddress.setPortType(portType);
 		hqAddress.setPortNo(portNo);
 		hqAddress.setCityName(cityName);
 		hqAddress.setProvName(provName);
 		hqAddress.setPostalCode(postalCode);
-		hqAddress.setAddrType(Address.ADDR_HQ);
+		hqAddress.setLocationType(BusinessAddress.LOC_TYPE_HQ);
 		
 		businessProfile.setHqAddress(hqAddress);
 		

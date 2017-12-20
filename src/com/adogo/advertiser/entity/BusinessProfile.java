@@ -1,6 +1,7 @@
 package com.adogo.advertiser.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class BusinessProfile {
 	private Long 	globalId;
@@ -22,8 +23,11 @@ public class BusinessProfile {
 	private String	bizPhone;
 	private String 	bizFax;
 	private String	bizEmail;
-	private String	bizWebsite;		//website
-	private Address hqAddress;		//headquarters address
+	private String	bizWebsite;				//website
+	
+	private BusinessAddress hqAddress;		//headquarters address
+	
+	private List<BusinessOnlinePresence> bizOnlinePresenceList;	//business online presence
 
 	public Long getGlobalId() {
 		return globalId;
@@ -115,10 +119,10 @@ public class BusinessProfile {
 	public void setBizDesc(String bizDesc) {
 		this.bizDesc = bizDesc;
 	}
-	public Address getHqAddress() {
+	public BusinessAddress getHqAddress() {
 		return hqAddress;
 	}
-	public void setHqAddress(Address hqAddress) {
+	public void setHqAddress(BusinessAddress hqAddress) {
 		this.hqAddress = hqAddress;
 	}
 	public String getBizEmail() {
@@ -155,6 +159,13 @@ public class BusinessProfile {
 				+ ", bizStatus=" + bizStatus + ", bizDesc=" + bizDesc + ", bizPhone=" + bizPhone + ", bizFax=" + bizFax
 				+ ", bizEmail=" + bizEmail + ", bizWebsite=" + bizWebsite + ", hqAddress=" + hqAddress + "]";
 	}
+	public List<BusinessOnlinePresence> getBusinessOnlinePresenceList() {
+		return bizOnlinePresenceList;
+	}
+	public void setBusinessOnlinePresenceList(List<BusinessOnlinePresence> businessOnlinePresenceList) {
+		this.bizOnlinePresenceList = businessOnlinePresenceList;
+	}
+	
 	
 	
 }

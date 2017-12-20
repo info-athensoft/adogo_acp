@@ -25,7 +25,7 @@ function saveBusinessProfile(){
 			//alert(bizId);
 			window.location.href="/acp/advertiser/biz/complete.html?bizId="+bizId;
 			
-			//alert("saveBusinessProfile ajax ok2");
+			alert("saveBusinessProfile ajax ok2");
 		}		
 	});
 }

@@ -5,9 +5,39 @@ import java.util.TreeMap;
 
 public class TestClient {
 	public static void main(String[] args){
-		testQueryExpression();
+		//testQueryExpression();
 		//testOrderbyClause();
 		//testBrace();
+		testQuery();
+	}
+	
+	public static void testQuery(){
+		QueryExpressionFOV1 qe1 = new QueryExpressionFOV1();
+		qe1.setFieldName("biz_id");
+		qe1.setOperator("=");
+		qe1.setValueName("biz_id");
+		qe1.setValue(12345678L);
+		qe1.setValueType(Long.TYPE);
+		
+		QueryExpressionFOV1 qe2 = new QueryExpressionFOV1("biz_name",QueryOperator.GREATER_THAN,"biz_name","Athensoft",String.class);
+		
+				
+		WhereClause whereClause = new WhereClause();
+		whereClause = whereClause.and(qe1).and(qe2);
+		
+		Query qry = new Query(whereClause);
+		System.out.println(qry.getWhereSQL());
+		
+		OrderbyClause orderbyClause = new OrderbyClause();
+		//orderbyClause.orderBy(Arrays.asList("biz_id","biz_name","biz_score"));
+		
+		Map<String,String> orderSequeceMap = new TreeMap<String,String>();
+		orderSequeceMap.put("biz_name", QueryOrder.DESC);
+		orderSequeceMap.put("biz_score", QueryOrder.DESC);
+		orderbyClause.orderBy(orderSequeceMap);
+		
+		Query qry2 = new Query(whereClause, orderbyClause);
+		System.out.println(qry2.getOrderbySQL());
 	}
 	
 	public static void testQueryExpression(){

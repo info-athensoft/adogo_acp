@@ -178,7 +178,7 @@
             <!-- BEGIN ROW 2 -->
             <div class="row">
             	<!-- BEGIN SECTION 1 -->
-            	<div class="col-md-6">
+            	<div class="col-md-8">
             		<div class="portlet light">
 	                    <div class="portlet-title">
 	                         <div class="caption">
@@ -281,10 +281,10 @@
 			                                       <span></span>
 			                                   </label>
 			                                   <label class="mt-checkbox mt-checkbox-outline"> Service
-			                                       <input type="checkbox" value="3" name="businessType" />
+			                                       <input type="checkbox" value="4" name="businessType" />
 			                                       <span></span>
 			                                   </label>
-			                                   <input type="text" class="form-control" placeholder="industryCode" id="bizType">
+			                                   <input type="text" class="form-control" placeholder="Business Type" id="bizType">
 			                               </div>
 	                                    </div>
 	                                </div>
@@ -349,8 +349,16 @@
 			                                          	<option value="11">St.</option>
 	                                        		</select>
 	                                    		</div>
-	                                    		<div class="col-md-6">
+	                                    		<div class="col-md-4">
 	                                    			<input type="text" class="form-control" placeholder="Street name" id="streetName">
+	                                    		</div>
+	                                    		<div class="col-md-2">
+	                                    			<select class="form-control" id="portType">
+			                                          	<option value="1">Port</option>
+			                                          	<option value="2">Suite</option>
+			                                          	<option value="3">Apt</option>
+			                                          	<option value="4">App</option>
+	                                        		</select>
 	                                    		</div>
 	                                    		<div class="col-md-2">
 	                                    			<input type="text" class="form-control" placeholder="Port no." id="portNo">

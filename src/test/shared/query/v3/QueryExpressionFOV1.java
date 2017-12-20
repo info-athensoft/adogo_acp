@@ -6,6 +6,17 @@ public class QueryExpressionFOV1 extends QueryExpression{
 	private Object value;
 	private Class<?> valueType;
 	
+	public QueryExpressionFOV1(){
+		super();
+	}
+	
+	public QueryExpressionFOV1(String fieldName, String operator, String valueName, Object value, Class<?> valueType){
+		super(fieldName,operator);
+		this.valueName = valueName;
+		this.value = value;
+		this.valueType = valueType;
+	}
+	
 	public String toExprString(){
 		return this.getFieldName()+this.getOperator()+":"+this.getValueName();
 	}
