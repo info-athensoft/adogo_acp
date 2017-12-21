@@ -1,4 +1,4 @@
-package com.adogo.advertiser.controller;
+package com.adogo.advertiser.service;
 
 import java.util.List;
 

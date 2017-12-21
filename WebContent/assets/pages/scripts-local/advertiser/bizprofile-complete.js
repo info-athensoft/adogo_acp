@@ -5,9 +5,12 @@
  */
 
 /**/
-function saveBusinessOnlinePresence(){
+function saveBusinessOnlinePresence(event){
 	
 	alert("saveBusinessOnlinePresence()");
+	
+	//here I want to prevent default
+    event.preventDefault();
 	
 	var businessObject = getBusinessOnlinePresenceObject();
 	
@@ -23,7 +26,7 @@ function saveBusinessOnlinePresence(){
 			//var bizId = b.bizId;
 			window.location.href="/acp/advertiser/biz/";
 			
-			alert("saveBusinessProfile ajax ok2");
+			alert("saveBusinessOnlinePresence ajax ok2");
 		},
 		complete:function(){
 			alert("complete saveBusinessOnlinePresence()");
@@ -34,15 +37,10 @@ function saveBusinessOnlinePresence(){
 /* bizProfile - global variables and functions*/
 function getBusinessOnlinePresenceObject(){
 	
-	//var p01 = $("#userId").val();
-	//var p02 = $("#advertiserId").val();
-	//var p03 = $("#bizId").val();
-	
-	
-	//TODO
-	var p01 = "123";					//userId
-	var p02 = "12342343";				//advertiserId
-	var p03 = "2342345612";				//bizId
+	var p01 = $("#userId").val();
+	var p02 = $("#advertiserId").val();
+	var p03 = $("#bizId").val();
+
 	
     var p11 = $("#presenceNo1").val();
     var p12 = $("#presenceURL1").val();
@@ -64,9 +62,9 @@ function getBusinessOnlinePresenceObject(){
     
     var businessObject =
     {
-    		userId			: 	"101001",
-    		advertiserId	: 	"387428374",
-    		bizId			: 	"2423424",
+    		userId			: 	p01,
+    		advertiserId	: 	p02,
+    		bizId			: 	p03,
     		
     		presenceNo1    	:   p11,
     		presenceURL1    :   p12,

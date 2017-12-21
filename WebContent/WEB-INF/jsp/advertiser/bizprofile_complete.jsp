@@ -243,7 +243,10 @@
 	                        <!-- BEGIN FORM-->
 	                        <form action="#" class="form-horizontal">
 	                        	<div class="form-body">
-	                                 
+	                                <input type="hidden" id="userId" value="${bizProfile.userId}"/>
+	                                <input type="hidden" id="advertiserId" value="${bizProfile.advertiserId}"/>
+	                                <input type="hidden" id="bizId" value="${bizProfile.bizId}"/>
+	                                
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Facebook</label>
 	                                    <div class="col-md-9">
@@ -295,7 +298,7 @@
 	                            <div class="form-actions">
 	                                <div class="row">
 	                                    <div class="col-md-offset-3 col-md-6">
-	                                        <button type="submit" class="btn green" onclick="saveBusinessOnlinePresence();">Save and Complete</button>
+	                                        <a class="btn green" onclick="saveBusinessOnlinePresence(event);">Save and Complete</a>
 	                                        <button type="submit" class="btn default" onclick="">I'll do it later</button>
 	                                        <button type="button" class="btn default" onclick="">Cancel</button>
 	                                    </div>
@@ -360,7 +363,7 @@
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <!-- commented by Athens on 2017-11-30 -->
 <!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script> -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
+<!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script> -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-complete.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
@@ -374,33 +377,6 @@
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
 
-function getSubIndustryCode1(){
-	//selectObject=$("#industryCodeLevel1")
-	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
-	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
-	var nextLevelIndex = 2;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-}
-
-
-function getSubIndustryCode2(){
-	var parentCode=$("#industryCodeLevel2").val();  //Select - Value
-	var checkText=$("#industryCodeLevel2").find("option:selected").text();  //Select - Text
-	var nextLevelIndex = 3;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-	
-	//var parentCode=$("#industryCodeLevel2").val();  //Select - Value
-	//alert(checkValue+" : "+checkText);
-}
-
-function getSubIndustryCode3(){
-	var parentCode=$("#industryCodeLevel3").val();  //Select - Value
-	var checkText=$("#industryCodeLevel3").find("option:selected").text();  //Select - Text
-	var nextLevelIndex = 4;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-	
-	//alert(checkValue+" : "+checkText);
-}
 
 </script>
 </body>

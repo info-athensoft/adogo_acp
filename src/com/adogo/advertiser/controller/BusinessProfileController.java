@@ -20,6 +20,7 @@ import com.adogo.advertiser.entity.BusinessAddress;
 import com.adogo.advertiser.entity.BusinessOnlinePresence;
 import com.adogo.advertiser.entity.BusinessProfile;
 import com.adogo.advertiser.entity.BusinessStatus;
+import com.adogo.advertiser.service.BusinessOnlinePresenceService;
 import com.adogo.advertiser.service.BusinessProfileService;
 import com.athensoft.util.id.UUIDHelper;
 
@@ -108,7 +109,11 @@ public class BusinessProfileController {
 		/* prepare data */		
 		JSONObject jsonObj= new JSONObject(businessProfileJSONString);
 		
-		String bizId		= jsonObj.getString("bizId");
+		//test
+		System.out.println("businessProfileJSONString = \n"+businessProfileJSONString);
+		
+		
+		Long bizId		= jsonObj.getLong("bizId");
 		String userId		= jsonObj.getString("userId");
 		String advertiserId	= jsonObj.getString("advertiserId");
 		
@@ -127,7 +132,7 @@ public class BusinessProfileController {
 			presenceURL[i] = jsonObj.getString(strURL);
 
 			BusinessOnlinePresence bop = new BusinessOnlinePresence();
-			bop.setBizId(Long.parseLong(bizId));
+			bop.setBizId(bizId);
 			bop.setUserId(Long.parseLong(userId));
 			bop.setAdvertiserId(Long.parseLong(advertiserId));
 			bop.setPresenceNo(Integer.parseInt(presenceNo[i]));
