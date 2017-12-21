@@ -143,5 +143,9 @@ function getBizTypeValue(){
     return val;
 }
 
+function gotoBizProfileEdit(){
+	alert("gotoBizProfileEdit()");
+}
+
 
 

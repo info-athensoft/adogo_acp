@@ -57,7 +57,8 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
+        <link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
+    </head>
     <!-- END HEAD -->
 
     <body class=" login">

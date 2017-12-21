@@ -53,7 +53,7 @@
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css"id="style_color" />
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
 <!-- END THEME LAYOUT STYLES -->
-<link rel="shortcut icon" href="${webapp_name}/assets/global/plugins/datatables/media/images/favicon.ico"/>
+<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 
@@ -410,8 +410,8 @@
 	                            <div class="form-actions">
 	                                <div class="row">
 	                                    <div class="col-md-offset-3 col-md-4">
-	                                        <button type="submit" class="btn green" onclick="saveBusinessProfile();">Create Business Now</button>
-	                                        <button type="button" class="btn default" onclick="cancelBusinessRegistration()">Cancel</button>
+	                                        <a class="btn green" onclick="saveBusinessProfile(event);">Create Business Now</a>
+	                                        <a class="btn default" onclick="cancelBusinessRegistration(event);">Cancel</a>
 	                                    </div>
 	                                </div>
 	                            </div>
