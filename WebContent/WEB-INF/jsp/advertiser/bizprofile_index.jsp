@@ -268,8 +268,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <span class="caption-helper">managing business</span>
                                     </div>
                                     <div class="actions">
-                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                        	<a href="${web_app}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
+                                        <div class="btn-group btn-group-devided">
+                                        	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
+                                        	<a href="http://www.athensoft.com" class="btn green" id="btnTestEdit">TestEdit</a>
                                         </div>
                                     </div>
                                 </div>

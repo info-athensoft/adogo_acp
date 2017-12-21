@@ -2,6 +2,7 @@ package com.adogo.advertiser.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,8 +21,10 @@ import com.adogo.advertiser.entity.BusinessAddress;
 import com.adogo.advertiser.entity.BusinessOnlinePresence;
 import com.adogo.advertiser.entity.BusinessProfile;
 import com.adogo.advertiser.entity.BusinessStatus;
+import com.adogo.advertiser.entity.IndustryCode;
 import com.adogo.advertiser.service.BusinessOnlinePresenceService;
 import com.adogo.advertiser.service.BusinessProfileService;
+import com.adogo.advertiser.service.IndustryCodeService;
 import com.athensoft.util.id.UUIDHelper;
 
 @Controller
@@ -43,6 +46,14 @@ public class BusinessProfileController {
 	@Autowired
 	public void setBusinessOnlinePresenceService(BusinessOnlinePresenceService businessOnlinePresenceService) {
 		this.businessOnlinePresenceService = businessOnlinePresenceService;
+	}
+	
+	@Autowired
+	private IndustryCodeService industryCodeService;
+		
+	@Autowired
+	public void setIndustryCodeService(IndustryCodeService industryCodeService) {
+		this.industryCodeService = industryCodeService;
 	}
 	
 	
@@ -74,6 +85,31 @@ public class BusinessProfileController {
 		return mav;
 	}
 	
+
+	@RequestMapping("/create.html")
+	public ModelAndView gotoCreateBizProfile(){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		String viewName = "advertiser/advertiser_bizprofile_create";
+		mav.setViewName(viewName);
+		
+		//data
+		final int LEVEL_1 = 1;
+//		final int LEVEL_2 = 2;
+//		final int LEVEL_3 = 3;
+//		final int LEVEL_4 = 4;
+//		final int LEVEL_5 = 5;
+		
+		List<IndustryCode> naicsLevel1 = new ArrayList<IndustryCode>();
+		naicsLevel1 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_1);
+		
+		Map<String,Object> model = mav.getModel();
+		model.put("NAICS_level_1", naicsLevel1);
+		
+		return mav;
+	}
+	
 	
 	@RequestMapping("/complete.html")
 	public ModelAndView gotoBizProfileComplete(@RequestParam long bizId){
@@ -98,7 +134,66 @@ public class BusinessProfileController {
 	}
 	
 	
-	
+	@RequestMapping("/edit.html")
+	public ModelAndView gotoEditBizProfile(@RequestParam long bizId){
+		logger.info("entering... /advertiser/biz/edit.html");
+		
+		//TODO To be passed by parameter
+		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
+		String bizCode = businessProfile.getIndustryCode();
+		
+		//TODO to optimize data load later
+		HashMap<Integer,String> listOfBizCategories=new HashMap<Integer,String>();
+		listOfBizCategories.put(0,"Choose a legal form");
+		listOfBizCategories.put(1,"Solo business - Not registered");
+		listOfBizCategories.put(2,"Solo business - Registered");
+		listOfBizCategories.put(3,"Partnership");
+		listOfBizCategories.put(4,"Corporation, LLC");
+		
+		final int LEVEL_1 = 1;
+		final int LEVEL_2 = 2;
+		final int LEVEL_3 = 3;
+		final int LEVEL_4 = 4;
+//		final int LEVEL_5 = 5;
+		
+		List<IndustryCode> naicsLevel1 = new ArrayList<IndustryCode>();
+		naicsLevel1 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_1);
+		String selectedCodeLevel1 = bizCode.substring(0, 2);
+		
+		List<IndustryCode> naicsLevel2 = new ArrayList<IndustryCode>();
+		naicsLevel2 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_2, bizCode);
+		String selectedCodeLevel2 = bizCode.substring(0, 3);
+		
+		List<IndustryCode> naicsLevel3 = new ArrayList<IndustryCode>();
+		naicsLevel3 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_3, bizCode);
+		String selectedCodeLevel3 = bizCode.substring(0, 4);
+		
+		List<IndustryCode> naicsLevel4 = new ArrayList<IndustryCode>();
+		naicsLevel4 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_4, bizCode);
+		
+		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
+		String viewName = "advertiser/advertiser_bizprofile_edit";
+		mav.setViewName(viewName);
+		
+		/* assemble data */
+		Map<String,Object> model = mav.getModel();
+		model.put("businessProfile", businessProfile);
+		model.put("listOfBizCategories", listOfBizCategories);
+		
+		model.put("NAICS_level_1", naicsLevel1);
+		model.put("NAICS_level_2", naicsLevel2);
+		model.put("NAICS_level_3", naicsLevel3);
+		model.put("NAICS_level_4", naicsLevel4);
+		
+		model.put("selectedCodeLevel1", selectedCodeLevel1);
+		model.put("selectedCodeLevel2", selectedCodeLevel2);
+		model.put("selectedCodeLevel3", selectedCodeLevel3);
+//		model.put("selectedCodeLevel4", selectedCodeLevel4);
+		
+		logger.info("exiting... /advertiser/biz/edit.html");
+		return mav;
+	}
 	
 	
 	@RequestMapping(value="/complete",method=RequestMethod.POST,produces="application/json")
@@ -115,8 +210,7 @@ public class BusinessProfileController {
 		//test
 		System.out.println("businessProfileJSONString = \n"+businessProfileJSONString);
 		
-		
-		Long bizId		= jsonObj.getLong("bizId");
+		Long bizId			= jsonObj.getLong("bizId");
 		String userId		= jsonObj.getString("userId");
 		String advertiserId	= jsonObj.getString("advertiserId");
 		
@@ -143,18 +237,9 @@ public class BusinessProfileController {
 			
 			bizOnlinePresenceList.add(bop);
 		}
-		
-		/*create a new record of BusinessOnlinePresence into master table*/
-		
-//		BusinessProfile businessProfile = new BusinessProfile();
-//		businessProfile.setBizId(Long.parseLong(bizId));
-//		businessProfile.setUserId(Long.parseLong(userId));
-//		businessProfile.setAdvertiserId(Long.parseLong(advertiserId));	
-//			
-//		businessProfile.setBusinessOnlinePresenceList(bizOnlinePresenceList);
-		
 		logger.info(bizOnlinePresenceList.toString());
 		
+		/*create a new record of BusinessOnlinePresence into master table*/
 		this.businessOnlinePresenceService.saveBusinessOnlinePresence(bizOnlinePresenceList); 
 		
 		/* assemble model and view */
@@ -256,21 +341,6 @@ public class BusinessProfileController {
 		return model;
 	}
 	
-	/*
-	@RequestMapping(value="/list",method=RequestMethod.GET)
-	public ModelAndView getBusinessProfileByAdvertiserId(){
-		logger.info("entering... /advertiser/biz/create");
-		
-		// initial settings 
-		ModelAndView mav = new ModelAndView();
-		
-		// assemble model and view 
-		String viewName = "advertiser/advertiser_dashboard";	
-        mav.setViewName(viewName);
-		
-		logger.info("exiting... /advertiser/biz/list");
-		return mav;
-	}*/
 	
 	@RequestMapping(value="/{bizId}",method=RequestMethod.GET)
 	public ModelAndView viewBusinessProfile(@PathVariable long bizId){		

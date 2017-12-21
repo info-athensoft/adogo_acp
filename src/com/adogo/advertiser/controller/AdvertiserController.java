@@ -97,9 +97,6 @@ public class AdvertiserController {
 		logger.info("exiting RESTFUL API... /advertiser/industrycode/sub/");
 		return model;
 	}
-
-
-	
 	
 	@RequestMapping("/")
 	public ModelAndView gotoDashboard(){
@@ -137,97 +134,7 @@ public class AdvertiserController {
 		
 	}
 	
-	@RequestMapping("/biz/register.html")
-	public String gotoRegisiterBiz(){
-		String viewName = "advertiser/advertiser_bizprofile_register";
-		return viewName;
-	}
-	
-	@RequestMapping("/biz/create.html")
-	public ModelAndView gotoCreateBizProfile(){
-		
-		ModelAndView mav = new ModelAndView();
-		
-		String viewName = "advertiser/advertiser_bizprofile_create";
-		mav.setViewName(viewName);
-		
-		//data
-		final int LEVEL_1 = 1;
-//		final int LEVEL_2 = 2;
-//		final int LEVEL_3 = 3;
-//		final int LEVEL_4 = 4;
-//		final int LEVEL_5 = 5;
-		
-		List<IndustryCode> naicsLevel1 = new ArrayList<IndustryCode>();
-		naicsLevel1 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_1);
-		
-		Map<String,Object> model = mav.getModel();
-		model.put("NAICS_level_1", naicsLevel1);
-		
-		return mav;
-	}
-	
-	
-	
-	@RequestMapping("/biz/edit.html")
-	public ModelAndView gotoEditBizProfile(@RequestParam long bizId){
-		logger.info("entering... /advertiser/biz/edit.html");
-		ModelAndView mav = new ModelAndView();
-		String viewName = "advertiser/advertiser_bizprofile_edit";
-		
-		Map<String,Object> model = mav.getModel();
-		
-		//TODO To be passed by parameter
-		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
-		String bizCode = businessProfile.getIndustryCode();
-		
-		model.put("businessProfile", businessProfile);
-		
-		//TODO to optimize data load later
-		HashMap<Integer,String> listOfBizCategories=new HashMap<Integer,String>();
-		listOfBizCategories.put(0,"Choose a legal form");
-		listOfBizCategories.put(1,"Solo business - Not registered");
-		listOfBizCategories.put(2,"Solo business - Registered");
-		listOfBizCategories.put(3,"Partnership");
-		listOfBizCategories.put(4,"Corporation, LLC");
-		model.put("listOfBizCategories", listOfBizCategories);
-		
-		final int LEVEL_1 = 1;
-		final int LEVEL_2 = 2;
-		final int LEVEL_3 = 3;
-		final int LEVEL_4 = 4;
-//		final int LEVEL_5 = 5;
-		
-		List<IndustryCode> naicsLevel1 = new ArrayList<IndustryCode>();
-		naicsLevel1 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_1);
-		String selectedCodeLevel1 = bizCode.substring(0, 2);
-		
-		List<IndustryCode> naicsLevel2 = new ArrayList<IndustryCode>();
-		naicsLevel2 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_2, bizCode);
-		String selectedCodeLevel2 = bizCode.substring(0, 3);
-		
-		List<IndustryCode> naicsLevel3 = new ArrayList<IndustryCode>();
-		naicsLevel3 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_3, bizCode);
-		String selectedCodeLevel3 = bizCode.substring(0, 4);
-		
-		List<IndustryCode> naicsLevel4 = new ArrayList<IndustryCode>();
-		naicsLevel4 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_4, bizCode);
-		
-		model.put("NAICS_level_1", naicsLevel1);
-		model.put("NAICS_level_2", naicsLevel2);
-		model.put("NAICS_level_3", naicsLevel3);
-		model.put("NAICS_level_4", naicsLevel4);
-		
-		model.put("selectedCodeLevel1", selectedCodeLevel1);
-		model.put("selectedCodeLevel2", selectedCodeLevel2);
-		model.put("selectedCodeLevel3", selectedCodeLevel3);
-//		model.put("selectedCodeLevel4", selectedCodeLevel4);
-		
-		mav.setViewName(viewName);
-		logger.info("exiting... /advertiser/biz/edit.html");
-		return mav;
-	}
-	
+
 	/**
 	 * @param bizProfileJSONString
 	 * @return
