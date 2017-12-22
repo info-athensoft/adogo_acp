@@ -4,22 +4,25 @@
  * Page:	advertiser_bizprofile_edit.jsp
  */
 
-/**/
-function test(){
-	alert("test obj ");
-//	alert("obj val = " + obj.val());
-/*	
+//function saveAdvertiserProfile(){
+function saveBusinessProfile(){
+	alert('saveAdvertiserProfile called!');
 	var businessObject = getBusinessObject();
+	
+	//alert("saveAdPost(), adPostLang="+adPostLang);
 	
 	$.ajax({
 		type:"post",
-		url:"/acp/advertiser/biz/create",		//TODO
-		dataType:"html",
-		data: {	businessProfileJSONString : JSON.stringify(businessObject) },
+//		url:"/acp/advertiser/saveAdvertiserProfile",
+		url:"/acp/advertiser/biz/save",
+		dataType:"json",
+		data: {	bizProfileJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
 		success:function(data){	
-			alert("saveBusinessProfile ajax ok");
-			window.location.href="/acp/advertiser/biz/register.html";
 		}		
-	}); */
+	});
+}
+
+function cancelSave(){
+	alert("cancel save business profile");
 }

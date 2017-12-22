@@ -407,15 +407,15 @@
                                         <div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-offset-3 col-md-4">
-                                                    <button type="submit" class="btn green" onclick="saveAdvertiserProfile(); return false;">Submit</button>
-                                                    <button type="button" class="btn default" onclick="cancelAdvertiserApply()">Cancel</button>
+                                                    <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
+                                                    <a class="btn default" onclick="cancelSave();">Cancel</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                     <!-- END FORM-->
                                 </div>
-                                        </div>
+                             </div>
                     		
                     	</div>
                     </div>
@@ -467,7 +467,7 @@
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
 
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
-<!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script> -->
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>

@@ -138,9 +138,14 @@ public class BusinessProfileController {
 	public ModelAndView gotoEditBizProfile(@RequestParam long bizId){
 		logger.info("entering... /advertiser/biz/edit.html");
 		
+		//test
+		logger.info("bizId="+bizId);
+		
 		//TODO To be passed by parameter
 		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
+		
 		String bizCode = businessProfile.getIndustryCode();
+		logger.info("bizCode="+bizCode);
 		
 		//TODO to optimize data load later
 		HashMap<Integer,String> listOfBizCategories=new HashMap<Integer,String>();
