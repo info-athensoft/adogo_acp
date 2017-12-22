@@ -135,54 +135,6 @@ public class AdvertiserController {
 	}
 	
 
-	/**
-	 * @param bizProfileJSONString
-	 * @return
-	 * 
-	 * @author sfz
-	 */
-	@RequestMapping("/saveAdvertiserProfile")
-	public ModelAndView saveAdvertiserProfile(@RequestParam String bizProfileJSONString){		
-		logger.info("entering... /advertiser/biz/saveAdvertiserProfile");
-		
-		/* initial settings */
-		ModelAndView mav = new ModelAndView();
-		
-		/* prepare data */		
-		JSONObject jsonObj= new JSONObject(bizProfileJSONString);
-		
-		String bizName 		= jsonObj.getString("bizName");
-		String bizNo 	= jsonObj.getString("bizNo");
-		String bizOwner		= jsonObj.getString("bizOwner");
-		Integer legalFormNo	= jsonObj.getInt("legalFormNo");
-		String industryCode	= jsonObj.getString("industryCode");
-		Integer businessType 	= jsonObj.getInt("businessType");
-		
-		logger.info("bizName="+bizName);
-		logger.info("bizNo="+bizNo);
-		logger.info("bizOwner="+bizOwner);
-		logger.info("legalFormNo="+legalFormNo);
-		logger.info("industryCode="+industryCode);
-		logger.info("businessType="+businessType);
-		
-		
-		BusinessProfile bp = new BusinessProfile();
-		bp.setBizName(bizName);
-		bp.setBizNo(bizNo);
-		bp.setBizOwner(bizOwner);
-		bp.setLegalFormNo(legalFormNo);
-		bp.setIndustryCode(industryCode);
-		bp.setBizType(businessType);
-		
-				
-		this.businessProfileService.updateBusinessProfile(bp);
-		
-		/* assemble model and view */
-		String viewName = ""; //"/advertiser/biz/edit.html";
-        mav.setViewName(viewName);
-		
-		logger.info("exiting... /advertiser/biz/saveAdvertiserProfile");
-		return mav;
-	}
+	
 	
 }
