@@ -263,12 +263,13 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" legal_form_no = :legal_form_no,");
 		sbf.append(" industry_code = :industry_code,");
 		sbf.append(" biz_type = :biz_type");
-		sbf.append("WHERE 1=1 ");
+		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_id = :biz_id");
 //		sbf.append(" AND biz_no = :biz_no");
 		
 		String sql = sbf.toString();
 		logger.info(sql);
+		logger.info(bp.toString());
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("biz_id", bp.getBizId());

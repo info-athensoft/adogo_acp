@@ -177,8 +177,8 @@
             
             <!-- BEGIN ROW 2 -->
             <div class="row">
-            	<!-- BEGIN SECTION 1 -->
             	<div class="col-md-8">
+            		<!-- BEGIN SECTION 1 -->
             		<div class="portlet light">
 	                    <div class="portlet-title">
 	                         <div class="caption">
@@ -303,12 +303,9 @@
 	                        <!-- END FORM-->
 	                    </div>
                  	</div>
-    		
+            		<!-- END SECTION 1 -->
             	
-            	<!-- END SECTION 1 -->
-            	
-            	<!-- BEGIN SECTION 2 -->
-            	
+            		<!-- BEGIN SECTION 2 -->
             		<div class="portlet light">
             			<div class="portlet-title">
 	                         <div class="caption">
@@ -338,10 +335,10 @@
 	                                    <label class="col-md-3 control-label">Head Office Address</label>
 	                                    <div class="col-md-9">
 	                                    	<div class="row">
-	                                    		<div class="col-md-2">
+	                                    		<div class="col-md-3">
 	                                    			<input type="text" class="form-control" placeholder="Street no." id="streetNo">
 	                                    		</div>
-	                                    		<div class="col-md-2">
+	                                    		<div class="col-md-4">
 	                                    			<select class="form-control" id="streetType">
 			                                          	<option value="21">Rue</option>
 			                                          	<option value="22">Avenue/Av.</option>
@@ -349,10 +346,13 @@
 			                                          	<option value="11">St.</option>
 	                                        		</select>
 	                                    		</div>
-	                                    		<div class="col-md-4">
+	                                    		<div class="col-md-5">
 	                                    			<input type="text" class="form-control" placeholder="Street name" id="streetName">
 	                                    		</div>
-	                                    		<div class="col-md-2">
+	                                    	</div>
+	                                    	<p></p>
+	                                    	<div class="row">
+	                                    		<div class="col-md-3">
 	                                    			<select class="form-control" id="portType">
 			                                          	<option value="1">Port</option>
 			                                          	<option value="2">Suite</option>
@@ -360,7 +360,7 @@
 			                                          	<option value="4">App</option>
 	                                        		</select>
 	                                    		</div>
-	                                    		<div class="col-md-2">
+	                                    		<div class="col-md-3">
 	                                    			<input type="text" class="form-control" placeholder="Port no." id="portNo">
 	                                    		</div>
 	                                    	</div>
@@ -381,35 +381,35 @@
 	                                 
 	                          		<div class="form-group">
 	                                    <label class="col-md-3 control-label">Phone no.</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="Phone no." id="bizPhone">
 	                                    </div>
 	                                 </div>
 	                                 
 	                         		<div class="form-group">
 	                                    <label class="col-md-3 control-label">Fax no.</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="Fax no." id="bizFax">
 	                                    </div>
 	                                 </div>
 	                                 
 	                                 <div class="form-group">
 	                                    <label class="col-md-3 control-label">Email</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="email" id="bizEmail">
 	                                    </div>
 	                                 </div>
 	                                 
 	                             	<div class="form-group">
 	                                    <label class="col-md-3 control-label">Website Address</label>
-	                                    <div class="col-md-4">
+	                                    <div class="col-md-9">
 	                                    	<input type="text" class="form-control" placeholder="URL of your website or home page" id="bizWebsite">
 	                                    </div>
 	                                 </div>
 	                            </div>
 	                            <div class="form-actions">
 	                                <div class="row">
-	                                    <div class="col-md-offset-3 col-md-4">
+	                                    <div class="col-md-offset-3 col-md-7">
 	                                        <a class="btn green" onclick="saveBusinessProfile(event);">Create Business Now</a>
 	                                        <a class="btn default" onclick="cancelBusinessRegistration(event);">Cancel</a>
 	                                    </div>
@@ -421,8 +421,8 @@
                  	
 	                    
             		</div>
+            		<!-- END SECTION 2 -->
             	</div>
-            	<!-- END SECTION 2 -->
             </div>
             <!-- END ROW 2 -->
         </div>

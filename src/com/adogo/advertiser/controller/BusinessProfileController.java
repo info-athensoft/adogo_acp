@@ -364,14 +364,16 @@ public class BusinessProfileController {
 		/* prepare data */		
 		JSONObject jsonObj= new JSONObject(bizProfileJSONString);
 		
+		Long bizId				= jsonObj.getLong("bizId");
 		String bizName 			= jsonObj.getString("bizName");
 		String bizNo 			= jsonObj.getString("bizNo");
 		String bizOwner			= jsonObj.getString("bizOwner");
 		Integer legalFormNo		= jsonObj.getInt("legalFormNo");
 		String industryCode		= jsonObj.getString("industryCode");
-		Integer bizType 	= jsonObj.getInt("bizType");
+		Integer bizType 		= jsonObj.getInt("bizType");
 		
 		BusinessProfile bp = new BusinessProfile();
+		bp.setBizId(bizId);
 		bp.setBizName(bizName);
 		bp.setBizNo(bizNo);
 		bp.setBizOwner(bizOwner);

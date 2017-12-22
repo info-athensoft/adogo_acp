@@ -167,13 +167,13 @@
                     </div>
                     
                     <div class="row">
-                    	<div class="col-md-12">
+                    	<div class="col-md-8">
                     		
-                    		<div class="portlet light ">
+                    		<div class="portlet light">
 	                            <div class="portlet-title">
 	                                <div class="caption">
 	                                    <i class="icon-equalizer font-red-sunglo"></i>
-	                                    <span class="caption-subject font-red-sunglo bold uppercase">Application Form</span>
+	                                    <span class="caption-subject font-red-sunglo bold uppercase">Business Profile</span>
 	                                    <span class="caption-helper">become an advertiser</span>
 	                                </div>
 	                                <div class="actions">
@@ -190,22 +190,21 @@
 	                            </div>
 	                            
                                 <div class="portlet-body form">
-                                    <!-- BEGIN FORM-->
                                     <form action="#" class="form-horizontal">
                                         <div class="form-body">
                                         	<input type="hidden" id="bizId" value="${businessProfile.bizId}"/>
                                         	
                                         	<div class="form-group">
                                                 <label class="col-md-3 control-label">Business ID</label>
-                                                <div class="col-md-4">
-                                                    <input type="text" id="bizName" class="form-control" value="${businessProfile.bizId}" placeholder="Enter text">
+                                                <div class="col-md-9">
+                                                    <input type="text" id="bizId" class="form-control" value="${businessProfile.bizId}" placeholder="Enter text">
                                                     <span class="help-block"> Business ID at Adogo</span>
                                                 </div>
                                             </div>
                                         	
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Name</label>
-                                                <div class="col-md-4">
+                                                <div class="col-md-9">
                                                     <input type="text" id="bizName" class="form-control" value="${businessProfile.getBizName()}" placeholder="Enter text">
                                                     <span class="help-block"> Your legal company name or real business name</span>
                                                 </div>
@@ -213,7 +212,7 @@
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business No.</label>
-                                                <div class="col-md-4">
+                                                <div class="col-md-9">
                                                     <input type="text" id="bizNo" class="form-control" value="${businessProfile.getBizNo()}" placeholder="Enter text">
                                                     <span class="help-block"> Your business no. issued by government</span>
                                                 </div>
@@ -221,17 +220,15 @@
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Owner</label>
-                                                <div class="col-md-4">
+                                                <div class="col-md-9">
                                                     <input type="text" id="bizOwner" class="form-control" value="${businessProfile.getBizOwner()}" placeholder="Business owner">
                                                     <span class="help-block"> Business owner</span>
                                                 </div>
                                             </div>
                                             
-                                            
-                                            
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Legal Form</label>
-                                                <div class="col-md-4">
+                                                <div class="col-md-9">
                                                     <select id="legalFormNo" class="form-control">
                                                     <!-- 	<option value="">Choose a legal form</option>
                                                     	<option value="">Solo business - Not registered</option>
@@ -248,7 +245,7 @@
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Industry Code</label>
-                                                <div class="col-md-4">
+                                                <div class="col-md-9">
                                                     <select class="form-control" id="industryCodeLevel1" onchange="industryCodeOnChange(1);">
                                                     	<option value="">Choose a category for your business</option>
                                                     	<c:forEach items="${NAICS_level_1}" var="item">
@@ -283,20 +280,21 @@
                                             </div>
                                             
                                             <div class="form-group">
-                                            	<c:set var="bizType" value="${businessProfile.getBizType()}" />
+                                            	<input type="hidden" id="bizType" value="${businessProfile.bizType}"/>
                                                 <label class="col-md-3 control-label">Business Type</label>
-                                                <div class="col-md-4">
+                                                <div class="col-md-9">
+                                                	<c:set var="bizTypeValue" value="${businessProfile.getBizType()}" />
                                                     <div class="mt-checkbox-list mt-checkbox-inline">
 			                                            <label class="mt-checkbox mt-checkbox-outline"> Product
-			                                                <input type="checkbox" value="1" class="businessType" name="businessType[]" <c:if test="${bizType==1||bizType==3||bizType==5||bizType==7}">checked</c:if> />
+			                                                <input type="checkbox" value="1" class="businessType" name="businessType[]" <c:if test="${bizTypeValue==1||bizTypeValue==3||bizTypeValue==5||bizTypeValue==7}">checked</c:if> />
 			                                                <span></span>
 			                                            </label>
 			                                            <label class="mt-checkbox mt-checkbox-outline"> e-Product
-			                                                <input type="checkbox" value="2" class="businessType" name="businessType[]" <c:if test="${bizType==2||bizType==3||bizType==6||bizType==7}">checked</c:if> />
+			                                                <input type="checkbox" value="2" class="businessType" name="businessType[]" <c:if test="${bizTypeValue==2||bizTypeValue==3||bizTypeValue==6||bizTypeValue==7}">checked</c:if> />
 			                                                <span></span>
 			                                            </label>
 			                                            <label class="mt-checkbox mt-checkbox-outline"> Service
-			                                                <input type="checkbox" value="4" class="businessType" name="businessType[]" <c:if test="${bizType==4||bizType==5||bizType==6||bizType==7}">checked</c:if> />
+			                                                <input type="checkbox" value="4" class="businessType" name="businessType[]" <c:if test="${bizTypeValue==4||bizTypeValue==5||bizTypeValue==6||bizTypeValue==7}">checked</c:if> />
 			                                                <span></span>
 			                                            </label>
 			                                        </div>
@@ -305,12 +303,48 @@
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Description</label>
-                                                <div class="col-md-4">
+                                                <div class="col-md-9">
                                                     <input type="text" id="bizDesc" class="form-control" value="${businessProfile.getBizDesc()}" placeholder="Brief description of your business">
                                                     <span class="help-block"> Your business description</span>
                                                 </div>
                                             </div>
-                                            
+                                           
+                                            </div>                                                        
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-4">
+                                                    <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
+                                                    <a class="btn default" onclick="cancelSave();">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                            	</div>
+                        	</div>
+                        	
+                        	<div class="portlet light">
+                        		<div class="portlet-title">
+	                                <div class="caption">
+	                                    <i class="icon-equalizer font-red-sunglo"></i>
+	                                    <span class="caption-subject font-red-sunglo bold uppercase">Contact Info.</span>
+	                                    <span class="caption-helper">...</span>
+	                                </div>
+	                                <div class="actions">
+	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                        <i class="icon-cloud-upload"></i>
+	                                    </a>
+	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                        <i class="icon-wrench"></i>
+	                                    </a>
+	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                        <i class="icon-trash"></i>
+	                                    </a>
+	                                </div>
+	                            </div>
+	                            
+	                            <div class="portlet-body form">
+                                    <form action="#" class="form-horizontal">
+                                    	<div class="form-body">
 	                               			 <div class="form-group">
 	                                               <label class="col-md-3 control-label">Head Office Address</label>
 	                                               <div class="col-md-9">
@@ -369,6 +403,42 @@
 	                                                </div>
 	                                            </div>
 	                                            
+                                            </div> 
+                                    	<div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-4">
+                                                    <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
+                                                    <a class="btn default" onclick="cancelSave();">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+	                            
+                        	</div>
+                        	
+                        	<div class="portlet light">
+                        		<div class="portlet-title">
+	                                <div class="caption">
+	                                    <i class="icon-equalizer font-red-sunglo"></i>
+	                                    <span class="caption-subject font-red-sunglo bold uppercase">Online Presence</span>
+	                                    <span class="caption-helper">...</span>
+	                                </div>
+	                                <div class="actions">
+	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                        <i class="icon-cloud-upload"></i>
+	                                    </a>
+	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                        <i class="icon-wrench"></i>
+	                                    </a>
+	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                        <i class="icon-trash"></i>
+	                                    </a>
+	                                </div>
+	                            </div>
+                        		 <div class="portlet-body form">
+                                    <form action="#" class="form-horizontal">
+                                    	<div class="form-body">
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Facebook</label>
 	                                                <div class="col-md-4">
@@ -410,11 +480,8 @@
 	                                                    <input type="text" class="form-control" placeholder="URL of your Pinterest homepage">
 	                                                </div>
 	                                            </div>
-                                             
-                                            </div>                                                        
-                                            
-                                        </div>
-                                        <div class="form-actions">
+                                            </div> 
+                                    	<div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-offset-3 col-md-4">
                                                     <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
@@ -423,14 +490,11 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <!-- END FORM-->
                                 </div>
-                             </div>
-                    		
-                    	</div>
+                        	</div>
+                        </div>
                     </div>
-                    
-                  
+                </div>
                 </div>
                 <!-- END CONTENT BODY -->
             </div>

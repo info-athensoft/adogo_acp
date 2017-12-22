@@ -9,6 +9,8 @@ function getBusinessProfileEditObject(){
 	
 	alert("getBusinessProfileEditObject()");
 	
+	var p01 = $("#bizId").val();
+	
     var p1 = $("#bizName").val();
     var p2 = $("#bizNo").val();
     var p3 = $("#bizOwner").val();
@@ -33,6 +35,7 @@ function getBusinessProfileEditObject(){
     
     var businessObject =
     {
+    		bizId    		:   p01,
     		bizName    		:   p1,
     		bizNo    		:   p2,
     		bizOwner    	:   p3,

@@ -73,7 +73,7 @@
 								View Business</a>
 							</li>
 							<li class="nav-item">
-								<a href="/acp/advertiser/biz/register.html"  class="nav-link nav-toggle">
+								<a href="/acp/advertiser/biz/create.html"  class="nav-link nav-toggle">
 								<i class="icon-pencil"></i>
 								Register my Business</a>
 							</li>
