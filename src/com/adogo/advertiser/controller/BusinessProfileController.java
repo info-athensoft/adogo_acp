@@ -112,7 +112,7 @@ public class BusinessProfileController {
 	
 	
 	@RequestMapping("/complete.html")
-	public ModelAndView gotoBizProfileComplete(@RequestParam long bizId){
+	public ModelAndView gotoCompleteBizProfile(@RequestParam long bizId){
 		logger.info("entering... /advertiser/biz/complete.html");
 		
 		/* initial settings */
@@ -203,7 +203,7 @@ public class BusinessProfileController {
 	
 	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
 		@ResponseBody
-		public Map<String,Object> createBusinessProfile(@RequestParam String businessProfileJSONString){		
+		public Map<String,Object> createBizProfile(@RequestParam String businessProfileJSONString){		
 			logger.info("entering... /advertiser/biz/create");
 			
 			/* initial settings */
@@ -290,7 +290,7 @@ public class BusinessProfileController {
 
 	@RequestMapping(value="/complete",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> completeBusinessProfile(@RequestParam String businessProfileJSONString){		
+	public Map<String,Object> completeBizProfile(@RequestParam String businessProfileJSONString){		
 		logger.info("entering... /advertiser/biz/complete");
 		
 		/* initial settings */
@@ -355,7 +355,7 @@ public class BusinessProfileController {
 	 * @author sfz
 	 */
 	@RequestMapping("/save")
-	public ModelAndView saveBusinessProfile(@RequestParam String bizProfileJSONString){		
+	public ModelAndView saveBizProfile(@RequestParam String bizProfileJSONString){		
 		logger.info("entering... /advertiser/biz/save");
 		
 		/* initial settings */
@@ -369,7 +369,7 @@ public class BusinessProfileController {
 		String bizOwner			= jsonObj.getString("bizOwner");
 		Integer legalFormNo		= jsonObj.getInt("legalFormNo");
 		String industryCode		= jsonObj.getString("industryCode");
-		Integer businessType 	= jsonObj.getInt("businessType");
+		Integer bizType 	= jsonObj.getInt("bizType");
 		
 		BusinessProfile bp = new BusinessProfile();
 		bp.setBizName(bizName);
@@ -377,7 +377,7 @@ public class BusinessProfileController {
 		bp.setBizOwner(bizOwner);
 		bp.setLegalFormNo(legalFormNo);
 		bp.setIndustryCode(industryCode);
-		bp.setBizType(businessType);
+		bp.setBizType(bizType);
 				
 		this.businessProfileService.updateBusinessProfile(bp);
 		

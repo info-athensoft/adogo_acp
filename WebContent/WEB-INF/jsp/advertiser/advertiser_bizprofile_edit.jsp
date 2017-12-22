@@ -141,8 +141,8 @@
                                     <div class="caption">
                                         <i class="fa fa-shopping-cart"></i>Edit Business Profile <span class="caption-helper">keep my business profile accurate and up-to-date</span></div>
                                     <div class="actions">
-                                        <a href="eventsNewsCreate" class="btn btn-circle btn-info">
-                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Create news </span>
+                                        <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
+                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Save Business Profile </span>
                                         </a>
                                         <div class="btn-group">
                                             <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
@@ -193,6 +193,16 @@
                                     <!-- BEGIN FORM-->
                                     <form action="#" class="form-horizontal">
                                         <div class="form-body">
+                                        	<input type="hidden" id="bizId" value="${businessProfile.bizId}"/>
+                                        	
+                                        	<div class="form-group">
+                                                <label class="col-md-3 control-label">Business ID</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" id="bizName" class="form-control" value="${businessProfile.bizId}" placeholder="Enter text">
+                                                    <span class="help-block"> Business ID at Adogo</span>
+                                                </div>
+                                            </div>
+                                        	
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Name</label>
                                                 <div class="col-md-4">
@@ -479,114 +489,7 @@
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
 <script>
-function test(){
-	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
-	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
-	//alert(checkValue+" : "+checkText);
-	getSubIndustryCode(parentCode);
-}
 
-function industryCodeOnChange(level){
-	//alert("industryCodeOnChange(level)");
-	//var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
-	var parentCode=$("#industryCodeLevel"+level).val();  //Select - Value
-	$("#industryCode").val(parentCode);
-	//alert(parentCode+" : "+parentCode);
-	if (level<4) {
-		$.ajax({
-			type:"GET",
-			url: "/acp/advertiser/industrycode/class/"+parentCode,		//TODO
-			//url: "/acp/advertiser/industrycode",		 //working
-			dataType:'json',
-			//data: {	parentIndustryCode : parentCode },
-			timeout : 10000,
-			//beforeSend: function() { alert('beforeSend'); },		
-			//complete: function() { alert('completed'); },
-			success:function(data){	
-				var listIndustryCode = data.listIndustryCode;
-				var $el = $("#industryCodeLevel"+(level+1));
-				$el.empty();
-				//Choose sub category for your business
-				$el.append($("<option></option>")
-		       	   .attr("value", "").text("Choose sub category for your business"));
-				listIndustryCode.forEach(function(indCode, index) {
-					//alert("IndustryCode.name:"+indCode.industryName);
-					$el.append($("<option></option>")
-				       .attr("value", indCode.industryCode).text(indCode.industryCode + " " + indCode.industryName));
-					});
-				//reset the rest levels
-				for (i=level+2; i <= 4; i++) { 
-					$("#industryCodeLevel"+i).find('option:first').attr("value", "").text("--/--");
-					$("#industryCodeLevel"+i).find('option').not(':first').remove();
-				} 
-			}		
-		});
-	}
-}
-
-function setBizTypeValue(){
-	var val = 0;
-    $('input.businessType:checkbox:checked').each(function(i){
-      val += parseInt($(this).val());
-    });
-    $('#businessType').val(val);
-}
-
-function showCategoryList(){
-	//alert("ok");
-	//$("#boothCategoryList").show();
-	//$("#boothCategoryChooser").html("&nbsp;&nbsp;&nbsp;Collpase&nbsp;&nbsp;&nbsp;");
-	
-	$.ajax({
-		type:"GET",
-		url:"/acp/advertiser/categoryChooseClick",
-		dataType:"json",
-		//data: { },
-		timeout : 5000,
-		success:function(data){	
-			//alert('return successfully!'+ data.categoryList.length);
-			var list = data.categoryList;
-			var $el = $("#boothCategorySelection");
-			//$el.empty();
-//			$el.append($("<option></option>")
-//	       	   .attr("value", "").text("Choose the category"));
-			list.forEach(function(cat, index) {
-				//alert("IndustryCode.name:"+indCode.industryName);
-				$el.append($("<option></option>")
-			       .attr("value", cat.industryCode).text(cat.industryCode + " : " + cat.industryName));
-				});
-			
-			$("#boothCategoryDiv").toggle(
-					function() {
-				    	$("#boothCategoryChooser").text("Collpase");
-					},
-					function() {
-					    $("#boothCategoryChooser").html("&nbsp;&nbsp;&nbsp;&nbsp;Choose&nbsp;&nbsp;&nbsp;&nbsp;");
-					}
-				);
-		}		
-	});
-	
-	
-}
-
-function boothCategorySelectionOnchange(sel) {
-	var sv = sel.options[sel.selectedIndex].value;
-	var st = sel.options[sel.selectedIndex].text;
-	//alert('value:'+sv+' text:'+st);
-	$('#categoryNo').val(st);
-	$("#boothCategoryDiv").hide();
-}
-
-$(document).ready(function(){
-	$("#boothCategoryDiv").hide();
-	
-	//init
-//	$("#boothCategoryList").html(
-//			"1,1,1,1<br/>1,1,1,1<br/>"
-//	);
-			
-});
 
 </script>
 </body>

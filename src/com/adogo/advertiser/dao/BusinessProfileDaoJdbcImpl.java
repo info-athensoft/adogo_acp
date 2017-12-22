@@ -244,6 +244,14 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 	}
 	
 	//TODO
+	/* (non-Javadoc)
+	 * 
+	 * reviewed by Athens on 2017-12-21
+	 * 
+	 * @see com.adogo.advertiser.dao.BusinessProfileDao#update(com.adogo.advertiser.entity.BusinessProfile)
+	 * 
+	 * @author sfz
+	 */
 	@Override
 	public int update(BusinessProfile bp) {
 		
@@ -256,13 +264,14 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" industry_code = :industry_code,");
 		sbf.append(" biz_type = :biz_type");
 		sbf.append("WHERE 1=1 ");
-		sbf.append(" AND biz_no = :biz_no");
+		sbf.append(" AND biz_id = :biz_id");
+//		sbf.append(" AND biz_no = :biz_no");
 		
 		String sql = sbf.toString();
 		logger.info(sql);
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("biz_no", bp.getBizNo());
+		paramSource.addValue("biz_id", bp.getBizId());
 		paramSource.addValue("biz_name", bp.getBizName());
 		paramSource.addValue("biz_owner", bp.getBizOwner());
 		paramSource.addValue("legal_form_no", bp.getLegalFormNo());
