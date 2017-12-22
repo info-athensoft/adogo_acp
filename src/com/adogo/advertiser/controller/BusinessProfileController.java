@@ -138,9 +138,14 @@ public class BusinessProfileController {
 	public ModelAndView gotoEditBizProfile(@RequestParam long bizId){
 		logger.info("entering... /advertiser/biz/edit.html");
 		
+		//test
+		logger.info("bizId="+bizId);
+		
 		//TODO To be passed by parameter
 		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
+		
 		String bizCode = businessProfile.getIndustryCode();
+		logger.info("bizCode="+bizCode);
 		
 		//TODO to optimize data load later
 		HashMap<Integer,String> listOfBizCategories=new HashMap<Integer,String>();
@@ -196,6 +201,93 @@ public class BusinessProfileController {
 	}
 	
 	
+	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
+		@ResponseBody
+		public Map<String,Object> createBusinessProfile(@RequestParam String businessProfileJSONString){		
+			logger.info("entering... /advertiser/biz/create");
+			
+			/* initial settings */
+			ModelAndView mav = new ModelAndView();
+			
+			/* prepare data */		
+			JSONObject jsonObj= new JSONObject(businessProfileJSONString);
+			
+			//TODO Hard Code 
+			String advertiserId = "1712010001";
+			
+	//		String advertiserId	= jsonObj.getString("advertiserId");		
+			Long bizId			= UUIDHelper.getUniqueLongIdUUID();
+			String bizName 		= jsonObj.getString("bizName");
+			String bizNo		= jsonObj.getString("bizNo");
+			String bizOwner		= jsonObj.getString("bizOwner");
+			String legalFormNo	= jsonObj.getString("legalFormNo");
+			String industryCode	= jsonObj.getString("industryCode");
+			String bizType		= jsonObj.getString("bizType");
+			String bizPhone		= jsonObj.getString("bizPhone");
+			String bizFax		= jsonObj.getString("bizFax");
+			String bizEmail		= jsonObj.getString("bizEmail");
+			String bizWebsite	= jsonObj.getString("bizWebsite");
+			String bizDesc		= jsonObj.getString("bizDesc");
+			
+			String streetNo		= jsonObj.getString("streetNo");
+			String streetType	= jsonObj.getString("streetType");
+			String streetName	= jsonObj.getString("streetName");
+			String portType		= jsonObj.getString("portType");
+			String portNo		= jsonObj.getString("portNo");
+			String cityName		= jsonObj.getString("cityName");
+			String provName		= jsonObj.getString("provName");
+			String postalCode	= jsonObj.getString("postalCode");
+			
+			/*create a new record of BusinessHours into master table*/
+			BusinessProfile businessProfile = new BusinessProfile();
+			businessProfile.setAdvertiserId(Long.parseLong(advertiserId));		//TODO
+			businessProfile.setBizId(bizId);
+			businessProfile.setBizName(bizName);
+			businessProfile.setBizNo(bizNo);
+			businessProfile.setBizOwner(bizOwner);
+			businessProfile.setLegalFormNo(Integer.parseInt(legalFormNo));		//TODO
+			businessProfile.setIndustryCode(industryCode);
+			if(bizType==null || (bizType.trim()).equals("")) {bizType="0";}
+			businessProfile.setBizType(Integer.parseInt(bizType));
+			businessProfile.setBizPhone(bizPhone);
+			businessProfile.setBizFax(bizFax);
+			businessProfile.setBizEmail(bizEmail);
+			businessProfile.setBizWebsite(bizWebsite);
+			businessProfile.setCreateDate(new Date());							//TODO
+			businessProfile.setEstablishDate(new Date());						//TODO
+			businessProfile.setBizDesc(bizDesc);
+			businessProfile.setBizStatus(BusinessStatus.ACTIVE);
+			
+			BusinessAddress hqAddress = new BusinessAddress();
+			hqAddress.setStreetNo(streetNo);
+			hqAddress.setStreetType(streetType);
+			hqAddress.setStreetName(streetName);
+			hqAddress.setPortType(portType);
+			hqAddress.setPortNo(portNo);
+			hqAddress.setCityName(cityName);
+			hqAddress.setProvName(provName);
+			hqAddress.setPostalCode(postalCode);
+			hqAddress.setLocationType(BusinessAddress.LOC_TYPE_HQ);
+			
+			businessProfile.setHqAddress(hqAddress);
+			
+			logger.info(businessProfile.toString());
+			
+			this.businessProfileService.saveBusinessProfile(businessProfile); 
+			
+			/* assemble model and view */
+			//String viewName = "advertiser/bizprofile_complete";	
+	        //mav.setViewName(viewName);
+	        
+	        /* assemble data */
+	        Map<String,Object> model = mav.getModel();
+	        model.put("businessProfile", businessProfile);
+			
+			logger.info("exiting... /advertiser/biz/create");
+			return model;
+		}
+
+
 	@RequestMapping(value="/complete",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
 	public Map<String,Object> completeBusinessProfile(@RequestParam String businessProfileJSONString){		
@@ -254,91 +346,47 @@ public class BusinessProfileController {
 		return model;
 	}
 	
-	
-	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
-	@ResponseBody
-	public Map<String,Object> createBusinessProfile(@RequestParam String businessProfileJSONString){		
-		logger.info("entering... /advertiser/biz/create");
+	/**
+	 * old url: @RequestMapping("/saveAdvertiserProfile")
+	 * old method: public ModelAndView saveAdvertiserProfile(@RequestParam String bizProfileJSONString){
+	 * @param bizProfileJSONString
+	 * @return
+	 * 
+	 * @author sfz
+	 */
+	@RequestMapping("/save")
+	public ModelAndView saveBusinessProfile(@RequestParam String bizProfileJSONString){		
+		logger.info("entering... /advertiser/biz/save");
 		
 		/* initial settings */
 		ModelAndView mav = new ModelAndView();
 		
 		/* prepare data */		
-		JSONObject jsonObj= new JSONObject(businessProfileJSONString);
+		JSONObject jsonObj= new JSONObject(bizProfileJSONString);
 		
-		//TODO Hard Code 
-		String advertiserId = "1712010001";
+		String bizName 			= jsonObj.getString("bizName");
+		String bizNo 			= jsonObj.getString("bizNo");
+		String bizOwner			= jsonObj.getString("bizOwner");
+		Integer legalFormNo		= jsonObj.getInt("legalFormNo");
+		String industryCode		= jsonObj.getString("industryCode");
+		Integer businessType 	= jsonObj.getInt("businessType");
 		
-//		String advertiserId	= jsonObj.getString("advertiserId");		
-		Long bizId			= UUIDHelper.getUniqueLongIdUUID();
-		String bizName 		= jsonObj.getString("bizName");
-		String bizNo		= jsonObj.getString("bizNo");
-		String bizOwner		= jsonObj.getString("bizOwner");
-		String legalFormNo	= jsonObj.getString("legalFormNo");
-		String industryCode	= jsonObj.getString("industryCode");
-		String bizType		= jsonObj.getString("bizType");
-		String bizPhone		= jsonObj.getString("bizPhone");
-		String bizFax		= jsonObj.getString("bizFax");
-		String bizEmail		= jsonObj.getString("bizEmail");
-		String bizWebsite	= jsonObj.getString("bizWebsite");
-		String bizDesc		= jsonObj.getString("bizDesc");
-		
-		String streetNo		= jsonObj.getString("streetNo");
-		String streetType	= jsonObj.getString("streetType");
-		String streetName	= jsonObj.getString("streetName");
-		String portType		= jsonObj.getString("portType");
-		String portNo		= jsonObj.getString("portNo");
-		String cityName		= jsonObj.getString("cityName");
-		String provName		= jsonObj.getString("provName");
-		String postalCode	= jsonObj.getString("postalCode");
-		
-		/*create a new record of BusinessHours into master table*/
-		BusinessProfile businessProfile = new BusinessProfile();
-		businessProfile.setAdvertiserId(Long.parseLong(advertiserId));		//TODO
-		businessProfile.setBizId(bizId);
-		businessProfile.setBizName(bizName);
-		businessProfile.setBizNo(bizNo);
-		businessProfile.setBizOwner(bizOwner);
-		businessProfile.setLegalFormNo(Integer.parseInt(legalFormNo));		//TODO
-		businessProfile.setIndustryCode(industryCode);
-		if(bizType==null || (bizType.trim()).equals("")) {bizType="0";}
-		businessProfile.setBizType(Integer.parseInt(bizType));
-		businessProfile.setBizPhone(bizPhone);
-		businessProfile.setBizFax(bizFax);
-		businessProfile.setBizEmail(bizEmail);
-		businessProfile.setBizWebsite(bizWebsite);
-		businessProfile.setCreateDate(new Date());							//TODO
-		businessProfile.setEstablishDate(new Date());						//TODO
-		businessProfile.setBizDesc(bizDesc);
-		businessProfile.setBizStatus(BusinessStatus.ACTIVE);
-		
-		BusinessAddress hqAddress = new BusinessAddress();
-		hqAddress.setStreetNo(streetNo);
-		hqAddress.setStreetType(streetType);
-		hqAddress.setStreetName(streetName);
-		hqAddress.setPortType(portType);
-		hqAddress.setPortNo(portNo);
-		hqAddress.setCityName(cityName);
-		hqAddress.setProvName(provName);
-		hqAddress.setPostalCode(postalCode);
-		hqAddress.setLocationType(BusinessAddress.LOC_TYPE_HQ);
-		
-		businessProfile.setHqAddress(hqAddress);
-		
-		logger.info(businessProfile.toString());
-		
-		this.businessProfileService.saveBusinessProfile(businessProfile); 
+		BusinessProfile bp = new BusinessProfile();
+		bp.setBizName(bizName);
+		bp.setBizNo(bizNo);
+		bp.setBizOwner(bizOwner);
+		bp.setLegalFormNo(legalFormNo);
+		bp.setIndustryCode(industryCode);
+		bp.setBizType(businessType);
+				
+		this.businessProfileService.updateBusinessProfile(bp);
 		
 		/* assemble model and view */
-		//String viewName = "advertiser/bizprofile_complete";	
-        //mav.setViewName(viewName);
-        
-        /* assemble data */
-        Map<String,Object> model = mav.getModel();
-        model.put("businessProfile", businessProfile);
+		String viewName = ""; //"/advertiser/biz/edit.html";
+        mav.setViewName(viewName);
 		
-		logger.info("exiting... /advertiser/biz/create");
-		return model;
+		logger.info("exiting... /advertiser/biz/save");
+		return mav;
 	}
 	
 	

@@ -242,33 +242,31 @@
                                                     <select class="form-control" id="industryCodeLevel1" onchange="industryCodeOnChange(1);">
                                                     	<option value="">Choose a category for your business</option>
                                                     	<c:forEach items="${NAICS_level_1}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${businessProfile.isSubIndustrySelected(item.getIndustryCode(),1)}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel1}">selected="selected"</c:if>>${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel2" onchange="industryCodeOnChange(2);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_2}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${businessProfile.isSubIndustrySelected(item.getIndustryCode(),2)}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel2}">selected="selected"</c:if>>${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel3" onchange="industryCodeOnChange(3);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_3}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${businessProfile.isSubIndustrySelected(item.getIndustryCode(),3)}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==selectedCodeLevel3}">selected="selected"</c:if>>${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
-                                                    <select class="form-control" id="industryCodeLevel4" onchange="industryCodeOnChange(4);">
+                                                    <select class="form-control" id="industryCodeLevel4">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_4}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==businessProfile.getIndustryCode()}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==businessProfile.getIndustryCode()}">selected="selected"</c:if>>${item.getIndustryName()}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <span class="help-block"> Select the industry code for your business </span>
-			                                        <p></p>
-			                                        <input type="text" class="form-control" value="${businessProfile.getIndustryCode()}" placeholder="industryCode" id="industryCode" />
                                                 </div>
                                             </div>
                                             
@@ -296,7 +294,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Description</label>
                                                 <div class="col-md-4">
-                                                    <input type="text" id="bizDesc" class="form-control" value="${businessProfile.getBizDesc()}" placeholder="Brief description of your business">
+                                                    <input type="text" class="form-control" placeholder="Brief description of your business">
                                                     <span class="help-block"> Your business description</span>
                                                 </div>
                                             </div>
@@ -407,15 +405,15 @@
                                         <div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-offset-3 col-md-4">
-                                                    <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
-                                                    <a class="btn default" onclick="cancelSave();">Cancel</a>
+                                                    <button type="submit" class="btn green" onclick="saveAdvertiserProfile();">Submit</button>
+                                                    <button type="button" class="btn default" onclick="cancelAdvertiserApply()">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                     <!-- END FORM-->
                                 </div>
-                             </div>
+                                        </div>
                     		
                     	</div>
                     </div>
@@ -467,7 +465,7 @@
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
 
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script>
+<!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script> -->
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -487,41 +485,37 @@ function test(){
 }
 
 function industryCodeOnChange(level){
-	//alert("industryCodeOnChange(level)");
+	alert("industryCodeOnChange(level)");
 	//var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
 	var parentCode=$("#industryCodeLevel"+level).val();  //Select - Value
-	$("#industryCode").val(parentCode);
-	//alert(parentCode+" : "+parentCode);
-	if (level<4) {
-		$.ajax({
-			type:"GET",
-			url: "/acp/advertiser/industrycode/class/"+parentCode,		//TODO
-			//url: "/acp/advertiser/industrycode",		 //working
-			dataType:'json',
-			//data: {	parentIndustryCode : parentCode },
-			timeout : 10000,
-			//beforeSend: function() { alert('beforeSend'); },		
-			//complete: function() { alert('completed'); },
-			success:function(data){	
-				var listIndustryCode = data.listIndustryCode;
-				var $el = $("#industryCodeLevel"+(level+1));
-				$el.empty();
-				//Choose sub category for your business
+	alert(parentCode+" : "+checkText);
+	$.ajax({
+		type:"GET",
+		url: "/acp/advertiser/industrycode/class/"+parentCode,		//TODO
+		//url: "/acp/advertiser/industrycode",		 //working
+		dataType:'json',
+		//data: {	parentIndustryCode : parentCode },
+		timeout : 10000,
+		beforeSend: function() { alert('beforeSend'); },		
+		complete: function() { alert('completed'); },
+		success:function(data){	
+			var listIndustryCode = data.listIndustryCode;
+			var $el = $("#industryCodeLevel"+(level+1));
+			$el.empty();
+			//Choose sub category for your business
+			$el.append($("<option></option>")
+	       	   .attr("value", "").text("Choose sub category for your business"));
+			listIndustryCode.forEach(function(indCode, index) {
+				//alert("IndustryCode.name:"+indCode.industryName);
 				$el.append($("<option></option>")
-		       	   .attr("value", "").text("Choose sub category for your business"));
-				listIndustryCode.forEach(function(indCode, index) {
-					//alert("IndustryCode.name:"+indCode.industryName);
-					$el.append($("<option></option>")
-				       .attr("value", indCode.industryCode).text(indCode.industryCode + " " + indCode.industryName));
-					});
-				//reset the rest levels
-				for (i=level+2; i <= 4; i++) { 
-					$("#industryCodeLevel"+i).find('option:first').attr("value", "").text("--/--");
-					$("#industryCodeLevel"+i).find('option').not(':first').remove();
-				} 
-			}		
-		});
-	}
+			       .attr("value", indCode.industryCode).text(indCode.industryName));
+				});
+			//reset the rest levels
+			for (i=level+2; i <= 4; i++) { 
+				$("#industryCodeLevel"+i).find('option').not(':first').remove();
+			} 
+		}		
+	});
 }
 
 function setBizTypeValue(){
@@ -531,62 +525,6 @@ function setBizTypeValue(){
     });
     $('#businessType').val(val);
 }
-
-function showCategoryList(){
-	//alert("ok");
-	//$("#boothCategoryList").show();
-	//$("#boothCategoryChooser").html("&nbsp;&nbsp;&nbsp;Collpase&nbsp;&nbsp;&nbsp;");
-	
-	$.ajax({
-		type:"GET",
-		url:"/acp/advertiser/categoryChooseClick",
-		dataType:"json",
-		//data: { },
-		timeout : 5000,
-		success:function(data){	
-			//alert('return successfully!'+ data.categoryList.length);
-			var list = data.categoryList;
-			var $el = $("#boothCategorySelection");
-			//$el.empty();
-//			$el.append($("<option></option>")
-//	       	   .attr("value", "").text("Choose the category"));
-			list.forEach(function(cat, index) {
-				//alert("IndustryCode.name:"+indCode.industryName);
-				$el.append($("<option></option>")
-			       .attr("value", cat.industryCode).text(cat.industryCode + " : " + cat.industryName));
-				});
-			
-			$("#boothCategoryDiv").toggle(
-					function() {
-				    	$("#boothCategoryChooser").text("Collpase");
-					},
-					function() {
-					    $("#boothCategoryChooser").html("&nbsp;&nbsp;&nbsp;&nbsp;Choose&nbsp;&nbsp;&nbsp;&nbsp;");
-					}
-				);
-		}		
-	});
-	
-	
-}
-
-function boothCategorySelectionOnchange(sel) {
-	var sv = sel.options[sel.selectedIndex].value;
-	var st = sel.options[sel.selectedIndex].text;
-	//alert('value:'+sv+' text:'+st);
-	$('#categoryNo').val(st);
-	$("#boothCategoryDiv").hide();
-}
-
-$(document).ready(function(){
-	$("#boothCategoryDiv").hide();
-	
-	//init
-//	$("#boothCategoryList").html(
-//			"1,1,1,1<br/>1,1,1,1<br/>"
-//	);
-			
-});
 
 </script>
 </body>
