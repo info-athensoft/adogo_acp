@@ -205,7 +205,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Name</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="bizName" class="form-control" value="${businessProfile.getBizName()}" placeholder="Enter text">
+                                                    <input type="text" id="bizName" class="form-control" value="${businessProfile.bizName}" placeholder="Enter text">
                                                     <span class="help-block"> Your legal company name or real business name</span>
                                                 </div>
                                             </div>
@@ -213,7 +213,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business No.</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="bizNo" class="form-control" value="${businessProfile.getBizNo()}" placeholder="Enter text">
+                                                    <input type="text" id="bizNo" class="form-control" value="${businessProfile.bizNo}" placeholder="Enter text">
                                                     <span class="help-block"> Your business no. issued by government</span>
                                                 </div>
                                             </div>
@@ -221,7 +221,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Owner</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="bizOwner" class="form-control" value="${businessProfile.getBizOwner()}" placeholder="Business owner">
+                                                    <input type="text" id="bizOwner" class="form-control" value="${businessProfile.bizOwner}" placeholder="Business owner">
                                                     <span class="help-block"> Business owner</span>
                                                 </div>
                                             </div>
@@ -236,7 +236,7 @@
                                                     	<option value="">Partnership</option>
                                                     	<option value="">Corporation, LLC</option>  -->
                                                     	<c:forEach var="category" items="${listOfBizCategories}">
-															<option value="${category.getKey()}" <c:if test="${category.getKey()==businessProfile.getLegalFormNo()}">selected="selected"</c:if>>${category.getValue()}</option>
+															<option value="${category.getKey()}" <c:if test="${category.getKey()==businessProfile.legalFormNo}">selected="selected"</c:if>>${category.getValue()}</option>
 														</c:forEach>
                                                     </select>
                                                     <span class="help-block"> The legal form of your business</span>
@@ -249,33 +249,33 @@
                                                     <select class="form-control" id="industryCodeLevel1" onchange="industryCodeOnChange(1);">
                                                     	<option value="">Choose a category for your business</option>
                                                     	<c:forEach items="${NAICS_level_1}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${businessProfile.isSubIndustrySelected(item.getIndustryCode(),1)}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.industryCode}" <c:if test="${industryCodeObj.isSubIndustrySelected(businessProfile.industryCode,item.industryCode,1)}">selected="selected"</c:if>>${item.industryCode} : ${item.industryName}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel2" onchange="industryCodeOnChange(2);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_2}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${businessProfile.isSubIndustrySelected(item.getIndustryCode(),2)}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.industryCode}" <c:if test="${industryCodeObj.isSubIndustrySelected(businessProfile.industryCode,item.industryCode,2)}">selected="selected"</c:if>>${item.industryCode} : ${item.industryName}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel3" onchange="industryCodeOnChange(3);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_3}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${businessProfile.isSubIndustrySelected(item.getIndustryCode(),3)}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.industryCode}" <c:if test="${industryCodeObj.isSubIndustrySelected(businessProfile.industryCode,item.industryCode,3)}">selected="selected"</c:if>>${item.industryCode} : ${item.industryName}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <p></p>
                                                     <select class="form-control" id="industryCodeLevel4" onchange="industryCodeOnChange(4);">
                                                     	<option value="">Choose sub category for your business</option>
                                                     	<c:forEach items="${NAICS_level_4}" var="item">
-                                                    		<option value="${item.getIndustryCode()}" <c:if test="${item.getIndustryCode()==businessProfile.getIndustryCode()}">selected="selected"</c:if>>${item.getIndustryCode()} ${item.getIndustryName()}</option>
+                                                    		<option value="${item.industryCode}" <c:if test="${item.industryCode==businessProfile.industryCode}">selected="selected"</c:if>>${item.industryCode} : ${item.industryName}</option>
                                                     	</c:forEach>
                                                     </select>
                                                     <span class="help-block"> Select the industry code for your business </span>
 			                                        <p></p>
-			                                        <input type="text" class="form-control" value="${businessProfile.getIndustryCode()}" placeholder="industryCode" id="industryCode" />
+			                                        <input type="text" class="form-control" value="${businessProfile.industryCode}" placeholder="industryCode" id="industryCode" />
                                                 </div>
                                             </div>
                                             

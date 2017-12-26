@@ -143,6 +143,7 @@ public class BusinessProfileController {
 		
 		//TODO To be passed by parameter
 		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
+		IndustryCode industryCodeObj = new IndustryCode();
 		
 		String bizCode = businessProfile.getIndustryCode();
 		logger.info("bizCode="+bizCode);
@@ -184,6 +185,7 @@ public class BusinessProfileController {
 		/* assemble data */
 		Map<String,Object> model = mav.getModel();
 		model.put("businessProfile", businessProfile);
+		model.put("industryCodeObj", industryCodeObj);
 		model.put("listOfBizCategories", listOfBizCategories);
 		
 		model.put("NAICS_level_1", naicsLevel1);
