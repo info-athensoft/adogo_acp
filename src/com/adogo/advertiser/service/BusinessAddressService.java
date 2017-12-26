@@ -50,6 +50,12 @@ public class BusinessAddressService {
 		return bizAddressList;
 	}
 
-
+	public void updateBusinessAddress(BusinessAddress ba){
+		businessAddressDao.update(ba);
+	}
+	
+	public void createBusinessAddress(BusinessAddress ba){
+		businessAddressDao.create(ba);
+	}
 	
 }

@@ -6,7 +6,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.adogo.advertiser.dao.BusinessAddressDao;
 import com.adogo.advertiser.dao.BusinessProfileDao;
 import com.adogo.advertiser.entity.BusinessProfile;
 
@@ -21,6 +23,14 @@ public class BusinessProfileService {
 	@Qualifier("businessProfileDaoJdbcImpl")
 	public void setBusinessProfileDao(BusinessProfileDao businessProfileDao) {
 		this.businessProfileDao = businessProfileDao;
+	}
+	
+	private BusinessAddressDao businessAddressDao;
+
+	@Autowired
+	@Qualifier("businessAddressDaoJdbcImpl")
+	public void setBusinessAddressDao(BusinessAddressDao businessAddressDao) {
+		this.businessAddressDao = businessAddressDao;
 	}
 	
 	public List<BusinessProfile> getBusinessProfileByUserId(long userId){
@@ -43,9 +53,11 @@ public class BusinessProfileService {
 		businessProfileDao.update(bp);
 	}
 	
+	@Transactional
 	public void saveBusinessProfile(BusinessProfile bp){
 		logger.info("enter saveBusinessProfile(BusinessProfile bp)");
 		businessProfileDao.create(bp);
+		businessAddressDao.create(bp.getHqAddress());
 		logger.info("exit saveBusinessProfile(BusinessProfile bp)");
 	}
 }

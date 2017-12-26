@@ -63,7 +63,7 @@ function getBusinessProfileEditObject(){
 
 //function saveAdvertiserProfile(){
 function saveBusinessProfile(){
-	alert('saveAdvertiserProfile called!');
+//	alert('saveAdvertiserProfile called!');
 	var businessObject = getBusinessProfileEditObject();
 	
 	//alert("saveAdPost(), adPostLang="+adPostLang);
@@ -75,7 +75,11 @@ function saveBusinessProfile(){
 		dataType:"json",
 		data: {	bizProfileJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
-		success:function(data){	
+		success:function(data){
+			var bizProfile = data.bizProfile;
+			var bizId = bizProfile.bizId;
+			alert("saved BusinessProfile!");
+			window.location.href="/acp/advertiser/biz/?bizId="+bizId;
 		}		
 	});
 }

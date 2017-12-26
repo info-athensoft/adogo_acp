@@ -262,6 +262,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" biz_owner = :biz_owner,");
 		sbf.append(" legal_form_no = :legal_form_no,");
 		sbf.append(" industry_code = :industry_code,");
+		sbf.append(" biz_desc = :biz_desc,");
 		sbf.append(" biz_type = :biz_type");
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_id = :biz_id");
@@ -277,6 +278,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		paramSource.addValue("biz_owner", bp.getBizOwner());
 		paramSource.addValue("legal_form_no", bp.getLegalFormNo());
 		paramSource.addValue("industry_code", bp.getIndustryCode());
+		paramSource.addValue("biz_desc", bp.getBizDesc());
 		paramSource.addValue("biz_type", bp.getBizType());
 		return jdbc.update(sql,paramSource);
 	}

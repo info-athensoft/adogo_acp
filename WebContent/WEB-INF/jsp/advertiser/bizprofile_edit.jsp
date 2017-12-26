@@ -15,7 +15,6 @@
 <!--[if !IE]><!-->
 <html lang="en">
     <!--<![endif]-->
-    <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
         <title>Adogo | Business Profile - Editing</title>
@@ -51,12 +50,11 @@
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css"id="style_color" />
+        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color"/>
         <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
     </head>
-    <!-- END HEAD -->
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->
@@ -349,34 +347,45 @@
 	                                               <label class="col-md-3 control-label">Head Office Address</label>
 	                                               <div class="col-md-9">
 	                                               	<div class="row">
-	                                               		<div class="col-md-2">
-	                                               			<input type="text" class="form-control" placeholder="Street no.">
+	                                               		<div class="col-md-3">
+	                                               			<input type="text" class="form-control" placeholder="Street no." id="streetNo" value="${hqAddress.streetNo}">
 	                                               		</div>
-	                                               		<div class="col-md-2">
-	                                               			<select class="form-control">
-		                                                    	<option value="">Rue</option>
-		                                                    	<option value="">Avenue/Av.</option>
-		                                                    	<option value="">Boulevard/Blvd.</option>
-		                                                    	<option value="">St.</option>
+	                                               		<div class="col-md-4">
+	                                               			<select class="form-control" id="streetType">
+		                                                    	<option value="21">Rue</option>
+		                                                    	<option value="22">Avenue/Av.</option>
+		                                                    	<option value="23">Boulevard/Blvd.</option>
+		                                                    	<option value="11">St.</option>
 	                                                   		</select>
 	                                               		</div>
-	                                               		<div class="col-md-6">
-	                                               			<input type="text" class="form-control" placeholder="Street name">
+	                                               		<div class="col-md-5">
+	                                               			<input type="text" class="form-control" placeholder="Street name" id="streetName" value="${hqAddress.streetName}">
 	                                               		</div>
-	                                               		<div class="col-md-2">
-	                                               			<input type="text" class="form-control" placeholder="Port no.">
+	                                               	</div>
+	                                               	<p></p>
+	                                               	<div class="row">
+	                                               		<div class="col-md-3">
+			                                    			<select class="form-control" id="portType">
+					                                          	<option value="1">Port</option>
+					                                          	<option value="2">Suite</option>
+					                                          	<option value="3">Apt</option>
+					                                          	<option value="4">App</option>
+			                                        		</select>
+			                                    		</div>
+	                                               		<div class="col-md-3">
+	                                               			<input type="text" class="form-control" placeholder="Port no." id="portNo" value="${hqAddress.portNo}">
 	                                               		</div>
 	                                               	</div>
 	                                               	<p></p>
 	                                               	<div class="row">
 	                                               		<div class="col-md-4">
-	                                               			<input type="text" class="form-control" placeholder="City">
+	                                               			<input type="text" class="form-control" placeholder="City" id="cityName"  value="${hqAddress.cityName}">
 	                                               		</div>
 	                                               		<div class="col-md-4">
-	                                               			<input type="text" class="form-control" placeholder="Province">
+	                                               			<input type="text" class="form-control" placeholder="Province" id="provName"  value="${hqAddress.provName}">
 	                                               		</div>
 	                                               		<div class="col-md-4">
-	                                               			<input type="text" class="form-control" placeholder="Postal code">
+	                                               			<input type="text" class="form-control" placeholder="Postal code" id="postalCode"  value="${hqAddress.postalCode}">
 	                                               		</div>
 	                                               	</div>
 	                                               </div>

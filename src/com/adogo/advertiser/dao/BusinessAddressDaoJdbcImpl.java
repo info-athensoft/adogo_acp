@@ -59,14 +59,15 @@ public class BusinessAddressDaoJdbcImpl implements BusinessAddressDao {
 		sbf.append("loc_city_no, ");
 		sbf.append("loc_distriction, ");
 		sbf.append("loc_distriction_no, ");
-		sbf.append("street_no");
-		sbf.append("street_type");
-		sbf.append("street_name");
-		sbf.append("port_type");
-		sbf.append("port_no");
-		sbf.append("addr_line1");
-		sbf.append("addr_line2");
-		sbf.append("loc_status");
+		sbf.append("street_no, ");
+		sbf.append("street_type, ");
+		sbf.append("street_name, ");
+		sbf.append("port_type, ");
+		sbf.append("port_no, ");
+		sbf.append("addr_line1, ");
+		sbf.append("addr_line2, ");
+		sbf.append("postal_code, ");
+		sbf.append("loc_status, ");
 		sbf.append("loc_comment ");
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
@@ -86,15 +87,81 @@ public class BusinessAddressDaoJdbcImpl implements BusinessAddressDao {
 	}
 
 	@Override
-	public int create(BusinessAddress addr) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int create(BusinessAddress ba) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("INSERT INTO ").append(TABLE).append(" (");
+		sbf.append("biz_id,");
+		sbf.append("street_no,");
+		sbf.append("street_type,");
+		sbf.append("street_name,");
+		sbf.append("port_type,");
+		sbf.append("port_no,");
+		sbf.append("loc_city,");
+		sbf.append("loc_prov,");
+		sbf.append("postal_code,");
+		sbf.append("loc_type");
+		sbf.append(")");
+		sbf.append(" VALUES(");
+		sbf.append(":biz_id,");
+		sbf.append(":street_no,");
+		sbf.append(":street_type,");
+		sbf.append(":street_name,");
+		sbf.append(":port_type,");
+		sbf.append(":port_no,");
+		sbf.append(":loc_city,");
+		sbf.append(":loc_prov,");
+		sbf.append(":postal_code,");
+		sbf.append(":loc_type");
+		sbf.append(")");
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("street_no", ba.getStreetNo());
+		paramSource.addValue("street_type",ba.getStreetType());
+		paramSource.addValue("street_name",ba.getStreetName());
+		paramSource.addValue("port_type",ba.getPortType());
+		paramSource.addValue("port_no",ba.getPortNo());
+		paramSource.addValue("loc_city",ba.getCityName());
+		paramSource.addValue("loc_prov",ba.getProvName());
+		paramSource.addValue("postal_code",ba.getPostalCode());
+		
+		paramSource.addValue("biz_id", ba.getBizId());
+		paramSource.addValue("loc_type", ba.getLocationType());
+		return jdbc.update(sql,paramSource);
 	}
 
 	@Override
-	public int update(BusinessAddress addr) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int update(BusinessAddress ba) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE ").append(TABLE).append(" SET ");
+		sbf.append("street_no=:street_no,");
+		sbf.append("street_type=:street_type,");
+		sbf.append("street_name=:street_name,");
+		sbf.append("port_type=:port_type,");
+		sbf.append("port_no=:port_no,");
+		sbf.append("loc_city=:loc_city,");
+		sbf.append("loc_prov=:loc_prov");
+		sbf.append(" WHERE 1=1");
+		sbf.append(" AND biz_id=:biz_id");
+		sbf.append(" AND loc_type=:loc_type");
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("street_no", ba.getStreetNo());
+		paramSource.addValue("street_type",ba.getStreetType());
+		paramSource.addValue("street_name",ba.getStreetName());
+		paramSource.addValue("port_type",ba.getPortType());
+		paramSource.addValue("port_no",ba.getPortNo());
+		paramSource.addValue("loc_city",ba.getCityName());
+		paramSource.addValue("loc_prov",ba.getProvName());
+		
+		paramSource.addValue("biz_id", ba.getBizId());
+		paramSource.addValue("loc_type", ba.getLocationType());
+		return jdbc.update(sql,paramSource);
 	}
 	
 	private static class BusinessAddressRowMapper implements RowMapper<BusinessAddress>{
@@ -105,6 +172,17 @@ public class BusinessAddressDaoJdbcImpl implements BusinessAddressDao {
 			x.setBizId(rs.getLong("biz_id"));
 			x.setBoothId(rs.getLong("booth_id"));
 			x.setLangNo(rs.getInt("lang_no"));
+			
+			x.setStreetNo(rs.getString("street_no"));
+			x.setStreetType(rs.getString("street_type"));
+			x.setStreetName(rs.getString("street_name"));
+			x.setPortType(rs.getString("port_type"));
+			x.setPortNo(rs.getString("port_no"));
+			x.setCityName(rs.getString("loc_city"));
+			x.setProvName(rs.getString("loc_prov"));
+			x.setPostalCode(rs.getString("postal_code"));
+			
+			x.setLocationType(rs.getInt("loc_type"));
 			
 	        return x;
 		}		

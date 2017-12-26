@@ -22,6 +22,7 @@ import com.adogo.advertiser.entity.BusinessOnlinePresence;
 import com.adogo.advertiser.entity.BusinessProfile;
 import com.adogo.advertiser.entity.BusinessStatus;
 import com.adogo.advertiser.entity.IndustryCode;
+import com.adogo.advertiser.service.BusinessAddressService;
 import com.adogo.advertiser.service.BusinessOnlinePresenceService;
 import com.adogo.advertiser.service.BusinessProfileService;
 import com.adogo.advertiser.service.IndustryCodeService;
@@ -38,6 +39,14 @@ public class BusinessProfileController {
 	@Autowired
 	public void setBusinessProfilesService(BusinessProfileService businessProfileService) {
 		this.businessProfileService = businessProfileService;
+	}
+	
+	@Autowired
+	private BusinessAddressService businessAddressService;
+		
+	@Autowired
+	public void setBusinessAddressService(BusinessAddressService businessAddressService) {
+		this.businessAddressService = businessAddressService;
 	}
 	
 	@Autowired
@@ -91,7 +100,7 @@ public class BusinessProfileController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		String viewName = "advertiser/advertiser_bizprofile_create";
+		String viewName = "advertiser/bizprofile_create";
 		mav.setViewName(viewName);
 		
 		//data
@@ -141,8 +150,9 @@ public class BusinessProfileController {
 		//test
 		logger.info("bizId="+bizId);
 		
-		//TODO To be passed by parameter
+		//
 		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
+		BusinessAddress hqAddress = this.businessAddressService.getHQAddressByBizId(bizId);
 		IndustryCode industryCodeObj = new IndustryCode();
 		
 		String bizCode = businessProfile.getIndustryCode();
@@ -179,12 +189,14 @@ public class BusinessProfileController {
 		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
-		String viewName = "advertiser/advertiser_bizprofile_edit";
+		String viewName = "advertiser/bizprofile_edit";
 		mav.setViewName(viewName);
 		
 		/* assemble data */
 		Map<String,Object> model = mav.getModel();
 		model.put("businessProfile", businessProfile);
+		model.put("hqAddress", hqAddress);
+		
 		model.put("industryCodeObj", industryCodeObj);
 		model.put("listOfBizCategories", listOfBizCategories);
 		
@@ -261,6 +273,7 @@ public class BusinessProfileController {
 			businessProfile.setBizStatus(BusinessStatus.ACTIVE);
 			
 			BusinessAddress hqAddress = new BusinessAddress();
+			hqAddress.setBizId(bizId);
 			hqAddress.setStreetNo(streetNo);
 			hqAddress.setStreetType(streetType);
 			hqAddress.setStreetName(streetName);
@@ -275,7 +288,8 @@ public class BusinessProfileController {
 			
 			logger.info(businessProfile.toString());
 			
-			this.businessProfileService.saveBusinessProfile(businessProfile); 
+			this.businessProfileService.saveBusinessProfile(businessProfile);
+			//this.businessAddressService.createBusinessAddress(hqAddress);
 			
 			/* assemble model and view */
 			//String viewName = "advertiser/bizprofile_complete";	
@@ -356,16 +370,15 @@ public class BusinessProfileController {
 	 * 
 	 * @author sfz
 	 */
-	@RequestMapping("/save")
-	public ModelAndView saveBizProfile(@RequestParam String bizProfileJSONString){		
+	@RequestMapping(value="/save",method=RequestMethod.POST,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> saveBizProfile(@RequestParam String bizProfileJSONString){		
 		logger.info("entering... /advertiser/biz/save");
-		
-		/* initial settings */
-		ModelAndView mav = new ModelAndView();
 		
 		/* prepare data */		
 		JSONObject jsonObj= new JSONObject(bizProfileJSONString);
 		
+		//biz profile
 		Long bizId				= jsonObj.getLong("bizId");
 		String bizName 			= jsonObj.getString("bizName");
 		String bizNo 			= jsonObj.getString("bizNo");
@@ -373,6 +386,17 @@ public class BusinessProfileController {
 		Integer legalFormNo		= jsonObj.getInt("legalFormNo");
 		String industryCode		= jsonObj.getString("industryCode");
 		Integer bizType 		= jsonObj.getInt("bizType");
+		String bizDesc			= jsonObj.getString("bizDesc");
+		
+		//contact info
+		String streetNo		= jsonObj.getString("streetNo");
+		String streetType	= jsonObj.getString("streetType");
+		String streetName	= jsonObj.getString("streetName");
+		String portType		= jsonObj.getString("portType");
+		String portNo		= jsonObj.getString("portNo");
+		String cityName		= jsonObj.getString("cityName");
+		String provName		= jsonObj.getString("provName");
+		String postalCode	= jsonObj.getString("postalCode");
 		
 		BusinessProfile bp = new BusinessProfile();
 		bp.setBizId(bizId);
@@ -382,15 +406,37 @@ public class BusinessProfileController {
 		bp.setLegalFormNo(legalFormNo);
 		bp.setIndustryCode(industryCode);
 		bp.setBizType(bizType);
-				
+		bp.setBizDesc(bizDesc);
+		
+		BusinessAddress ba = new BusinessAddress();
+		ba.setBizId(bizId);
+		ba.setStreetNo(streetNo);
+		ba.setStreetType(streetType);
+		ba.setStreetName(streetName);
+		ba.setPortType(portType);
+		ba.setPortNo(portNo);
+		ba.setCityName(cityName);
+		ba.setProvName(provName);
+		ba.setPostalCode(postalCode);
+		ba.setLocationType(BusinessAddress.LOC_TYPE_HQ);
+		
+		//
 		this.businessProfileService.updateBusinessProfile(bp);
+		this.businessAddressService.updateBusinessAddress(ba);
+		
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
 		
 		/* assemble model and view */
-		String viewName = ""; //"/advertiser/biz/edit.html";
-        mav.setViewName(viewName);
+		//String viewName = ""; //"/advertiser/biz/edit.html";
+        //mav.setViewName(viewName);
+		
+		Map<String,Object> model = mav.getModel();
+		model.put("bizProfile", bp);
 		
 		logger.info("exiting... /advertiser/biz/save");
-		return mav;
+		return model;
 	}
 	
 	
@@ -403,7 +449,7 @@ public class BusinessProfileController {
 		
 		
 		/* assemble model and view */
-		String viewName = "advertiser/advertiser_bizprofile_view";	
+		String viewName = "advertiser/bizprofile_view";	
         mav.setViewName(viewName);
         
 		logger.info("entering... /advertiser/biz/{bizId}"+bizId);
