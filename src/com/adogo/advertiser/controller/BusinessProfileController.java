@@ -153,6 +153,27 @@ public class BusinessProfileController {
 		//
 		BusinessProfile businessProfile = this.businessProfileService.getBusinessProfileByBizId(bizId);
 		BusinessAddress hqAddress = this.businessAddressService.getHQAddressByBizId(bizId);
+		List<BusinessOnlinePresence> onlinePresenceList = this.businessOnlinePresenceService.getBusinessPresenceByBizId(bizId);
+		
+		//test
+		logger.info("onlinePresenceList.size()="+onlinePresenceList.size());
+		
+		Map<String,String> presenceURLMap = new HashMap<String,String>();
+		
+		for(BusinessOnlinePresence bop : onlinePresenceList){
+			
+			//test
+			logger.info("@ edit.html");
+			logger.info(bop.toString());
+			
+			int index = bop.getPresenceNo();
+			String prefixURL = "presenceURL";
+			String key = prefixURL+index;
+			String value = bop.getPresenceURL();
+			presenceURLMap.put(key, value);
+		}
+		
+		
 		IndustryCode industryCodeObj = new IndustryCode();
 		
 		String bizCode = businessProfile.getIndustryCode();
@@ -196,6 +217,13 @@ public class BusinessProfileController {
 		Map<String,Object> model = mav.getModel();
 		model.put("businessProfile", businessProfile);
 		model.put("hqAddress", hqAddress);
+		
+		model.put("presenceURL1", presenceURLMap.get("presenceURL1"));
+		model.put("presenceURL2", presenceURLMap.get("presenceURL2"));
+		model.put("presenceURL3", presenceURLMap.get("presenceURL3"));
+		model.put("presenceURL4", presenceURLMap.get("presenceURL4"));
+		model.put("presenceURL5", presenceURLMap.get("presenceURL5"));
+		model.put("presenceURL6", presenceURLMap.get("presenceURL6"));
 		
 		model.put("industryCodeObj", industryCodeObj);
 		model.put("listOfBizCategories", listOfBizCategories);
@@ -316,7 +344,7 @@ public class BusinessProfileController {
 		JSONObject jsonObj= new JSONObject(businessProfileJSONString);
 		
 		//test
-		System.out.println("businessProfileJSONString = \n"+businessProfileJSONString);
+		logger.info("businessProfileJSONString = \n"+businessProfileJSONString);
 		
 		Long bizId			= jsonObj.getLong("bizId");
 		String userId		= jsonObj.getString("userId");
@@ -342,13 +370,14 @@ public class BusinessProfileController {
 			bop.setAdvertiserId(Long.parseLong(advertiserId));
 			bop.setPresenceNo(Integer.parseInt(presenceNo[i]));
 			bop.setPresenceURL(presenceURL[i]);
+			bop.setPresenceStatus(BusinessOnlinePresence.ACTIVE);
 			
 			bizOnlinePresenceList.add(bop);
 		}
 		logger.info(bizOnlinePresenceList.toString());
 		
 		/*create a new record of BusinessOnlinePresence into master table*/
-		this.businessOnlinePresenceService.saveBusinessOnlinePresence(bizOnlinePresenceList); 
+		this.businessOnlinePresenceService.createBusinessOnlinePresence(bizOnlinePresenceList); 
 		
 		/* assemble model and view */
 		//String viewName = "advertiser/bizprofile_complete";	
@@ -398,6 +427,17 @@ public class BusinessProfileController {
 		String provName		= jsonObj.getString("provName");
 		String postalCode	= jsonObj.getString("postalCode");
 		
+		//biz online presence
+		final int OLP_COUNT = 6;
+		int[] presenceNo 		= new int[OLP_COUNT];
+		String[] presenceURL 	= new String[OLP_COUNT];
+		for(int i=0; i<OLP_COUNT; i++){
+			String pno 		= jsonObj.getString("presenceNo"+(i+1));
+			presenceNo[i]	= Integer.parseInt(pno);
+			//presenceNo[i]	= i+1;
+			presenceURL[i] 	= jsonObj.getString("presenceURL"+(i+1));
+		}
+		
 		BusinessProfile bp = new BusinessProfile();
 		bp.setBizId(bizId);
 		bp.setBizName(bizName);
@@ -420,9 +460,25 @@ public class BusinessProfileController {
 		ba.setPostalCode(postalCode);
 		ba.setLocationType(BusinessAddress.LOC_TYPE_HQ);
 		
+		List<BusinessOnlinePresence> bopList = new ArrayList<BusinessOnlinePresence>();
+		
+		for(int i=0; i<OLP_COUNT; i++){
+			BusinessOnlinePresence bop = new BusinessOnlinePresence();
+			bop.setBizId(bizId);
+			bop.setPresenceNo(presenceNo[i]);
+			bop.setPresenceURL(presenceURL[i]);
+			bopList.add(bop);
+			
+			//test
+			System.out.println(bop.toString());
+			
+			bop = null;
+		}
+		
 		//
 		this.businessProfileService.updateBusinessProfile(bp);
 		this.businessAddressService.updateBusinessAddress(ba);
+		this.businessOnlinePresenceService.updateBusinessPresence(bopList);
 		
 		
 		/* initial settings */

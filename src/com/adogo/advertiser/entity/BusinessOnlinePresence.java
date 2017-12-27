@@ -1,6 +1,18 @@
 package com.adogo.advertiser.entity;
 
 public class BusinessOnlinePresence {
+	
+	public static final int Facebook =	1;
+	public static final int LinkedIn =	2;
+	public static final int Twitter =	3;
+	public static final int Youtube =	4;
+	public static final int Instagram =	5;
+	public static final int Pinterest =	6;
+	
+	public static final int ACTIVE =	1;
+	public static final int INACTIVE =	2;
+	
+	
 	private Long 	globalId;
 	private Long	userId;
 	private Long	advertiserId;

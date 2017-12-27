@@ -32,6 +32,23 @@ function getBusinessProfileEditObject(){
     var p18 = $("#provName").val();
     var p19 = $("#postalCode").val();
     
+    var p31 = $("#presenceNo1").val();
+    var p32 = $("#presenceURL1").val();
+    
+    var p33 = $("#presenceNo2").val();
+    var p34 = $("#presenceURL2").val();
+    
+    var p35 = $("#presenceNo3").val();
+    var p36 = $("#presenceURL3").val();
+    
+    var p37 = $("#presenceNo4").val();
+    var p38 = $("#presenceURL4").val();
+    
+    var p39 = $("#presenceNo5").val();
+    var p40 = $("#presenceURL5").val();
+    
+    var p41 = $("#presenceNo6").val();
+    var p42 = $("#presenceURL6").val();
     
     var businessObject =
     {
@@ -54,8 +71,24 @@ function getBusinessProfileEditObject(){
     		portNo			:	p16,
     		cityName		:	p17,
     		provName		:	p18,
-    		postalCode		:	p19
+    		postalCode		:	p19,
+    		
+    		presenceNo1		:	p31,
+    		presenceURL1	:	p32,
+    		presenceNo2		:	p33,
+    		presenceURL2	:	p34,
+    		presenceNo3		:	p35,
+    		presenceURL3	:	p36,
+    		presenceNo4		:	p37,
+    		presenceURL4	:	p38,
+    		presenceNo5		:	p39,
+    		presenceURL5	:	p40,
+    		presenceNo6		:	p41,
+    		presenceURL6	:	p42
+    		
     };
+    
+    console.log(businessObject);
     
     return businessObject;
 }

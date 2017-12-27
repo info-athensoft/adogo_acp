@@ -385,7 +385,7 @@
 	                                               			<input type="text" class="form-control" placeholder="Province" id="provName"  value="${hqAddress.provName}">
 	                                               		</div>
 	                                               		<div class="col-md-4">
-	                                               			<input type="text" class="form-control" placeholder="Postal code" id="postalCode"  value="${hqAddress.postalCode}">
+	                                               			<input type="text" class="form-control" placeholder="Postal code" id="postalCode" value="${hqAddress.postalCode}">
 	                                               		</div>
 	                                               	</div>
 	                                               </div>
@@ -393,21 +393,21 @@
 	                                            
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Phone no.</label>
-	                                                <div class="col-md-4">
+	                                                <div class="col-md-9">
 	                                                    <input type="text" class="form-control" placeholder="Phone no.">
 	                                                </div>
 	                                            </div>
 	                                            
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Fax no.</label>
-	                                                <div class="col-md-4">
+	                                                <div class="col-md-9">
 	                                                    <input type="text" class="form-control" placeholder="Fax no.">
 	                                                </div>
 	                                            </div>
 	                                            
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Website Address</label>
-	                                                <div class="col-md-4">
+	                                                <div class="col-md-9">
 	                                                    <input type="text" class="form-control" placeholder="URL of your website or home page">
 	                                                </div>
 	                                            </div>
@@ -445,48 +445,54 @@
 	                                    </a>
 	                                </div>
 	                            </div>
-                        		 <div class="portlet-body form">
+                        		<div class="portlet-body form">
                                     <form action="#" class="form-horizontal">
                                     	<div class="form-body">
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Facebook</label>
-	                                                <div class="col-md-4">
-	                                                    <input type="text" class="form-control" placeholder="URL of your facebook homepage">
+	                                                <div class="col-md-9">
+	                                                	<input type="hidden" id="presenceNo1" value="1"/>
+	                                                    <input type="text" class="form-control" placeholder="URL of your facebook homepage" id="presenceURL1" value="${presenceURL1}">
 	                                                </div>
 	                                            </div>
 	                                            
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">LinkedIn</label>
-	                                                <div class="col-md-4">
-	                                                    <input type="text" class="form-control" placeholder="URL of your LinkedIn homepage">
+	                                                <div class="col-md-9">
+	                                                	<input type="hidden" id="presenceNo2" value="2"/>
+	                                                    <input type="text" class="form-control" placeholder="URL of your LinkedIn homepage" id="presenceURL2" value="${presenceURL2}">
 	                                                </div>
 	                                            </div>
 	                                            
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Twitter</label>
-	                                                <div class="col-md-4">
-	                                                    <input type="text" class="form-control" placeholder="URL of your Twitter homepage">
+	                                                <div class="col-md-9">
+	                                                	<input type="hidden" id="presenceNo3" value="3"/>
+	                                                    <input type="text" class="form-control" placeholder="URL of your Twitter homepage" id="presenceURL3" value="${presenceURL3}">
 	                                                </div>
 	                                            </div>
 	                                            
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Youtube</label>
-	                                                <div class="col-md-4">
-	                                                    <input type="text" class="form-control" placeholder="URL of your Youtube homepage">
+	                                                <div class="col-md-9">
+	                                                	<input type="hidden" id="presenceNo4" value="4"/>
+	                                                    <input type="text" class="form-control" placeholder="URL of your Youtube homepage" id="presenceURL4" value="${presenceURL4}">
 	                                                </div>
 	                                            </div>
 	                                            
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Instagram</label>
-	                                                <div class="col-md-4">
-	                                                    <input type="text" class="form-control" placeholder="URL of your Instagram homepage">
+	                                                <div class="col-md-9">
+	                                                	<input type="hidden" id="presenceNo5" value="5"/>
+	                                                    <input type="text" class="form-control" placeholder="URL of your Instagram homepage" id="presenceURL5" value="${presenceURL5}">
 	                                                </div>
 	                                            </div>
 	                                            
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Pinterest</label>
-	                                                <div class="col-md-4">
-	                                                    <input type="text" class="form-control" placeholder="URL of your Pinterest homepage">
+	                                                <div class="col-md-9">
+	                                                	<input type="hidden" id="presenceNo6" value="6"/>
+	                                                    <input type="text" class="form-control" placeholder="URL of your Pinterest homepage" id="presenceURL6" value="${presenceURL6}">
 	                                                </div>
 	                                            </div>
                                             </div> 
@@ -503,7 +509,6 @@
                         	</div>
                         </div>
                     </div>
-                </div>
                 </div>
                 <!-- END CONTENT BODY -->
             </div>

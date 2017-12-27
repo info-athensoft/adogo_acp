@@ -20,7 +20,16 @@ public class BusinessOnlinePresenceService {
 		this.businessOnlinePresenceDao = businessOnlinePresenceDao;
 	}
 	
-	public int[] saveBusinessOnlinePresence(List<BusinessOnlinePresence> bizOnlinePresenceList){
+	public int[] createBusinessOnlinePresence(List<BusinessOnlinePresence> bizOnlinePresenceList){
 		return businessOnlinePresenceDao.createInBatch(bizOnlinePresenceList);
 	}
+	
+	public List<BusinessOnlinePresence> getBusinessPresenceByBizId(long bizId){
+		return businessOnlinePresenceDao.findByBizId(bizId);
+	}
+	
+	public int[] updateBusinessPresence(List<BusinessOnlinePresence> bizOnlinePresenceList){
+		return businessOnlinePresenceDao.updateInBatch(bizOnlinePresenceList);
+	}
+	
 }
