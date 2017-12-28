@@ -18,7 +18,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-<title>Adogo | Business Profile - Creating</title>
+<title>Adogo | Business Profile - Create</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>

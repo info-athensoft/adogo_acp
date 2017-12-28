@@ -16,10 +16,9 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
-<!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8" />
-<title>Adogo | Business Profile - Creating</title>
+<title>Adogo | Business Profile - Complete</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -55,7 +54,6 @@
 <!-- END THEME LAYOUT STYLES -->
 <link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
 </head>
-<!-- END HEAD -->
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
 <!-- BEGIN HEADER -->
@@ -196,7 +194,7 @@
                         </div>
                         <div class="portlet-body">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <span class="caption-subject bold font-dark"> Business ID at Adogo: </span><br/>
                                     <span class="caption-subject bold font-dark"> Business Name: </span><br/>
                                     <span class="caption-subject bold font-dark"> Industry Code: </span><br/>
@@ -219,7 +217,7 @@
             <div class="row">
             	            	
             	<!-- BEGIN SECTION 2 -->
-            	<div class="col-md-6">
+            	<div class="col-md-8">
             		<div class="portlet light">
             			<div class="portlet-title">
 	                         <div class="caption">
@@ -297,7 +295,7 @@
 	                            </div>
 	                            <div class="form-actions">
 	                                <div class="row">
-	                                    <div class="col-md-offset-3 col-md-6">
+	                                    <div class="col-md-offset-3 col-md-9">
 	                                        <a class="btn green" onclick="saveBusinessOnlinePresence(event);">Save and Complete</a>
 	                                        <button type="submit" class="btn default" onclick="">I'll do it later</button>
 	                                        <button type="button" class="btn default" onclick="">Cancel</button>

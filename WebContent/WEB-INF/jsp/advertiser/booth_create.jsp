@@ -4,55 +4,56 @@
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value="/acp"/>
+<!-- END global variables settings -->
 
 <!-- page variables  -->
 <c:set var="inc_dir" value="../inc"/>
-<!-- ENDS page variables -->
+<!-- END page variables -->
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-    <!--<![endif]-->
-    <head>
-        <meta charset="utf-8" />
-        <title>Adogo | Booth - Creating</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-        
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <meta content="" name="description" />
-        <meta content="" name="author" />
-        
-        <meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">
-        
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
-        <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/datatables.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.css"/>
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color" />
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
-    </head>
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<title>Adogo | Booth - Create</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="" name="description" />
+<meta content="" name="author" />
+
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta http-equiv="expires" content="0"/>
+      
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.css"/>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL STYLES -->
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
+<!-- END THEME GLOBAL STYLES -->
+<!-- BEGIN THEME LAYOUT STYLES -->
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color" />
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
+<!-- END THEME LAYOUT STYLES -->
+<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
+</head>
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->

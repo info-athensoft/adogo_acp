@@ -4,10 +4,11 @@
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value="/acp"/>
+<!-- END global variables settings -->
 
 <!-- page variables  -->
 <c:set var="inc_dir" value="../inc"/>
-<!-- ENDS page variables -->
+<!-- END page variables -->
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -17,7 +18,7 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8" />
-        <title>Adogo | Business Profile - Editing</title>
+        <title>Adogo | Business Profile - Edit</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
         
@@ -107,7 +108,7 @@
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="${webapp_name}/advertiser/">Manage business</a>
+                                <a href="${webapp_name}/advertiser/biz/">Business</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
@@ -394,21 +395,28 @@
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Phone no.</label>
 	                                                <div class="col-md-9">
-	                                                    <input type="text" class="form-control" placeholder="Phone no.">
+	                                                    <input type="text" class="form-control" placeholder="Phone no." id="bizPhone" value="${businessProfile.bizPhone}">
 	                                                </div>
 	                                            </div>
 	                                            
 	                                            <div class="form-group">
-	                                               <label class="col-md-3 control-label">Fax no.</label>
+	                                            	<label class="col-md-3 control-label">Fax no.</label>
 	                                                <div class="col-md-9">
-	                                                    <input type="text" class="form-control" placeholder="Fax no.">
+	                                                    <input type="text" class="form-control" placeholder="Fax no." id="bizFax" value="${businessProfile.bizFax}">
 	                                                </div>
 	                                            </div>
+	                                            
+	                                            <div class="form-group">
+				                                    <label class="col-md-3 control-label">Email</label>
+				                                    <div class="col-md-9">
+				                                    	<input type="text" class="form-control" placeholder="email" id="bizEmail" value="${businessProfile.bizEmail}">
+				                                    </div>
+				                                </div>
 	                                            
 	                                            <div class="form-group">
 	                                               <label class="col-md-3 control-label">Website Address</label>
 	                                                <div class="col-md-9">
-	                                                    <input type="text" class="form-control" placeholder="URL of your website or home page">
+	                                                    <input type="text" class="form-control" placeholder="URL of your website or home page" id="bizWebsite" value="${businessProfile.bizWebsite}">
 	                                                </div>
 	                                            </div>
 	                                            

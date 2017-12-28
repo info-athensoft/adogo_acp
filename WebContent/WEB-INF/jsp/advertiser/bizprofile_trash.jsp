@@ -18,11 +18,11 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-<title>Adogo | Business Profile - Index</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Adogo | Business Profile - Trash</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description"/>
-<meta content="" name="author" />
+<meta content="" name="author"/>
 
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"/>
@@ -31,19 +31,16 @@
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
-
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/morris/morris.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fullcalendar/fullcalendar.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/jqvmap.css"/>
 <!-- END PAGE LEVEL PLUGINS -->
-
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
 <!-- END THEME GLOBAL STYLES -->
-
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color"/>
@@ -115,7 +112,7 @@
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <span>Dashboard</span>
+                                <span>Trash</span>
                             </li>
                         </ul>
                         <div class="page-toolbar">
@@ -147,45 +144,6 @@
                     </div>
                     <!-- END PAGE HEADER-->
                     
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class=" icon-layers font-green"></i>
-                                        <span class="caption-subject font-green bold uppercase">Quick steps</span>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="mt-element-step">
-                                        <div class="row step-thin">
-                                            <div class="mt-step-desc">
-                                                <div class="font-dark bold uppercase">Register a business</div>
-                                                <div class="caption-desc font-grey-cascade"></div>
-                                                <br/>
-                                            </div>
-                                            <div class="col-md-4 bg-grey mt-step-col done">
-		                                        <div class="mt-step-number bg-white font-grey">1</div>
-		                                        <div class="mt-step-title uppercase font-grey-cascade">Start</div>
-		                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
-		                                    </div>
-		                                    <div class="col-md-4 bg-grey mt-step-col">
-		                                        <div class="mt-step-number bg-white font-grey">2</div>
-		                                        <div class="mt-step-title uppercase font-grey-cascade">Create</div>
-		                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
-		                                    </div>
-		                                    <div class="col-md-4 bg-grey mt-step-col">
-		                                        <div class="mt-step-number bg-white font-grey">3</div>
-		                                        <div class="mt-step-title uppercase font-grey-cascade">Complete</div>
-		                                        <div class="mt-step-content font-grey-cascade">Complete your payment</div>
-		                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <!-- BEGIN ROW 1 -->
 		            <div class="row">
 		                <div class="col-md-12">
@@ -193,10 +151,10 @@
 		                    <div class="portlet light">
 		                        <div class="portlet-title">
 		                            <div class="caption">
-		                                <i class="fa fa-shopping-cart"></i>Register a business <span class="caption-helper">under advertiser</span></div>
+		                                <i class="fa fa-shopping-cart"></i>Disable the specified business <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
-		                                <a href="/acp/advertiser/biz/create.html" class="btn btn-circle btn-info">
-		                                    <i class="fa fa-plus"></i><span class="hidden-xs"> Start Register </span>
+		                                <a href="/acp/advertiser/biz/#" class="btn btn-circle btn-info">
+		                                    <i class="fa fa-plus"></i><span class="hidden-xs"> Disable </span>
 		                                </a>
 		                                <div class="btn-group">
 		                                    <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
@@ -258,7 +216,7 @@
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided">
                                         	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-                                        	<a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Trash</a>
+                                        	<a href="${webapp_name}/advertiser/biz/remove.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Remove</a>
                                         </div>
                                     </div>
                                 </div>

@@ -242,14 +242,26 @@ public class BusinessProfileController {
 		return mav;
 	}
 	
+	@RequestMapping("/trash.html")
+	public ModelAndView gotoTrashBizProfile(@RequestParam long bizId){
+		logger.info("entering... /advertiser/biz/trash.html");
+		
+		//test
+		logger.info("bizId="+bizId);
+		
+		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
+		String viewName = "advertiser/bizprofile_trash";
+		mav.setViewName(viewName);
+		
+		logger.info("exiting... /advertiser/biz/trash.html");
+		return mav;
+	}
 	
 	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
 		@ResponseBody
 		public Map<String,Object> createBizProfile(@RequestParam String businessProfileJSONString){		
 			logger.info("entering... /advertiser/biz/create");
-			
-			/* initial settings */
-			ModelAndView mav = new ModelAndView();
 			
 			/* prepare data */		
 			JSONObject jsonObj= new JSONObject(businessProfileJSONString);
@@ -265,11 +277,12 @@ public class BusinessProfileController {
 			String legalFormNo	= jsonObj.getString("legalFormNo");
 			String industryCode	= jsonObj.getString("industryCode");
 			String bizType		= jsonObj.getString("bizType");
+			String bizDesc		= jsonObj.getString("bizDesc");
+			
 			String bizPhone		= jsonObj.getString("bizPhone");
 			String bizFax		= jsonObj.getString("bizFax");
 			String bizEmail		= jsonObj.getString("bizEmail");
 			String bizWebsite	= jsonObj.getString("bizWebsite");
-			String bizDesc		= jsonObj.getString("bizDesc");
 			
 			String streetNo		= jsonObj.getString("streetNo");
 			String streetType	= jsonObj.getString("streetType");
@@ -280,24 +293,31 @@ public class BusinessProfileController {
 			String provName		= jsonObj.getString("provName");
 			String postalCode	= jsonObj.getString("postalCode");
 			
-			/*create a new record of BusinessHours into master table*/
+			/*field validation*/
+			if((bizType.trim()).equals("")){
+				bizType="0";
+			}
+			
+			/*create a new Business Profile into master table*/
 			BusinessProfile businessProfile = new BusinessProfile();
-			businessProfile.setAdvertiserId(Long.parseLong(advertiserId));		//TODO
+			businessProfile.setAdvertiserId(Long.parseLong(advertiserId));
 			businessProfile.setBizId(bizId);
 			businessProfile.setBizName(bizName);
 			businessProfile.setBizNo(bizNo);
 			businessProfile.setBizOwner(bizOwner);
-			businessProfile.setLegalFormNo(Integer.parseInt(legalFormNo));		//TODO
+			businessProfile.setLegalFormNo(Integer.parseInt(legalFormNo));		
 			businessProfile.setIndustryCode(industryCode);
-			if(bizType==null || (bizType.trim()).equals("")) {bizType="0";}
+			
 			businessProfile.setBizType(Integer.parseInt(bizType));
+			businessProfile.setBizDesc(bizDesc);
+			
 			businessProfile.setBizPhone(bizPhone);
 			businessProfile.setBizFax(bizFax);
 			businessProfile.setBizEmail(bizEmail);
 			businessProfile.setBizWebsite(bizWebsite);
-			businessProfile.setCreateDate(new Date());							//TODO
-			businessProfile.setEstablishDate(new Date());						//TODO
-			businessProfile.setBizDesc(bizDesc);
+			
+			businessProfile.setCreateDate(new Date());							
+			businessProfile.setEstablishDate(businessProfile.getCreateDate());						
 			businessProfile.setBizStatus(BusinessStatus.ACTIVE);
 			
 			BusinessAddress hqAddress = new BusinessAddress();
@@ -317,7 +337,9 @@ public class BusinessProfileController {
 			logger.info(businessProfile.toString());
 			
 			this.businessProfileService.saveBusinessProfile(businessProfile);
-			//this.businessAddressService.createBusinessAddress(hqAddress);
+			
+			/* initial settings */
+			ModelAndView mav = new ModelAndView();
 			
 			/* assemble model and view */
 			//String viewName = "advertiser/bizprofile_complete";	
@@ -427,6 +449,11 @@ public class BusinessProfileController {
 		String provName		= jsonObj.getString("provName");
 		String postalCode	= jsonObj.getString("postalCode");
 		
+		String bizPhone		= jsonObj.getString("bizPhone");
+		String bizFax		= jsonObj.getString("bizFax");
+		String bizEmail		= jsonObj.getString("bizEmail");
+		String bizWebsite	= jsonObj.getString("bizWebsite");
+		
 		//biz online presence
 		final int OLP_COUNT = 6;
 		int[] presenceNo 		= new int[OLP_COUNT];
@@ -447,6 +474,10 @@ public class BusinessProfileController {
 		bp.setIndustryCode(industryCode);
 		bp.setBizType(bizType);
 		bp.setBizDesc(bizDesc);
+		bp.setBizPhone(bizPhone);
+		bp.setBizFax(bizFax);
+		bp.setBizEmail(bizEmail);
+		bp.setBizWebsite(bizWebsite);
 		
 		BusinessAddress ba = new BusinessAddress();
 		ba.setBizId(bizId);
@@ -468,10 +499,7 @@ public class BusinessProfileController {
 			bop.setPresenceNo(presenceNo[i]);
 			bop.setPresenceURL(presenceURL[i]);
 			bopList.add(bop);
-			
-			//test
-			System.out.println(bop.toString());
-			
+			logger.info(bop.toString());
 			bop = null;
 		}
 		

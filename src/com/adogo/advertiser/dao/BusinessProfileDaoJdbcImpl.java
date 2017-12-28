@@ -263,10 +263,13 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" legal_form_no = :legal_form_no,");
 		sbf.append(" industry_code = :industry_code,");
 		sbf.append(" biz_desc = :biz_desc,");
-		sbf.append(" biz_type = :biz_type");
+		sbf.append(" biz_type = :biz_type,");
+		sbf.append(" biz_phone = :biz_phone,");
+		sbf.append(" biz_fax = :biz_fax,");
+		sbf.append(" biz_email = :biz_email,");
+		sbf.append(" biz_website = :biz_website");
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_id = :biz_id");
-//		sbf.append(" AND biz_no = :biz_no");
 		
 		String sql = sbf.toString();
 		logger.info(sql);
@@ -280,6 +283,10 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		paramSource.addValue("industry_code", bp.getIndustryCode());
 		paramSource.addValue("biz_desc", bp.getBizDesc());
 		paramSource.addValue("biz_type", bp.getBizType());
+		paramSource.addValue("biz_phone",bp.getBizPhone());
+		paramSource.addValue("biz_fax", bp.getBizFax());
+		paramSource.addValue("biz_email", bp.getBizEmail());
+		paramSource.addValue("biz_website", bp.getBizWebsite());
 		return jdbc.update(sql,paramSource);
 	}
 	

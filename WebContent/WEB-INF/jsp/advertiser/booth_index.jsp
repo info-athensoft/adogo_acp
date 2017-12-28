@@ -4,49 +4,50 @@
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value="/acp"/>
-
+<!-- END global variables settings -->
 
 <!-- page variables  -->
 <c:set var="inc_dir" value="../inc"/>
-<!-- ENDS page variables -->
+<!-- END page variables -->
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-    <!--<![endif]-->
-    <head>
-        <meta charset="utf-8" />
-        <title>Adogo | Booth - Index</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description" />
-        <meta content="" name="author" />
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
-        <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/morris/morris.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fullcalendar/fullcalendar.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/jqvmap.css"/>
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
-    </head>
+<!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<title>Adogo | Booth - Index</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description" />
+<meta content="" name="author" />
+
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/morris/morris.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fullcalendar/fullcalendar.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/jqvmap.css"/>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL STYLES -->
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
+<!-- END THEME GLOBAL STYLES -->
+<!-- BEGIN THEME LAYOUT STYLES -->
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
+<!-- END THEME LAYOUT STYLES -->
+<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
+</head>
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->
