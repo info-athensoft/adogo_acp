@@ -148,13 +148,14 @@ public class BoothDaoJdbcImpl implements BoothDao {
 	@Override
 	public int create(Booth x) {
 		StringBuffer sbf = new StringBuffer();
-		sbf.append("INSERT INTO "+TABLE+"(");
+		sbf.append("INSERT INTO ").append(TABLE).append("(");
 		sbf.append("user_id,");
 		sbf.append("advertiser_id,");
 		sbf.append("biz_id,");
 		sbf.append("lang_no,");
 		sbf.append("booth_id,");
 		sbf.append("biz_name,");
+		sbf.append("category_no,");
 		sbf.append("biz_desc,");
 		sbf.append("booth_name,");
 		sbf.append("visit_num,");

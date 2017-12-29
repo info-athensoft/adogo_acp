@@ -61,52 +61,18 @@
 						Dashboard</a>
 					</li>
 					<li class="nav-item">
-						<a href="/acp/advertiser/"  class="nav-link nav-toggle">
+						<a href="/acp/advertiser/biz/"  class="nav-link nav-toggle">
 						<i class="icon-home"></i>
 						Manage Business
 						<span class="arrow"></span>
 					 	</a>
-						<ul class="sub-menu">
-							<li class="nav-item">
-								<a href="/acp/advertiser/biz/">
-								<i class="icon-paper-plane"></i>
-								View Business</a>
-							</li>
-							<li class="nav-item">
-								<a href="/acp/advertiser/biz/create.html"  class="nav-link nav-toggle">
-								<i class="icon-pencil"></i>
-								Register my Business</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="/acp/advertiser/biz/edit.html"  class="nav-link nav-toggle">
-								<i class="icon-pencil"></i>
-								Edit Business Profile</a>
-							</li>							
-						</ul>
 					</li>
 					<li class="nav-item  ">
-						<a href="/acp/advertiser/"  class="nav-link nav-toggle">
+						<a href="/acp/advertiser/booth/"  class="nav-link nav-toggle">
 						<i class="icon-home"></i>
 						Manage Booth
 						<span class="arrow"></span>
 						</a>
-						<ul class="sub-menu">
-							<li class="nav-item">
-								<a href="/acp/advertiser/booth/">
-								<i class="icon-paper-plane"></i>
-								View Booth</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="/acp/advertiser/booth/create.html">
-								<i class="icon-paper-plane"></i>
-								Create a Booth</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="/acp/advertiser/booth/edit.html">
-								<i class="icon-paper-plane"></i>
-								Edit Booth</a>
-							</li>							
-						</ul>
 					</li>
 					<li class="nav-item  ">
 						<a href="/acp/advertiser/">

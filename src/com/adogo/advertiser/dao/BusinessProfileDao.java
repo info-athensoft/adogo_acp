@@ -14,4 +14,12 @@ public interface BusinessProfileDao {
 	
 	public int update(BusinessProfile x);
 	public int create(BusinessProfile x);
+	
+	/**
+	 * update status of business profiles by specified status
+	 * most common scenario is disable namely trash a business profile
+	 * @param x usually updating BusinessProfile.bizStatus, BusinessProfile.modifyDate
+	 * @return
+	 */
+	public int updateStatus(BusinessProfile x);
 }

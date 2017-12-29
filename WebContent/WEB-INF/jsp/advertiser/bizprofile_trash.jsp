@@ -153,8 +153,8 @@
 		                            <div class="caption">
 		                                <i class="fa fa-shopping-cart"></i>Disable the specified business <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
-		                                <a href="/acp/advertiser/biz/#" class="btn btn-circle btn-info">
-		                                    <i class="fa fa-plus"></i><span class="hidden-xs"> Disable </span>
+		                                <a class="btn btn-circle btn-info"  onclick="trashBusinessProfile(); return false;">
+		                                    <span class="hidden-xs"> Disable </span>
 		                                </a>
 		                                <div class="btn-group">
 		                                    <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
@@ -181,29 +181,13 @@
                     
                     
                     <div class="row">
+                    	<input type="hidden" id="bizId" value="${bizProfile.bizId}"/>
                     </div>
                     
-                    <!-- TEST -->
-                    <!-- 
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                        	<c:forEach items="${listVOBizProfileBooth}" var="voBizProfileBooth">
-                        		<p>Business ID: ${voBizProfileBooth.bizProfile.bizId}</p>
-                        		<c:forEach items="${voBizProfileBooth.listBooth}" var="booth">
-                        			<p>Business Name: ${booth.bizName}</p>
-                        			<p>Booth Name: ${booth.boothName}</p>
-                        			<p>Booth Desc: ${booth.bizDesc}</p>
-                        		</c:forEach>	
-                        	</c:forEach>
-                        </div>
-                    </div>
-                     -->
-                    <!-- END TEST -->
-                    
+                        
                     
                     
                     <!-- PRETEST -->
-                    <c:forEach items="${listBizProfile}" var="bizProfile">
                     <div class="row">
                         <div class="col-lg-12 col-xs-12 col-sm-12">
                             <div class="portlet light portlet-fit ">
@@ -215,8 +199,8 @@
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided">
-                                        	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-                                        	<a href="${webapp_name}/advertiser/biz/remove.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Remove</a>
+                                        	<a href="#" class="btn green" id="btnEdit">Enable</a>
+                                        	<a href="#" class="btn grey" id="btnEdit">Remove</a>
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +224,6 @@
                             
                         </div>
                     </div>
-                    </c:forEach>
                     <!-- END PRETEST -->
                 </div>
                 <!-- END CONTENT BODY -->
@@ -301,7 +284,7 @@
    <!-- END THEME GLOBAL SCRIPTS -->
    <!-- BEGIN PAGE LEVEL SCRIPTS -->
    <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/dashboard.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
+   <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-trash.js"></script>
    <!-- END PAGE LEVEL SCRIPTS -->
    <!-- BEGIN THEME LAYOUT SCRIPTS -->
    <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>

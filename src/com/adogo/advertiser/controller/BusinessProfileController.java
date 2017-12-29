@@ -21,6 +21,7 @@ import com.adogo.advertiser.entity.BusinessAddress;
 import com.adogo.advertiser.entity.BusinessOnlinePresence;
 import com.adogo.advertiser.entity.BusinessProfile;
 import com.adogo.advertiser.entity.BusinessStatus;
+import com.adogo.advertiser.entity.BusinessType;
 import com.adogo.advertiser.entity.IndustryCode;
 import com.adogo.advertiser.service.BusinessAddressService;
 import com.adogo.advertiser.service.BusinessOnlinePresenceService;
@@ -208,6 +209,13 @@ public class BusinessProfileController {
 		List<IndustryCode> naicsLevel4 = new ArrayList<IndustryCode>();
 		naicsLevel4 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_4, bizCode);
 		
+		int bizType = businessProfile.getBizType();
+		BusinessType bt = new BusinessType();
+		bt.parseBusinessTypeValue(bizType);
+		Boolean boolProd = bt.isProdType();
+		Boolean boolEProd = bt.isEProdType();
+		Boolean boolService = bt.isServiceType();
+		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
 		String viewName = "advertiser/bizprofile_edit";
@@ -217,7 +225,14 @@ public class BusinessProfileController {
 		Map<String,Object> model = mav.getModel();
 		model.put("businessProfile", businessProfile);
 		model.put("hqAddress", hqAddress);
+		model.put("listOfBizCategories", listOfBizCategories);
 		
+		//business type check-box value
+		model.put("bizType_product", boolProd);
+		model.put("bizType_eproduct", boolEProd);
+		model.put("bizType_service", boolService);
+		
+		//online presence
 		model.put("presenceURL1", presenceURLMap.get("presenceURL1"));
 		model.put("presenceURL2", presenceURLMap.get("presenceURL2"));
 		model.put("presenceURL3", presenceURLMap.get("presenceURL3"));
@@ -225,14 +240,12 @@ public class BusinessProfileController {
 		model.put("presenceURL5", presenceURLMap.get("presenceURL5"));
 		model.put("presenceURL6", presenceURLMap.get("presenceURL6"));
 		
+		//industry code
 		model.put("industryCodeObj", industryCodeObj);
-		model.put("listOfBizCategories", listOfBizCategories);
-		
 		model.put("NAICS_level_1", naicsLevel1);
 		model.put("NAICS_level_2", naicsLevel2);
 		model.put("NAICS_level_3", naicsLevel3);
 		model.put("NAICS_level_4", naicsLevel4);
-		
 		model.put("selectedCodeLevel1", selectedCodeLevel1);
 		model.put("selectedCodeLevel2", selectedCodeLevel2);
 		model.put("selectedCodeLevel3", selectedCodeLevel3);
@@ -242,6 +255,11 @@ public class BusinessProfileController {
 		return mav;
 	}
 	
+	/**
+	 * Disable a business profile, usually by client
+	 * @param bizId
+	 * @return
+	 */
 	@RequestMapping("/trash.html")
 	public ModelAndView gotoTrashBizProfile(@RequestParam long bizId){
 		logger.info("entering... /advertiser/biz/trash.html");
@@ -249,10 +267,16 @@ public class BusinessProfileController {
 		//test
 		logger.info("bizId="+bizId);
 		
+		BusinessProfile bp = new BusinessProfile();
+		bp.setBizId(bizId);
+		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
 		String viewName = "advertiser/bizprofile_trash";
 		mav.setViewName(viewName);
+		
+		Map<String,Object> model = mav.getModel();
+		model.put("bizProfile", bp);
 		
 		logger.info("exiting... /advertiser/biz/trash.html");
 		return mav;
@@ -276,8 +300,13 @@ public class BusinessProfileController {
 			String bizOwner		= jsonObj.getString("bizOwner");
 			String legalFormNo	= jsonObj.getString("legalFormNo");
 			String industryCode	= jsonObj.getString("industryCode");
-			String bizType		= jsonObj.getString("bizType");
+			
 			String bizDesc		= jsonObj.getString("bizDesc");
+			
+			//Integer bizType 		= jsonObj.getInt("bizType");
+			Integer bizTypeProduct  = jsonObj.getInt("bizTypeProduct");
+			Integer bizTypeEProduct = jsonObj.getInt("bizTypeEProduct");
+			Integer bizTypeService  = jsonObj.getInt("bizTypeService");
 			
 			String bizPhone		= jsonObj.getString("bizPhone");
 			String bizFax		= jsonObj.getString("bizFax");
@@ -293,10 +322,8 @@ public class BusinessProfileController {
 			String provName		= jsonObj.getString("provName");
 			String postalCode	= jsonObj.getString("postalCode");
 			
-			/*field validation*/
-			if((bizType.trim()).equals("")){
-				bizType="0";
-			}
+			/*field*/
+			Integer bizType 	= bizTypeProduct+bizTypeEProduct+bizTypeService;
 			
 			/*create a new Business Profile into master table*/
 			BusinessProfile businessProfile = new BusinessProfile();
@@ -307,8 +334,7 @@ public class BusinessProfileController {
 			businessProfile.setBizOwner(bizOwner);
 			businessProfile.setLegalFormNo(Integer.parseInt(legalFormNo));		
 			businessProfile.setIndustryCode(industryCode);
-			
-			businessProfile.setBizType(Integer.parseInt(bizType));
+			businessProfile.setBizType(bizType);
 			businessProfile.setBizDesc(bizDesc);
 			
 			businessProfile.setBizPhone(bizPhone);
@@ -316,8 +342,10 @@ public class BusinessProfileController {
 			businessProfile.setBizEmail(bizEmail);
 			businessProfile.setBizWebsite(bizWebsite);
 			
-			businessProfile.setCreateDate(new Date());							
-			businessProfile.setEstablishDate(businessProfile.getCreateDate());						
+			businessProfile.setEstablishDate(new Date());
+			businessProfile.setCreateDate(businessProfile.getEstablishDate());							
+			businessProfile.setModifyDate(businessProfile.getEstablishDate());							
+									
 			businessProfile.setBizStatus(BusinessStatus.ACTIVE);
 			
 			BusinessAddress hqAddress = new BusinessAddress();
@@ -436,8 +464,12 @@ public class BusinessProfileController {
 		String bizOwner			= jsonObj.getString("bizOwner");
 		Integer legalFormNo		= jsonObj.getInt("legalFormNo");
 		String industryCode		= jsonObj.getString("industryCode");
-		Integer bizType 		= jsonObj.getInt("bizType");
 		String bizDesc			= jsonObj.getString("bizDesc");
+		
+		//Integer bizType 		= jsonObj.getInt("bizType");
+		Integer bizTypeProduct  = jsonObj.getInt("bizTypeProduct");
+		Integer bizTypeEProduct = jsonObj.getInt("bizTypeEProduct");
+		Integer bizTypeService  = jsonObj.getInt("bizTypeService");
 		
 		//contact info
 		String streetNo		= jsonObj.getString("streetNo");
@@ -454,7 +486,11 @@ public class BusinessProfileController {
 		String bizEmail		= jsonObj.getString("bizEmail");
 		String bizWebsite	= jsonObj.getString("bizWebsite");
 		
-		//biz online presence
+		//business type
+		Integer bizType 	= bizTypeProduct+bizTypeEProduct+bizTypeService;
+		logger.info("bizType = "+bizType);
+		
+		//business online presence
 		final int OLP_COUNT = 6;
 		int[] presenceNo 		= new int[OLP_COUNT];
 		String[] presenceURL 	= new String[OLP_COUNT];
@@ -478,6 +514,7 @@ public class BusinessProfileController {
 		bp.setBizFax(bizFax);
 		bp.setBizEmail(bizEmail);
 		bp.setBizWebsite(bizWebsite);
+		bp.setModifyDate(new Date());
 		
 		BusinessAddress ba = new BusinessAddress();
 		ba.setBizId(bizId);
@@ -523,6 +560,46 @@ public class BusinessProfileController {
 		return model;
 	}
 	
+	
+	/**
+	 * disable a business profile, not permanently remove
+	 * @param businessProfileJSONString
+	 * @return
+	 */
+	@RequestMapping(value="/trash",method=RequestMethod.POST,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> trashBizProfile(@RequestParam String bizProfileJSONString){		
+		logger.info("entering... /advertiser/biz/trash");
+		
+		/* prepare data */	
+		JSONObject jsonObj= new JSONObject(bizProfileJSONString);
+		
+		//test
+		logger.info("jsonObj = "+jsonObj);
+		
+		//biz profile
+		Long bizId	= jsonObj.getLong("bizId");
+		
+		/* populate presence id and url */
+		BusinessProfile bp = new BusinessProfile();
+		bp.setBizId(bizId);
+		bp.setBizStatus(BusinessStatus.DISABLED);
+		
+		/*create a new record of BusinessOnlinePresence into master table*/
+		this.businessProfileService.trashBusinessProfile(bp); 
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		/* assemble model and view */
+		
+        /* assemble data */
+        Map<String,Object> model = mav.getModel();
+        model.put("bizProfile", bp);
+        
+		logger.info("exiting... /advertiser/biz/trash");
+		return model;
+	}
 	
 	@RequestMapping(value="/{bizId}",method=RequestMethod.GET)
 	public ModelAndView viewBusinessProfile(@PathVariable long bizId){		

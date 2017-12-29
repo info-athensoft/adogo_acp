@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.adogo.advertiser.entity.BusinessProfile;
+import com.adogo.advertiser.entity.BusinessStatus;
 
 @Component
 @Qualifier("businessProfileDaoJdbcImpl")
@@ -98,11 +99,13 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND advertiser_id =:advertiser_id ");
+		sbf.append(" AND biz_status =:biz_status ");	//TODO
 		String sql = sbf.toString();
 		logger.info(sql);
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("advertiser_id", advertiserId);
+		paramSource.addValue("biz_status", BusinessStatus.ACTIVE);
 		return jdbc.query(sql,paramSource,new BusinessProfileRowMapper());
 	}
 
@@ -132,6 +135,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_id =:biz_id ");
+		
 		String sql = sbf.toString();
 		logger.info(sql);
 		
@@ -191,6 +195,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_type,");
 		sbf.append("establish_date,");
 		sbf.append("create_date,");
+		sbf.append("modify_date,");
 		sbf.append("biz_phone,");
 		sbf.append("biz_fax,");
 		sbf.append("biz_email,");
@@ -210,6 +215,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(":biz_type,");
 		sbf.append(":establish_date,");
 		sbf.append(":create_date,");
+		sbf.append(":modify_date,");
 		sbf.append(":biz_phone,");
 		sbf.append(":biz_fax,");
 		sbf.append(":biz_email,");
@@ -233,6 +239,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		paramSource.addValue("biz_type", x.getBizType());
 		paramSource.addValue("establish_date", x.getEstablishDate());
 		paramSource.addValue("create_date", x.getCreateDate());
+		paramSource.addValue("modify_date", x.getModifyDate());
 		paramSource.addValue("biz_phone", x.getBizPhone());
 		paramSource.addValue("biz_fax", x.getBizFax());
 		paramSource.addValue("biz_email", x.getBizEmail());
@@ -267,6 +274,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" biz_phone = :biz_phone,");
 		sbf.append(" biz_fax = :biz_fax,");
 		sbf.append(" biz_email = :biz_email,");
+		sbf.append(" modify_date = :modify_date,");
 		sbf.append(" biz_website = :biz_website");
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_id = :biz_id");
@@ -287,6 +295,28 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		paramSource.addValue("biz_fax", bp.getBizFax());
 		paramSource.addValue("biz_email", bp.getBizEmail());
 		paramSource.addValue("biz_website", bp.getBizWebsite());
+		paramSource.addValue("modify_date", bp.getModifyDate());
+		return jdbc.update(sql,paramSource);
+	}
+	
+	@Override
+	public int updateStatus(BusinessProfile bp){
+		StringBuffer sbf = new StringBuffer();
+		
+		sbf.append("UPDATE " + TABLE+" SET ");
+		sbf.append(" modify_date = :modify_date,");
+		sbf.append(" biz_status = :biz_status");
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND biz_id = :biz_id");
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		logger.info(bp.toString());
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("biz_id", bp.getBizId());
+		paramSource.addValue("biz_status", bp.getBizStatus());
+		paramSource.addValue("modify_date", bp.getModifyDate());
 		return jdbc.update(sql,paramSource);
 	}
 	
@@ -304,21 +334,19 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 			x.setIndustryCode(rs.getString("industry_code"));
 			x.setBizType(rs.getInt("biz_type"));
 			x.setBizOwner(rs.getString("biz_owner"));			
-						
-			Timestamp ed = rs.getTimestamp("establish_date");
-			if (ed != null) {	x.setEstablishDate(new Date(ed.getTime())); }
-			
-			Timestamp cd = rs.getTimestamp("create_date");
-			if (cd != null) {	x.setCreateDate(new Date(cd.getTime())); }
-			
 			x.setBizPhone(rs.getString("biz_phone"));
 			x.setBizFax(rs.getString("biz_fax"));
 			x.setBizEmail(rs.getString("biz_email"));
 			x.setBizWebsite(rs.getString("biz_website"));
 			x.setBizDesc(rs.getString("biz_desc"));
 			x.setBizStatus(rs.getInt("biz_status"));
+			Timestamp ed = rs.getTimestamp("establish_date");
+			if (ed != null) {	x.setEstablishDate(new Date(ed.getTime())); }
+			Timestamp cd = rs.getTimestamp("create_date");
+			if (cd != null) {	x.setCreateDate(new Date(cd.getTime())); }
+			Timestamp md = rs.getTimestamp("create_date");
+			if (md != null) {	x.setModifyDate(new Date(md.getTime())); }
 	        return x;
 		}		
 	}
-
 }

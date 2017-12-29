@@ -13,37 +13,37 @@ public class BusinessType {
 	private static int intEProdType = 0;
 	private static int intServiceType = 0;
 	
-	public static int intProdType(){
+	public int intProdType(){
 		return intProdType;
 	}
 	
-	public static int intEProdType(){
+	public int intEProdType(){
 		return intEProdType;
 	}
 	
-	public static int intServiceType(){
+	public int intServiceType(){
 		return intServiceType;
 	}
 	
-	public static boolean isProdType(){
+	public boolean isProdType(){
 		return boolProdType;
 	}
 	
-	public static boolean isEProdType(){
+	public boolean isEProdType(){
 		return boolEProdType;
 	}
 	
-	public static boolean isServiceType(){
+	public boolean isServiceType(){
 		return boolServiceType;
 	}
 	
-	public static void showBusinessType(){
+	public void showBusinessType(){
 		System.out.println("SERVICE"+"\tEPROD"+"\tPROD");
-		System.out.println(BusinessType.isServiceType()+"\t"+BusinessType.isEProdType()+"\t"+BusinessType.isProdType());
-		System.out.println(BusinessType.intServiceType()+"\t"+BusinessType.intEProdType()+"\t"+BusinessType.intProdType());
+		System.out.println(this.isServiceType()+"\t"+this.isEProdType()+"\t"+this.isProdType());
+		System.out.println(this.intServiceType()+"\t"+this.intEProdType()+"\t"+this.intProdType());
 	}
 	
-	public static void parseBusinessTypeValue(Integer bizTypeValue){
+	public void parseBusinessTypeValue(Integer bizTypeValue){
 		switch(bizTypeValue){
 			case 1:
 				boolProdType = true; 
@@ -114,31 +114,6 @@ public class BusinessType {
 	
 	public static void main(String[] args) {
 		
-		BusinessType.parseBusinessTypeValue(0);
-		BusinessType.showBusinessType();
 		
-		BusinessType.parseBusinessTypeValue(1);
-		BusinessType.showBusinessType();
-		
-		BusinessType.parseBusinessTypeValue(2);
-		BusinessType.showBusinessType();
-		
-		BusinessType.parseBusinessTypeValue(3);
-		BusinessType.showBusinessType();
-		
-		BusinessType.parseBusinessTypeValue(4);
-		BusinessType.showBusinessType();
-		
-		BusinessType.parseBusinessTypeValue(5);
-		BusinessType.showBusinessType();
-		
-		BusinessType.parseBusinessTypeValue(6);
-		BusinessType.showBusinessType();
-		
-		BusinessType.parseBusinessTypeValue(7);
-		BusinessType.showBusinessType();
-		
-		BusinessType.parseBusinessTypeValue(8);
-		BusinessType.showBusinessType();
 	}
 }

@@ -80,7 +80,7 @@ var ComponentsBootstrapTagsinput = function() {
             "continent": "Africa"
         });
     }
-
+/*
     var handleDemo3 = function() {
         var citynames = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
@@ -105,14 +105,14 @@ var ComponentsBootstrapTagsinput = function() {
                 source: citynames.ttAdapter()
             }
         });
-    }
+    }*/
 
     return {
         //main function to initiate the module
         init: function() {
             handleDemo1();
             handleDemo2();
-            handleDemo3();
+            //handleDemo3();
         }
     };
 

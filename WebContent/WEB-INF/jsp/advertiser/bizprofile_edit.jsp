@@ -141,7 +141,7 @@
                                         <i class="fa fa-shopping-cart"></i>Edit Business Profile <span class="caption-helper">keep my business profile accurate and up-to-date</span></div>
                                     <div class="actions">
                                         <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
-                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Save Business Profile </span>
+                                            <span class="hidden-xs"> Save Business Profile </span>
                                         </a>
                                         <div class="btn-group">
                                             <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
@@ -282,18 +282,18 @@
                                             	<input type="hidden" id="bizType" value="${businessProfile.bizType}"/>
                                                 <label class="col-md-3 control-label">Business Type</label>
                                                 <div class="col-md-9">
-                                                	<c:set var="bizTypeValue" value="${businessProfile.getBizType()}" />
+                                                	<c:set var="bizTypeValue" value="${businessProfile.bizType}" />
                                                     <div class="mt-checkbox-list mt-checkbox-inline">
 			                                            <label class="mt-checkbox mt-checkbox-outline"> Product
-			                                                <input type="checkbox" value="1" class="businessType" name="businessType[]" <c:if test="${bizTypeValue==1||bizTypeValue==3||bizTypeValue==5||bizTypeValue==7}">checked</c:if> />
+			                                                <input type="checkbox" value="1" name="businessType[]" id="bizTypeProduct" <c:if test="${bizType_product}">checked</c:if> />
 			                                                <span></span>
 			                                            </label>
 			                                            <label class="mt-checkbox mt-checkbox-outline"> e-Product
-			                                                <input type="checkbox" value="2" class="businessType" name="businessType[]" <c:if test="${bizTypeValue==2||bizTypeValue==3||bizTypeValue==6||bizTypeValue==7}">checked</c:if> />
+			                                                <input type="checkbox" value="2" name="businessType[]" id="bizTypeEProduct" <c:if test="${bizType_eproduct}">checked</c:if> />
 			                                                <span></span>
 			                                            </label>
 			                                            <label class="mt-checkbox mt-checkbox-outline"> Service
-			                                                <input type="checkbox" value="4" class="businessType" name="businessType[]" <c:if test="${bizTypeValue==4||bizTypeValue==5||bizTypeValue==6||bizTypeValue==7}">checked</c:if> />
+			                                                <input type="checkbox" value="4" name="businessType[]" id="bizTypeService" <c:if test="${bizType_service}">checked</c:if> />
 			                                                <span></span>
 			                                            </label>
 			                                        </div>
@@ -303,8 +303,8 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Description</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="bizDesc" class="form-control" value="${businessProfile.getBizDesc()}" placeholder="Brief description of your business">
-                                                    <span class="help-block"> Your business description</span>
+                                                    <input type="text" id="bizDesc" class="form-control" value="${businessProfile.bizDesc}" placeholder="Brief description of your business">
+                                                    <span class="help-block"> Your business description </span>
                                                 </div>
                                             </div>
                                            
@@ -536,38 +536,37 @@
 <script src="${webapp_name}/assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
 <!-- BEGIN CORE PLUGINS -->
-<script src="${webapp_name}/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/js.cookie.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.blockui.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="${webapp_name}/assets/global/scripts/datatable.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/scripts/datatable.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/datatables/datatables.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
 
-<script src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/global/plugins/typeahead/typeahead.bundle.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/typeahead/handlebars.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/typeahead/typeahead.bundle.min.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <!-- <script src="${webapp_name}/assets/global/scripts/app.min.js" type="text/javascript"></script> -->
-<script src="${webapp_name}/assets/global/scripts/app.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/scripts/app.js"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
 
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
-<script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
-<script src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"></script>
 
 <!-- 
 <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>

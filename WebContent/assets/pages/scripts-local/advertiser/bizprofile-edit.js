@@ -7,7 +7,7 @@
 function getBusinessProfileEditObject(){	
 //	create a json object
 	
-	alert("getBusinessProfileEditObject()");
+//	alert("getBusinessProfileEditObject()");
 	
 	var p01 = $("#bizId").val();
 	
@@ -16,7 +16,30 @@ function getBusinessProfileEditObject(){
     var p3 = $("#bizOwner").val();
     var p4 = $("#legalFormNo").val();
     var p5 = $("#industryCode").val();
-    var p6 = $("#bizType").val();
+    
+    var p6a;
+    var p6b;
+    var p6c;
+    
+    if($('#bizTypeProduct').prop('checked')){
+    	p6a = $("#bizTypeProduct").val();
+    }else{
+    	p6a = "0";
+    }
+    if($('#bizTypeEProduct').prop('checked')){
+    	p6b = $("#bizTypeEProduct").val();
+    }else{
+    	p6b = "0";
+    }
+    if($('#bizTypeService').prop('checked')){
+    	p6c = $("#bizTypeService").val();
+    }else{
+    	p6c = "0";
+    }
+//	var p6 = $("#bizType").val();
+//  var p6b = $("#bizTypeEProduct").val();
+//  var p6c = $("#bizTypeService").val();
+    
     var p7 = $("#bizPhone").val();
     var p8 = $("#bizFax").val();
     var p9 = $("#bizEmail").val();
@@ -58,7 +81,10 @@ function getBusinessProfileEditObject(){
     		bizOwner    	:   p3,
     		legalFormNo    	:   p4,
     		industryCode    :   p5,
-    		bizType    		:   p6,
+//    		bizType    		:   p6,
+    		bizTypeProduct	:   p6a,
+    		bizTypeEProduct :   p6b,
+    		bizTypeService  :   p6c,
     		bizPhone		:	p7,	
     		bizFax			:	p8,	
     		bizEmail		:	p9,	
@@ -88,7 +114,7 @@ function getBusinessProfileEditObject(){
     		
     };
     
-    console.log(businessObject);
+//  console.log(businessObject);
     
     return businessObject;
 }
@@ -96,7 +122,7 @@ function getBusinessProfileEditObject(){
 
 //function saveAdvertiserProfile(){
 function saveBusinessProfile(){
-//	alert('saveAdvertiserProfile called!');
+	alert('saveAdvertiserProfile called!');
 	var businessObject = getBusinessProfileEditObject();
 	
 	//alert("saveAdPost(), adPostLang="+adPostLang);
@@ -167,13 +193,14 @@ function industryCodeOnChange(level){
 	}
 }
 
+/*
 function setBizTypeValue(){
 	var val = 0;
     $('input.businessType:checkbox:checked').each(function(i){
       val += parseInt($(this).val());
     });
-    $('#businessType').val(val);
-}
+    $('#bizType').val(val);
+}*/
 
 function showCategoryList(){
 	//alert("ok");
@@ -223,10 +250,6 @@ function boothCategorySelectionOnchange(sel) {
 
 $(document).ready(function(){
 	$("#boothCategoryDiv").hide();
-	
-	//init
-//	$("#boothCategoryList").html(
-//			"1,1,1,1<br/>1,1,1,1<br/>"
-//	);
+
 			
 });

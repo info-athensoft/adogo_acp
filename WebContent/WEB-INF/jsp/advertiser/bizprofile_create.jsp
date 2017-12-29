@@ -107,11 +107,11 @@
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
-                        <a href="${webapp_name}/advertiser/">Manage business</a>
+                        <a href="${webapp_name}/advertiser/">Business</a>
                           <i class="fa fa-angle-right"></i>
                       </li>
                       <li>
-                          <span>Edit business profile</span>
+                          <span>Register business</span>
                       </li>
 </ul>
                   <div class="page-toolbar">
@@ -152,17 +152,17 @@
                                     <div class="col-md-4 bg-grey mt-step-col">
                                         <div class="mt-step-number bg-white font-grey">1</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Start</div>
-                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                        <div class="mt-step-content font-grey-cascade">Start registering</div>
                                     </div>
                                     <div class="col-md-4 bg-grey mt-step-col done">
                                         <div class="mt-step-number bg-white font-grey">2</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Create</div>
-                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                        <div class="mt-step-content font-grey-cascade">Create business profile</div>
                                     </div>
                                     <div class="col-md-4 bg-grey mt-step-col">
                                         <div class="mt-step-number bg-white font-grey">3</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Complete</div>
-                                        <div class="mt-step-content font-grey-cascade">Complete your payment</div>
+                                        <div class="mt-step-content font-grey-cascade">Complete additional information</div>
                                     </div>
                                 </div>
                                 
@@ -271,15 +271,15 @@
 	                                    <div class="col-md-9">
 	                                        <div class="mt-checkbox-list mt-checkbox-inline">
 			                                   <label class="mt-checkbox mt-checkbox-outline"> Product
-			                                       <input type="checkbox" value="1" name="businessType" />
+			                                       <input type="checkbox" value="1" name="businessType" id="bizTypeProduct"/>
 			                                       <span></span>
 			                                   </label>
 			                                   <label class="mt-checkbox mt-checkbox-outline"> e-Product
-			                                       <input type="checkbox" value="2" name="businessType" />
+			                                       <input type="checkbox" value="2" name="businessType" id="bizTypeEProduct"/>
 			                                       <span></span>
 			                                   </label>
 			                                   <label class="mt-checkbox mt-checkbox-outline"> Service
-			                                       <input type="checkbox" value="4" name="businessType" />
+			                                       <input type="checkbox" value="4" name="businessType" id="bizTypeService"/>
 			                                       <span></span>
 			                                   </label>
 			                                   <input type="text" class="form-control" placeholder="Business Type" id="bizType">

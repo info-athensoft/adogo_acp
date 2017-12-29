@@ -15,10 +15,12 @@ public class BusinessProfile {
 	private String	industryCode;
 	private Integer bizType;
 	private String	bizOwner;
-	private Date	establishDate;	//official registration date at govern.
-	private Date	createDate;		//registration date at Adogo
 	private Integer	bizStatus;
 	private String  bizDesc;		//business description
+	
+	private Date	establishDate;	//official registration date at govern.
+	private Date	createDate;		//registration date at Adogo
+	private Date	modifyDate;		//last modified date at Adogo
 	
 	private String	bizPhone;
 	private String 	bizFax;
@@ -149,23 +151,26 @@ public class BusinessProfile {
 	public void setBizFax(String bizFax) {
 		this.bizFax = bizFax;
 	}
-	
-	@Override
-	public String toString() {
-		return "BusinessProfile [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId
-				+ ", bizId=" + bizId + ", bizNo=" + bizNo + ", bizName=" + bizName + ", bizName2=" + bizName2
-				+ ", legalFormNo=" + legalFormNo + ", industryCode=" + industryCode + ", bizType=" + bizType
-				+ ", bizOwner=" + bizOwner + ", establishDate=" + establishDate + ", createDate=" + createDate
-				+ ", bizStatus=" + bizStatus + ", bizDesc=" + bizDesc + ", bizPhone=" + bizPhone + ", bizFax=" + bizFax
-				+ ", bizEmail=" + bizEmail + ", bizWebsite=" + bizWebsite + ", hqAddress=" + hqAddress + "]";
-	}
 	public List<BusinessOnlinePresence> getBusinessOnlinePresenceList() {
 		return bizOnlinePresenceList;
 	}
 	public void setBusinessOnlinePresenceList(List<BusinessOnlinePresence> businessOnlinePresenceList) {
 		this.bizOnlinePresenceList = businessOnlinePresenceList;
 	}
-	
-	
-	
+	public Date getModifyDate() {
+		return modifyDate;
+	}
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
+	@Override
+	public String toString() {
+		return "BusinessProfile [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId
+				+ ", bizId=" + bizId + ", bizNo=" + bizNo + ", bizName=" + bizName + ", bizName2=" + bizName2
+				+ ", legalFormNo=" + legalFormNo + ", industryCode=" + industryCode + ", bizType=" + bizType
+				+ ", bizOwner=" + bizOwner + ", bizStatus=" + bizStatus + ", bizDesc=" + bizDesc + ", establishDate="
+				+ establishDate + ", createDate=" + createDate + ", modifyDate=" + modifyDate + ", bizPhone=" + bizPhone
+				+ ", bizFax=" + bizFax + ", bizEmail=" + bizEmail + ", bizWebsite=" + bizWebsite + ", hqAddress="
+				+ hqAddress + ", bizOnlinePresenceList=" + bizOnlinePresenceList + "]";
+	}
 }

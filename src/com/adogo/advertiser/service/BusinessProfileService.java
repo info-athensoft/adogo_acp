@@ -60,4 +60,8 @@ public class BusinessProfileService {
 		businessAddressDao.create(bp.getHqAddress());
 		logger.info("exit saveBusinessProfile(BusinessProfile bp)");
 	}
+	
+	public void trashBusinessProfile(BusinessProfile bp){
+		businessProfileDao.updateStatus(bp);
+	}
 }

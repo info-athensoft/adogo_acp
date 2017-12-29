@@ -152,17 +152,17 @@
                                     <div class="col-md-4 bg-grey mt-step-col">
                                         <div class="mt-step-number bg-white font-grey">1</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Start</div>
-                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                        <div class="mt-step-content font-grey-cascade">Start registering</div>
                                     </div>
                                     <div class="col-md-4 bg-grey mt-step-col">
                                         <div class="mt-step-number bg-white font-grey">2</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Create</div>
-                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                        <div class="mt-step-content font-grey-cascade">Create business profile</div>
                                     </div>
                                     <div class="col-md-4 bg-grey mt-step-col done">
                                         <div class="mt-step-number bg-white font-grey">3</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Complete</div>
-                                        <div class="mt-step-content font-grey-cascade">Complete your payment</div>
+                                        <div class="mt-step-content font-grey-cascade">Complete additional information</div>
                                     </div>
                                 </div>
                                 
