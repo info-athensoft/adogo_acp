@@ -201,6 +201,9 @@
 		                                <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-default">
 		                                    <span class="hidden-xs"> Manage Business </span>
 		                                </a>
+		                                <a href="/acp/advertiser/" class="btn btn-circle btn-default">
+		                                    <span class="hidden-xs"> View Dashboard </span>
+		                                </a>
 		                                <!-- 
 		                                <div class="btn-group">
 		                                    <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">

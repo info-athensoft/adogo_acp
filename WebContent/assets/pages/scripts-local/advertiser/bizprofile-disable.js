@@ -1,7 +1,7 @@
 /**
  * Package:	advertiser
  * Module:  business profile
- * Page:	bizprofile_trash.jsp
+ * Page:	bizprofile_disable.jsp
  */
 function getBusinessProfileTrashObject(){	
 //	alert("getBusinessProfileEditObject()");

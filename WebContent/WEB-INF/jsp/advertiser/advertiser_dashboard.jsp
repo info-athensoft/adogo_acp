@@ -90,7 +90,7 @@
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
                     <!-- BEGIN THEME PANEL -->
-                    <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
+                    <!-- <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>  -->
                     <!-- END THEME PANEL -->
                     <h1 class="page-title"> Advertiser Dashboard
                         <small>home page of advertiser, summary of statistics</small>
@@ -112,26 +112,26 @@
                         </ul>
                         <div class="page-toolbar">
                             <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
+                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Quick Links
                                     <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu pull-right" role="menu">
                                     <li>
-                                        <a href="#">
-                                            <i class="icon-bell"></i> Action</a>
+                                        <a href="${webapp_name}/advertiser/biz/">
+                                            <i class="icon-bell"></i> Goto Business Profile</a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="icon-shield"></i> Another action</a>
+                                        <a href="${webapp_name}/advertiser/booth/">
+                                            <i class="icon-shield"></i> Goto Booths</a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="icon-user"></i> Something else here</a>
+                                        <a href="${webapp_name}/ad/adpost/">
+                                            <i class="icon-user"></i> Goto Ad Post</a>
                                     </li>
                                     <li class="divider"> </li>
                                     <li>
                                         <a href="#">
-                                            <i class="icon-bag"></i> Separated link</a>
+                                            <i class="icon-bag"></i> Export Report</a>
                                     </li>
                                 </ul>
                             </div>
@@ -262,12 +262,14 @@
                                         <span class="caption-helper">default option...</span>
                                     </div>
                                     <div class="actions">
+                                    	<!-- 
                                         <div class="btn-group btn-group-devided" data-toggle="buttons">
                                             <label class="btn blue btn-outline btn-circle btn-sm active">
                                                 <input type="radio" name="options" class="toggle" id="option1">Register business</label>
                                             <label class="btn  blue btn-outline btn-circle btn-sm">
                                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                                         </div>
+                                         -->
                                     </div>
                                 </div>
                                 <div class="portlet-body">
@@ -396,12 +398,14 @@
                                         <span class="caption-helper">default option...</span>
                                     </div>
                                     <div class="actions">
+                                    	<!-- 
                                         <div class="btn-group btn-group-devided" data-toggle="buttons">
                                             <label class="btn blue btn-outline btn-circle btn-sm active">
                                                 <input type="radio" name="options" class="toggle" id="option1">Register business</label>
                                             <label class="btn  blue btn-outline btn-circle btn-sm">
                                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                                         </div>
+                                         -->
                                     </div>
                                 </div>
                                 <div class="portlet-body">

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.adogo.ad.service.AdTagService;
 
 @Controller
-@RequestMapping("/ad/tag")
+@RequestMapping("/advertiser/adpost/tag")
 public class TagController {
 	
 	@Autowired
@@ -17,12 +17,5 @@ public class TagController {
 	public void setAdTagService(AdTagService adTagService) {
 		this.adTagService = adTagService;
 	}
-	
-	
-	
-	//TODO
-	public void test(){
-		System.out.println(this.adTagService);
-	}
-	
+
 }

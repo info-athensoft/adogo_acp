@@ -1,3 +1,9 @@
+/**
+ * Package:	advertiser
+ * Module:  booth
+ * Page:	common
+ */
+
 /*booth_edit.jsp*/
 
 /* create adpost - button:Save AdPost */

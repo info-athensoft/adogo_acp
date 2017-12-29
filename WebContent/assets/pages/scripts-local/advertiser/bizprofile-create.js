@@ -1,7 +1,7 @@
 /**
  * Package:	advertiser
  * Module:  business profile
- * Page:	advertiser_bizprofile_create.jsp
+ * Page:	bizprofile_create.jsp
  */
 
 /**/

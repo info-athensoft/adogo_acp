@@ -1,6 +1,7 @@
 /**
- * Package:	ad
- * Module:  ad-adpost
+ * Package:	advertiser
+ * Module:  adpost
+ * Page:	common
  */
 
 /* adPost - global variables and functions*/

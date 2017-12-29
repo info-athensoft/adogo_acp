@@ -47,7 +47,7 @@ import com.adogo.ad.service.AdTagService;
 import com.athensoft.util.id.UUIDHelper;
 
 @Controller
-@RequestMapping("/ad/adpost")
+@RequestMapping("/advertiser/adpost")
 public class AdPostController {
 	
 	private static final Logger logger = Logger.getLogger(AdPostController.class);
@@ -83,17 +83,36 @@ public class AdPostController {
 		this.adTagService = adTagService;
 	}
 	
+	@RequestMapping("/")
+	public String gotoIndex(){
+		logger.info("entering... /acp/advertiser/adpost/");
+		String viewName = "advertiser/adpost_index";
+		logger.info("exiting... /acp/advertiser/adpost/");
+		return viewName;
+	}
+	
+	@RequestMapping("/index.html")
+	public String gotoIndex2(){
+		logger.info("entering... /acp/advertiser/adpost/index.html");
+		String viewName = "advertiser/adpost_index";
+		logger.info("exiting... /acp/advertiser/adpost/index.html");
+		return viewName;
+	}
+	
+	
 	@RequestMapping("/create.html")
 	public String gotoCreate(){
-		String viewName = "ad/ad_post_create";
+		logger.info("entering... /acp/advertiser/adpost/create.html");
+		String viewName = "advertiser/adpost_create";
+		logger.info("exiting... /acp/advertiser/adpost/create.html");
 		return viewName;
 	}
 	
 	@RequestMapping("/edit.html")
 	public String gotoEdit(){
-		System.out.println("entering -- /edit");
-		String viewName = "ad/ad_post_edit";
-		System.out.println("exiting -- /edit");
+		logger.info("entering... /acp/advertiser/adpost/edit.html");
+		String viewName = "advertiser/adpost_edit";
+		logger.info("exiting... /acp/advertiser/adpost/edit.html");
 		return viewName;
 	}
 	
@@ -106,14 +125,17 @@ public class AdPostController {
 	 */
 	@RequestMapping("/saveTags")
 	public String saveTags(@RequestParam String adpostId, @RequestParam String tags){
-		logger.info("entering -- /saveTags ... adpostId= " + adpostId + ", tags="+String.valueOf(tags));
-		String viewName = "ad/ad_post";
+		logger.info("entering... /acp/advertiser/adpost/saveTags");
 		
-		this.adPostService.saveTags(adpostId, tags);
+		//test
+		logger.info("adpostId= " + adpostId + ", tags="+String.valueOf(tags));
 		
+		this.adPostService.saveTags(adpostId, tags);		
 		this.adTagService.updateTagList(tags);
 		
-		logger.info("exiting -- /saveTags ");
+		String viewName = "advertiser/adpost_index";
+		
+		logger.info("exiting... /acp/advertiser/adpost/saveTags");
 		return viewName;
 	}
 	
@@ -125,7 +147,7 @@ public class AdPostController {
 	 */
 	@RequestMapping("/saveAdPost")
 	public ModelAndView saveAdPost(@RequestParam String adPostJSONString){		
-		logger.info("entering... /ad/adpost/saveAdPost");
+		logger.info("entering... /acp/advertiser/adpost/saveAdPost");
 		
 		/* initial settings */
 		ModelAndView mav = new ModelAndView();
@@ -236,10 +258,10 @@ public class AdPostController {
 */
 		
 		/* assemble model and view */
-		String viewName = "ad/ad_post";
+		String viewName = "advertiser/adpost_index";
         mav.setViewName(viewName);
 		
-		logger.info("exiting... /ad/adpost/saveAdPost");
+		logger.info("exiting... /advertiser/adpost/saveAdPost");
 		return mav;
 	}
 
@@ -251,7 +273,7 @@ public class AdPostController {
 	@RequestMapping(value="/adposts",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
 	public Map<String,Object> getDataAdPostList(){
-		logger.info("entering RESTFUL API... /ad/adpost/adposts");
+		logger.info("entering RESTFUL API... /advertiser/adpost/adposts");
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -275,7 +297,7 @@ public class AdPostController {
 		model.put("listAdPostHead", listAdPostHead);
 		model.put("countAdPost", numOfAdPost+"");
 		
-		logger.info("exiting RESTFUL API... /ad/adpost/adposts");
+		logger.info("exiting RESTFUL API... /advertiser/adpost/adposts");
 		return model;
 	}
 	
@@ -290,7 +312,7 @@ public class AdPostController {
 /*	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
 	public Map<String,Object> getDataAdPost(@PathVariable long adPostId){
-		logger.info("entering RESTFUL API... /ad/adpost/adposts/"+adPostId);
+		logger.info("entering RESTFUL API... /advertiser/adpost/adposts/"+adPostId);
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -315,7 +337,7 @@ public class AdPostController {
 	@RequestMapping(value="/{adPostId}",method=RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> getDataAdPost(@PathVariable long adPostId){
-		logger.info("entering RESTFUL API... /ad/adpost/"+adPostId);
+		logger.info("entering RESTFUL API... /advertiser/adpost/"+adPostId);
 		
 		//retrieve data from database via service and dao		
 		AdPost adPost = new AdPost();
@@ -375,7 +397,7 @@ public class AdPostController {
 		logger.info("primaryGalleryImage getMediaUrl()="+primaryGalleryImage.getMediaUrl());
 		*/
 		
-		logger.info("exiting RESTFUL API... /ad/adpost/"+adPostId);
+		logger.info("exiting RESTFUL API... /advertiser/adpost/"+adPostId);
 		
 		
 		if (adPostHead == null) {
@@ -416,12 +438,8 @@ public class AdPostController {
 	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<Boolean> updateAdPost(@PathVariable String adPostId){
-		
-		
-		
 		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
 	}
-	
 	
 	
 	/**
@@ -434,14 +452,8 @@ public class AdPostController {
 	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.DELETE)
 	@ResponseBody
 	public ResponseEntity<Boolean> deleteAdPost(@PathVariable String adPostId){
-		
-		
-		
 		return new ResponseEntity<Boolean>(true,HttpStatus.NO_CONTENT);
 	}
-
-
-	
 	
 	private AdPostText getAdPostText(AdPostBody adPostBody, String mediaDesc){
 		AdPostText contentObj = new AdPostText(adPostBody);
@@ -490,7 +502,7 @@ public class AdPostController {
 	@ResponseBody
 	public Map<String,Object> imageUpload(HttpServletRequest req){
 		
-		logger.info("entering /ad/adpost/imageUpload");
+		logger.info("entering /advertiser/adpost/imageUpload");
 		
 		//parameter
 		String eventUUID = (String)req.getParameter("eventUUID");
@@ -608,7 +620,7 @@ public class AdPostController {
 		
 		model.put("url", fileUrlFull);
 		
-		logger.info("leaving /ad/adpost/imageUpload");
+		logger.info("leaving /advertiser/adpost/imageUpload");
 		return model;
 	}
 

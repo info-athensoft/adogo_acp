@@ -1,4 +1,8 @@
-/*booth_create.jsp*/
+/**
+ * Package:	advertiser
+ * Module:  adpost
+ * Page:	booth_create.jsp
+ */
 
 /* create booth - button:Quick save */
 function createBooth(){
@@ -6,13 +10,13 @@ function createBooth(){
 	
 	$.ajax({
 		type:"post",
-		url:"/acp/advertiser/booth/create",		//TODO
+		url:"/acp/advertiser/booth/create",
 		dataType:"json",
 		data: {	boothJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
-		success:function(data){	
-			alert("saveBooth ajax ok");
+		success:function(data){
+//			alert("saveBooth ajax ok");
 			window.location.href="/acp/advertiser/booth/";
-		}		
+		}
 	});
 }
