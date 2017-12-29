@@ -199,7 +199,7 @@
 		                                    <span class="hidden-xs"> Start Register </span>
 		                                </a>
 		                                <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-default">
-		                                    <span class="hidden-xs"> Manage business </span>
+		                                    <span class="hidden-xs"> Manage Business </span>
 		                                </a>
 		                                <!-- 
 		                                <div class="btn-group">
@@ -282,7 +282,7 @@
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided">
                                         	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-                                        	<a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
+                                        	<a href="${webapp_name}/advertiser/biz/disable.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
                                         </div>
                                     </div>
                                 </div>

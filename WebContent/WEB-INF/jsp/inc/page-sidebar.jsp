@@ -63,21 +63,21 @@
 					<li class="nav-item">
 						<a href="/acp/advertiser/biz/"  class="nav-link nav-toggle">
 						<i class="icon-home"></i>
-						Manage Business
+						Business
 						<span class="arrow"></span>
 					 	</a>
 					</li>
 					<li class="nav-item  ">
 						<a href="/acp/advertiser/booth/"  class="nav-link nav-toggle">
 						<i class="icon-home"></i>
-						Manage Booth
+						Booth
 						<span class="arrow"></span>
 						</a>
 					</li>
 					<li class="nav-item  ">
 						<a href="/acp/advertiser/">
 						<i class="icon-home"></i>
-						Manage AdPost</a>
+						Ad Post</a>
 						<ul class="sub-menu">
 							<li class="nav-item  ">
 								<a href="/acp/ad/adpost/create.html">

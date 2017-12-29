@@ -156,11 +156,13 @@
 		                            <div class="caption">
 		                                <i class="fa fa-shopping-cart"></i>Manage business <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
+		                            <!-- 
 		                                <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-info">
 		                                    <span class="hidden-xs"> Manage business </span>
 		                                </a>
+		                             -->
 		                                <a href="/acp/advertiser/biz/" class="btn btn-circle btn-default">
-		                                    <span class="hidden-xs"> Back </span>
+		                                    <span class="hidden-xs"> Back Home</span>
 		                                </a>
 		                            </div>
 		                        </div>
@@ -211,16 +213,19 @@
 									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs blue">ACTIVE</a></span>
 									         </c:when>
 									         <c:when test = "${bizProfile.bizStatus == 3}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">SUSPENDED</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 4}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">BANNED</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 5}">
 									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">DISABLED</a></span>
 									         </c:when>
+									          <c:when test = "${bizProfile.bizStatus == 4}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">TRASHED</a></span>
+									         </c:when>
+									         <c:when test = "${bizProfile.bizStatus == 5}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">SUSPENDED</a></span>
+									         </c:when>
+									         <c:when test = "${bizProfile.bizStatus == 6}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">BANNED</a></span>
+									         </c:when>
 									         <c:otherwise>
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs grey">INACTIVE</a></span>
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs grey">UNKNOWN</a></span>
 									         </c:otherwise>
 									    </c:choose>
                                     </div>

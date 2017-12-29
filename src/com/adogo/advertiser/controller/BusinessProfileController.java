@@ -287,8 +287,8 @@ public class BusinessProfileController {
 	 * @param bizId
 	 * @return
 	 */
-	@RequestMapping("/trash.html")
-	public ModelAndView gotoTrashBizProfile(@RequestParam long bizId){
+	@RequestMapping("/disable.html")
+	public ModelAndView gotoDisableBizProfile(@RequestParam long bizId){
 		logger.info("entering... /advertiser/biz/trash.html");
 		
 		//test
@@ -299,7 +299,7 @@ public class BusinessProfileController {
 		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
-		String viewName = "advertiser/bizprofile_trash";
+		String viewName = "advertiser/bizprofile_disable";
 		mav.setViewName(viewName);
 		
 		Map<String,Object> model = mav.getModel();
@@ -593,9 +593,9 @@ public class BusinessProfileController {
 	 * @param businessProfileJSONString
 	 * @return
 	 */
-	@RequestMapping(value="/trash",method=RequestMethod.POST,produces="application/json")
+	@RequestMapping(value="/disable",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> trashBizProfile(@RequestParam String bizProfileJSONString){		
+	public Map<String,Object> disableBizProfile(@RequestParam String bizProfileJSONString){		
 		logger.info("entering... /advertiser/biz/trash");
 		
 		/* prepare data */	

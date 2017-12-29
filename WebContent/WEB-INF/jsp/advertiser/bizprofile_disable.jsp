@@ -284,7 +284,7 @@
    <!-- END THEME GLOBAL SCRIPTS -->
    <!-- BEGIN PAGE LEVEL SCRIPTS -->
    <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/dashboard.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-trash.js"></script>
+   <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-disable.js"></script>
    <!-- END PAGE LEVEL SCRIPTS -->
    <!-- BEGIN THEME LAYOUT SCRIPTS -->
    <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>

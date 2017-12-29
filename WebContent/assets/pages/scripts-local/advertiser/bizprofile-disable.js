@@ -22,7 +22,7 @@ function trashBusinessProfile(){
 	
 	$.ajax({
 		type:"post",
-		url:"/acp/advertiser/biz/trash",
+		url:"/acp/advertiser/biz/disable",
 		dataType:"json",
 		data: {	bizProfileJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
