@@ -37,8 +37,23 @@ public class BusinessProfileService {
 		return businessProfileDao.getBusinessProfileByUserId(userId);
 	}
 	
+	/**
+	 * search all businesses by advertiserId
+	 * @param advertiserId
+	 * @return
+	 */
 	public List<BusinessProfile> getBusinessProfileByAdvertiserId(long advertiserId){
 		return businessProfileDao.getBusinessProfileByAdvertiserId(advertiserId);
+	}
+	
+	/**
+	 * search businesses by advertiserId and bizStatus
+	 * @param advertiserId
+	 * @param bizStatus
+	 * @return
+	 */
+	public List<BusinessProfile> getBusinessProfileByAdvertiserId(long advertiserId, int bizStatus){
+		return businessProfileDao.getBusinessProfileByAdvertiserId(advertiserId, bizStatus);
 	}
 	
 	public BusinessProfile getBusinessProfileByBizId(long biz_id){

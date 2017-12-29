@@ -99,13 +99,48 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND advertiser_id =:advertiser_id ");
-		sbf.append(" AND biz_status =:biz_status ");	//TODO
+		sbf.append(" ORDER BY biz_status ");
 		String sql = sbf.toString();
 		logger.info(sql);
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("advertiser_id", advertiserId);
-		paramSource.addValue("biz_status", BusinessStatus.ACTIVE);
+		return jdbc.query(sql,paramSource,new BusinessProfileRowMapper());
+	}
+
+	@Override
+	public List<BusinessProfile> getBusinessProfileByAdvertiserId(long advertiserId, int bizStatus) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("user_id, ");
+		sbf.append("advertiser_id, ");
+		sbf.append("biz_id, ");
+		sbf.append("biz_no, ");
+		sbf.append("biz_name, ");
+		sbf.append("biz_name2, ");
+		sbf.append("legal_form_no, ");
+		sbf.append("industry_code, ");
+		sbf.append("biz_type, ");
+		sbf.append("biz_owner, ");
+		sbf.append("establish_date, ");
+		sbf.append("create_date, ");
+		sbf.append("biz_phone, ");
+		sbf.append("biz_fax, ");
+		sbf.append("biz_email, ");
+		sbf.append("biz_website, ");
+		sbf.append("biz_status, ");
+		sbf.append("biz_desc ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND advertiser_id =:advertiser_id ");
+		sbf.append(" AND biz_status =:biz_status ");	
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("advertiser_id", advertiserId);
+		paramSource.addValue("biz_status", bizStatus);
 		return jdbc.query(sql,paramSource,new BusinessProfileRowMapper());
 	}
 

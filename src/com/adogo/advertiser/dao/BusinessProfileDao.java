@@ -8,6 +8,8 @@ public interface BusinessProfileDao {
 	
 	public List<BusinessProfile> getBusinessProfileByUserId(long userId);
 	public List<BusinessProfile> getBusinessProfileByAdvertiserId(long advertiserId);
+	public List<BusinessProfile> getBusinessProfileByAdvertiserId(long advertiserId, int bizStatus);
+	
 	
 	public BusinessProfile getBusinessProfileByBizId(long bizId);
 	public BusinessProfile getBusinessProfileByBizNo(String bizNo);

@@ -18,7 +18,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-<title>Adogo | Business Profile - Index</title>
+<title>Adogo | Business Profile - Manage</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description"/>
@@ -147,45 +147,6 @@
                     </div>
                     <!-- END PAGE HEADER-->
                     
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class=" icon-layers font-green"></i>
-                                        <span class="caption-subject font-green bold uppercase">Quick steps</span>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="mt-element-step">
-                                        <div class="row step-thin">
-                                            <div class="mt-step-desc">
-                                                <div class="font-dark bold uppercase">Register a business</div>
-                                                <div class="caption-desc font-grey-cascade"></div>
-                                                <br/>
-                                            </div>
-                                            <div class="col-md-4 bg-grey mt-step-col done">
-		                                        <div class="mt-step-number bg-white font-grey">1</div>
-		                                        <div class="mt-step-title uppercase font-grey-cascade">Start</div>
-		                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
-		                                    </div>
-		                                    <div class="col-md-4 bg-grey mt-step-col">
-		                                        <div class="mt-step-number bg-white font-grey">2</div>
-		                                        <div class="mt-step-title uppercase font-grey-cascade">Create</div>
-		                                        <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
-		                                    </div>
-		                                    <div class="col-md-4 bg-grey mt-step-col">
-		                                        <div class="mt-step-number bg-white font-grey">3</div>
-		                                        <div class="mt-step-title uppercase font-grey-cascade">Complete</div>
-		                                        <div class="mt-step-content font-grey-cascade">Complete your payment</div>
-		                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <!-- BEGIN ROW 1 -->
 		            <div class="row">
 		                <div class="col-md-12">
@@ -193,30 +154,14 @@
 		                    <div class="portlet light">
 		                        <div class="portlet-title">
 		                            <div class="caption">
-		                                <i class="fa fa-shopping-cart"></i>Register a business <span class="caption-helper">under advertiser</span></div>
+		                                <i class="fa fa-shopping-cart"></i>Manage business <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
-		                                <a href="/acp/advertiser/biz/create.html" class="btn btn-circle btn-info">
-		                                    <span class="hidden-xs"> Start Register </span>
-		                                </a>
-		                                <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-default">
+		                                <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-info">
 		                                    <span class="hidden-xs"> Manage business </span>
 		                                </a>
-		                                <!-- 
-		                                <div class="btn-group">
-		                                    <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-		                                        <i class="fa fa-share"></i>
-		                                        <span class="hidden-xs"> Tools </span>
-		                                        <i class="fa fa-angle-down"></i>
-		                                    </a>
-		                                    <ul class="dropdown-menu pull-right">
-		                                        <li><a href="javascript:;"> Export to Excel </a></li>
-		                                        <li><a href="javascript:;"> Export to CSV </a></li>
-		                                        <li><a href="javascript:;"> Export to XML </a></li>
-		                                        <li class="divider"></li>
-		                                        <li><a href="javascript:;"> Print  </a></li>
-		                                    </ul>
-		                                </div>
-		                                 -->
+		                                <a href="/acp/advertiser/biz/" class="btn btn-circle btn-default">
+		                                    <span class="hidden-xs"> Back </span>
+		                                </a>
 		                            </div>
 		                        </div>
 		                       

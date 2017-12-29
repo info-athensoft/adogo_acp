@@ -81,7 +81,7 @@ public class BusinessProfileController {
 		Map<String,Object> model = mav.getModel();
 		
 		//load business profiles
-		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId);
+		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId,BusinessStatus.ACTIVE);
 		
 		//test
 //		System.out.println("listBizProfile.size()="+listBizProfile.size());
@@ -92,6 +92,33 @@ public class BusinessProfileController {
         mav.setViewName(viewName);
 		
 		logger.info("exiting... /advertiser/biz/");
+		return mav;
+	}
+	
+	@RequestMapping("/manage.html")
+	public ModelAndView gotoBizProfileManage(){
+		logger.info("entering... /advertiser/biz/manage.html");
+		
+		long advertiserId = 1712010001L;	//TODO test: get from session
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		/* assemble model and view */
+		Map<String,Object> model = mav.getModel();
+		
+		//load business profiles
+		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId);
+		
+		//test
+//		System.out.println("listBizProfile.size()="+listBizProfile.size());
+		
+		model.put("listBizProfile", listBizProfile);
+		
+		String viewName = "advertiser/bizprofile_manage";	
+        mav.setViewName(viewName);
+		
+		logger.info("exiting... /advertiser/biz/manage.html");
 		return mav;
 	}
 	
