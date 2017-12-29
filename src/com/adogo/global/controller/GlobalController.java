@@ -37,6 +37,7 @@ public class GlobalController {
 		UserAccount userAccount = this.userAccountService.findByName(username);
 		session.setAttribute("userAccount", userAccount);
 		session.setAttribute("warningMsg", "");
+		session.setAttribute("loginReqMsg", "");
 		logger.info("exiting.. /index");
 		return "index";
 	}

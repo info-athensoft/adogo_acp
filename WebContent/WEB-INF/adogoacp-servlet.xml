@@ -12,6 +12,10 @@
 	
 	<mvc:interceptors>
 		<mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="test.web.interceptor.TestLoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
             <mvc:mapping path="/advertiser/**"/>
             <bean class="test.web.interceptor.TestInterceptor"/>
         </mvc:interceptor>

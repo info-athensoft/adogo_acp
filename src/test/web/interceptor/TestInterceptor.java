@@ -28,9 +28,17 @@ public class TestInterceptor extends HandlerInterceptorAdapter {
  
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-    	System.out.println("===========TestInterceptor preHandle");
+    	String url = request.getRequestURL().toString();
+    	System.out.println("===========TestInterceptor preHandle. RequestURL : " + url);
     	HttpSession httpSession = request.getSession(false);
-    	UserAccount userAccount = (UserAccount) httpSession.getAttribute("userAccount");
+    	
+    	//if already tested by login interceptor and required login 
+    	String loginReqMsg = (String)httpSession.getAttribute("loginReqMsg");
+    	if (loginReqMsg.contains("login")) {
+    		return true;
+    	}
+    	
+    	UserAccount userAccount = (UserAccount)httpSession.getAttribute("userAccount");
     	if (userAccount != null) {
         	String userName = userAccount.getAcctName();
         	long acctId = userAccount.getAcctId();
@@ -53,12 +61,14 @@ public class TestInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         super.postHandle(request, response, handler, modelAndView);
-        System.out.println("===========TestInterceptor postHandle");
+        String url = request.getRequestURL().toString();
+    	System.out.println("===========TestInterceptor postHandle. RequestURL : " + url);
     }
     
     @Override  
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {  
-        System.out.println("===========TestInterceptor afterCompletion");
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+    	String url = request.getRequestURL().toString();
+    	System.out.println("===========TestInterceptor afterCompletion. RequestURL : " + url);
     }
     
 }
