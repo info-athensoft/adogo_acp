@@ -97,40 +97,28 @@
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
                     <!-- BEGIN THEME PANEL -->
-                    <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
                     <h1 class="page-title"> Advertiser | Ad Post <small>create an Ad post</small></h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
-							<li>
-								<i class="fa fa-home"></i>
-								<a href="#">Home</a>
-								<i class="fa fa-angle-right"></i>
-							</li>
-							<li>
-                                <a href="${webapp_name}/advertiser/">Advertiser</a>
-                                <i class="fa fa-angle-right"></i>
-                            </li>
-							<li>
-								<a href="#">Manage Ad Post</a>
-								<i class="fa fa-angle-right"></i>
-							</li>
-							<li>
-								<a href="#">Create an Ad Post</a>
-							</li>
+							<li><i class="fa fa-home"></i><a href="#">Home</a><i class="fa fa-angle-right"></i></li>
+							<li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
+							<li><a href="${webapp_name}/advertiser/adpost/">Ad Post</a><i class="fa fa-angle-right"></i></li>
+							<li><a href="#">Create Ad Post</a></li>
 						</ul>
                         <div class="page-toolbar">
                             <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
+                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Quick Links
                                     <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#"><i class="icon-bell"></i> Action</a></li>
-                                    <li><a href="#"><i class="icon-shield"></i> Another action</a></li>
-                                    <li><a href="#"><i class="icon-user"></i> Something else here</a></li>
-                                    <li class="divider"> </li>
-                                    <li><a href="#"><i class="icon-bag"></i> Separated link</a></li>
-                                </ul>
+		                          	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
+			                         <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
+			                         <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
+			                         <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
+			                         <li class="divider"> </li>
+			                         <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
+			                     </ul>
                             </div>
                         </div>
                     </div>
@@ -146,7 +134,7 @@
                                 <div class="portlet">
                                     <div class="portlet-title">
                                         <div class="caption">
-                                            <i class="fa fa-shopping-cart"></i>Create an Ad<span class="caption-helper"> writing Ad details, associated medias, pictures, etc.</span> </div>
+                                            <i class="fa fa-shopping-cart"></i>Create an Ad Post<span class="caption-helper"> writing Ad details, associated medias, pictures, etc.</span> </div>
                                         <div class="actions btn-set">
                                             <button type="button" name="back" class="btn btn-secondary-outline" onclick="backToNewsList(); return false;">
                                                 <i class="fa fa-angle-left"></i> Back</button>

@@ -15,47 +15,45 @@
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-    <!--<![endif]-->
-    <head>
-        <meta charset="utf-8" />
-        <title>Adogo | Business Profile - Edit</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-        
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <meta content="" name="description" />
-        <meta content="" name="author" />
-        
-        <meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">
-        
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
-        <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/datatables.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css"/>
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color"/>
-        <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
-    </head>
+<!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<title>Adogo | Business Profile - Edit</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="" name="description" />
+<meta content="" name="author" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+      
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css"/>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL STYLES -->
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
+<!-- END THEME GLOBAL STYLES -->
+<!-- BEGIN THEME LAYOUT STYLES -->
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color"/>
+<link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
+<!-- END THEME LAYOUT STYLES -->
+<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
+</head>
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->
@@ -93,40 +91,28 @@
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
                     <!-- BEGIN THEME PANEL -->
-                    <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Advertiser | Business Profile <small>edit my business profile</small></h1>
+                    <h1 class="page-title"> Advertiser | Business <small>edit my business profile</small></h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
-							<li>
-                                <i class="icon-home"></i>
-                                <a href="${webapp_name}/">Home</a>
-                                <i class="fa fa-angle-right"></i>
-                            </li>
-                            <li>
-                                <a href="${webapp_name}/advertiser/">Advertiser</a>
-                                <i class="fa fa-angle-right"></i>
-                            </li>
-                            <li>
-                                <a href="${webapp_name}/advertiser/biz/">Business</a>
-                                <i class="fa fa-angle-right"></i>
-                            </li>
-                            <li>
-                                <span>Edit business profile</span>
-                            </li>
+							<li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="${webapp_name}/advertiser/biz/">Business</a><i class="fa fa-angle-right"></i></li>
+                            <li><span>Edit a Business Profile</span></li>
 						</ul>
                         <div class="page-toolbar">
                             <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
+                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Quick Links
                                     <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#"><i class="icon-bell"></i> Action</a></li>
-                                    <li><a href="#"><i class="icon-shield"></i> Another action</a></li>
-                                    <li><a href="#"><i class="icon-user"></i> Something else here</a></li>
-                                    <li class="divider"> </li>
-                                    <li><a href="#"><i class="icon-bag"></i> Separated link</a></li>
-                                </ul>
+                                	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
+			                         <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
+			                         <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
+			                         <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
+			                         <li class="divider"> </li>
+			                         <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
+			                     </ul>
                             </div>
                         </div>
                     </div>
@@ -138,25 +124,17 @@
                             <div class="portlet light">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-shopping-cart"></i>Edit Business Profile <span class="caption-helper">keep my business profile accurate and up-to-date</span></div>
+                                        <i class="fa fa-shopping-cart"></i>Edit Business Profile <span class="caption-helper">keeping accurate and up-to-date</span></div>
                                     <div class="actions">
                                         <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
                                             <span class="hidden-xs"> Save Business Profile </span>
                                         </a>
-                                        <div class="btn-group">
-                                            <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-                                                <i class="fa fa-share"></i>
-                                                <span class="hidden-xs"> Tools </span>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li><a href="javascript:;"> Export to Excel </a></li>
-                                                <li><a href="javascript:;"> Export to CSV </a></li>
-                                                <li><a href="javascript:;"> Export to XML </a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="javascript:;"> Print  </a></li>
-                                            </ul>
-                                        </div>
+                                        <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-default">
+		                                    <span class="hidden-xs"> Manage Business </span>
+		                                </a>
+		                                <a href="/acp/advertiser/" class="btn btn-circle btn-default">
+		                                    <span class="hidden-xs"> Dashboard </span>
+		                                </a>
                                     </div>
                                 </div>
                                

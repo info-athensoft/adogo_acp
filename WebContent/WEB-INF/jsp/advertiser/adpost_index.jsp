@@ -91,27 +91,14 @@
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
                     <!-- BEGIN THEME PANEL -->
-                    <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Ad Post <small>create ad post</small></h1>
+                    <h1 class="page-title"> Advertiser | Ad Post <small>home</small></h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
-							<li>
-								<i class="fa fa-home"></i>
-								<a href="#">Home</a>
-								<i class="fa fa-angle-right"></i>
-							</li>
-							<li>
-                                <a href="${webapp_name}/advertiser/">Advertiser</a>
-                                <i class="fa fa-angle-right"></i>
-                            </li>
-							<li>
-								<a href="#">Manage Ad Post</a>
-								<i class="fa fa-angle-right"></i>
-							</li>
-							<li>
-								<a href="#">Ad Post</a>
-							</li>
+							<li><i class="fa fa-home"></i><a href="#">Home</a><i class="fa fa-angle-right"></i></li>
+							<li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
+							<li><a href="${webapp_name}/advertiser/adpost/">Ad Post</a><i class="fa fa-angle-right"></i></li>
+							<li><a href="#">Ad Post Home</a></li>
 						</ul>
                         <div class="page-toolbar">
                             <div class="btn-group pull-right">
@@ -119,12 +106,13 @@
                                     <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#"><i class="icon-bell"></i> Action</a></li>
-                                    <li><a href="#"><i class="icon-shield"></i> Another action</a></li>
-                                    <li><a href="#"><i class="icon-user"></i> Something else here</a></li>
-                                    <li class="divider"> </li>
-                                    <li><a href="#"><i class="icon-bag"></i> Separated link</a></li>
-                                </ul>
+		                          	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
+			                         <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
+			                         <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
+			                         <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
+			                         <li class="divider"> </li>
+			                         <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
+			                     </ul>
                             </div>
                         </div>
                     </div>

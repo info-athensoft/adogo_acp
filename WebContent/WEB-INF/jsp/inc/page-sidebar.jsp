@@ -75,7 +75,7 @@
 						</a>
 					</li>
 					<li class="nav-item  ">
-						<a href="/acp/advertiser/">
+						<a href="/acp/advertiser/adpost/">
 						<i class="icon-home"></i>
 						Ad Post</a>
 						<ul class="sub-menu">
