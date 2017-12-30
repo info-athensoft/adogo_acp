@@ -129,7 +129,7 @@
 		                            <div class="caption">
 		                                <i class="fa fa-shopping-cart"></i>Trash the specified business <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
-		                                <a class="btn btn-circle btn-info"  onclick="disableBusinessProfile(); return false;">
+		                                <a class="btn btn-circle btn-info"  onclick="trashBusinessProfile(); return false;">
 		                                    <span> Trash </span>
 		                                </a>
 		                            </div>

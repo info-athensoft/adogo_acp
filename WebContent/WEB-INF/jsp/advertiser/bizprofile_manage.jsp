@@ -52,9 +52,9 @@
 <link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
 </head>
 
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
-        <!-- BEGIN HEADER -->
-        <div class="page-header navbar navbar-fixed-top">
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
+	<!-- BEGIN HEADER -->
+	<div class="page-header navbar navbar-fixed-top">
             <!-- BEGIN HEADER INNER -->
             <div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
@@ -73,12 +73,11 @@
             </div>
             <!-- END HEADER INNER -->
         </div>
-        <!-- END HEADER -->
-        <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
-        <!-- BEGIN CONTAINER -->
-        <div class="page-container">
+	<!-- END HEADER -->
+	<div class="clearfix"> </div>
+        
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
                 <!-- END SIDEBAR -->
@@ -126,51 +125,20 @@
                     <!-- BEGIN ROW 1 -->
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <!-- Begin: life time stats -->
 		                    <div class="portlet light">
 		                        <div class="portlet-title">
 		                            <div class="caption">
 		                                <i class="fa fa-shopping-cart"></i> Manage business profiles <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
-		                            <!-- 
-		                                <a href="${webapp_name}/advertiser/biz/manage.html" class="btn btn-circle btn-info">
-		                                    <span class="hidden-xs"> Manage business </span>
-		                                </a>
-		                             -->
-		                                <a href="${webapp_name}/advertiser/biz/" class="btn btn-circle btn-info"">
+		                                <a href="${webapp_name}/advertiser/biz/" class="btn btn-circle btn-info">
 		                                    <span> Back Home</span>
 		                                </a>
 		                            </div>
 		                        </div>
-		                       
 		                    </div>
-		                    <!-- End: life time stats -->
 		                </div>
 		            </div>
 		            <!-- END ROW 1 -->
-                    
-                    
-                    <div class="row">
-                    </div>
-                    
-                    <!-- TEST -->
-                    <!-- 
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                        	<c:forEach items="${listVOBizProfileBooth}" var="voBizProfileBooth">
-                        		<p>Business ID: ${voBizProfileBooth.bizProfile.bizId}</p>
-                        		<c:forEach items="${voBizProfileBooth.listBooth}" var="booth">
-                        			<p>Business Name: ${booth.bizName}</p>
-                        			<p>Booth Name: ${booth.boothName}</p>
-                        			<p>Booth Desc: ${booth.bizDesc}</p>
-                        		</c:forEach>	
-                        	</c:forEach>
-                        </div>
-                    </div>
-                     -->
-                    <!-- END TEST -->
-                    
-                    
                     
                     <!-- PRETEST -->
                     <c:forEach items="${listBizProfile}" var="bizProfile">
@@ -192,10 +160,10 @@
 									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">DISABLED</a></span>
 									         </c:when>
 									          <c:when test = "${bizProfile.bizStatus == 4}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">TRASHED</a></span>
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">TRASHED</a></span>
 									         </c:when>
 									         <c:when test = "${bizProfile.bizStatus == 5}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">SUSPENDED</a></span>
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs purple">SUSPENDED</a></span>
 									         </c:when>
 									         <c:when test = "${bizProfile.bizStatus == 6}">
 									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">BANNED</a></span>
@@ -255,71 +223,70 @@
             </div>
             <!-- END CONTENT -->
         </div>
-        <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <jsp:include page="${inc_dir}/page-footer.jsp"></jsp:include>
-        <!-- END FOOTER -->
-        <!--[if lt IE 9]>
-	<script src="${webapp_name}/assets/global/plugins/respond.min.js"></script>
-	<script src="${webapp_name}/assets/global/plugins/excanvas.min.js"></script> 
-	<script src="${webapp_name}/assets/global/plugins/ie8.fix.min.js"></script> 
-	<![endif]-->
-   <!-- BEGIN CORE PLUGINS -->
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/js.cookie.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.blockui.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-   <!-- END CORE PLUGINS -->
-   <!-- BEGIN PAGE LEVEL PLUGINS -->
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/moment.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/morris/morris.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/morris/raphael-min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/counterup/jquery.waypoints.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/counterup/jquery.counterup.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/amcharts.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/serial.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/pie.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/radar.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/themes/light.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/themes/patterns.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/themes/chalk.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/ammap/ammap.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/ammap/maps/js/worldLow.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amstockcharts/amstock.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/fullcalendar/fullcalendar.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/horizontal-timeline/horizontal-timeline.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/flot/jquery.flot.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/flot/jquery.flot.resize.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/flot/jquery.flot.categories.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.sparkline.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js"></script>
-   <!-- END PAGE LEVEL PLUGINS -->
-   <!-- BEGIN THEME GLOBAL SCRIPTS -->
-   <script type="text/javascript" src="${webapp_name}/assets/global/scripts/app.min.js"></script>
-   <!-- END THEME GLOBAL SCRIPTS -->
-   <!-- BEGIN PAGE LEVEL SCRIPTS -->
-   <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/dashboard.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
-   <!-- END PAGE LEVEL SCRIPTS -->
-   <!-- BEGIN THEME LAYOUT SCRIPTS -->
-   <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
-   <!-- END THEME LAYOUT SCRIPTS -->
-   <script>
-       
-   </script>
-</body>
+	<!-- END CONTAINER -->
+        
+	<!-- BEGIN FOOTER -->
+	<jsp:include page="${inc_dir}/page-footer.jsp"></jsp:include>
+	<!-- END FOOTER -->
+        
+<!--[if lt IE 9]>
+<script src="${webapp_name}/assets/global/plugins/respond.min.js"></script>
+<script src="${webapp_name}/assets/global/plugins/excanvas.min.js"></script> 
+<script src="${webapp_name}/assets/global/plugins/ie8.fix.min.js"></script> 
+<![endif]-->
+<!-- BEGIN CORE PLUGINS -->
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/js.cookie.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.blockui.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/moment.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/morris/morris.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/morris/raphael-min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/counterup/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/counterup/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/amcharts.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/serial.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/pie.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/radar.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/themes/light.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/themes/patterns.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amcharts/themes/chalk.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/ammap/ammap.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/ammap/maps/js/worldLow.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/amcharts/amstockcharts/amstock.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/horizontal-timeline/horizontal-timeline.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/flot/jquery.flot.categories.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.sparkline.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+<script type="text/javascript" src="${webapp_name}/assets/global/scripts/app.min.js"></script>
+<!-- END THEME GLOBAL SCRIPTS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts/dashboard.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
+<!-- END THEME LAYOUT SCRIPTS -->
 
+</body>
 </html>
