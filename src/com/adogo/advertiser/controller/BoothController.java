@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import com.adogo.advertiser.service.BoothService;
 import com.adogo.advertiser.service.BusinessHoursService;
 import com.adogo.advertiser.service.BusinessProfileService;
 import com.adogo.advertiser.vo.VOBizProfileBooth;
+import com.athensoft.info.lang.LanguageMap;
 
 @Controller
 @RequestMapping("/advertiser/booth")
@@ -53,33 +56,39 @@ public class BoothController {
 		this.businessHoursService = businessHoursService;
 	}
 	
+	@Autowired
+	private LanguageMap langMapObj;
+	
+	@Autowired
+	public void setLanguageMap(LanguageMap langMapObj){
+		this.langMapObj = langMapObj;
+	}
+	
 	@RequestMapping("/")
-	public ModelAndView gotoBoothIndex(){
+	public ModelAndView gotoBoothIndex(HttpSession session){
 //	public ModelAndView gotoBoothIndex(@RequestParam long advertiserId){
 		logger.info("entering... /advertiser/booth/");
 		
-		long advertiserId = 1712010001L;	//TODO test: get from session
-		
-		/* initial settings */
-		ModelAndView mav = new ModelAndView();
-		
-		/* assemble model and view */
-		Map<String,Object> model = mav.getModel();
+		//long advertiserId = 1712010001L;	//TODO test: get from session
+		Object advertiserIdObj = session.getAttribute("advertiserId");
+		long advertiserId = 0L;
+		if(advertiserIdObj != null){
+			advertiserId = (Long)advertiserIdObj;
+		}		
+		System.out.println("advertiserId="+advertiserId);
 		
 		//load business profiles
 		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId);
 		//test
-		System.out.println("listBizProfile.size()="+listBizProfile.size());
+//		System.out.println("listBizProfile.size()="+listBizProfile.size());
 		
 		//load booths
 		List<Booth> listBooth = boothService.getBoothByAdvertiserId(advertiserId);
 		//test
-		System.out.println("listBooth.size()="+listBooth.size());
-		
+//		System.out.println("listBooth.size()="+listBooth.size());
 		
 		//
 		List<VOBizProfileBooth> listVOBizProfileBooth = new ArrayList<VOBizProfileBooth>();
-		
 		
 		//separate listBooth into sub-lists by bizId
 		int numOfBizProfile = 0;
@@ -87,7 +96,6 @@ public class BoothController {
 		if(numOfBizProfile==0){
 			logger.info("INFO: Current Advertiser does not have any booth yet.");
 		}
-		
 		
 		for(BusinessProfile bizProfile: listBizProfile){
 			long currentBizId = bizProfile.getBizId();
@@ -100,23 +108,31 @@ public class BoothController {
 			listVOBizProfileBooth.add(vo_bizProfileBooth);
 			
 			//test
-			System.out.println("\t "+strCurrentBizId+"\t"+currentSubListBooth.size());
+			//System.out.println("\t "+strCurrentBizId+"\t"+currentSubListBooth.size());
 		}
 		
+		//language map object
+		//LanguageMap langMapObj = new LanguageMap();
+		logger.info("langMapObj="+langMapObj);
+		
+		/* initial settings */
+		ModelAndView mav = new ModelAndView();
+		
+		/* assemble model and view */
+		Map<String,Object> model = mav.getModel();
 		model.put("listVOBizProfileBooth", listVOBizProfileBooth);
 		model.put("listBizProfile", listBizProfile);
+		model.put("langMapObj", langMapObj);
 		
 		String viewName = "advertiser/booth_index";	//TODO booth page does not exist yet
         mav.setViewName(viewName);
 		
-        //TODO test
-        System.out.println("listBizProfile.size()="+listBizProfile.size());
-        System.out.println(listBizProfile);
+//        System.out.println("listBizProfile.size()="+listBizProfile.size());
+//        System.out.println(listBizProfile);
         
-        System.out.println("listVOBizProfileBooth.size()="+listVOBizProfileBooth.size());
-        System.out.println(listVOBizProfileBooth);
+//        System.out.println("listVOBizProfileBooth.size()="+listVOBizProfileBooth.size());
+//        System.out.println(listVOBizProfileBooth);
         
-        //end of test
         
 		logger.info("exiting... /advertiser/booth/");
 		return mav;

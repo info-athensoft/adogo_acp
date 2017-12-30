@@ -23,6 +23,10 @@ public class Booth {
 	private Date createDate;
 	private Integer boothStatus;
 	
+	//fields for view
+	private String langName;
+	
+	
 	public Long getGlobalId() {
 		return globalId;
 	}
@@ -119,6 +123,20 @@ public class Booth {
 	public void setCategoryNo(Integer categoryNo) {
 		this.categoryNo = categoryNo;
 	}
+	public String getLangName() {
+		return langName;
+	}
+	public void setLangName(String langName) {
+		this.langName = langName;
+	}
 	
+	@Override
+	public String toString() {
+		return "Booth [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId + ", bizId="
+				+ bizId + ", langNo=" + langNo + ", bizName=" + bizName + ", bizDesc=" + bizDesc + ", boothId="
+				+ boothId + ", boothName=" + boothName + ", categoryNo=" + categoryNo + ", visitNum=" + visitNum
+				+ ", followerNum=" + followerNum + ", likeNum=" + likeNum + ", boothScore=" + boothScore
+				+ ", createDate=" + createDate + ", boothStatus=" + boothStatus + ", langName=" + langName + "]";
+	}
 	
 }

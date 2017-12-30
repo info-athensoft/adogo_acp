@@ -25,6 +25,10 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
+	<!-- Adogo Custom defined beans -->
+	<bean id="langMapObj"
+		class="com.athensoft.info.lang.LanguageMap" />
+	
 	<!-- 
 	<mvc:resources mapping="/images/**" location="images/" /> 
 	<mvc:resources mapping="/img/**" location="img/" />

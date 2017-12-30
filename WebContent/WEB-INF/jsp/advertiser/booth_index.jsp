@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="portlet-body">
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <span class="caption-subject bold font-dark"> Business ID at Adogo: </span><br/>
                                             <span class="caption-subject bold font-dark"> Primary Business Name: </span><br/>
                                             <span class="caption-subject bold font-dark"> Secondary Business Name: </span><br/>
@@ -227,8 +227,8 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Booths by language</span>
-                                        <span class="caption-helper">default option...</span>
+                                        <span class="caption-subject bold font-dark uppercase"> ${voBizProfileBooth.bizProfile.bizName} </span>
+                                        <span class="caption-helper"> only one booth for each language</span>
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -245,10 +245,10 @@
                                             <div class="thumbnail">
                                                 <img src="${webapp_name}/assets/athensoft/booth-logo/03.jpg" alt="" style="width: 100%;">
                                                 <div class="caption">
-                                                    <h3>CREATE A NEW BOOTH</h3>
-                                                    <p> Create a booth in a specific language for the online branding precence of your business simply by 3 steps, please click on the Help button for details</p>
+                                                    <h4>CREATE A NEW BOOTH</h4>
+                                                    <p> Create a booth in a specific language for the branding online presence</p>
                                                     <p>
-                                                        <a href="/acp/advertiser/booth/create.html?bizId=${voBizProfileBooth.bizProfile.bizId}" class="btn red"> Create Now </a>
+                                                        <a href="/acp/advertiser/booth/create.html?bizId=${voBizProfileBooth.bizProfile.bizId}" class="btn green"> Create Now </a>
                                                         <a href="javascript:;" class="btn default"> Help </a>
                                                     </p>
                                                 </div>
@@ -260,268 +260,31 @@
                                             <div class="thumbnail">
                                                 <img src="${webapp_name}/assets/athensoft/booth-logo/01.jpg" alt="" style="width: 100%;">
                                                 <div class="caption">
-                                                    <h3>${booth.boothName}</h3>
-                                                    <p> ${booth.bizDesc} </p>
+                                                    <h4>${booth.boothName}</h4>
+                                                    <p>  ${booth.bizDesc} </p>
                                                     <p>
                                                         <a href="/acp/advertiser/booth/edit.html?boothId=${booth.boothId}" class="btn blue"> Edit </a>
                                                         <a href="javascript:;" class="btn default"> Preview </a>
+                                                        <span class="badge badge-danger">${langMapObj.getLangName(booth.langNo)}</span>
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
                                         </c:forEach>
                                         
+                                                                               
+                                        
                                     </div>
                                 </div>
                             </div>
-                            
+                            		
+                            		
+                            		
+                                  
                         </div>
                     </div>
                     </c:forEach>
                     <!-- END PRETEST -->
-                    
-                    
-                    <!-- 
-                    
-                    <div class="row">
-                        <div class="col-lg-12 col-xs-12 col-sm-12">
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Business #1</span>
-                                        <span class="caption-helper">default option...</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <label class="btn blue btn-outline btn-circle btn-sm active">
-                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                            <label class="btn  blue btn-outline btn-circle btn-sm">
-                                                <input type="radio" name="options" class="toggle" id="option2">Tools</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/34.jpg" /> </div>
-                                                <div class="mt-container bg-purple-opacity">
-                                                    <div class="mt-head-title"> Advertiser </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-pencil"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-map"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <a class="btn btn-circle btn-danger btn-sm" href="/acp/uaas/advertiser/apply">Apply</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Booths by language</span>
-                                        <span class="caption-helper">default option...</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <label class="btn blue btn-outline btn-circle btn-sm active">
-                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                            <label class="btn  blue btn-outline btn-circle btn-sm">
-                                                <input type="radio" name="options" class="toggle" id="option2">Tools</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="row">
-                                    	<div class="col-sm-12 col-md-3">
-                                            <div class="thumbnail">
-                                                <img src="${webapp_name}/assets/athensoft/booth-logo/01.jpg" alt="" style="width: 100%;">
-                                                <div class="caption">
-                                                    <h3>Booth - English</h3>
-                                                    <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
-                                                    <p>
-                                                        <a href="javascript:;" class="btn blue"> Edit </a>
-                                                        <a href="javascript:;" class="btn default"> Preview </a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <div class="thumbnail">
-                                                <img src="${webapp_name}/assets/athensoft/booth-logo/02.jpg" alt="" style="width: 100%;">
-                                                <div class="caption">
-                                                    <h3>Booth - Français</h3>
-                                                    <p> français dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
-                                                    <p>
-                                                        <a href="javascript:;" class="btn red"> Button </a>
-                                                        <a href="javascript:;" class="btn default"> Button </a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <div class="thumbnail">
-                                                <img src="${webapp_name}/assets/athensoft/booth-logo/03.jpg" alt="" style="width: 100%;">
-                                                <div class="caption">
-                                                    <h3>Booth - 简体中文</h3>
-                                                    <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
-                                                    <p>
-                                                        <a href="javascript:;" class="btn red"> Button </a>
-                                                        <a href="javascript:;" class="btn default"> Button </a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <div class="thumbnail">
-                                                <img src="${webapp_name}/assets/athensoft/booth-logo/03.jpg" alt="" style="width: 100%;">
-                                                <div class="caption">
-                                                    <h3>CREATE A NEW BOOTH</h3>
-                                                    <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
-                                                    <p>
-                                                        <a href="javascript:;" class="btn red"> Create Now </a>
-                                                        <a href="javascript:;" class="btn default"> Button </a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                     -->
-                    
-                    <!--
-                    <div class="row">
-                        <div class="col-lg-12 col-xs-12 col-sm-12">
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Business #2</span>
-                                        <span class="caption-helper">default option...</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <label class="btn blue btn-outline btn-circle btn-sm active">
-                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                            <label class="btn  blue btn-outline btn-circle btn-sm">
-                                                <input type="radio" name="options" class="toggle" id="option2">Tools</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="row">
-                                        
-                                        <div class="col-md-4">
-                                            <div class="mt-widget-4">
-                                                <div class="mt-img-container">
-                                                    <img src="${webapp_name}/assets/pages/img/background/46.jpg" /> </div>
-                                                <div class="mt-container bg-green-opacity">
-                                                    <div class="mt-head-title"> Distributer </div>
-                                                    <div class="mt-body-icons">
-                                                        <a href="#">
-                                                            <i class=" icon-social-twitter"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-bubbles"></i>
-                                                        </a>
-                                                        <a href="#">
-                                                            <i class=" icon-bell"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="mt-footer-button">
-                                                        <button type="button" class="btn btn-circle blue-ebonyclay btn-sm">Apply</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Booths by language</span>
-                                        <span class="caption-helper">default option...</span>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <label class="btn blue btn-outline btn-circle btn-sm active">
-                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                            <label class="btn  blue btn-outline btn-circle btn-sm">
-                                                <input type="radio" name="options" class="toggle" id="option2">Tools</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="row">
-                                    	<div class="col-sm-12 col-md-3">
-                                            <div class="thumbnail">
-                                                <img src="${webapp_name}/assets/athensoft/booth-logo/01.jpg" alt="" style="width: 100%;">
-                                                <div class="caption">
-                                                    <h3>Booth - English</h3>
-                                                    <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
-                                                    <p>
-                                                        <a href="javascript:;" class="btn blue"> Button </a>
-                                                        <a href="javascript:;" class="btn default"> Button </a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <div class="thumbnail">
-                                                <img src="${webapp_name}/assets/athensoft/booth-logo/02.jpg" alt="" style="width: 100%;">
-                                                <div class="caption">
-                                                    <h3>Booth - Français</h3>
-                                                    <p> français dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
-                                                    <p>
-                                                        <a href="javascript:;" class="btn red"> Button </a>
-                                                        <a href="javascript:;" class="btn default"> Button </a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <div class="thumbnail">
-                                                <img src="${webapp_name}/assets/athensoft/booth-logo/03.jpg" alt="" style="width: 100%;">
-                                                <div class="caption">
-                                                    <h3>Booth - 简体中文</h3>
-                                                    <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
-                                                    <p>
-                                                        <a href="javascript:;" class="btn red"> Button </a>
-                                                        <a href="javascript:;" class="btn default"> Button </a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    -->
                     
                 </div>
                 <!-- END CONTENT BODY -->

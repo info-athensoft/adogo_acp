@@ -1,0 +1,136 @@
+       4  Chinese (Simplified)          
+    1025  Arabic - Saudi Arabia         
+    1026  Bulgarian - Bulgaria          
+    1027  Catalan - Catalan             
+    1028  Chinese - Taiwan              
+    1029  Czech - Czech Republic        
+    1030  Danish - Denmark              
+    1031  German - Germany              
+    1032  Greek - Greece                
+    1033  English - United States       
+    1035  Finnish - Finland             
+    1036  French - France               
+    1037  Hebrew - Israel               
+    1038  Hungarian - Hungary           
+    1039  Icelandic - Iceland           
+    1040  Italian - Italy               
+    1041  Japanese - Japan              
+    1042  Korean - Korea                
+    1043  Dutch - The Netherlands       
+    1044  Norwegian (Bokm?l) - Norway   
+    1045  Polish - Poland               
+    1046  Portuguese - Brazil           
+    1048  Romanian - Romania            
+    1049  Russian - Russia              
+    1050  Croatian - Croatia            
+    1051  Slovak - Slovakia             
+    1052  Albanian - Albania            
+    1053  Swedish - Sweden              
+    1054  Thai - Thailand               
+    1055  Turkish - Turkey              
+    1056  Urdu - Pakistan               
+    1057  Indonesian - Indonesia        
+    1058  Ukrainian - Ukraine           
+    1059  Belarusian - Belarus          
+    1060  Slovenian - Slovenia          
+    1061  Estonian - Estonia            
+    1062  Latvian - Latvia              
+    1063  Lithuanian - Lithuania        
+    1065  Farsi - Iran                  
+    1066  Vietnamese - Vietnam          
+    1067  Armenian - Armenia            
+    1068  Azeri (Latin) - Azerbaijan    
+    1069  Basque - Basque               
+    1071  Macedonian (FYROM)            
+    1078  Afrikaans - South Africa      
+    1079  Georgian - Georgia            
+    1080  Faroese - Faroe Islands       
+    1081  Hindi - India                 
+    1086  Malay - Malaysia              
+    1087  Kazakh - Kazakhstan           
+    1088  Kyrgyz - Kazakhstan           
+    1089  Swahili - Kenya               
+    1091  Uzbek (Latin) - Uzbekistan    
+    1092  Tatar - Russia                
+    1094  Punjabi - India               
+    1095  Gujarati - India              
+    1097  Tamil - India                 
+    1098  Telugu - India                
+    1099  Kannada - India               
+    1102  Marathi - India               
+    1103  Sanskrit - India              
+    1104  Mongolian - Mongolia          
+    1110  Galician - Galician           
+    1111  Konkani - India               
+    1114  Syriac - Syria                
+    1125  Dhivehi - Maldives            
+    2049  Arabic - Iraq                 
+    2052  Chinese - China               
+    2055  German - Switzerland          
+    2057  English - United Kingdom      
+    2058  Spanish - Mexico              
+    2060  French - Belgium              
+    2064  Italian - Switzerland         
+    2067  Dutch - Belgium               
+    2068  Norwegian (Nynorsk) - Norway  
+    2070  Portuguese - Portugal         
+    2074  Serbian (Latin) - Serbia      
+    2077  Swedish - Finland             
+    2092  Azeri (Cyrillic) - Azerbaijan 
+    2110  Malay - Brunei                
+    2115  Uzbek (Cyrillic) - Uzbekistan 
+    3073  Arabic - Egypt                
+    3076  Chinese - Hong Kong SAR       
+    3079  German - Austria              
+    3081  English - Australia           
+    3082  Spanish - Spain               
+    3084  French - Canada               
+    3098  Serbian (Cyrillic) - Serbia   
+    4097  Arabic - Libya                
+    4100  Chinese - Singapore           
+    4103  German - Luxembourg           
+    4105  English - Canada              
+    4106  Spanish - Guatemala           
+    4108  French - Switzerland          
+    5121  Arabic - Algeria              
+    5124  Chinese - Macau SAR           
+    5127  German - Liechtenstein        
+    5129  English - New Zealand         
+    5130  Spanish - Costa Rica          
+    5132  French - Luxembourg           
+    6145  Arabic - Morocco              
+    6153  English - Ireland             
+    6154  Spanish - Panama              
+    6156  French - Monaco               
+    7169  Arabic - Tunisia              
+    7177  English - South Africa        
+    7178  Spanish - Dominican Republic  
+    8193  Arabic - Oman                 
+    8201  English - Jamaica             
+    8202  Spanish - Venezuela           
+    9217  Arabic - Yemen                
+    9225  English - Caribbean           
+    9226  Spanish - Colombia            
+   10241  Arabic - Syria                
+   10249  English - Belize              
+   10250  Spanish - Peru                
+   11265  Arabic - Jordan               
+   11273  English - Trinidad and Tobago 
+   11274  Spanish - Argentina           
+   12289  Arabic - Lebanon              
+   12297  English - Zimbabwe            
+   12298  Spanish - Ecuador             
+   13313  Arabic - Kuwait               
+   13321  English - Philippines         
+   13322  Spanish - Chile               
+   14337  Arabic - United Arab Emirates 
+   14346  Spanish - Uruguay             
+   15361  Arabic - Bahrain              
+   15370  Spanish - Paraguay            
+   16385  Arabic - Qatar                
+   16394  Spanish - Bolivia             
+   17418  Spanish - El Salvador         
+   18442  Spanish - Honduras            
+   19466  Spanish - Nicaragua           
+   20490  Spanish - Puerto Rico         
+   31748  Chinese (Traditional)
