@@ -289,13 +289,12 @@ public class BusinessProfileController {
 	 */
 	@RequestMapping("/disable.html")
 	public ModelAndView gotoDisableBizProfile(@RequestParam long bizId){
-		logger.info("entering... /advertiser/biz/trash.html");
+		logger.info("entering... /advertiser/biz/disable.html");
 		
 		//test
 		logger.info("bizId="+bizId);
 		
-		BusinessProfile bp = new BusinessProfile();
-		bp.setBizId(bizId);
+		BusinessProfile bp = businessProfileService.getBusinessProfileByBizId(bizId);
 		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
@@ -305,7 +304,7 @@ public class BusinessProfileController {
 		Map<String,Object> model = mav.getModel();
 		model.put("bizProfile", bp);
 		
-		logger.info("exiting... /advertiser/biz/trash.html");
+		logger.info("exiting... /advertiser/biz/disable.html");
 		return mav;
 	}
 	

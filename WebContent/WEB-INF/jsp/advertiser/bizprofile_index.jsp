@@ -171,13 +171,10 @@
 		                                <i class="fa fa-shopping-cart"></i>Register a business <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
 		                                <a href="/acp/advertiser/biz/create.html" class="btn btn-circle btn-info">
-		                                    <span class="hidden-xs"> Start Registration </span>
+		                                    <span class="hidden-xs"> Register a Business </span>
 		                                </a>
 		                                <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-default">
-		                                    <span class="hidden-xs"> Manage Business </span>
-		                                </a>
-		                                <a href="/acp/advertiser/" class="btn btn-circle btn-default">
-		                                    <span class="hidden-xs"> Dashboard </span>
+		                                    <span class="hidden-xs"> Manage Business Status</span>
 		                                </a>
 		                                <!-- 
 		                                <div class="btn-group">
@@ -235,7 +232,7 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Business #: ${bizProfile.bizId}</span>
+                                        <span class="caption-subject bold font-dark uppercase"> ${bizProfile.bizName} </span>
                                         <c:choose>
 									         <c:when test = "${bizProfile.bizStatus == 1}">
 									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs green">CREATED</a></span>
@@ -259,8 +256,8 @@
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided">
-                                        	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-                                        	<a href="${webapp_name}/advertiser/biz/disable.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
+                                        	<a href="${webapp_name}/advertiser/booth/" class="btn blue" id="btnEdit">Manage Booths</a>
+                                        	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit Profile</a>
                                         </div>
                                     </div>
                                 </div>

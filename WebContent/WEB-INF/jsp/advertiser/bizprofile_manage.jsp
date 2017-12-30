@@ -130,7 +130,7 @@
 		                    <div class="portlet light">
 		                        <div class="portlet-title">
 		                            <div class="caption">
-		                                <i class="fa fa-shopping-cart"></i>Manage business profiles<span class="caption-helper">under advertiser</span></div>
+		                                <i class="fa fa-shopping-cart"></i> Manage business profiles <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
 		                            <!-- 
 		                                <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-info">
@@ -180,7 +180,7 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Business #: ${bizProfile.bizId}</span>
+                                        <span class="caption-subject bold font-dark uppercase"> ${bizProfile.bizName}</span>
                                         <c:choose>
 									         <c:when test = "${bizProfile.bizStatus == 1}">
 									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs green">CREATED</a></span>
@@ -207,8 +207,24 @@
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided">
-                                        	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-                                        	<a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
+                                        	
+                                        	<c:choose>
+									         <c:when test = "${bizProfile.bizStatus == 1}">
+									         	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
+									            <a href="${webapp_name}/advertiser/biz/manage.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
+									         </c:when>
+									         <c:when test = "${bizProfile.bizStatus == 2}">
+									         	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
+									            <a href="${webapp_name}/advertiser/biz/disable.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
+									         </c:when>
+									         <c:when test = "${bizProfile.bizStatus == 3}">
+									            <a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
+									            <a href="${webapp_name}/advertiser/biz/manage.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
+									            <a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn red" id="btnEdit">Trash</a>
+									         </c:when>
+									         <c:otherwise>
+									         </c:otherwise>
+									    </c:choose>
                                         </div>
                                     </div>
                                 </div>

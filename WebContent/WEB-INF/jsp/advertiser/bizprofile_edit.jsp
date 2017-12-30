@@ -127,14 +127,8 @@
                                         <i class="fa fa-shopping-cart"></i>Edit Business Profile <span class="caption-helper">keeping accurate and up-to-date</span></div>
                                     <div class="actions">
                                         <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
-                                            <span class="hidden-xs"> Save Business Profile </span>
+                                            <span class="hidden-xs"> Save and Exit </span>
                                         </a>
-                                        <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-default">
-		                                    <span class="hidden-xs"> Manage Business </span>
-		                                </a>
-		                                <a href="/acp/advertiser/" class="btn btn-circle btn-default">
-		                                    <span class="hidden-xs"> Dashboard </span>
-		                                </a>
                                     </div>
                                 </div>
                                
@@ -150,8 +144,8 @@
 	                            <div class="portlet-title">
 	                                <div class="caption">
 	                                    <i class="icon-equalizer font-red-sunglo"></i>
-	                                    <span class="caption-subject font-red-sunglo bold uppercase">Business Profile</span>
-	                                    <span class="caption-helper">become an advertiser</span>
+	                                    <span class="caption-subject font-red-sunglo bold uppercase">General Information</span>
+	                                    <span class="caption-helper"> </span>
 	                                </div>
 	                                <div class="actions">
 	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -303,7 +297,7 @@
                         		<div class="portlet-title">
 	                                <div class="caption">
 	                                    <i class="icon-equalizer font-red-sunglo"></i>
-	                                    <span class="caption-subject font-red-sunglo bold uppercase">Contact Info.</span>
+	                                    <span class="caption-subject font-red-sunglo bold uppercase">Contact Information</span>
 	                                    <span class="caption-helper">...</span>
 	                                </div>
 	                                <div class="actions">

@@ -18,7 +18,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-<title>Adogo | Business Profile - Trash</title>
+<title>Adogo | Business - Disable</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description"/>
@@ -131,20 +131,6 @@
 		                                <a class="btn btn-circle btn-info"  onclick="trashBusinessProfile(); return false;">
 		                                    <span class="hidden-xs"> Disable </span>
 		                                </a>
-		                                <div class="btn-group">
-		                                    <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-		                                        <i class="fa fa-share"></i>
-		                                        <span class="hidden-xs"> Tools </span>
-		                                        <i class="fa fa-angle-down"></i>
-		                                    </a>
-		                                    <ul class="dropdown-menu pull-right">
-		                                        <li><a href="javascript:;"> Export to Excel </a></li>
-		                                        <li><a href="javascript:;"> Export to CSV </a></li>
-		                                        <li><a href="javascript:;"> Export to XML </a></li>
-		                                        <li class="divider"></li>
-		                                        <li><a href="javascript:;"> Print  </a></li>
-		                                    </ul>
-		                                </div>
 		                            </div>
 		                        </div>
 		                       
@@ -169,13 +155,33 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> Business #: ${bizProfile.bizId}</span>
-                                        <span class="caption-helper"></span>
+                                        <span class="caption-subject bold font-dark uppercase"> ${bizProfile.bizName}</span>
+                                        <c:choose>
+									         <c:when test = "${bizProfile.bizStatus == 1}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs green">CREATED</a></span>
+									         </c:when>
+									         <c:when test = "${bizProfile.bizStatus == 2}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs blue">ACTIVE</a></span>
+									         </c:when>
+									         <c:when test = "${bizProfile.bizStatus == 3}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">DISABLED</a></span>
+									         </c:when>
+									          <c:when test = "${bizProfile.bizStatus == 4}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">TRASHED</a></span>
+									         </c:when>
+									         <c:when test = "${bizProfile.bizStatus == 5}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">SUSPENDED</a></span>
+									         </c:when>
+									         <c:when test = "${bizProfile.bizStatus == 6}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">BANNED</a></span>
+									         </c:when>
+									         <c:otherwise>
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs grey">UNKNOWN</a></span>
+									         </c:otherwise>
+									    </c:choose>
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided">
-                                        	<a href="#" class="btn green" id="btnEdit">Enable</a>
-                                        	<a href="#" class="btn grey" id="btnEdit">Remove</a>
                                         </div>
                                     </div>
                                 </div>
