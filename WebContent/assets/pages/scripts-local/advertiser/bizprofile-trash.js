@@ -1,9 +1,9 @@
 /**
  * Package:	advertiser
  * Module:  business profile
- * Page:	bizprofile_disable.jsp
+ * Page:	bizprofile_trash.jsp
  */
-function getBusinessProfileDisableObject(){	
+function getBusinessProfileTrashObject(){	
 	
 	var p1 = $("#bizId").val();
 	
@@ -14,14 +14,14 @@ function getBusinessProfileDisableObject(){
 	return businessObject;
 }
 
-function disableBusinessProfile(){
-	var businessObject = getBusinessProfileDisableObject();
+function trashBusinessProfile(){
+	var businessObject = getBusinessProfileTrashObject();
 	
 //	alert(businessObject);
 	
 	$.ajax({
 		type:"post",
-		url:"/acp/advertiser/biz/disable",
+		url:"/acp/advertiser/biz/trash",
 		dataType:"json",
 		data: {	bizProfileJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
@@ -29,7 +29,7 @@ function disableBusinessProfile(){
 			var bizProfile = data.bizProfile;
 			var bizId = bizProfile.bizId;
 //			alert("Disabled BusinessProfile!");
-			window.location.href="/acp/advertiser/biz/?bizId="+bizId;
+			window.location.href="/acp/advertiser/biz/manage.html";
 		}		
 	});
 }    

@@ -18,11 +18,11 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-<title>Adogo | Business Profile - Manage</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Adogo | Business - Publish</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description"/>
-<meta content="" name="author" />
+<meta content="" name="author"/>
 
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"/>
@@ -31,19 +31,16 @@
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
-
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/morris/morris.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fullcalendar/fullcalendar.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/jqvmap/jqvmap/jqvmap.css"/>
 <!-- END PAGE LEVEL PLUGINS -->
-
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
 <!-- END THEME GLOBAL STYLES -->
-
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color"/>
@@ -94,30 +91,30 @@
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
                     <!-- BEGIN THEME PANEL -->
-                    <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
                     <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Advertiser | Business <small>manage business</small>
+                    <h1 class="page-title"> Advertiser | Business <small>publish business</small>
                     </h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
                             <li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
                             <li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
                             <li><a href="${webapp_name}/advertiser/biz/">Business</a><i class="fa fa-angle-right"></i></li>
-                            <li><span>Manage Business</span></li>
+                            <li><a href="${webapp_name}/advertiser/biz/manage.html">Manage Business Status</a><i class="fa fa-angle-right"></i></li>
+                            <li><span>Publish Business Profiles</span></li>
                         </ul>
                         <div class="page-toolbar">
-                        	<div class="btn-group pull-right">
-                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Quick Links
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
                                     <i class="fa fa-angle-down"></i>
                                 </button>
                                 <ul class="dropdown-menu pull-right" role="menu">
                                 	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
-			                       <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
-			                       <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
-			                       <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
-			                       <li class="divider"> </li>
-			                       <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
-			                   </ul>
+			                         <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business Profile</a></li>
+			                         <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
+			                         <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
+			                         <li class="divider"> </li>
+			                         <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
+			                     </ul>
                             </div>
                         </div>
                     </div>
@@ -130,15 +127,10 @@
 		                    <div class="portlet light">
 		                        <div class="portlet-title">
 		                            <div class="caption">
-		                                <i class="fa fa-shopping-cart"></i> Manage business profiles <span class="caption-helper">under advertiser</span></div>
+		                                <i class="fa fa-shopping-cart"></i>Publish my business <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
-		                            <!-- 
-		                                <a href="${webapp_name}/advertiser/biz/manage.html" class="btn btn-circle btn-info">
-		                                    <span class="hidden-xs"> Manage business </span>
-		                                </a>
-		                             -->
-		                                <a href="${webapp_name}/advertiser/biz/" class="btn btn-circle btn-info"">
-		                                    <span> Back Home</span>
+		                                <a class="btn btn-circle btn-info"  onclick="publishBusinessProfile(); return false;">
+		                                    <span class="hidden-xs"> Publish </span>
 		                                </a>
 		                            </div>
 		                        </div>
@@ -151,29 +143,13 @@
                     
                     
                     <div class="row">
+                    	<input type="hidden" id="bizId" value="${bizProfile.bizId}"/>
                     </div>
                     
-                    <!-- TEST -->
-                    <!-- 
-                    <div class="row">
-                        <div class="col-lg-6 col-xs-12 col-sm-12">
-                        	<c:forEach items="${listVOBizProfileBooth}" var="voBizProfileBooth">
-                        		<p>Business ID: ${voBizProfileBooth.bizProfile.bizId}</p>
-                        		<c:forEach items="${voBizProfileBooth.listBooth}" var="booth">
-                        			<p>Business Name: ${booth.bizName}</p>
-                        			<p>Booth Name: ${booth.boothName}</p>
-                        			<p>Booth Desc: ${booth.bizDesc}</p>
-                        		</c:forEach>	
-                        	</c:forEach>
-                        </div>
-                    </div>
-                     -->
-                    <!-- END TEST -->
-                    
+                        
                     
                     
                     <!-- PRETEST -->
-                    <c:forEach items="${listBizProfile}" var="bizProfile">
                     <div class="row">
                         <div class="col-lg-12 col-xs-12 col-sm-12">
                             <div class="portlet light portlet-fit ">
@@ -207,24 +183,6 @@
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group btn-group-devided">
-                                        	
-                                        	<c:choose>
-									         <c:when test = "${bizProfile.bizStatus == 1}">
-									         	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-									            <a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 2}">
-									         	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-									            <a href="${webapp_name}/advertiser/biz/disable.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 3}">
-									            <a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-									            <a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
-									            <a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn red" id="btnEdit">Trash</a>
-									         </c:when>
-									         <c:otherwise>
-									         </c:otherwise>
-									    </c:choose>
                                         </div>
                                     </div>
                                 </div>
@@ -248,7 +206,6 @@
                             
                         </div>
                     </div>
-                    </c:forEach>
                     <!-- END PRETEST -->
                 </div>
                 <!-- END CONTENT BODY -->
@@ -309,7 +266,7 @@
    <!-- END THEME GLOBAL SCRIPTS -->
    <!-- BEGIN PAGE LEVEL SCRIPTS -->
    <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/dashboard.min.js"></script>
-   <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
+   <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-publish.js"></script>
    <!-- END PAGE LEVEL SCRIPTS -->
    <!-- BEGIN THEME LAYOUT SCRIPTS -->
    <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>

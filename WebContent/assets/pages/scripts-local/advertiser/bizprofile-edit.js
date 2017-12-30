@@ -7,8 +7,6 @@
 function getBusinessProfileEditObject(){	
 //	create a json object
 	
-//	alert("getBusinessProfileEditObject()");
-	
 	var p01 = $("#bizId").val();
 	
     var p1 = $("#bizName").val();
@@ -122,10 +120,8 @@ function getBusinessProfileEditObject(){
 
 //function saveAdvertiserProfile(){
 function saveBusinessProfile(){
-	alert('saveAdvertiserProfile called!');
+//	alert('saveAdvertiserProfile called!');
 	var businessObject = getBusinessProfileEditObject();
-	
-	//alert("saveAdPost(), adPostLang="+adPostLang);
 	
 	$.ajax({
 		type:"post",
@@ -137,8 +133,9 @@ function saveBusinessProfile(){
 		success:function(data){
 			var bizProfile = data.bizProfile;
 			var bizId = bizProfile.bizId;
-			alert("saved BusinessProfile!");
-			window.location.href="/acp/advertiser/biz/?bizId="+bizId;
+//			alert("saved BusinessProfile!");
+//			window.location.href="/acp/advertiser/biz/?bizId="+bizId;
+			window.location.href="/acp/advertiser/biz/manage.html";
 		}		
 	});
 }

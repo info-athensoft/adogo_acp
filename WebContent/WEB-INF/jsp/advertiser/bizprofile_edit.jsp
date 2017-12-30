@@ -98,6 +98,7 @@
 							<li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
                             <li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
                             <li><a href="${webapp_name}/advertiser/biz/">Business</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="${webapp_name}/advertiser/biz/manage.html">Manage Business Status</a><i class="fa fa-angle-right"></i></li>
                             <li><span>Edit a Business Profile</span></li>
 						</ul>
                         <div class="page-toolbar">
@@ -120,26 +121,22 @@
                    
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- Begin: life time stats -->
                             <div class="portlet light">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="fa fa-shopping-cart"></i>Edit Business Profile <span class="caption-helper">keeping accurate and up-to-date</span></div>
                                     <div class="actions">
                                         <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
-                                            <span class="hidden-xs"> Save and Exit </span>
+                                            <span> Save and Exit </span>
                                         </a>
                                     </div>
                                 </div>
-                               
                             </div>
-                            <!-- End: life time stats -->
                         </div>
                     </div>
                     
                     <div class="row">
                     	<div class="col-md-8">
-                    		
                     		<div class="portlet light">
 	                            <div class="portlet-title">
 	                                <div class="caption">

@@ -119,6 +119,7 @@
               </div>
             <!-- END PAGE HEADER-->
             
+            <!-- Quick steps -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="portlet light portlet-fit ">
@@ -159,7 +160,23 @@
                     </div>
                 </div>
             </div>
+            <!-- END Quick steps -->
             
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-shopping-cart"></i>Create Business Profile <span class="caption-helper">to contain your booths</span></div>
+                            <div class="actions">
+                                <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
+                                    <span> Save and Create </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- BEGIN ROW 2 -->
             <div class="row">
@@ -396,16 +413,14 @@
 	                            <div class="form-actions">
 	                                <div class="row">
 	                                    <div class="col-md-offset-3 col-md-7">
-	                                        <a class="btn green" onclick="saveBusinessProfile(event);">Create Business Now</a>
-	                                        <a class="btn default" onclick="cancelBusinessRegistration(event);">Cancel</a>
+	                                        <a class="btn green" onclick="createBusinessProfile(); return false;">Save and Create</a>
+	                                        <a class="btn default" onclick="cancelBusinessRegistration(); return false;">Cancel</a>
 	                                    </div>
 	                                </div>
 	                            </div>
 	                        </form>
 	                        <!-- END FORM-->
 	                    </div>
-                 	
-	                    
             		</div>
             		<!-- END SECTION 2 -->
             	</div>

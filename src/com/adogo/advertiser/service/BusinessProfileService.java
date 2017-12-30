@@ -64,19 +64,29 @@ public class BusinessProfileService {
 		return businessProfileDao.getBusinessProfileByBizNo(biz_no);
 	}
 	
-	public void updateBusinessProfile(BusinessProfile bp){
-		businessProfileDao.update(bp);
-	}
-	
 	@Transactional
-	public void saveBusinessProfile(BusinessProfile bp){
+	public void createBusinessProfile(BusinessProfile bp){
 		logger.info("enter saveBusinessProfile(BusinessProfile bp)");
 		businessProfileDao.create(bp);
 		businessAddressDao.create(bp.getHqAddress());
 		logger.info("exit saveBusinessProfile(BusinessProfile bp)");
 	}
 	
+	public void updateBusinessProfile(BusinessProfile bp){
+		businessProfileDao.update(bp);
+	}
+	
+	public void publishBusinessProfile(BusinessProfile bp){
+		businessProfileDao.updateStatus(bp);
+	}
+	
+	public void disableBusinessProfile(BusinessProfile bp){
+		businessProfileDao.updateStatus(bp);
+	}
+	
 	public void trashBusinessProfile(BusinessProfile bp){
 		businessProfileDao.updateStatus(bp);
 	}
+	
+	
 }

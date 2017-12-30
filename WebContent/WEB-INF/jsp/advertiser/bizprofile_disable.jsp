@@ -99,6 +99,7 @@
                             <li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
                             <li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
                             <li><a href="${webapp_name}/advertiser/biz/">Business</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="${webapp_name}/advertiser/biz/manage.html">Manage Business Status</a><i class="fa fa-angle-right"></i></li>
                             <li><span>Disable Business Profiles</span></li>
                         </ul>
                         <div class="page-toolbar">
@@ -128,8 +129,8 @@
 		                            <div class="caption">
 		                                <i class="fa fa-shopping-cart"></i>Disable the specified business <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
-		                                <a class="btn btn-circle btn-info"  onclick="trashBusinessProfile(); return false;">
-		                                    <span class="hidden-xs"> Disable </span>
+		                                <a class="btn btn-circle btn-info"  onclick="disableBusinessProfile(); return false;">
+		                                    <span> Disable </span>
 		                                </a>
 		                            </div>
 		                        </div>

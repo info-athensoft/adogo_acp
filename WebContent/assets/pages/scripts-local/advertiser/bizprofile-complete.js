@@ -4,43 +4,12 @@
  * Page:	bizprofile_complete.jsp
  */
 
-/**/
-function saveBusinessOnlinePresence(event){
-	
-	alert("saveBusinessOnlinePresence()");
-	
-	//here I want to prevent default
-    event.preventDefault();
-	
-	var businessObject = getBusinessOnlinePresenceObject();
-	
-	$.ajax({
-		type:"post",
-		url:"/acp/advertiser/biz/complete",		//TODO
-		dataType:"json",
-		data: {	businessProfileJSONString : JSON.stringify(businessObject) },
-		timeout : 5000,
-		success:function(data){	
-			alert("saveBusinessOnlinePresence ajax ok");
-			//var b = data.businessProfile;
-			//var bizId = b.bizId;
-			window.location.href="/acp/advertiser/biz/";
-			
-			alert("saveBusinessOnlinePresence ajax ok2");
-		},
-		complete:function(){
-			alert("complete saveBusinessOnlinePresence()");
-		}
-	});
-}
-
 /* bizProfile - global variables and functions*/
 function getBusinessOnlinePresenceObject(){
 	
 	var p01 = $("#userId").val();
 	var p02 = $("#advertiserId").val();
 	var p03 = $("#bizId").val();
-
 	
     var p11 = $("#presenceNo1").val();
     var p12 = $("#presenceURL1").val();
@@ -88,3 +57,30 @@ function getBusinessOnlinePresenceObject(){
     
     return businessObject;
 }
+
+/**/
+function saveBusinessOnlinePresence(){
+	
+	//alert("saveBusinessOnlinePresence()");
+	
+	//here I want to prevent default
+    //event.preventDefault();
+	
+	var businessObject = getBusinessOnlinePresenceObject();
+	
+	$.ajax({
+		type:"post",
+		url:"/acp/advertiser/biz/complete",		
+		dataType:"json",
+		data: {	businessProfileJSONString : JSON.stringify(businessObject) },
+		timeout : 5000,
+		success:function(data){	
+			window.location.href="/acp/advertiser/biz/manage.html";
+//			alert("saveBusinessOnlinePresence ajax ok2");
+		},
+		complete:function(){
+			//alert("complete saveBusinessOnlinePresence()");
+		}
+	});
+}
+

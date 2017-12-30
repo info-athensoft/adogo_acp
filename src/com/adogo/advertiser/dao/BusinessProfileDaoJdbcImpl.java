@@ -310,6 +310,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" biz_fax = :biz_fax,");
 		sbf.append(" biz_email = :biz_email,");
 		sbf.append(" modify_date = :modify_date,");
+		sbf.append(" biz_status = :biz_status,");
 		sbf.append(" biz_website = :biz_website");
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_id = :biz_id");
@@ -331,6 +332,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		paramSource.addValue("biz_email", bp.getBizEmail());
 		paramSource.addValue("biz_website", bp.getBizWebsite());
 		paramSource.addValue("modify_date", bp.getModifyDate());
+		paramSource.addValue("biz_status", bp.getBizStatus());
 		return jdbc.update(sql,paramSource);
 	}
 	

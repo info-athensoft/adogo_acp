@@ -173,12 +173,9 @@
                                 <span class="caption-helper">managing business</span>
                             </div>
                             <div class="actions">
-                                <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                    <label class="btn blue btn-outline btn-circle btn-sm active">
-                                        <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                    <label class="btn  blue btn-outline btn-circle btn-sm">
-                                        <input type="radio" name="options" class="toggle" id="option2">Tools</label>
-                                </div>
+                                <a class="btn btn-circle btn-info" onclick="saveBusinessOnlinePresence(); return false;">
+                                    <span> Save and Complete </span>
+                                </a>
                             </div>
                         </div>
                         <div class="portlet-body">

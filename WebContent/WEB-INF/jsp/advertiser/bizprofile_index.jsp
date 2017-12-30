@@ -164,39 +164,23 @@
                     <!-- BEGIN ROW 1 -->
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <!-- Begin: life time stats -->
 		                    <div class="portlet light">
 		                        <div class="portlet-title">
 		                            <div class="caption">
 		                                <i class="fa fa-shopping-cart"></i>Register a business <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
 		                                <a href="/acp/advertiser/biz/create.html" class="btn btn-circle btn-info">
-		                                    <span class="hidden-xs"> Register a Business </span>
+		                                    <span> Register a Business </span>
 		                                </a>
 		                                <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-default">
-		                                    <span class="hidden-xs"> Manage Business Status</span>
+		                                    <span> Manage Business Status</span>
 		                                </a>
-		                                <!-- 
-		                                <div class="btn-group">
-		                                    <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-		                                        <i class="fa fa-share"></i>
-		                                        <span class="hidden-xs"> Tools </span>
-		                                        <i class="fa fa-angle-down"></i>
-		                                    </a>
-		                                    <ul class="dropdown-menu pull-right">
-		                                        <li><a href="javascript:;"> Export to Excel </a></li>
-		                                        <li><a href="javascript:;"> Export to CSV </a></li>
-		                                        <li><a href="javascript:;"> Export to XML </a></li>
-		                                        <li class="divider"></li>
-		                                        <li><a href="javascript:;"> Print  </a></li>
-		                                    </ul>
-		                                </div>
-		                                 -->
 		                            </div>
 		                        </div>
-		                       
+		                        <div class="portlet-body">
+		                        	${errorMsg}
+		                        </div>
 		                    </div>
-		                    <!-- End: life time stats -->
 		                </div>
 		            </div>
 		            <!-- END ROW 1 -->
