@@ -137,25 +137,20 @@
                                                 <div class="caption-desc font-grey-cascade"></div>
                                                 <br/>
                                             </div>
-                                            <div class="col-md-3 bg-grey mt-step-col">
+                                            <div class="col-md-4 bg-grey mt-step-col">
                                                 <div class="mt-step-number bg-white font-grey">1</div>
                                                 <div class="mt-step-title uppercase font-grey-cascade">Choose Business</div>
-                                                <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                                <div class="mt-step-content font-grey-cascade">Choose a business for booths</div>
                                             </div>
-                                            <div class="col-md-3 bg-grey mt-step-col done">
+                                            <div class="col-md-4 bg-grey mt-step-col done">
                                                 <div class="mt-step-number bg-white font-grey">2</div>
                                                 <div class="mt-step-title uppercase font-grey-cascade">Create Booth</div>
-                                                <div class="mt-step-content font-grey-cascade">Purchasing the item</div>
+                                                <div class="mt-step-content font-grey-cascade">Input booth information</div>
                                             </div>
-                                            <div class="col-md-3 bg-grey mt-step-col">
+                                            <div class="col-md-4 bg-grey mt-step-col">
                                                 <div class="mt-step-number bg-white font-grey">3</div>
-                                                <div class="mt-step-title uppercase font-grey-cascade">Edit Content</div>
-                                                <div class="mt-step-content font-grey-cascade">Complete your payment</div>
-                                            </div>
-                                            <div class="col-md-3 bg-grey mt-step-col">
-                                                <div class="mt-step-number bg-white font-grey">4</div>
                                                 <div class="mt-step-title uppercase font-grey-cascade">Publish Booth</div>
-                                                <div class="mt-step-content font-grey-cascade">Receive item integration</div>
+                                                <div class="mt-step-content font-grey-cascade">Activate and publish</div>
                                             </div>
                                         </div>
                                         
@@ -275,14 +270,14 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Id</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" id="bizId" value="${bizId}">
+                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" id="bizId" value="${bizProfile.bizId}">
                                                 </div>
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Name</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" id="bizName" value="AthensEDU">
+                                                    <input type="text" class="form-control" placeholder="Enter text"  disabled="disabled" id="bizName" value="${bizProfile.bizName}">
                                                 </div>
                                             </div>
                                             

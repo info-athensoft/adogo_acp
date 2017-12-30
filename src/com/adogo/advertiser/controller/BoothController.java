@@ -149,11 +149,15 @@ public class BoothController {
 	public ModelAndView gotoCreate(@RequestParam long bizId){
 		logger.info("entering... /advertiser/booth/create.html");
 		
+		
+		
+		BusinessProfile bp = businessProfileService.getBusinessProfileByBizId(bizId);
+		
+		
 		// initial settings 
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();
-		
-		model.put("bizId", bizId);
+		model.put("bizProfile", bp);
 		
 		String viewName = "advertiser/booth_create";
 		mav.setViewName(viewName);

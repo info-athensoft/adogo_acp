@@ -147,7 +147,7 @@
                                                 <div class="mt-step-content font-grey-cascade">Input booth information</div>
                                             </div>
                                             <div class="col-md-4 bg-grey mt-step-col">
-                                                <div class="mt-step-number bg-white font-grey">4</div>
+                                                <div class="mt-step-number bg-white font-grey">3</div>
                                                 <div class="mt-step-title uppercase font-grey-cascade">Publish Booth</div>
                                                 <div class="mt-step-content font-grey-cascade">Activate and publish</div>
                                             </div>
@@ -231,12 +231,9 @@
                                         <span class="caption-helper"> only one booth for each language</span>
                                     </div>
                                     <div class="actions">
-                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <label class="btn blue btn-outline btn-circle btn-sm active">
-                                                <input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                                            <label class="btn  blue btn-outline btn-circle btn-sm">
-                                                <input type="radio" name="options" class="toggle" id="option2">Tools</label>
-                                        </div>
+                                        <a href="${webapp_name}/advertiser/booth/create.html?bizId=${voBizProfileBooth.bizProfile.bizId}" class="btn btn-circle btn-info">
+		                                    <span class="hidden-xs"> Create a booth </span>
+		                                </a>
                                     </div>
                                 </div>
                                 <div class="portlet-body">

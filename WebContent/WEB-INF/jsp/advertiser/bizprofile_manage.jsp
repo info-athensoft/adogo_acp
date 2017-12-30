@@ -133,11 +133,11 @@
 		                                <i class="fa fa-shopping-cart"></i> Manage business profiles <span class="caption-helper">under advertiser</span></div>
 		                            <div class="actions">
 		                            <!-- 
-		                                <a href="/acp/advertiser/biz/manage.html" class="btn btn-circle btn-info">
+		                                <a href="${webapp_name}/advertiser/biz/manage.html" class="btn btn-circle btn-info">
 		                                    <span class="hidden-xs"> Manage business </span>
 		                                </a>
 		                             -->
-		                                <a href="/acp/advertiser/biz/" class="btn btn-circle btn-default">
+		                                <a href="${webapp_name}/advertiser/biz/" class="btn btn-circle btn-default">
 		                                    <span class="hidden-xs"> Back Home</span>
 		                                </a>
 		                            </div>
