@@ -504,10 +504,10 @@ public class BusinessProfileController {
 		List<BusinessOnlinePresence> bizOnlinePresenceList = new ArrayList<BusinessOnlinePresence>();
 		
 		for(int i =0 ; i<PRESENCE_COUNT; i++){
-			String strNo = "presenceNo"+(i+1);
-			presenceNo[i] = jsonObj.getString(strNo);
-			String strURL = "presenceURL"+(i+1);
-			presenceURL[i] = jsonObj.getString(strURL);
+//			String strNo = "presenceNo"+(i+1);
+			presenceNo[i] = ""+(i+1);
+//			String strURL = "presenceURL"+(i+1);
+			presenceURL[i] = "";
 			
 			BusinessOnlinePresence bop = new BusinessOnlinePresence();
 			bop.setBizId(bizId);

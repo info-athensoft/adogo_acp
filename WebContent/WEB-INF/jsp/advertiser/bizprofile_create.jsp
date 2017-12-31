@@ -228,7 +228,7 @@
 	                                    <label class="col-md-3 control-label">Legal Form</label>
 	                                    <div class="col-md-9">
 	                                        <select class="form-control" id="legalFormNo">
-	                                        	<option value="">Choose a legal form</option>
+	                                        	<option value="0">Choose a legal form</option>
 	                                        	<option value="1">Solo business - Not registered</option>
 	                                        	<option value="2">Solo business - Registered</option>
 	                                        	<option value="3">Partnership</option>

@@ -59,110 +59,110 @@
 </head>
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
-        <!-- BEGIN HEADER -->
-        <div class="page-header navbar navbar-fixed-top">
-            <!-- BEGIN HEADER INNER -->
-            <div class="page-header-inner ">
-                <!-- BEGIN LOGO -->
-                <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
-                <!-- END LOGO -->
-                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-                <!-- END RESPONSIVE MENU TOGGLER -->
-                <!-- BEGIN PAGE ACTIONS -->
-                <!-- DOC: Remove "hide" class to enable the page header actions -->
-                <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
-                <!-- END PAGE ACTIONS -->
-                <!-- BEGIN PAGE TOP -->
-                <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
-                <!-- END PAGE TOP -->
-            </div>
-            <!-- END HEADER INNER -->
+	<!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+    	<!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner ">
+        	<!-- LOGO -->
+            <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
+            <!-- RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+            <!-- PAGE ACTIONS -->
+            <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
+            <!-- PAGE TOP -->
+            <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
         </div>
-        <!-- END HEADER -->
-        <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
-        <!-- BEGIN CONTAINER -->
-        <div class="page-container">
-            <!-- BEGIN SIDEBAR -->
-            <jsp:include page="${inc_dir}/page-sidebar.jsp"></jsp:include>
-            <!-- END SIDEBAR -->
-            <!-- BEGIN CONTENT -->
-            <div class="page-content-wrapper">
-                <!-- BEGIN CONTENT BODY -->
-                <div class="page-content">
-                    <!-- BEGIN PAGE HEADER-->
-                    <!-- BEGIN THEME PANEL -->
-                    <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Advertiser | Business <small>edit my business profile</small></h1>
-                    <div class="page-bar">
-                        <ul class="page-breadcrumb">
-							<li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="${webapp_name}/advertiser/biz/">Business</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="${webapp_name}/advertiser/biz/manage.html">Manage Business Status</a><i class="fa fa-angle-right"></i></li>
-                            <li><span>Edit a Business Profile</span></li>
-						</ul>
-                        <div class="page-toolbar">
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Quick Links
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
-			                         <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
-			                         <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
-			                         <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
-			                         <li class="divider"> </li>
-			                         <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
-			                     </ul>
-                            </div>
-                        </div>
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix"> </div>
+    
+    <!-- CONTAINER -->
+    <div class="page-container">
+    	<!-- SIDEBAR -->
+        <jsp:include page="${inc_dir}/page-sidebar.jsp"></jsp:include>
+        
+        <!-- CONTENT -->
+        <div class="page-content-wrapper">
+        <!-- CONTENT BODY -->
+        <div class="page-content">
+        	<!-- PAGE HEADER-->
+            <h1 class="page-title"> Advertiser | Business <small>edit my business profile</small></h1>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+					<li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="${webapp_name}/advertiser/biz/">Business</a><i class="fa fa-angle-right"></i></li>
+                    <li><a href="${webapp_name}/advertiser/biz/manage.html">Manage Business Status</a><i class="fa fa-angle-right"></i></li>
+                    <li><span>Edit a Business Profile</span></li>
+				</ul>
+                <div class="page-toolbar">
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" 
+                        		data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> 
+                        		Quick Links <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                        	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
+			                <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
+			                <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
+			                <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
+			                <li class="divider"> </li>
+			                <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
+			            </ul>
                     </div>
-                    <!-- END PAGE HEADER-->
-                   
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="portlet light">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="fa fa-shopping-cart"></i>Edit Business Profile <span class="caption-helper">keeping accurate and up-to-date</span></div>
-                                    <div class="actions">
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+
+			<!-- ROW 1 -->
+            <div class="row">
+            	<div class="col-md-12">
+                	<div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-shopping-cart"></i>Edit Business Profile 
+                                <span class="caption-helper">keeping accurate and up-to-date</span>
+                            </div>
+                            <div class="actions">
                                         <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
                                             <span> Save and Exit </span>
                                         </a>
+                                        <a class="btn btn-circle btn-default" onclick="cancelSaveBusinessProfile(); return false;">
+                                            <span> Cancel </span>
+                                        </a>
                                     </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    
-                    <div class="row">
-                    	<div class="col-md-8">
-                    		<div class="portlet light">
-	                            <div class="portlet-title">
-	                                <div class="caption">
-	                                    <i class="icon-equalizer font-red-sunglo"></i>
-	                                    <span class="caption-subject font-red-sunglo bold uppercase">General Information</span>
-	                                    <span class="caption-helper"> </span>
-	                                </div>
-	                                <div class="actions">
-	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-	                                        <i class="icon-cloud-upload"></i>
-	                                    </a>
-	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-	                                        <i class="icon-wrench"></i>
-	                                    </a>
-	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-	                                        <i class="icon-trash"></i>
-	                                    </a>
-	                                </div>
-	                            </div>
-	                            
-                                <div class="portlet-body form">
-                                    <form action="#" class="form-horizontal">
-                                        <div class="form-body">
+                </div>
+            </div>
+            <!-- END ROW 1 -->
+            
+            <!-- ROW 2 -->
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="portlet light">
+	                    <div class="portlet-title">
+	                        <div class="caption">
+	                        	<i class="icon-equalizer font-red-sunglo"></i>
+	                            <span class="caption-subject font-red-sunglo bold uppercase">General Information</span>
+	                            <span class="caption-helper"> </span>
+	                        </div>
+	                        <div class="actions">
+                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                    <i class="icon-cloud-upload"></i>
+                                </a>
+                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                    <i class="icon-wrench"></i>
+                                </a>
+                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                    <i class="icon-trash"></i>
+                                </a>
+                            </div>
+	                    </div>
+                        <div class="portlet-body form">
+                            <div class="form-horizontal">
+                                <div class="form-body">
                                         	<input type="hidden" id="bizId" value="${businessProfile.bizId}"/>
                                         	
                                         	<div class="form-group">
@@ -281,7 +281,7 @@
                                             </div>
                                            
                                             </div>                                                        
-                                        <div class="form-actions">
+                                <div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-offset-3 col-md-4">
                                                     <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
@@ -289,218 +289,214 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
-                            	</div>
-                        	</div>
+                            </div>
+                        </div>
+                    </div>
                         	
-                        	<div class="portlet light">
-                        		<div class="portlet-title">
-	                                <div class="caption">
-	                                    <i class="icon-equalizer font-red-sunglo"></i>
-	                                    <span class="caption-subject font-red-sunglo bold uppercase">Contact Information</span>
-	                                    <span class="caption-helper"></span>
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-equalizer font-red-sunglo"></i>
+                                <span class="caption-subject font-red-sunglo bold uppercase">Contact Information</span>
+                                <span class="caption-helper"></span>
+                            </div>
+                            <div class="actions">
+                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                    <i class="icon-cloud-upload"></i>
+                                </a>
+                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                    <i class="icon-wrench"></i>
+                                </a>
+                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                    <i class="icon-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+	                    <div class="portlet-body form">
+                            <div class="form-horizontal">
+                                <div class="form-body">
+	                               	<div class="form-group">
+	                                    <label class="col-md-3 control-label">Head Office Address</label>
+	                                    <div class="col-md-9">
+                                        	<div class="row">
+                                        		<div class="col-md-3">
+                                        			<input type="text" class="form-control" placeholder="Street no." id="streetNo" value="${hqAddress.streetNo}">
+                                        		</div>
+                                        		<div class="col-md-4">
+                                        			<select class="form-control" id="streetType">
+                                              			<option value="21">Rue</option>
+                                              			<option value="22">Avenue/Av.</option>
+                                              			<option value="23">Boulevard/Blvd.</option>
+                                              			<option value="11">St.</option>
+                                            		</select>
+                                        		</div>
+                                        		<div class="col-md-5">
+                                        			<input type="text" class="form-control" placeholder="Street name" id="streetName" value="${hqAddress.streetName}">
+                                        		</div>
+                                        	</div>
+                                        	<p></p>
+                                        	<div class="row">
+                                        		<div class="col-md-3">
+                               						<select class="form-control" id="portType">
+                                       					<option value="1">Port</option>
+                                       					<option value="2">Suite</option>
+                                       					<option value="3">Apt</option>
+                                       					<option value="4">App</option>
+                                   					</select>
+                               					</div>
+                                        		<div class="col-md-3">
+                                        			<input type="text" class="form-control" placeholder="Port no." id="portNo" value="${hqAddress.portNo}">
+                                        		</div>
+                                        	</div>
+                                        	<p></p>
+                                        	<div class="row">
+                                        		<div class="col-md-4">
+                                        			<input type="text" class="form-control" placeholder="City" id="cityName"  value="${hqAddress.cityName}">
+                                        		</div>
+                                        		<div class="col-md-4">
+                                        			<input type="text" class="form-control" placeholder="Province" id="provName"  value="${hqAddress.provName}">
+                                        		</div>
+                                        		<div class="col-md-4">
+                                        			<input type="text" class="form-control" placeholder="Postal code" id="postalCode" value="${hqAddress.postalCode}">
+                                        		</div>
+                                        	</div>
+                                         </div>
 	                                </div>
-	                                <div class="actions">
-	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-	                                        <i class="icon-cloud-upload"></i>
-	                                    </a>
-	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-	                                        <i class="icon-wrench"></i>
-	                                    </a>
-	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-	                                        <i class="icon-trash"></i>
-	                                    </a>
-	                                </div>
-	                            </div>
-	                            
-	                            <div class="portlet-body form">
-                                    <form action="#" class="form-horizontal">
-                                    	<div class="form-body">
-	                               			 <div class="form-group">
-	                                               <label class="col-md-3 control-label">Head Office Address</label>
-	                                               <div class="col-md-9">
-	                                               	<div class="row">
-	                                               		<div class="col-md-3">
-	                                               			<input type="text" class="form-control" placeholder="Street no." id="streetNo" value="${hqAddress.streetNo}">
-	                                               		</div>
-	                                               		<div class="col-md-4">
-	                                               			<select class="form-control" id="streetType">
-		                                                    	<option value="21">Rue</option>
-		                                                    	<option value="22">Avenue/Av.</option>
-		                                                    	<option value="23">Boulevard/Blvd.</option>
-		                                                    	<option value="11">St.</option>
-	                                                   		</select>
-	                                               		</div>
-	                                               		<div class="col-md-5">
-	                                               			<input type="text" class="form-control" placeholder="Street name" id="streetName" value="${hqAddress.streetName}">
-	                                               		</div>
-	                                               	</div>
-	                                               	<p></p>
-	                                               	<div class="row">
-	                                               		<div class="col-md-3">
-			                                    			<select class="form-control" id="portType">
-					                                          	<option value="1">Port</option>
-					                                          	<option value="2">Suite</option>
-					                                          	<option value="3">Apt</option>
-					                                          	<option value="4">App</option>
-			                                        		</select>
-			                                    		</div>
-	                                               		<div class="col-md-3">
-	                                               			<input type="text" class="form-control" placeholder="Port no." id="portNo" value="${hqAddress.portNo}">
-	                                               		</div>
-	                                               	</div>
-	                                               	<p></p>
-	                                               	<div class="row">
-	                                               		<div class="col-md-4">
-	                                               			<input type="text" class="form-control" placeholder="City" id="cityName"  value="${hqAddress.cityName}">
-	                                               		</div>
-	                                               		<div class="col-md-4">
-	                                               			<input type="text" class="form-control" placeholder="Province" id="provName"  value="${hqAddress.provName}">
-	                                               		</div>
-	                                               		<div class="col-md-4">
-	                                               			<input type="text" class="form-control" placeholder="Postal code" id="postalCode" value="${hqAddress.postalCode}">
-	                                               		</div>
-	                                               	</div>
-	                                               </div>
-	                                            </div>
 	                                            
-	                                            <div class="form-group">
-	                                               <label class="col-md-3 control-label">Phone no.</label>
-	                                                <div class="col-md-9">
-	                                                    <input type="text" class="form-control" placeholder="Phone no." id="bizPhone" value="${businessProfile.bizPhone}">
-	                                                </div>
-	                                            </div>
-	                                            
-	                                            <div class="form-group">
-	                                            	<label class="col-md-3 control-label">Fax no.</label>
-	                                                <div class="col-md-9">
-	                                                    <input type="text" class="form-control" placeholder="Fax no." id="bizFax" value="${businessProfile.bizFax}">
-	                                                </div>
-	                                            </div>
-	                                            
-	                                            <div class="form-group">
-				                                    <label class="col-md-3 control-label">Email</label>
-				                                    <div class="col-md-9">
-				                                    	<input type="text" class="form-control" placeholder="email" id="bizEmail" value="${businessProfile.bizEmail}">
-				                                    </div>
-				                                </div>
-	                                            
-	                                            <div class="form-group">
-	                                               <label class="col-md-3 control-label">Website Address</label>
-	                                                <div class="col-md-9">
-	                                                    <input type="text" class="form-control" placeholder="URL of your website or home page" id="bizWebsite" value="${businessProfile.bizWebsite}">
-	                                                </div>
-	                                            </div>
-	                                            
-                                            </div> 
-                                    	<div class="form-actions">
-                                            <div class="row">
-                                                <div class="col-md-offset-3 col-md-4">
-                                                    <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
-                                                    <a class="btn default" onclick="cancelSaveBusinessProfile(); return false;">Cancel</a>
-                                                </div>
-                                            </div>
+	                                <div class="form-group">
+	                                    <label class="col-md-3 control-label">Phone no.</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder="Phone no." id="bizPhone" value="${businessProfile.bizPhone}">
                                         </div>
-                                    </form>
+	                                </div>
+	                                            
+	                                <div class="form-group">
+                                    	<label class="col-md-3 control-label">Fax no.</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder="Fax no." id="bizFax" value="${businessProfile.bizFax}">
+                                        </div>
+                                    </div>
+	                                            
+	                                <div class="form-group">
+				                        <label class="col-md-3 control-label">Email</label>
+	                                    <div class="col-md-9">
+	                                    	<input type="text" class="form-control" placeholder="email" id="bizEmail" value="${businessProfile.bizEmail}">
+	                                    </div>
+				                    </div>
+	                                            
+	                                <div class="form-group">
+	                                    <label class="col-md-3 control-label">Website</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder="URL of your website or home page" id="bizWebsite" value="${businessProfile.bizWebsite}">
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-4">
+                                            <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
+                                            <a class="btn default" onclick="cancelSaveBusinessProfile(); return false;">Cancel</a>
+                                        </div>
+                                    </div>
                                 </div>
-	                            
-                        	</div>
+                            </div>
+                        </div>
+                    </div>
                         	
-                        	<div class="portlet light">
-                        		<div class="portlet-title">
-	                                <div class="caption">
-	                                    <i class="icon-equalizer font-red-sunglo"></i>
-	                                    <span class="caption-subject font-red-sunglo bold uppercase">Online Presence</span>
-	                                    <span class="caption-helper"></span>
-	                                </div>
-	                                <div class="actions">
-	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-	                                        <i class="icon-cloud-upload"></i>
-	                                    </a>
-	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-	                                        <i class="icon-wrench"></i>
-	                                    </a>
-	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-	                                        <i class="icon-trash"></i>
-	                                    </a>
-	                                </div>
-	                            </div>
-                        		<div class="portlet-body form">
-                                    <form action="#" class="form-horizontal">
-                                    	<div class="form-body">
-	                                            <div class="form-group">
-	                                               <label class="col-md-3 control-label">Facebook</label>
-	                                                <div class="col-md-9">
-	                                                	<input type="hidden" id="presenceNo1" value="1"/>
-	                                                    <input type="text" class="form-control" placeholder="URL of your facebook homepage" id="presenceURL1" value="${presenceURL1}">
-	                                                </div>
-	                                            </div>
-	                                            
-	                                            <div class="form-group">
-	                                               <label class="col-md-3 control-label">LinkedIn</label>
-	                                                <div class="col-md-9">
-	                                                	<input type="hidden" id="presenceNo2" value="2"/>
-	                                                    <input type="text" class="form-control" placeholder="URL of your LinkedIn homepage" id="presenceURL2" value="${presenceURL2}">
-	                                                </div>
-	                                            </div>
-	                                            
-	                                            <div class="form-group">
-	                                               <label class="col-md-3 control-label">Twitter</label>
-	                                                <div class="col-md-9">
-	                                                	<input type="hidden" id="presenceNo3" value="3"/>
-	                                                    <input type="text" class="form-control" placeholder="URL of your Twitter homepage" id="presenceURL3" value="${presenceURL3}">
-	                                                </div>
-	                                            </div>
-	                                            
-	                                            <div class="form-group">
-	                                               <label class="col-md-3 control-label">Youtube</label>
-	                                                <div class="col-md-9">
-	                                                	<input type="hidden" id="presenceNo4" value="4"/>
-	                                                    <input type="text" class="form-control" placeholder="URL of your Youtube homepage" id="presenceURL4" value="${presenceURL4}">
-	                                                </div>
-	                                            </div>
-	                                            
-	                                            <div class="form-group">
-	                                               <label class="col-md-3 control-label">Instagram</label>
-	                                                <div class="col-md-9">
-	                                                	<input type="hidden" id="presenceNo5" value="5"/>
-	                                                    <input type="text" class="form-control" placeholder="URL of your Instagram homepage" id="presenceURL5" value="${presenceURL5}">
-	                                                </div>
-	                                            </div>
-	                                            
-	                                            <div class="form-group">
-	                                               <label class="col-md-3 control-label">Pinterest</label>
-	                                                <div class="col-md-9">
-	                                                	<input type="hidden" id="presenceNo6" value="6"/>
-	                                                    <input type="text" class="form-control" placeholder="URL of your Pinterest homepage" id="presenceURL6" value="${presenceURL6}">
-	                                                </div>
-	                                            </div>
-                                            </div> 
-                                    	<div class="form-actions">
-                                            <div class="row">
-                                                <div class="col-md-offset-3 col-md-4">
-                                                    <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
-                                                    <a class="btn default" onclick="cancelSave();">Cancel</a>
-                                                </div>
-                                            </div>
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-equalizer font-red-sunglo"></i>
+                                <span class="caption-subject font-red-sunglo bold uppercase">Online Presence</span>
+                                <span class="caption-helper"></span>
+                            </div>
+                            <div class="actions">
+                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                    <i class="icon-cloud-upload"></i>
+                                </a>
+                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                    <i class="icon-wrench"></i>
+                                </a>
+                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                    <i class="icon-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <div class="form-horizontal">
+                             	<div class="form-body">
+                                	<div class="form-group">
+                                      	<label class="col-md-3 control-label">Facebook</label>
+                                    	<div class="col-md-9">
+                                        	<input type="hidden" id="presenceNo1" value="1"/>
+                                        	<input type="text" class="form-control" placeholder="URL of your facebook homepage" id="presenceURL1" value="${presenceURL1}">
+                                    	</div>
+                                 	</div>
+                                      
+                                    <div class="form-group">
+                                    	<label class="col-md-3 control-label">LinkedIn</label>
+                                    	<div class="col-md-9">
+                                          	<input type="hidden" id="presenceNo2" value="2"/>
+                                        	<input type="text" class="form-control" placeholder="URL of your LinkedIn homepage" id="presenceURL2" value="${presenceURL2}">
                                         </div>
-                                    </form>
+                                    </div>
+                                      
+                                    <div class="form-group">
+                                    	<label class="col-md-3 control-label">Twitter</label>
+                                    	<div class="col-md-9">
+                                    		<input type="hidden" id="presenceNo3" value="3"/>
+                                    		<input type="text" class="form-control" placeholder="URL of your Twitter homepage" id="presenceURL3" value="${presenceURL3}">
+                                    	</div>
+                                    </div>
+                                      
+                                    <div class="form-group">
+                                    	<label class="col-md-3 control-label">Youtube</label>
+                                    	<div class="col-md-9">
+                                    		<input type="hidden" id="presenceNo4" value="4"/>
+                                    		<input type="text" class="form-control" placeholder="URL of your Youtube homepage" id="presenceURL4" value="${presenceURL4}">
+                                    	</div>
+                                    </div>
+                                      
+                                    <div class="form-group">
+                                    	<label class="col-md-3 control-label">Instagram</label>
+                                    	<div class="col-md-9">
+                                    		<input type="hidden" id="presenceNo5" value="5"/>
+                                    		<input type="text" class="form-control" placeholder="URL of your Instagram homepage" id="presenceURL5" value="${presenceURL5}">
+                                    	</div>
+                                    </div>
+                                      
+                                    <div class="form-group">
+                                    	<label class="col-md-3 control-label">Pinterest</label>
+                                    	<div class="col-md-9">
+                                    		<input type="hidden" id="presenceNo6" value="6"/>
+                                    		<input type="text" class="form-control" placeholder="URL of your Pinterest homepage" id="presenceURL6" value="${presenceURL6}">
+                                    	</div>
+                                    </div>
+                                </div> 
+                             	<div class="form-actions">
+                                     <div class="row">
+                                         <div class="col-md-offset-3 col-md-4">
+                                             <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
+                                             <a class="btn default" onclick="cancelSaveBusinessProfile(); return false">Cancel</a>
+                                         </div>
+                                     </div>
                                 </div>
-                        	</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- END CONTENT BODY -->
             </div>
-            <!-- END CONTENT -->
-            <!-- BEGIN ${webapp_name} SIDEBAR -->
-            <!-- Removed to quick_sidebar.html -->
-            <!-- END QUICK SIDEBAR -->
+        	<!-- END ROW 2 -->
         </div>
-        <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <jsp:include page="${inc_dir}/page-footer.jsp"></jsp:include>
-        <!-- END FOOTER -->
+        <!-- END CONTENT BODY -->
+        </div>
+        <!-- END CONTENT -->
+        </div>
+    <!-- END CONTAINER -->
+    
+    <!-- BEGIN FOOTER -->
+    <jsp:include page="${inc_dir}/page-footer.jsp"></jsp:include>
+    <!-- END FOOTER -->
             
 <!--[if lt IE 9]>
 <script src="${webapp_name}/assets/global/plugins/respond.min.js"></script>
