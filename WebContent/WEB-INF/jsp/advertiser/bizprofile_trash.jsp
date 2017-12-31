@@ -159,27 +159,27 @@
                                         <i class="icon-microphone font-dark hide"></i>
                                         <span class="caption-subject bold font-dark uppercase"> ${bizProfile.bizName}</span>
                                         <c:choose>
-									         <c:when test = "${bizProfile.bizStatus == 1}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs green">CREATED</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 2}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs blue">ACTIVE</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 3}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">DISABLED</a></span>
-									         </c:when>
-									          <c:when test = "${bizProfile.bizStatus == 4}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">TRASHED</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 5}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">SUSPENDED</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 6}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">BANNED</a></span>
-									         </c:when>
-									         <c:otherwise>
+											<c:when test = "${bizProfile.bizStatus == 1}">
+												<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">CREATED</a></span>
+											</c:when>
+									    	<c:when test = "${bizProfile.bizStatus == 2}">
+									        	<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs green-jungle">PUBLISHED</a></span>
+									    	</c:when>
+									    	<c:when test = "${bizProfile.bizStatus == 3}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs grey">DISABLED</a></span>
+									    	</c:when>
+									     	<c:when test = "${bizProfile.bizStatus == 4}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">TRASHED</a></span>
+									    	</c:when>
+									    	<c:when test = "${bizProfile.bizStatus == 5}">
+									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs purple">SUSPENDED</a></span>
+									    	</c:when>
+									   		<c:when test = "${bizProfile.bizStatus == 6}">
+									        	<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">BANNED</a></span>
+									    	</c:when>
+									    	<c:otherwise>
 									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs grey">UNKNOWN</a></span>
-									         </c:otherwise>
+									     	</c:otherwise>
 									    </c:choose>
                                     </div>
                                     <div class="actions">

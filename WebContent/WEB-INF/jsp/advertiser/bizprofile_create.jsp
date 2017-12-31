@@ -281,7 +281,9 @@
 			                                       <input type="checkbox" value="4" name="businessType" id="bizTypeService"/>
 			                                       <span></span>
 			                                   </label>
+			                                   <!-- 
 			                                   <input type="text" class="form-control" placeholder="Business Type" id="bizType">
+			                                    -->
 			                               </div>
 	                                    </div>
 	                                </div>

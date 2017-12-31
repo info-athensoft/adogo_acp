@@ -126,7 +126,7 @@
                             </div>
                             <div class="actions">
                                         <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
-                                            <span> Save and Exit </span>
+                                            <span> Save Profile </span>
                                         </a>
                                         <a class="btn btn-circle btn-default" onclick="cancelSaveBusinessProfile(); return false;">
                                             <span> Cancel </span>

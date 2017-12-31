@@ -118,12 +118,12 @@
                     <div class="portlet light">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-shopping-cart"></i> Manage business profiles 
+                                <i class="fa fa-shopping-cart"></i> Manage business status 
                                 <span class="caption-helper">under advertiser</span>
                             </div>
                             <div class="actions">
                                 <a href="${webapp_name}/advertiser/biz/" class="btn btn-circle btn-info">
-                                    <span> Back Home </span>
+                                    <span> Back to Business Home </span>
                                 </a>
                             </div>
                         </div>
@@ -143,13 +143,13 @@
                                 <span class="caption-subject bold font-dark uppercase"> ${bizProfile.bizName}</span>
                                 <c:choose>
 									<c:when test = "${bizProfile.bizStatus == 1}">
-										<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs green">CREATED</a></span>
+										<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">CREATED</a></span>
 									</c:when>
 							    	<c:when test = "${bizProfile.bizStatus == 2}">
-							        	<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs blue">ACTIVE</a></span>
+							        	<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs green-jungle">PUBLISHED</a></span>
 							    	</c:when>
 							    	<c:when test = "${bizProfile.bizStatus == 3}">
-							            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">DISABLED</a></span>
+							            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs grey">DISABLED</a></span>
 							    	</c:when>
 							     	<c:when test = "${bizProfile.bizStatus == 4}">
 							            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">TRASHED</a></span>
@@ -169,16 +169,16 @@
                             	<div class="btn-group btn-group-devided">
 	                                <c:choose>
 										<c:when test = "${bizProfile.bizStatus == 1}">
-											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-											<a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
+											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn yellow" id="btnEdit">Edit</a>
+											<a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn green-jungle" id="btnEdit">Publish</a>
 										</c:when>
 										<c:when test = "${bizProfile.bizStatus == 2}">
-											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
+											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn yellow" id="btnEdit">Edit</a>
 										    <a href="${webapp_name}/advertiser/biz/disable.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
 										</c:when>
 										<c:when test = "${bizProfile.bizStatus == 3}">
-											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-										    <a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
+											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn yellow" id="btnEdit">Edit</a>
+										    <a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn green-jungle" id="btnEdit">Publish</a>
 										    <a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn red" id="btnEdit">Trash</a>
 										</c:when>
 										<c:otherwise>
