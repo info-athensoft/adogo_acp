@@ -80,6 +80,8 @@ public class BusinessProfileController {
 	public ModelAndView gotoBizProfileIndex(HttpSession session){
 		logger.info("entering... /advertiser/biz/");
 		
+		logger.info("session="+session);
+		
 		/* get data from session */
 		Object userIdObj = session.getAttribute("userId");
 		Object advertiserIdObj = session.getAttribute("advertiserId");

@@ -11,44 +11,15 @@
 		<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 		<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 			<li class="start active nav-item ">
-				<a href="index.html">
+				<a href="/acp/">
 				<i class="icon-home"></i>
 				<span class="title">Dashboard</span>
 				<span class="selected"></span>
 				</a>
 			</li>
 			
-			<li class="nav-item  ">
-				<a href="javascript:;" class="nav-link nav-toggle">
-				<i class="icon-globe"></i>
-				<span class="title">Distributor</span>
-				<span class="arrow "></span>
-				</a>
-				<ul class="sub-menu">
-					<li class="nav-item  ">
-						<a href="#">
-						<i class="icon-home"></i>
-						Dashboard</a>
-					</li>
-					<li class="nav-item  ">
-						<a href="ecommerce_index.html">
-						<i class="icon-doc"></i>
-						Distributor profile</a>
-					</li>
-					<li class="nav-item  ">
-						<a href="/admin/bizprofile">
-						<i class="icon-users"></i>
-						View my advertisers</a>
-					</li>
-					<li class="nav-item  ">
-						<a href="page_portfolio.html">
-						<i class="icon-wallet"></i>
-						Cashing credits</a>
-					</li>
-				</ul>
-			</li>
-			
-			<li class="nav-item ">
+			<!-- Advertiser -->
+			<li class="nav-item">
 				<a href="javascript:;" class="nav-link nav-toggle">
 				<i class="icon-user"></i>
 				<span class="title">Advertiser</span>
@@ -94,7 +65,38 @@
 				</ul>
 			</li>
 			
-			<li class="nav-item  ">
+			<!-- Distributor -->
+			<li class="nav-item">
+				<a href="javascript:;" class="nav-link nav-toggle">
+				<i class="icon-globe"></i>
+				<span class="title">Distributor</span>
+				<span class="arrow "></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item  ">
+						<a href="#">
+						<i class="icon-home"></i>
+						Dashboard</a>
+					</li>
+					<li class="nav-item  ">
+						<a href="ecommerce_index.html">
+						<i class="icon-doc"></i>
+						Distributor profile</a>
+					</li>
+					<li class="nav-item  ">
+						<a href="/admin/bizprofile">
+						<i class="icon-users"></i>
+						View my advertisers</a>
+					</li>
+					<li class="nav-item  ">
+						<a href="page_portfolio.html">
+						<i class="icon-wallet"></i>
+						Cashing credits</a>
+					</li>
+				</ul>
+			</li>
+			
+			<li class="nav-item">
 				<a href="javascript:;" class="nav-link nav-toggle">
 				<i class="icon-star"></i>
 				<span class="title">My Credits</span>
@@ -129,7 +131,7 @@
 				</ul>
 			</li>
 			
-			<li class="nav-item  ">
+			<li class="nav-item">
 				<a href="javascript:;" class="nav-link nav-toggle">
 				<i class="icon-basket"></i>
 				<span class="title">My Purchase</span>
@@ -160,7 +162,7 @@
 				</ul>
 			</li>
 			
-			<li class="nav-item  ">
+			<li class="nav-item">
 				<a href="javascript:;" class="nav-link nav-toggle">
 				<i class="icon-badge"></i>
 				<span class="title">My Certificates</span>
@@ -180,8 +182,7 @@
 				</ul>
 			</li>
 			
-			
-			<li class="nav-item  ">
+			<li class="nav-item">
 				<a href="javascript:;" class="nav-link nav-toggle">
 				<i class="icon-user"></i>
 				<span class="title">UAAS</span>
@@ -212,7 +213,7 @@
 				</ul>
 			</li>
 			
-			<li class="nav-item  ">
+			<li class="nav-item">
 				<a href="javascript:;" class="nav-link nav-toggle">
 				<i class="icon-user"></i>
 				<span class="title">Ad Category</span>
@@ -231,11 +232,7 @@
 					</li>
 				</ul>
 			</li>
-			
-			
-							
 		</ul>
 		<!-- END SIDEBAR MENU -->
 	</div>
-
 </div>

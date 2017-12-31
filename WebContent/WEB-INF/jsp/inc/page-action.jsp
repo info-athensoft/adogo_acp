@@ -8,15 +8,15 @@
         <ul class="dropdown-menu" role="menu">
             <li>
                 <a href="javascript:;">
-                    <i class="icon-docs"></i> New Post </a>
+                	<i class="icon-docs"></i> New Post </a>
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="icon-tag"></i> New Comment </a>
+                	<i class="icon-tag"></i> New Comment </a>
             </li>
             <li>
                 <a href="javascript:;">
-                    <i class="icon-share"></i> Share </a>
+                	<i class="icon-share"></i> Share </a>
             </li>
             <li class="divider"> </li>
             <li>

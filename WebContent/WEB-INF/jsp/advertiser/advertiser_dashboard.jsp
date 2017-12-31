@@ -119,7 +119,7 @@
                             <div class="caption">
                             	<i class="icon-microphone font-dark hide"></i>
                                 <span class="caption-subject bold font-dark uppercase"> Summary </span>
-                                <span class="caption-helper">default option...</span>
+                                <span class="caption-helper"></span>
                             </div>
                             <div class="actions">
                             </div>
@@ -246,7 +246,7 @@
                             <div class="caption">
                                 <i class="icon-microphone font-dark hide"></i>
                                 <span class="caption-subject bold font-dark uppercase"> Today's Summary </span>
-                                <span class="caption-helper">...</span>
+                                <span class="caption-helper"></span>
                             </div>
                             <div class="actions">
                             </div>
