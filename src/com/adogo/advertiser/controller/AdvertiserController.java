@@ -3,6 +3,7 @@ package com.adogo.advertiser.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,7 +88,16 @@ public class AdvertiserController {
 		//retrieve data from database via service and dao		
 		List<IndustryCode> listIndustryCode = new ArrayList<IndustryCode>();
 		
-		listIndustryCode = industryCodeService.getIndustryCodeByParentCode(parentIndustryCode);
+		if (parentIndustryCode.indexOf("-")!=-1) {
+			String[] codes = parentIndustryCode.split("-");
+			int[] arrayCode = IntStream.rangeClosed(Integer.parseInt(codes[0]), Integer.parseInt(codes[1])).toArray();
+			for(int code : arrayCode){
+				listIndustryCode.addAll(industryCodeService.getIndustryCodeByParentCode(Integer.toString(code)));
+			}
+		}
+		else {
+			listIndustryCode = industryCodeService.getIndustryCodeByParentCode(parentIndustryCode);
+		}
 		
 		model.put("listIndustryCode", listIndustryCode);
 		
@@ -129,6 +139,30 @@ public class AdvertiserController {
 		logger.info("exiting... /advertiser/dashboard");
 		return mav;
 		
+	}
+	
+	/**
+	 * @return
+	 * 
+	 * @author sfz
+	 */
+	@RequestMapping(value="/categoryChooseClick",method=RequestMethod.GET,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> categoryChooseClick(){
+		logger.info("entering categoryChooseClick");
+		
+		ModelAndView mav = new ModelAndView();
+		
+		//data
+		Map<String, Object> model = mav.getModel();
+		
+		//retrieve data from database via service and dao		
+		List<IndustryCode> categoryList = new ArrayList<IndustryCode>();
+		categoryList = industryCodeService.getIndustryCodeByLevelNo(1);
+		model.put("categoryList", categoryList);
+		
+		logger.info("exiting categoryChooseClick");
+		return model;
 	}
 	
 

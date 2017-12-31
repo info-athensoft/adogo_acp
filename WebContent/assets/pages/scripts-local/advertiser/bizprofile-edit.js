@@ -165,32 +165,40 @@ function test(){
 function industryCodeOnChange(level){
 //	alert("INFO: cancelSaveBusinessProfile(level)");
 	
-//	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
 	var parentCode=$("#industryCodeLevel"+level).val();  //Select - Value
+	
+	//put the value of last level of industry code into input element 'industryCode'
 	$("#industryCode").val(parentCode);
+	
+	//4 stands for the number of industry code level
+	//only handle for level 1 to level 3
 	if (level<4) {
 		$.ajax({
 			type	:	"GET",
-			url		: 	"/acp/advertiser/industrycode/class/"+parentCode,		//TODO
-//			url		: 	"/acp/advertiser/industrycode",		 //working
+			url		: 	"/acp/advertiser/industrycode/class/"+parentCode,
 			dataType:	'json',
-//			data	: 	{parentIndustryCode : parentCode},
 			timeout : 	10000,
-//			beforeSend	: function() { alert('beforeSend'); },		
-//			complete	: function() { alert('completed'); },
-			success	:	function(data){	
+			success	:	function(data){
+//				alert("INFO: industryCodeOnChange success");
+				
+				//get list of sub-industry code
 				var listIndustryCode = data.listIndustryCode;
-				var $el = $("#industryCodeLevel"+(level+1));
-				$el.empty();
-				//Choose sub category for your business
-				$el.append($("<option></option>")
+				
+				//set list value into drop-down element of current level
+				var industryCodeElement = $("#industryCodeLevel"+(level+1));
+				industryCodeElement.empty();
+				
+				//add the first entry of 'Choose sub category for your business' into the drop-down element
+				industryCodeElement.append($("<option></option>")
 		       	   .attr("value", "").text("Choose sub category for your business"));
+				
+				//add data entries
 				listIndustryCode.forEach(function(indCode, index) {
-					//alert("IndustryCode.name:"+indCode.industryName);
-					$el.append($("<option></option>")
+					industryCodeElement.append($("<option></option>")
 				       .attr("value", indCode.industryCode).text(indCode.industryCode + " " + indCode.industryName));
-					});
-				//reset the rest levels
+				});
+				
+				//empty the rest levels
 				for (var i=level+2; i <= 4; i++) { 
 					$("#industryCodeLevel"+i).find('option:first').attr("value", "").text("--/--");
 					$("#industryCodeLevel"+i).find('option').not(':first').remove();

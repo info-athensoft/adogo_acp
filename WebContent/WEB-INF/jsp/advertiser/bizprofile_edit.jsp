@@ -244,9 +244,8 @@
                                                     		<option value="${item.industryCode}" <c:if test="${item.industryCode==businessProfile.industryCode}">selected="selected"</c:if>>${item.industryCode} : ${item.industryName}</option>
                                                     	</c:forEach>
                                                     </select>
-                                                    <span class="help-block"> Select the industry code for your business </span>
-			                                        <p></p>
-			                                        <input type="text" class="form-control" value="${businessProfile.industryCode}" placeholder="industryCode" id="industryCode" />
+                                                    <!-- <span class="help-block"> Select the industry code for your business </span>  -->
+			                                        <input type="hidden" class="form-control" value="${businessProfile.industryCode}" placeholder="industryCode" id="industryCode" />
                                                 </div>
                                             </div>
                                             
