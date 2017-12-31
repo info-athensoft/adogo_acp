@@ -8,24 +8,28 @@ public class Booth {
 	private Long advertiserId;
 	private Long bizId;
 	private Integer langNo;
+	
+	/**
+	 * view field of langNo
+	 */
+	private String langName;
 	private String bizName;
 	private String bizDesc;
 	
-	
-	private Long boothId;			//bizId+langNo
+	/**
+	 * Booth ID is consisted of bizId and langNo
+	 */
+	private Long boothId;			
 	private String boothName;
 	private Integer categoryNo;
+	private Date createDate;
+	private Date modifyDate;
+	private Integer boothStatus;
+	
 	private Integer visitNum;
 	private Integer followerNum;
 	private Integer likeNum;
 	private Double boothScore;
-	
-	private Date createDate;
-	private Integer boothStatus;
-	
-	//fields for view
-	private String langName;
-	
 	
 	public Long getGlobalId() {
 		return globalId;
@@ -117,6 +121,12 @@ public class Booth {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+	public Date getModifyDate() {
+		return modifyDate;
+	}
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
 	public Integer getCategoryNo() {
 		return categoryNo;
 	}
@@ -129,14 +139,13 @@ public class Booth {
 	public void setLangName(String langName) {
 		this.langName = langName;
 	}
-	
 	@Override
 	public String toString() {
 		return "Booth [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId + ", bizId="
-				+ bizId + ", langNo=" + langNo + ", bizName=" + bizName + ", bizDesc=" + bizDesc + ", boothId="
-				+ boothId + ", boothName=" + boothName + ", categoryNo=" + categoryNo + ", visitNum=" + visitNum
-				+ ", followerNum=" + followerNum + ", likeNum=" + likeNum + ", boothScore=" + boothScore
-				+ ", createDate=" + createDate + ", boothStatus=" + boothStatus + ", langName=" + langName + "]";
-	}
-	
+				+ bizId + ", langNo=" + langNo + ", langName=" + langName + ", bizName=" + bizName + ", bizDesc="
+				+ bizDesc + ", boothId=" + boothId + ", boothName=" + boothName + ", categoryNo=" + categoryNo
+				+ ", createDate=" + createDate + ", modifyDate=" + modifyDate + ", boothStatus=" + boothStatus
+				+ ", visitNum=" + visitNum + ", followerNum=" + followerNum + ", likeNum=" + likeNum + ", boothScore="
+				+ boothScore + "]";
+	}	
 }

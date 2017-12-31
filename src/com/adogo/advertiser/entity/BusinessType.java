@@ -111,9 +111,4 @@ public class BusinessType {
 				break;
 		}
 	}
-	
-	public static void main(String[] args) {
-		
-		
-	}
 }
