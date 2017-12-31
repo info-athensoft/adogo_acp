@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.adogo.advertiser.dao.BusinessAddressDao;
+import com.adogo.advertiser.dao.BusinessOnlinePresenceDao;
 import com.adogo.advertiser.dao.BusinessProfileDao;
 import com.adogo.advertiser.entity.BusinessProfile;
 
@@ -31,6 +32,14 @@ public class BusinessProfileService {
 	@Qualifier("businessAddressDaoJdbcImpl")
 	public void setBusinessAddressDao(BusinessAddressDao businessAddressDao) {
 		this.businessAddressDao = businessAddressDao;
+	}
+	
+	private BusinessOnlinePresenceDao businessOnlinePresenceDao;
+
+	@Autowired
+	@Qualifier("businessOnlinePresenceDaoJdbcImpl")
+	public void setBusinessOnlinePresenceDao(BusinessOnlinePresenceDao businessOnlinePresenceDao) {
+		this.businessOnlinePresenceDao = businessOnlinePresenceDao;
 	}
 	
 	public List<BusinessProfile> getBusinessProfileByUserId(long userId){
@@ -69,6 +78,7 @@ public class BusinessProfileService {
 		logger.info("enter saveBusinessProfile(BusinessProfile bp)");
 		businessProfileDao.create(bp);
 		businessAddressDao.create(bp.getHqAddress());
+		businessOnlinePresenceDao.createInBatch(bp.getBusinessOnlinePresenceList());
 		logger.info("exit saveBusinessProfile(BusinessProfile bp)");
 	}
 	

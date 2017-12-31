@@ -17,12 +17,17 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-<meta charset="utf-8" />
 <title>Adogo | Business Profile - Manage</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description"/>
-<meta content="" name="author" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content=""/>
+<meta name="author" content="Informatique Athensoft"/>
+
+<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
 
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"/>
@@ -49,183 +54,168 @@
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
 <!-- END THEME LAYOUT STYLES -->
-<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
 </head>
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
-	<!-- BEGIN HEADER -->
+	<!-- HEADER -->
 	<div class="page-header navbar navbar-fixed-top">
-            <!-- BEGIN HEADER INNER -->
-            <div class="page-header-inner ">
-                <!-- BEGIN LOGO -->
-                <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
-                <!-- END LOGO -->
-                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-                <!-- END RESPONSIVE MENU TOGGLER -->
-                <!-- BEGIN PAGE ACTIONS -->
-                <!-- DOC: Remove "hide" class to enable the page header actions -->
-                <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
-                <!-- END PAGE ACTIONS -->
-                <!-- BEGIN PAGE TOP -->
-                <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
-                <!-- END PAGE TOP -->
-            </div>
-            <!-- END HEADER INNER -->
+    	<!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner ">
+            <!-- LOGO -->
+            <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
+            <!-- RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+            <!-- PAGE ACTIONS -->
+            <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
+            <!-- PAGE TOP -->
+            <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
         </div>
+        <!-- END HEADER INNER -->
+    </div>
 	<!-- END HEADER -->
 	<div class="clearfix"> </div>
         
-	<!-- BEGIN CONTAINER -->
+	<!-- CONTAINER -->
 	<div class="page-container">
-            <!-- BEGIN SIDEBAR -->
-            <div class="page-sidebar-wrapper">
-                <!-- END SIDEBAR -->
-                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                <jsp:include page="${inc_dir}/page-sidebar.jsp"></jsp:include>
-                <!-- END SIDEBAR -->
-            </div>
-            <!-- END SIDEBAR -->
-            <!-- BEGIN CONTENT -->
-            <div class="page-content-wrapper">
-                <!-- BEGIN CONTENT BODY -->
-                <div class="page-content">
-                    <!-- BEGIN PAGE HEADER-->
-                    <!-- BEGIN THEME PANEL -->
-                    <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
-                    <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Advertiser | Business <small>manage business</small>
-                    </h1>
-                    <div class="page-bar">
-                        <ul class="page-breadcrumb">
-                            <li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="${webapp_name}/advertiser/biz/">Business</a><i class="fa fa-angle-right"></i></li>
-                            <li><span>Manage Business</span></li>
-                        </ul>
-                        <div class="page-toolbar">
-                        	<div class="btn-group pull-right">
-                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Quick Links
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
-			                       <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
-			                       <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
-			                       <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
-			                       <li class="divider"> </li>
-			                       <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
-			                   </ul>
-                            </div>
-                        </div>
+    	<!-- SIDEBAR -->
+		<jsp:include page="${inc_dir}/page-sidebar.jsp"></jsp:include>
+		
+		<!-- CONTENT -->
+    	<div class="page-content-wrapper">
+    	<!-- CONTENT BODY -->
+        <div class="page-content">
+			<!-- BEGIN PAGE HEADER-->
+			<h1 class="page-title"> Advertiser | Business <small>manage business</small></h1>
+			<div class="page-bar">
+				<ul class="page-breadcrumb">
+	                <li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
+	                <li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
+	                <li><a href="${webapp_name}/advertiser/biz/">Business</a><i class="fa fa-angle-right"></i></li>
+	                <li><span>Manage Business</span></li>
+                </ul>
+                <div class="page-toolbar">
+                	<div class="btn-group pull-right">
+                    	<button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" 
+                    			data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+								Quick Links <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                        	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
+		                	<li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
+		                	<li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
+		               		<li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
+		                 	<li class="divider"> </li>
+		                	<li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
+		                </ul>
                     </div>
-                    <!-- END PAGE HEADER-->
-                    
-                    <!-- BEGIN ROW 1 -->
-		            <div class="row">
-		                <div class="col-md-12">
-		                    <div class="portlet light">
-		                        <div class="portlet-title">
-		                            <div class="caption">
-		                                <i class="fa fa-shopping-cart"></i> Manage business profiles <span class="caption-helper">under advertiser</span></div>
-		                            <div class="actions">
-		                                <a href="${webapp_name}/advertiser/biz/" class="btn btn-circle btn-info">
-		                                    <span> Back Home</span>
-		                                </a>
-		                            </div>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		            <!-- END ROW 1 -->
-                    
-                    <!-- PRETEST -->
-                    <c:forEach items="${listBizProfile}" var="bizProfile">
-                    <div class="row">
-                        <div class="col-lg-12 col-xs-12 col-sm-12">
-                            <div class="portlet light portlet-fit ">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="icon-microphone font-dark hide"></i>
-                                        <span class="caption-subject bold font-dark uppercase"> ${bizProfile.bizName}</span>
-                                        <c:choose>
-									         <c:when test = "${bizProfile.bizStatus == 1}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs green">CREATED</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 2}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs blue">ACTIVE</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 3}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">DISABLED</a></span>
-									         </c:when>
-									          <c:when test = "${bizProfile.bizStatus == 4}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">TRASHED</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 5}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs purple">SUSPENDED</a></span>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 6}">
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">BANNED</a></span>
-									         </c:when>
-									         <c:otherwise>
-									            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs grey">UNKNOWN</a></span>
-									         </c:otherwise>
-									    </c:choose>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="btn-group btn-group-devided">
-                                        	
-                                        	<c:choose>
-									         <c:when test = "${bizProfile.bizStatus == 1}">
-									         	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-									            <a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 2}">
-									         	<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-									            <a href="${webapp_name}/advertiser/biz/disable.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
-									         </c:when>
-									         <c:when test = "${bizProfile.bizStatus == 3}">
-									            <a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
-									            <a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
-									            <a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn red" id="btnEdit">Trash</a>
-									         </c:when>
-									         <c:otherwise>
-									         </c:otherwise>
-									    </c:choose>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <span class="caption-subject bold font-dark"> Business ID at Adogo: </span><br/>
-                                            <span class="caption-subject bold font-dark"> Business Name: </span><br/>
-                                            <span class="caption-subject bold font-dark"> Industry Code: </span><br/>
-                                            <span class="caption-subject bold font-dark"> Created Date: </span><br/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span class="caption-subject font-dark"> ${bizProfile.bizId}</span><br/>
-                                            <span class="caption-subject font-dark"> ${bizProfile.bizName}</span><br/>
-                                            <span class="caption-subject font-dark"> ${bizProfile.industryCode}</span><br/>
-                                            <span class="caption-subject font-dark"> ${bizProfile.createDate}</span><br/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    </c:forEach>
-                    <!-- END PRETEST -->
                 </div>
-                <!-- END CONTENT BODY -->
             </div>
-            <!-- END CONTENT -->
+            <!-- END PAGE HEADER-->
+                    
+            <!-- ROW 1 -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-shopping-cart"></i> Manage business profiles 
+                                <span class="caption-helper">under advertiser</span>
+                            </div>
+                            <div class="actions">
+                                <a href="${webapp_name}/advertiser/biz/" class="btn btn-circle btn-info">
+                                    <span> Back Home </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END ROW 1 -->
+                    
+            <!-- ROW 2 -->
+            <c:forEach items="${listBizProfile}" var="bizProfile">
+            <div class="row">
+            	<div class="col-lg-12 col-xs-12 col-sm-12">
+                	<div class="portlet light portlet-fit">
+                    	<div class="portlet-title">
+                        	<div class="caption">
+                            	<i class="icon-microphone font-dark hide"></i>
+                                <span class="caption-subject bold font-dark uppercase"> ${bizProfile.bizName}</span>
+                                <c:choose>
+									<c:when test = "${bizProfile.bizStatus == 1}">
+										<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs green">CREATED</a></span>
+									</c:when>
+							    	<c:when test = "${bizProfile.bizStatus == 2}">
+							        	<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs blue">ACTIVE</a></span>
+							    	</c:when>
+							    	<c:when test = "${bizProfile.bizStatus == 3}">
+							            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs yellow">DISABLED</a></span>
+							    	</c:when>
+							     	<c:when test = "${bizProfile.bizStatus == 4}">
+							            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">TRASHED</a></span>
+							    	</c:when>
+							    	<c:when test = "${bizProfile.bizStatus == 5}">
+							            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs purple">SUSPENDED</a></span>
+							    	</c:when>
+							   		<c:when test = "${bizProfile.bizStatus == 6}">
+							        	<span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs red">BANNED</a></span>
+							    	</c:when>
+							    	<c:otherwise>
+							            <span class="caption-helper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-xs grey">UNKNOWN</a></span>
+							     	</c:otherwise>
+							    </c:choose>
+                            </div>
+                            <div class="actions">
+                            	<div class="btn-group btn-group-devided">
+	                                <c:choose>
+										<c:when test = "${bizProfile.bizStatus == 1}">
+											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
+											<a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
+										</c:when>
+										<c:when test = "${bizProfile.bizStatus == 2}">
+											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
+										    <a href="${webapp_name}/advertiser/biz/disable.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
+										</c:when>
+										<c:when test = "${bizProfile.bizStatus == 3}">
+											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn green" id="btnEdit">Edit</a>
+										    <a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn blue" id="btnEdit">Publish</a>
+										    <a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn red" id="btnEdit">Trash</a>
+										</c:when>
+										<c:otherwise>
+										</c:otherwise>
+									</c:choose>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <span class="caption-subject bold font-dark"> Business ID at Adogo: </span><br/>
+                                    <span class="caption-subject bold font-dark"> Business Name: </span><br/>
+                                    <span class="caption-subject bold font-dark"> Industry Code: </span><br/>
+                                    <span class="caption-subject bold font-dark"> Created Date: </span><br/>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="caption-subject font-dark"> ${bizProfile.bizId}</span><br/>
+                                    <span class="caption-subject font-dark"> ${bizProfile.bizName}</span><br/>
+                                    <span class="caption-subject font-dark"> ${bizProfile.industryCode}</span><br/>
+                                    <span class="caption-subject font-dark"> ${bizProfile.createDate}</span><br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </c:forEach>
+            <!-- END ROW 2 -->
         </div>
+		<!-- END CONTENT BODY -->
+		</div>
+		<!-- END CONTENT -->
+    </div>
 	<!-- END CONTAINER -->
         
-	<!-- BEGIN FOOTER -->
+	<!-- FOOTER -->
 	<jsp:include page="${inc_dir}/page-footer.jsp"></jsp:include>
 	<!-- END FOOTER -->
         
@@ -287,6 +277,7 @@
 <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
-
+<script>
+</script>
 </body>
 </html>

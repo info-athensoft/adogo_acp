@@ -20,15 +20,15 @@ public class BusinessOnlinePresenceService {
 		this.businessOnlinePresenceDao = businessOnlinePresenceDao;
 	}
 	
-	public int[] createBusinessOnlinePresence(List<BusinessOnlinePresence> bizOnlinePresenceList){
-		return businessOnlinePresenceDao.createInBatch(bizOnlinePresenceList);
-	}
-	
 	public List<BusinessOnlinePresence> getBusinessPresenceByBizId(long bizId){
 		return businessOnlinePresenceDao.findByBizId(bizId);
 	}
 	
-	public int[] updateBusinessPresence(List<BusinessOnlinePresence> bizOnlinePresenceList){
+	public int[] createBusinessOnlinePresence(List<BusinessOnlinePresence> bizOnlinePresenceList){
+		return businessOnlinePresenceDao.createInBatch(bizOnlinePresenceList);
+	}
+	
+	public int[] updateBusinessOnlinePresence(List<BusinessOnlinePresence> bizOnlinePresenceList){
 		return businessOnlinePresenceDao.updateInBatch(bizOnlinePresenceList);
 	}
 	

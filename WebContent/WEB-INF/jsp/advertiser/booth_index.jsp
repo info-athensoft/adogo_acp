@@ -17,12 +17,15 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-<meta charset="utf-8" />
 <title>Adogo | Booth - Index</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1" name="viewport" />
-<meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description" />
-<meta content="" name="author" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content=""/>
+<meta name="author" content="Informatique Athensoft"/>
 
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"/>

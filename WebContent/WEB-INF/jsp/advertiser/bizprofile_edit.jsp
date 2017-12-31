@@ -17,16 +17,17 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-<meta charset="utf-8" />
 <title>Adogo | Business Profile - Edit</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="" name="description" />
-<meta content="" name="author" />
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content=""/>
+<meta name="author" content="Informatique Athensoft"/>
+
+<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
       
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
@@ -35,6 +36,7 @@
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
+
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/datatables.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
@@ -43,19 +45,20 @@
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css"/>
 <!-- END PAGE LEVEL PLUGINS -->
+
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
 <!-- END THEME GLOBAL STYLES -->
+
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
 <!-- END THEME LAYOUT STYLES -->
-<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
 </head>
 
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
             <!-- BEGIN HEADER INNER -->
@@ -282,7 +285,7 @@
                                             <div class="row">
                                                 <div class="col-md-offset-3 col-md-4">
                                                     <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
-                                                    <a class="btn default" onclick="cancelSave();">Cancel</a>
+                                                    <a class="btn default" onclick="cancelSaveBusinessProfile(); return false">Cancel</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -295,7 +298,7 @@
 	                                <div class="caption">
 	                                    <i class="icon-equalizer font-red-sunglo"></i>
 	                                    <span class="caption-subject font-red-sunglo bold uppercase">Contact Information</span>
-	                                    <span class="caption-helper">...</span>
+	                                    <span class="caption-helper"></span>
 	                                </div>
 	                                <div class="actions">
 	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -394,7 +397,7 @@
                                             <div class="row">
                                                 <div class="col-md-offset-3 col-md-4">
                                                     <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
-                                                    <a class="btn default" onclick="cancelSave();">Cancel</a>
+                                                    <a class="btn default" onclick="cancelSaveBusinessProfile(); return false;">Cancel</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -408,7 +411,7 @@
 	                                <div class="caption">
 	                                    <i class="icon-equalizer font-red-sunglo"></i>
 	                                    <span class="caption-subject font-red-sunglo bold uppercase">Online Presence</span>
-	                                    <span class="caption-helper">...</span>
+	                                    <span class="caption-helper"></span>
 	                                </div>
 	                                <div class="actions">
 	                                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -519,7 +522,6 @@
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
-
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/typeahead/handlebars.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/typeahead/typeahead.bundle.min.js"></script>
@@ -528,24 +530,15 @@
 <!-- <script src="${webapp_name}/assets/global/scripts/app.min.js" type="text/javascript"></script> -->
 <script type="text/javascript" src="${webapp_name}/assets/global/scripts/app.js"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script>
-<!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"></script>
-
-<!-- 
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
- -->
 <!-- END THEME LAYOUT SCRIPTS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-edit.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
 <script>
-
-
 </script>
 </body>
-
 </html>

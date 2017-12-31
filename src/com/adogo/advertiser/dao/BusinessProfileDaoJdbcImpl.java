@@ -90,6 +90,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_owner, ");
 		sbf.append("establish_date, ");
 		sbf.append("create_date, ");
+		sbf.append("modify_date, ");
 		sbf.append("biz_phone, ");
 		sbf.append("biz_fax, ");
 		sbf.append("biz_email, ");
@@ -99,7 +100,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND advertiser_id =:advertiser_id ");
-		sbf.append(" ORDER BY biz_status ");
+		sbf.append(" ORDER BY biz_status, modify_date DESC ");
 		String sql = sbf.toString();
 		logger.info(sql);
 		

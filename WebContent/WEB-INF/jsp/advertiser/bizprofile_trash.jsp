@@ -17,12 +17,15 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-<meta charset="utf-8" />
-<title>Adogo | Business - Trash</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Preview page of Metronic Admin Theme #2 for statistics, charts, recent events and reports" name="description"/>
-<meta content="" name="author"/>
+<title>Adogo | Business Profile - Trash</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content=""/>
+<meta name="author" content="Informatique Athensoft"/>
 
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"/>
@@ -123,7 +126,6 @@
                     <!-- BEGIN ROW 1 -->
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <!-- Begin: life time stats -->
 		                    <div class="portlet light">
 		                        <div class="portlet-title">
 		                            <div class="caption">
@@ -132,24 +134,23 @@
 		                                <a class="btn btn-circle btn-info"  onclick="trashBusinessProfile(); return false;">
 		                                    <span> Trash </span>
 		                                </a>
+		                                <a class="btn btn-circle btn-default"  onclick="cancelTrashBusinessProfile(); return false;">
+		                                    <span> Cancel </span>
+		                                </a>
 		                            </div>
 		                        </div>
-		                       
 		                    </div>
-		                    <!-- End: life time stats -->
 		                </div>
 		            </div>
 		            <!-- END ROW 1 -->
                     
-                    
+                    <!-- ROW DATA -->
                     <div class="row">
                     	<input type="hidden" id="bizId" value="${bizProfile.bizId}"/>
                     </div>
+                    <!-- END ROW DATA -->
                     
-                        
-                    
-                    
-                    <!-- PRETEST -->
+                    <!-- ROW 2 -->
                     <div class="row">
                         <div class="col-lg-12 col-xs-12 col-sm-12">
                             <div class="portlet light portlet-fit ">
@@ -206,7 +207,7 @@
                             
                         </div>
                     </div>
-                    <!-- END PRETEST -->
+                    <!-- END ROW 2 -->
                 </div>
                 <!-- END CONTENT BODY -->
             </div>

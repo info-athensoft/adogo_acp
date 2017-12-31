@@ -36,6 +36,7 @@ import com.athensoft.util.id.UUIDHelper;
 public class BusinessProfileController {
 	private static final Logger logger = Logger.getLogger(BusinessProfileController.class);
 	
+	private static final String MSG_NO_SUCH_USER = "WARNING: No such user or please login in!";
 	private static final String MSG_NO_SUCH_ADVERTISER = "WARNING: No such advertiser or please login in!";
 	
 	@Autowired
@@ -80,9 +81,17 @@ public class BusinessProfileController {
 		logger.info("entering... /advertiser/biz/");
 		
 		/* get data from session */
+		Object userIdObj = session.getAttribute("userId");
 		Object advertiserIdObj = session.getAttribute("advertiserId");
+		long userId = 0L;
 		long advertiserId = 0L;
 		String errorMsg = "";
+		
+		if(userIdObj != null){
+			userId = (Long)userIdObj;
+		}else{
+			errorMsg = MSG_NO_SUCH_USER;
+		}
 		
 		if(advertiserIdObj != null){
 			advertiserId = (Long)advertiserIdObj;
@@ -407,9 +416,17 @@ public class BusinessProfileController {
 		logger.info("entering... /advertiser/biz/create");
 		
 		/* get data from session */
+		Object userIdObj = session.getAttribute("userId");
 		Object advertiserIdObj = session.getAttribute("advertiserId");
+		long userId = 0L;
 		long advertiserId = 0L;
 		String errorMsg = "";
+		
+		if(userIdObj != null){
+			userId = (Long)userIdObj;
+		}else{
+			errorMsg = MSG_NO_SUCH_USER;
+		}
 		
 		if(advertiserIdObj != null){
 			advertiserId = (Long)advertiserIdObj;
@@ -479,7 +496,33 @@ public class BusinessProfileController {
 		
 		businessProfile.setHqAddress(hqAddress);
 		
+		// populate presence id and url
+		final int PRESENCE_COUNT = 6;						//TODO HardCode
+		String[] presenceNo = new String[PRESENCE_COUNT];
+		String[] presenceURL = new String[PRESENCE_COUNT];
+		
+		List<BusinessOnlinePresence> bizOnlinePresenceList = new ArrayList<BusinessOnlinePresence>();
+		
+		for(int i =0 ; i<PRESENCE_COUNT; i++){
+			String strNo = "presenceNo"+(i+1);
+			presenceNo[i] = jsonObj.getString(strNo);
+			String strURL = "presenceURL"+(i+1);
+			presenceURL[i] = jsonObj.getString(strURL);
+			
+			BusinessOnlinePresence bop = new BusinessOnlinePresence();
+			bop.setBizId(bizId);
+			bop.setUserId(userId);
+			bop.setAdvertiserId(advertiserId);
+			bop.setPresenceNo(Integer.parseInt(presenceNo[i]));
+			bop.setPresenceURL(presenceURL[i]);
+			bop.setPresenceStatus(BusinessOnlinePresence.ACTIVE);
+			
+			bizOnlinePresenceList.add(bop);
+		}
+		
+		businessProfile.setBusinessOnlinePresenceList(bizOnlinePresenceList);
 		logger.info(businessProfile.toString());
+		
 		
 		/* execute business logic */
 		this.businessProfileService.createBusinessProfile(businessProfile);
@@ -538,12 +581,10 @@ public class BusinessProfileController {
 			
 			bizOnlinePresenceList.add(bop);
 		}
-//		logger.info(bizOnlinePresenceList.toString());
-		
 		
 		/* execute business logic */
 		//create a new record of BusinessOnlinePresence into master table
-		this.businessOnlinePresenceService.createBusinessOnlinePresence(bizOnlinePresenceList); 
+		this.businessOnlinePresenceService.updateBusinessOnlinePresence(bizOnlinePresenceList);
 		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
@@ -566,8 +607,19 @@ public class BusinessProfileController {
 	 */
 	@RequestMapping(value="/save",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> saveBizProfile(@RequestParam String bizProfileJSONString){		
+	public Map<String,Object> saveBizProfile(HttpSession session, @RequestParam String bizProfileJSONString){		
 		logger.info("entering... /advertiser/biz/save");
+		
+		/* get data from session */
+		Object advertiserIdObj = session.getAttribute("advertiserId");
+		long advertiserId = 0L;
+		String errorMsg = "";
+		
+		if(advertiserIdObj != null){
+			advertiserId = (Long)advertiserIdObj;
+		}else{
+			errorMsg = MSG_NO_SUCH_ADVERTISER;
+		}
 		
 		/* prepare data */		
 		JSONObject jsonObj= new JSONObject(bizProfileJSONString);
@@ -615,6 +667,7 @@ public class BusinessProfileController {
 		}
 		
 		BusinessProfile bp = new BusinessProfile();
+		bp.setAdvertiserId(advertiserId);
 		bp.setBizId(bizId);
 		bp.setBizName(bizName);
 		bp.setBizNo(bizNo);
@@ -646,6 +699,7 @@ public class BusinessProfileController {
 		
 		for(int i=0; i<OLP_COUNT; i++){
 			BusinessOnlinePresence bop = new BusinessOnlinePresence();
+			bop.setAdvertiserId(advertiserId);
 			bop.setBizId(bizId);
 			bop.setPresenceNo(presenceNo[i]);
 			bop.setPresenceURL(presenceURL[i]);
@@ -657,7 +711,7 @@ public class BusinessProfileController {
 		/* execute business logic */
 		this.businessProfileService.updateBusinessProfile(bp);
 		this.businessAddressService.updateBusinessAddress(ba);
-		this.businessOnlinePresenceService.updateBusinessPresence(bopList);
+		this.businessOnlinePresenceService.updateBusinessOnlinePresence(bopList);
 		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
@@ -665,6 +719,7 @@ public class BusinessProfileController {
 		
 		/* set data */
 		model.put("bizProfile", bp);
+		model.put("errorMsg", errorMsg);
 		
 		/* set view */
 		

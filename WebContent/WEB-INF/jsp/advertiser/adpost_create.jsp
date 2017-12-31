@@ -4,10 +4,11 @@
 
 <!-- global variables settings -->
 <c:set var="webapp_name" value="/acp"/>
+<!-- END global variables settings -->
 
 <!-- page variables  -->
 <c:set var="inc_dir" value="../inc"/>
-<!-- ENDS page variables -->
+<!-- END page variables -->
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -15,18 +16,16 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
-<!-- BEGIN HEAD -->
 <head>
-<meta charset="utf-8" />
-<title>Adogo | Ad Post - Creating</title>
+<title>Adogo | Ad Post - Create</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="" name="description" />
-<meta content="" name="author" />
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content=""/>
+<meta name="author" content="Informatique Athensoft"/>
       
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
@@ -59,7 +58,6 @@
 <!-- END THEME LAYOUT STYLES -->
 <link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
 </head>
-<!-- END HEAD -->
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->
