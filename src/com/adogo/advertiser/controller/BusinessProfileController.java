@@ -102,7 +102,7 @@ public class BusinessProfileController {
 		}
 		
 		/* execute business logic */
-		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId,BusinessStatus.ACTIVE);
+		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId,BusinessStatus.PUBLISHED);
 		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
@@ -749,7 +749,7 @@ public class BusinessProfileController {
 		// populate presence id and url
 		BusinessProfile bp = new BusinessProfile();
 		bp.setBizId(bizId);
-		bp.setBizStatus(BusinessStatus.ACTIVE);
+		bp.setBizStatus(BusinessStatus.PUBLISHED);
 		
 		/* execute business logic */
 		//create a new record of BusinessOnlinePresence into master table
