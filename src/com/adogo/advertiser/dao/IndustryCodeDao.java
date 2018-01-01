@@ -14,4 +14,6 @@ public interface IndustryCodeDao {
 	public List<IndustryCode> findLevelSelected(int levelNo, String industryCode);
 	
 	public List<IndustryCode> findByParentCode(String parentCode);
+	
+	public IndustryCode findByCode(String industryCode);
 }

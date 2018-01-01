@@ -55,32 +55,26 @@
 </head>
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
-<!-- BEGIN HEADER -->
-<div class="page-header navbar navbar-fixed-top">
-    <!-- BEGIN HEADER INNER -->
-    <div class="page-header-inner ">
-        <!-- BEGIN LOGO -->
-        <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
-        <!-- END LOGO -->
-        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-        <!-- END RESPONSIVE MENU TOGGLER -->
-        <!-- BEGIN PAGE ACTIONS -->
-        <!-- DOC: Remove "hide" class to enable the page header actions -->
-        <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
-        <!-- END PAGE ACTIONS -->
-        <!-- BEGIN PAGE TOP -->
-        <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
-        <!-- END PAGE TOP -->
-    </div>
-    <!-- END HEADER INNER -->
-</div>
-<!-- END HEADER -->
-<!-- BEGIN HEADER & CONTENT DIVIDER -->
-<div class="clearfix"> </div>
-<!-- END HEADER & CONTENT DIVIDER -->
-<!-- BEGIN CONTAINER -->
-<div class="page-container">
+	<!-- HEADER -->
+	<div class="page-header navbar navbar-fixed-top">
+	    <!-- BEGIN HEADER INNER -->
+	    <div class="page-header-inner ">
+	        <!-- BEGIN LOGO -->
+	        <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
+	        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+	        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+	        <!-- BEGIN PAGE ACTIONS -->
+	        <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
+	        <!-- BEGIN PAGE TOP -->
+	        <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
+	    </div>
+	    <!-- END HEADER INNER -->
+	</div>
+	<!-- END HEADER -->
+	<div class="clearfix"> </div>
+	
+	<!-- CONTAINER -->
+	<div class="page-container">
 	<!-- BEGIN SIDEBAR -->
 	<jsp:include page="${inc_dir}/page-sidebar.jsp"></jsp:include>
 	<!-- END SIDEBAR -->
@@ -92,70 +86,59 @@
             <!-- BEGIN PAGE HEADER-->
             <!-- BEGIN THEME PANEL -->
             <!-- END THEME PANEL -->
-            <h1 class="page-title"> Advertiser | Business Profile <small>view business profiles</small></h1>
+            <h1 class="page-title"> Advertiser | Business <small> view profile</small></h1>
             <div class="page-bar">
-                 <ul class="page-breadcrumb">
+                <ul class="page-breadcrumb">
 					<li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
                     <li><a href="${webapp_name}/advertiser/">Advertiser</a><i class="fa fa-angle-right"></i></li>
                     <li><a href="${webapp_name}/advertiser/biz/">Business</a><i class="fa fa-angle-right"></i></li>
                     <li><span>View Business Profiles</span></li>
 				</ul>
                 <div class="page-toolbar">
-                 <div class="btn-group pull-right">
-                     <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Quick Links
-                         <i class="fa fa-angle-down"></i>
-                     </button>
-                     <ul class="dropdown-menu pull-right" role="menu">
-                     	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
-                         <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
-                         <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
-                         <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
-                         <li class="divider"> </li>
-                         <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
-                     </ul>
-               	</div>
+	                <div class="btn-group pull-right">
+	                	<button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" 
+	                     		data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> 
+	                     		Quick Links <i class="fa fa-angle-down"></i>
+	                     </button>
+	                     <ul class="dropdown-menu pull-right" role="menu">
+	                     	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
+	                         <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
+	                         <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
+	                         <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
+	                         <li class="divider"> </li>
+	                         <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
+	                     </ul>
+	               	</div>
               	</div>
-              </div>
+            </div>
             <!-- END PAGE HEADER-->
+            
             <!-- BEGIN ROW 1 -->
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Begin: life time stats -->
                     <div class="portlet light">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-shopping-cart"></i>View a business <span class="caption-helper">in detail</span></div>
+                                <i class="fa fa-shopping-cart"></i>View my business profile <span class="caption-helper">in detail</span>
+                            </div>
                             <div class="actions">
-                                <a href="#" class="btn btn-circle btn-info">
-                                    <i class="fa fa-plus"></i><span class="hidden-xs"> Register </span>
+                                <a href="${webapp_name}/advertiser/biz/" class="btn btn-circle btn-info">
+                                    <span> Goto Business Home </span>
                                 </a>
-                                <div class="btn-group">
-                                    <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-                                        <i class="fa fa-share"></i>
-                                        <span class="hidden-xs"> Tools </span>
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:;"> Export to Excel </a></li>
-                                        <li><a href="javascript:;"> Export to CSV </a></li>
-                                        <li><a href="javascript:;"> Export to XML </a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="javascript:;"> Print  </a></li>
-                                    </ul>
-                                </div>
+                                <a href="${webapp_name}/advertiser/biz/manage.html" class="btn btn-circle btn-default">
+                                    <span> Goto Manage Business Status </span>
+                                </a>
                             </div>
                         </div>
-                       
                     </div>
-                    <!-- End: life time stats -->
                 </div>
             </div>
             <!-- END ROW 1 -->
-            <!-- BEGIN ROW 2 -->
+            
+            <!-- ROW 2 -->
             <div class="row">
             	<!-- BEGIN SECTION 1 -->
             	<div class="col-md-12">
-            		
             		<div class="portlet light ">
 	                    <div class="portlet-title">
 	                         <div class="caption">
@@ -175,217 +158,98 @@
 	                             </a>
 	                         </div>
 	                     </div>
-	
-	                    <div class="portlet-body form">
-	                        <!-- BEGIN FORM-->
-	                        <form action="#" class="form-horizontal">
-	                        	<div class="form-body">
-		                            <div class="form-group">
-		                               <label class="col-md-3 control-label">Business Name</label>
-		                               <div class="col-md-4">
-		                                   <input type="text" class="form-control" placeholder="" id="bizName">
-		                                   <span class="help-block"> Your legal company name or real business name</span>
-		                               </div>
-		                            </div>
-	                                
-	                                <div class="form-group">
-	                                    <label class="col-md-3 control-label">Business No.</label>
-	                                    <div class="col-md-4">
-	                                        <input type="text" class="form-control" placeholder="" id="bizNo">
-	                                        <span class="help-block"> Your business no. issued by government</span>
-	                                    </div>
-	                                </div>
-	                                
-	                                <div class="form-group">
-	                                    <label class="col-md-3 control-label">Business Owner</label>
-	                                    <div class="col-md-4">
-	                                        <input type="text" class="form-control" placeholder="Business owner" id="bizOwner">
-	                                        <span class="help-block"> Business owner</span>
-	                                    </div>
-	                                </div>
-	                                
-	                                <div class="form-group">
-	                                    <label class="col-md-3 control-label">Legal Form</label>
-	                                    <div class="col-md-4">
-	                                        <select class="form-control" id="legalFormNo">
-	                                        	<option value="">Choose a legal form</option>
-	                                        	<option value="1">Solo business - Not registered</option>
-	                                        	<option value="2">Solo business - Registered</option>
-	                                        	<option value="3">Partnership</option>
-	                                        	<option value="4">Corporation, LLC</option>
-	                                        </select>
-	                                        <span class="help-block"> The legal form of your business</span>
-	                                    </div>
-	                                </div>
-	                                
-	                                <div class="form-group">
-	                                    <label class="col-md-3 control-label">Industry Code</label>
-	                                    <div class="col-md-4">
-	                                        <select class="form-control" id="industryCodeLevel1" onchange="getSubIndustryCode1();">
-	                                        	<option value="">Choose a category for your business</option>
-	                                        	<c:forEach items="${NAICS_level_1}" var="item">
-	                                        		<option value="${item.industryCode}">${item.industryName}</option>
-	                                        	</c:forEach>
-	                                        </select>
-	                                        <p></p>
-	                                        <select class="form-control" id="industryCodeLevel2" onchange="getSubIndustryCode2();">
-	                                        	<option value="">--/--</option>
-	                                        </select>
-	                                        <p></p>
-	                                        <select class="form-control" id="industryCodeLevel3" onchange="getSubIndustryCode3();">
-	                                        	<option value="">--/--</option>
-	                                        </select>
-	                                        <p></p>
-	                                        <select class="form-control" id="industryCodeLevel4">
-	                                        	<option value="">--/--</option>
-	                                        </select>
-	                                        <span class="help-block"> Select the industry code for your business </span>
-	                                        <p></p>
-	                                        <input type="text" class="form-control" placeholder="industryCode" id="industryCode">
-	                                    </div>
-	                                </div>
-	                                
-	                                <div class="form-group">
-	                                    <label class="col-md-3 control-label">Business Type</label>
-	                                    <div class="col-md-4">
-	                                        <div class="mt-checkbox-list mt-checkbox-inline">
-	                                   <label class="mt-checkbox mt-checkbox-outline"> Product
-	                                       <input type="checkbox" value="1" name="businessType" />
-	                                       <span></span>
-	                                   </label>
-	                                   <label class="mt-checkbox mt-checkbox-outline"> e-Product
-	                                       <input type="checkbox" value="2" name="businessType" />
-	                                       <span></span>
-	                                   </label>
-	                                   <label class="mt-checkbox mt-checkbox-outline"> Service
-	                                       <input type="checkbox" value="3" name="businessType" />
-	                                       <span></span>
-	                                   </label>
-	                               </div>
-	                                    </div>
-	                                </div>
-	                                
-	                                <div class="form-group">
-	                                    <label class="col-md-3 control-label">Business Description</label>
-	                                    <div class="col-md-4">
-	                                        <input type="text" class="form-control" placeholder="Brief description of your business">
-	                                        <span class="help-block"> Your business description</span>
-	                                    </div>
-	                                </div>
-	                                
-	                    			<div class="form-group">
-	                                    <label class="col-md-3 control-label">Head Office Address</label>
-	                                    <div class="col-md-9">
-	                                    	<div class="row">
-	                                    		<div class="col-md-2">
-	                                    			<input type="text" class="form-control" placeholder="Street no.">
-	                                    		</div>
-	                                    		<div class="col-md-2">
-	                                    			<select class="form-control">
-	                                          	<option value="">Rue</option>
-	                                          	<option value="">Avenue/Av.</option>
-	                                          	<option value="">Boulevard/Blvd.</option>
-	                                          	<option value="">St.</option>
-	                                        		</select>
-	                                    		</div>
-	                                    		<div class="col-md-6">
-	                                    			<input type="text" class="form-control" placeholder="Street name">
-	                                    		</div>
-	                                    		<div class="col-md-2">
-	                                    			<input type="text" class="form-control" placeholder="Port no.">
-	                                    		</div>
-	                                    	</div>
-	                                    	<p></p>
-	                                    	<div class="row">
-	                                    		<div class="col-md-4">
-	                                    			<input type="text" class="form-control" placeholder="City">
-	                                    		</div>
-	                                    		<div class="col-md-4">
-	                                    			<input type="text" class="form-control" placeholder="Province">
-	                                    		</div>
-	                                    		<div class="col-md-4">
-	                                    			<input type="text" class="form-control" placeholder="Postal code">
-	                                    		</div>
-	                                    	</div>
-	                                    </div>
-	                                 </div>
-	                                 
-	                          		<div class="form-group">
-	                                    <label class="col-md-3 control-label">Phone no.</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="Phone no.">
-	                                    </div>
-	                                 </div>
-	                                 
-	                         		<div class="form-group">
-	                                    <label class="col-md-3 control-label">Fax no.</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="Fax no.">
-	                                    </div>
-	                                 </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Website Address</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your website or home page">
-	                                    </div>
-	                                 </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Facebook</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your facebook homepage">
-	                                    </div>
-	                                 </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">LinkedIn</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your LinkedIn homepage">
-	                                   	</div>
-	                                </div>
-	                                 
-	                             	<div class="form-group">
-	                                	<label class="col-md-3 control-label">Twitter</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Twitter homepage">
-	                                    </div>
-	                                </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Youtube</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Youtube homepage">
-	                                    </div>
-	                                 </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Instagram</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Instagram homepage">
-	                                    </div>
-	                                </div>
-	                                 
-	                             	<div class="form-group">
-	                                    <label class="col-md-3 control-label">Pinterest</label>
-	                                    <div class="col-md-4">
-	                                    	<input type="text" class="form-control" placeholder="URL of your Pinterest homepage">
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div class="form-actions">
-	                                <div class="row">
-	                                    <div class="col-md-offset-3 col-md-4">
-	                                        <button type="submit" class="btn green" onclick="saveBusinessProfile();">Register now</button>
-	                                        <button type="button" class="btn default" onclick="cancelBusinessRegistration()">Cancel</button>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </form>
-	                        <!-- END FORM-->
-	                    </div>
+						
+						<div class="portlet-body form">
+                        	<div class="row">
+                        		<div class="col-md-12">
+                        			<h4 class="form-section">General Information</h4>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Adogo Business ID: </span>
+	                        			<span class="col-md-6">${bizProfile.bizId}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Adogo Advertiser ID: </span>
+	                        			<span class="col-md-6">${bizProfile.advertiserId}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Business Name: </span>
+	                        			<span class="col-md-6">${bizProfile.bizName}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Business Owner: </span>
+	                        			<span class="col-md-6">${bizProfile.bizOwner}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Industry Code: </span>
+	                        			<span class="col-md-6">${bizProfile.industryCode} : ${bizProfile.industryName}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Created Date: </span>
+	                        			<span class="col-md-6">${bizProfile.createDate}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Last Modified Date: </span>
+	                        			<span class="col-md-6">${bizProfile.modifyDate}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Description: </span>
+	                        			<span class="col-md-6">${bizProfile.bizDesc}</span>
+                        			</div>
+                        		</div>
+                        		<div class="col-md-12">
+                        			<h4 class="form-section">Contact Information</h4>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Phone Number: </span>
+	                        			<span class="col-md-6">${bizProfile.bizPhone}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Fax Number: </span>
+	                        			<span class="col-md-6">${bizProfile.bizFax}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Email: </span>
+	                        			<span class="col-md-6">${bizProfile.bizEmail}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Website: </span>
+	                        			<span class="col-md-6">${bizProfile.bizWebsite}</span>
+                        			</div>
+                        		</div>
+                        		<div class="col-md-12">
+                        			<h4 class="form-section">Head Office Address</h4>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Address: </span>
+	                        			<span class="col-md-6">${hqAddress.streetNo} <span id="streetTypeName"></span> ${hqAddress.streetName} <span id="portTypeName"></span> #${hqAddress.portNo}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> City/Town: </span>
+	                        			<span class="col-md-6">${hqAddress.cityName}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Province/State: </span>
+	                        			<span class="col-md-6">${hqAddress.provName}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Postal Code/Zip Code: </span>
+	                        			<span class="col-md-6">${hqAddress.postalCode}</span>
+                        			</div>
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> Country: </span>
+	                        			<span class="col-md-6">${hqAddress.countryName}</span>
+                        			</div>
+                        		</div>
+                        		<div class="col-md-12">
+                        			<h4 class="form-section">Online Presence</h4>
+                        			<c:forEach items="${onlinePresenceList}" var="onlinePresence">
+                        			<div class="row">
+	                        			<span class="col-md-3 bold"> ${onlinePresence.presenceName}: </span>
+	                        			<span class="col-md-6">${onlinePresence.presenceURL}</span>
+                        			</div>
+                        			</c:forEach>
+                        		</div>
+                        	</div>
+                        </div>
                  	</div>
-            		
             	</div>
             	<!-- BEGIN SECTION 1 -->
             </div>
@@ -394,20 +258,15 @@
         <!-- END CONTENT BODY -->
     </div>
     <!-- END CONTENT -->
-           
-    <!-- BEGIN ${webapp_name} SIDEBAR -->
-    <!-- Removed to quick_sidebar.html -->
-    <!-- END QUICK SIDEBAR -->
-</div>
-<!-- END CONTAINER -->
+	</div>
+	<!-- END CONTAINER -->
        
-<!-- BEGIN FOOTER -->
-<jsp:include page="${inc_dir}/page-footer.jsp"></jsp:include>
-<!-- END FOOTER -->
+	<!-- BEGIN FOOTER -->
+	<jsp:include page="${inc_dir}/page-footer.jsp"></jsp:include>
+	<!-- END FOOTER -->
            
 <!--[if lt IE 9]>
 <script src="${webapp_name}/assets/global/plugins/respond.min.js"></script>
-
 <script src="${webapp_name}/assets/global/plugins/excanvas.min.js"></script> 
 <script src="${webapp_name}/assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
@@ -426,8 +285,6 @@
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
-
-<!-- commented by Athens on 2017-11-30 -->
 <!-- <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>  -->
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/typeahead/handlebars.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/typeahead/typeahead.bundle.min.js"></script>
@@ -437,50 +294,41 @@
 <script type="text/javascript" src="${webapp_name}/assets/global/scripts/app.js"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<!-- commented by Athens on 2017-11-30 -->
 <!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script> -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-create.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"></script>
-
-<!-- 
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
- -->
 <!-- END THEME LAYOUT SCRIPTS -->
+
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-view.js"></script>
 <script>
-
-function getSubIndustryCode1(){
-	//selectObject=$("#industryCodeLevel1")
-	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
-	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
-	var nextLevelIndex = 2;
-	getSubIndustryCode(parentCode,nextLevelIndex);
+function getStreetTypeName(streetType){
+	var streetTypeName = "";
+	if(streetType==11) {streetTypeName="Street";}
+	if(streetType==21) {streetTypeName="Rue";}
+	if(streetType==22) {streetTypeName="Avenue";}
+	if(streetType==23) {streetTypeName="Boulvard";}
+	return streetTypeName;
 }
 
+function getPortTypeName(portType){
+	var portTypeName = "";
+	if(portType=='1') {portTypeName="Port";}
+	if(portType=='2') {portTypeName="Suite";}
+	if(portType=='3') {portTypeName="Apt";}
+	if(portType=='4') {portTypeName="App";}
+	return portTypeName;
+}
 
-function getSubIndustryCode2(){
-	var parentCode=$("#industryCodeLevel2").val();  //Select - Value
-	var checkText=$("#industryCodeLevel2").find("option:selected").text();  //Select - Text
-	var nextLevelIndex = 3;
-	getSubIndustryCode(parentCode,nextLevelIndex);
+$(document).ready(function() {
+	var a = getStreetTypeName("${hqAddress.streetType}");
+	$("#streetTypeName").text(a);
 	
-	//var parentCode=$("#industryCodeLevel2").val();  //Select - Value
-	//alert(checkValue+" : "+checkText);
-}
-
-function getSubIndustryCode3(){
-	var parentCode=$("#industryCodeLevel3").val();  //Select - Value
-	var checkText=$("#industryCodeLevel3").find("option:selected").text();  //Select - Text
-	var nextLevelIndex = 4;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-	
-	//alert(checkValue+" : "+checkText);
-}
-
+	var b = getPortTypeName("${hqAddress.portType}");
+	$("#portTypeName").text(b);
+});
 </script>
 </body>
 </html>

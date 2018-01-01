@@ -30,6 +30,9 @@ public class BusinessProfile {
 	private BusinessAddress hqAddress;		//headquarters address
 	
 	private List<BusinessOnlinePresence> bizOnlinePresenceList;	//business online presence
+	
+	/* field of view */
+	private String industryName;
 
 	public Long getGlobalId() {
 		return globalId;
@@ -162,6 +165,18 @@ public class BusinessProfile {
 	}
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
+	}
+	public List<BusinessOnlinePresence> getBizOnlinePresenceList() {
+		return bizOnlinePresenceList;
+	}
+	public void setBizOnlinePresenceList(List<BusinessOnlinePresence> bizOnlinePresenceList) {
+		this.bizOnlinePresenceList = bizOnlinePresenceList;
+	}
+	public String getIndustryName() {
+		return industryName;
+	}
+	public void setIndustryName(String industryName) {
+		this.industryName = industryName;
 	}
 	@Override
 	public String toString() {

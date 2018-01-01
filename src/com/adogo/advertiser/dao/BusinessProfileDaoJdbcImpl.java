@@ -17,15 +17,20 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.adogo.advertiser.entity.BusinessProfile;
-import com.adogo.advertiser.entity.BusinessStatus;
 
+/**
+ * @author Athens
+ *
+ */
 @Component
 @Qualifier("businessProfileDaoJdbcImpl")
 public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 	
 	private final static Logger logger = Logger.getLogger(BusinessProfileDaoJdbcImpl.class);
 	
-	private final String TABLE = "BIZ_PROFILE";
+//	private final String TABLE = "BIZ_PROFILE";
+	
+	private final String TABLE = "VIEW_BIZ_PROFILE";
 	
 	private NamedParameterJdbcTemplate jdbc;
 
@@ -55,12 +60,14 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_owner, ");
 		sbf.append("establish_date, ");
 		sbf.append("create_date, ");
+		sbf.append("modify_date, ");
 		sbf.append("biz_phone, ");
 		sbf.append("biz_fax, ");
 		sbf.append("biz_email, ");
 		sbf.append("biz_website, ");
 		sbf.append("biz_status, ");
-		sbf.append("biz_desc ");
+		sbf.append("biz_desc, ");
+		sbf.append("industry_name ");	//from view
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND user_id =:user_id ");
@@ -72,7 +79,6 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		return jdbc.query(sql,paramSource,new BusinessProfileRowMapper());
 	}
 
-	//TODO
 	@Override
 	public List<BusinessProfile> getBusinessProfileByAdvertiserId(long advertiserId) {
 		StringBuffer sbf = new StringBuffer();
@@ -96,7 +102,8 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_email, ");
 		sbf.append("biz_website, ");
 		sbf.append("biz_status, ");
-		sbf.append("biz_desc ");
+		sbf.append("biz_desc, ");
+		sbf.append("industry_name ");	//from view
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND advertiser_id =:advertiser_id ");
@@ -126,12 +133,14 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_owner, ");
 		sbf.append("establish_date, ");
 		sbf.append("create_date, ");
+		sbf.append("modify_date, ");
 		sbf.append("biz_phone, ");
 		sbf.append("biz_fax, ");
 		sbf.append("biz_email, ");
 		sbf.append("biz_website, ");
 		sbf.append("biz_status, ");
-		sbf.append("biz_desc ");
+		sbf.append("biz_desc, ");
+		sbf.append("industry_name ");	//from view
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND advertiser_id =:advertiser_id ");
@@ -162,12 +171,14 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_owner, ");
 		sbf.append("establish_date, ");
 		sbf.append("create_date, ");
+		sbf.append("modify_date, ");
 		sbf.append("biz_phone, ");
 		sbf.append("biz_fax, ");
 		sbf.append("biz_email, ");
 		sbf.append("biz_website, ");
 		sbf.append("biz_status, ");
-		sbf.append("biz_desc ");
+		sbf.append("biz_desc, ");
+		sbf.append("industry_name ");	//from view
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_id =:biz_id ");
@@ -197,12 +208,14 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_owner, ");
 		sbf.append("establish_date, ");
 		sbf.append("create_date, ");
+		sbf.append("modify_date, ");
 		sbf.append("biz_phone, ");
 		sbf.append("biz_fax, ");
 		sbf.append("biz_email, ");
 		sbf.append("biz_website, ");
 		sbf.append("biz_status, ");
-		sbf.append("biz_desc ");
+		sbf.append("biz_desc, ");
+		sbf.append("industry_name ");	//from view
 		sbf.append(" FROM "+TABLE);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_no =:biz_no ");
@@ -286,20 +299,10 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		return jdbc.update(sql,paramSource);
 	}
 	
-	//TODO
-	/* (non-Javadoc)
-	 * 
-	 * reviewed by Athens on 2017-12-21
-	 * 
-	 * @see com.adogo.advertiser.dao.BusinessProfileDao#update(com.adogo.advertiser.entity.BusinessProfile)
-	 * 
-	 * @author sfz
-	 */
 	@Override
 	public int update(BusinessProfile bp) {
 		
 		StringBuffer sbf = new StringBuffer();
-		
 		sbf.append("UPDATE " + TABLE+" SET ");
 		sbf.append(" biz_name = :biz_name,");
 		sbf.append(" biz_owner = :biz_owner,");
@@ -358,6 +361,54 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		return jdbc.update(sql,paramSource);
 	}
 	
+	
+	
+	/**
+	 * Only for VIEW : VIEW_BIZ_PROFILE
+	 * @author Athens
+	 *
+	 */
+	private static class BusinessProfileRowMapper implements RowMapper<BusinessProfile>{
+		public BusinessProfile mapRow(ResultSet rs, int rowNumber) throws SQLException {
+			BusinessProfile x = new BusinessProfile();
+			
+			//from table
+			x.setGlobalId(rs.getLong("global_id"));
+			x.setUserId(rs.getLong("user_id"));
+			x.setAdvertiserId(rs.getLong("advertiser_id"));
+			x.setBizId(rs.getLong("biz_id"));
+			x.setBizNo(rs.getString("biz_no"));
+			x.setBizName(rs.getString("biz_name"));
+			x.setBizName2(rs.getString("biz_name2"));
+			x.setLegalFormNo(rs.getInt("legal_form_no"));
+			x.setIndustryCode(rs.getString("industry_code"));
+			x.setBizType(rs.getInt("biz_type"));
+			x.setBizOwner(rs.getString("biz_owner"));			
+			x.setBizPhone(rs.getString("biz_phone"));
+			x.setBizFax(rs.getString("biz_fax"));
+			x.setBizEmail(rs.getString("biz_email"));
+			x.setBizWebsite(rs.getString("biz_website"));
+			x.setBizDesc(rs.getString("biz_desc"));
+			x.setBizStatus(rs.getInt("biz_status"));
+			Timestamp ed = rs.getTimestamp("establish_date");
+			if (ed != null) {	x.setEstablishDate(new Date(ed.getTime())); }
+			Timestamp cd = rs.getTimestamp("create_date");
+			if (cd != null) {	x.setCreateDate(new Date(cd.getTime())); }
+			Timestamp md = rs.getTimestamp("modify_date");
+			if (md != null) {	x.setModifyDate(new Date(md.getTime())); }
+			
+			//from view
+			x.setIndustryName(rs.getString("industry_name"));
+	        return x;
+		}		
+	}
+	
+	/**
+	 * Only for TABLE: BIZ_PROFILE
+	 * @author Athens
+	 *
+	 */
+	/*
 	private static class BusinessProfileRowMapper implements RowMapper<BusinessProfile>{
 		public BusinessProfile mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			BusinessProfile x = new BusinessProfile();
@@ -382,9 +433,9 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 			if (ed != null) {	x.setEstablishDate(new Date(ed.getTime())); }
 			Timestamp cd = rs.getTimestamp("create_date");
 			if (cd != null) {	x.setCreateDate(new Date(cd.getTime())); }
-			Timestamp md = rs.getTimestamp("create_date");
+			Timestamp md = rs.getTimestamp("modify_date");
 			if (md != null) {	x.setModifyDate(new Date(md.getTime())); }
 	        return x;
 		}		
-	}
+	}*/
 }

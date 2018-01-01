@@ -169,17 +169,20 @@
                             	<div class="btn-group btn-group-devided">
 	                                <c:choose>
 										<c:when test = "${bizProfile.bizStatus == 1}">
-											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn yellow" id="btnEdit">Edit</a>
-											<a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn green-jungle" id="btnEdit">Publish</a>
+											<a href="${webapp_name}/advertiser/biz/view.html?bizId=${bizProfile.bizId}" class="btn blue">View</a>
+											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn yellow">Edit</a>
+											<a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn green-jungle">Publish</a>
 										</c:when>
 										<c:when test = "${bizProfile.bizStatus == 2}">
-											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn yellow" id="btnEdit">Edit</a>
-										    <a href="${webapp_name}/advertiser/biz/disable.html?bizId=${bizProfile.bizId}" class="btn grey" id="btnEdit">Disable</a>
+											<a href="${webapp_name}/advertiser/biz/view.html?bizId=${bizProfile.bizId}" class="btn blue">View</a>
+											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn yellow">Edit</a>
+										    <a href="${webapp_name}/advertiser/biz/disable.html?bizId=${bizProfile.bizId}" class="btn grey">Disable</a>
 										</c:when>
 										<c:when test = "${bizProfile.bizStatus == 3}">
-											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn yellow" id="btnEdit">Edit</a>
-										    <a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn green-jungle" id="btnEdit">Publish</a>
-										    <a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn red" id="btnEdit">Trash</a>
+											<a href="${webapp_name}/advertiser/biz/view.html?bizId=${bizProfile.bizId}" class="btn blue">View</a>
+											<a href="${webapp_name}/advertiser/biz/edit.html?bizId=${bizProfile.bizId}" class="btn yellow">Edit</a>
+										    <a href="${webapp_name}/advertiser/biz/publish.html?bizId=${bizProfile.bizId}" class="btn green-jungle">Publish</a>
+										    <a href="${webapp_name}/advertiser/biz/trash.html?bizId=${bizProfile.bizId}" class="btn red">Trash</a>
 										</c:when>
 										<c:otherwise>
 										</c:otherwise>
@@ -189,17 +192,19 @@
                         </div>
                         <div class="portlet-body">
                             <div class="row">
-                                <div class="col-md-3">
-                                    <span class="caption-subject bold font-dark"> Business ID at Adogo: </span><br/>
-                                    <span class="caption-subject bold font-dark"> Business Name: </span><br/>
-                                    <span class="caption-subject bold font-dark"> Industry Code: </span><br/>
-                                    <span class="caption-subject bold font-dark"> Created Date: </span><br/>
+                            	<div class="col-md-3">
+                                	<span class="caption-subject bold font-dark"> Adogo Business ID: </span><br/>
+                                	<span class="caption-subject bold font-dark"> Business Name: </span><br/>
+                                	<span class="caption-subject bold font-dark"> Industry Code: </span><br/>
+                                	<span class="caption-subject bold font-dark"> Created Date: </span><br/>
+                                	<span class="caption-subject bold font-dark"> Last Modifid Date: </span><br/>
                                 </div>
                                 <div class="col-md-6">
-                                    <span class="caption-subject font-dark"> ${bizProfile.bizId}</span><br/>
-                                    <span class="caption-subject font-dark"> ${bizProfile.bizName}</span><br/>
-                                    <span class="caption-subject font-dark"> ${bizProfile.industryCode}</span><br/>
-                                    <span class="caption-subject font-dark"> ${bizProfile.createDate}</span><br/>
+                                	<span class="caption-subject font-dark"> ${bizProfile.bizId}</span><br/>
+                                	<span class="caption-subject font-dark"> ${bizProfile.bizName}</span><br/>
+                                	<span class="caption-subject font-dark"> ${bizProfile.industryCode} : ${bizProfile.industryName}</span><br/>
+                                	<span class="caption-subject font-dark"> ${bizProfile.createDate}</span><br/>
+                                	<span class="caption-subject font-dark"> ${bizProfile.modifyDate}</span><br/>
                                 </div>
                             </div>
                         </div>

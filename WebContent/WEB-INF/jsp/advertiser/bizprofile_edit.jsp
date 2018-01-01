@@ -125,13 +125,13 @@
                                 <span class="caption-helper">keeping accurate and up-to-date</span>
                             </div>
                             <div class="actions">
-                                        <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
-                                            <span> Save Profile </span>
-                                        </a>
-                                        <a class="btn btn-circle btn-default" onclick="cancelSaveBusinessProfile(); return false;">
-                                            <span> Cancel </span>
-                                        </a>
-                                    </div>
+                                <a class="btn btn-circle btn-info" onclick="saveBusinessProfile(); return false;">
+                                    <span> Save Profile </span>
+                                </a>
+                                <a class="btn btn-circle btn-default" onclick="cancelSaveBusinessProfile(); return false;">
+                                    <span> Cancel </span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -163,9 +163,9 @@
                         <div class="portlet-body form">
                             <div class="form-horizontal">
                                 <div class="form-body">
-                                        	<input type="hidden" id="bizId" value="${businessProfile.bizId}"/>
+                                    <input type="hidden" id="bizId" value="${businessProfile.bizId}"/>
                                         	
-                                        	<div class="form-group">
+                                    <div class="form-group">
                                                 <label class="col-md-3 control-label">Business ID</label>
                                                 <div class="col-md-9">
                                                     <input type="text" id="bizId" class="form-control" value="${businessProfile.bizId}" placeholder="Enter text">
@@ -173,7 +173,7 @@
                                                 </div>
                                             </div>
                                         	
-                                            <div class="form-group">
+                                    <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Name</label>
                                                 <div class="col-md-9">
                                                     <input type="text" id="bizName" class="form-control" value="${businessProfile.bizName}" placeholder="Enter text">
@@ -181,7 +181,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
+                                    <div class="form-group">
                                                 <label class="col-md-3 control-label">Business No.</label>
                                                 <div class="col-md-9">
                                                     <input type="text" id="bizNo" class="form-control" value="${businessProfile.bizNo}" placeholder="Enter text">
@@ -189,7 +189,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
+                                    <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Owner</label>
                                                 <div class="col-md-9">
                                                     <input type="text" id="bizOwner" class="form-control" value="${businessProfile.bizOwner}" placeholder="Business owner">
@@ -197,7 +197,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
+                                    <div class="form-group">
                                                 <label class="col-md-3 control-label">Legal Form</label>
                                                 <div class="col-md-9">
                                                     <select id="legalFormNo" class="form-control">
@@ -214,7 +214,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
+                                    <div class="form-group">
                                                 <label class="col-md-3 control-label">Industry Code</label>
                                                 <div class="col-md-9">
                                                     <select class="form-control" id="industryCodeLevel1" onchange="industryCodeOnChange(1);">
@@ -249,7 +249,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
+                                    <div class="form-group">
                                             	<input type="hidden" id="bizType" value="${businessProfile.bizType}"/>
                                                 <label class="col-md-3 control-label">Business Type</label>
                                                 <div class="col-md-9">
@@ -271,7 +271,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group">
+                                    <div class="form-group">
                                                 <label class="col-md-3 control-label">Business Description</label>
                                                 <div class="col-md-9">
                                                     <input type="text" id="bizDesc" class="form-control" value="${businessProfile.bizDesc}" placeholder="Brief description of your business">
@@ -279,15 +279,15 @@
                                                 </div>
                                             </div>
                                            
-                                            </div>                                                        
-                                <div class="form-actions">
-                                            <div class="row">
-                                                <div class="col-md-offset-3 col-md-4">
-                                                    <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
-                                                    <a class="btn default" onclick="cancelSaveBusinessProfile(); return false">Cancel</a>
-                                                </div>
-                                            </div>
+                                </div>                                                        
+                            	<div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-4">
+                                            <a class="btn green" onclick="saveBusinessProfile(); return false;">Save</a>
+                                            <a class="btn default" onclick="cancelSaveBusinessProfile(); return false">Cancel</a>
                                         </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -43,4 +43,8 @@ public class IndustryCodeService {
 		list = industryCodeDao.findByParentCode(parentCode);
 		return list;
 	}
+
+	public IndustryCode getIndustryCodeByCode(String industryCode){
+		return industryCodeDao.findByCode(industryCode);
+	}
 }

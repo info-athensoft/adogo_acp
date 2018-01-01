@@ -139,6 +139,26 @@ public class IndustryCodeDaoJDBCImpl implements IndustryCodeDao {
 	}
 
 	
+	@Override
+	public IndustryCode findByCode(String industryCode) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("uid, ");
+		sbf.append("industry_code, ");
+		sbf.append("parent_code, ");
+		sbf.append("industry_name, ");
+		sbf.append("level_no, ");
+		sbf.append("region_tag ");
+		sbf.append(" FROM "+TABLE);
+		sbf.append(" WHERE industry_code=:industry_code");
+		String sql = sbf.toString();
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("industry_code", industryCode);
+		return jdbc.queryForObject(sql,paramSource,new IndustryCodeRowMapper());
+	}
+
+
 	private static class IndustryCodeRowMapper implements RowMapper<IndustryCode>{
 		public IndustryCode mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			IndustryCode x = new IndustryCode();

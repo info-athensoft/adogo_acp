@@ -181,18 +181,18 @@
                         <div class="portlet-body">
                         	<div class="row">
                             	<div class="col-md-3">
-                                	<span class="caption-subject bold font-dark"> Business ID at Adogo: </span><br/>
-                                    <span class="caption-subject bold font-dark"> Business Name: </span><br/>
-                                    <span class="caption-subject bold font-dark"> Industry Code: </span><br/>
-                                    <span class="caption-subject bold font-dark"> Created Date: </span><br/>
+                                	<span class="caption-subject bold font-dark"> Adogo Business ID: </span><br/>
+                                	<span class="caption-subject bold font-dark"> Business Name: </span><br/>
+                                	<span class="caption-subject bold font-dark"> Industry Code: </span><br/>
+                                	<span class="caption-subject bold font-dark"> Created Date: </span><br/>
                                 </div>
-                            	<div class="col-md-6">
-                                    <span class="caption-subject font-dark"> ${bizProfile.bizId}</span><br/>
-                                    <span class="caption-subject font-dark"> ${bizProfile.bizName}</span><br/>
-                                    <span class="caption-subject font-dark"> ${bizProfile.industryCode}</span><br/>
-                                    <span class="caption-subject font-dark"> ${bizProfile.createDate}</span><br/>
+                                <div class="col-md-6">
+                                	<span class="caption-subject font-dark"> ${bizProfile.bizId}</span><br/>
+                                	<span class="caption-subject font-dark"> ${bizProfile.bizName}</span><br/>
+                                	<span class="caption-subject font-dark"> ${bizProfile.industryCode} : ${bizProfile.industryName}</span><br/>
+                                	<span class="caption-subject font-dark"> ${bizProfile.createDate}</span><br/>
                                 </div>
-                        	</div>
+                            </div>
                         </div>
                     </div>
             	</div>

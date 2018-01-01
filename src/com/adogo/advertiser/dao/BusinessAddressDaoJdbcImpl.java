@@ -181,6 +181,7 @@ public class BusinessAddressDaoJdbcImpl implements BusinessAddressDao {
 			x.setCityName(rs.getString("loc_city"));
 			x.setProvName(rs.getString("loc_prov"));
 			x.setPostalCode(rs.getString("postal_code"));
+			x.setCountryName(rs.getString("loc_country"));
 			
 			x.setLocationType(rs.getInt("loc_type"));
 			

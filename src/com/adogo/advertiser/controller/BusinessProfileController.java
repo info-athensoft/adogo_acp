@@ -233,8 +233,8 @@ public class BusinessProfileController {
 		BusinessAddress hqAddress = this.businessAddressService.getHQAddressByBizId(bizId);
 		List<BusinessOnlinePresence> onlinePresenceList = this.businessOnlinePresenceService.getBusinessPresenceByBizId(bizId);
 		
+		//online presence
 		Map<String,String> presenceURLMap = new HashMap<String,String>();
-		
 		for(BusinessOnlinePresence bop : onlinePresenceList){
 			int index = bop.getPresenceNo();
 			String prefixURL = "presenceURL";
@@ -243,10 +243,8 @@ public class BusinessProfileController {
 			presenceURLMap.put(key, value);
 		}
 		
-		IndustryCode industryCodeObj = new IndustryCode();
-		String strIndustryCode = businessProfile.getIndustryCode();
-		
 		//TODO to optimize data load later
+		//business legal form
 		HashMap<Integer,String> listOfBizCategories=new HashMap<Integer,String>();
 		listOfBizCategories.put(0,"Choose a legal form");
 		listOfBizCategories.put(1,"Solo business - Not registered");
@@ -254,11 +252,13 @@ public class BusinessProfileController {
 		listOfBizCategories.put(3,"Partnership");
 		listOfBizCategories.put(4,"Corporation, LLC");
 		
+		//industry code
+		IndustryCode industryCodeObj = new IndustryCode();
+		String strIndustryCode = businessProfile.getIndustryCode();
 		final int LEVEL_1 = 1;
 		final int LEVEL_2 = 2;
 		final int LEVEL_3 = 3;
 		final int LEVEL_4 = 4;
-//		final int LEVEL_5 = 5;
 		
 		List<IndustryCode> naicsLevel1 = new ArrayList<IndustryCode>();
 		naicsLevel1 = industryCodeService.getIndustryCodeByLevelNo(LEVEL_1);
@@ -839,6 +839,37 @@ public class BusinessProfileController {
 		return model;
 	}
 	
+	
+	/**
+	 * View a business profile, usually by client
+	 * @param bizId
+	 * @return
+	 */
+	@RequestMapping("/view.html")
+	public ModelAndView gotoBizProfileView(@RequestParam long bizId){
+		logger.info("entering... /advertiser/biz/view.html");
+			
+		/* execute business logic */
+		BusinessProfile bp = businessProfileService.getBusinessProfileByBizId(bizId);
+		BusinessAddress hqAddress = this.businessAddressService.getHQAddressByBizId(bizId);
+		List<BusinessOnlinePresence> onlinePresenceList = this.businessOnlinePresenceService.getBusinessPresenceByBizId(bizId);
+				
+		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
+		Map<String,Object> model = mav.getModel();
+		
+		/* set data */
+		model.put("bizProfile", bp);
+		model.put("hqAddress", hqAddress);
+		model.put("onlinePresenceList", onlinePresenceList);
+		
+		/* set view */
+		String viewName = "advertiser/bizprofile_view";
+		mav.setViewName(viewName);
+		
+		logger.info("exiting... /advertiser/biz/view.html");
+		return mav;
+	}
 	
 	@RequestMapping(value="/{bizId}",method=RequestMethod.GET)
 	public ModelAndView viewBusinessProfile(@PathVariable long bizId){		

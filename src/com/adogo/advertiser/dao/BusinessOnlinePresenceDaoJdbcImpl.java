@@ -119,6 +119,7 @@ public class BusinessOnlinePresenceDaoJdbcImpl implements BusinessOnlinePresence
 			x.setAdvertiserId(rs.getLong("advertiser_id"));
 			x.setBizId(rs.getLong("biz_id"));
 			x.setPresenceNo(rs.getInt("presence_no"));
+			x.setPresenceName(rs.getString("presence_name"));
 			x.setPresenceURL(rs.getString("presence_url"));
 	        return x;
 		}		
