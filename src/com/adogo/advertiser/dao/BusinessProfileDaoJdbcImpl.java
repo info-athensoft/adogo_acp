@@ -28,9 +28,9 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 	
 	private final static Logger logger = Logger.getLogger(BusinessProfileDaoJdbcImpl.class);
 	
-//	private final String TABLE = "BIZ_PROFILE";
+	private final String TABLE = "BIZ_PROFILE";
 	
-	private final String TABLE = "VIEW_BIZ_PROFILE";
+	private final String VIEW = "VIEW_BIZ_PROFILE";
 	
 	private NamedParameterJdbcTemplate jdbc;
 
@@ -68,7 +68,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_status, ");
 		sbf.append("biz_desc, ");
 		sbf.append("industry_name ");	//from view
-		sbf.append(" FROM "+TABLE);
+		sbf.append(" FROM "+VIEW);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND user_id =:user_id ");
 		String sql = sbf.toString();
@@ -104,7 +104,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_status, ");
 		sbf.append("biz_desc, ");
 		sbf.append("industry_name ");	//from view
-		sbf.append(" FROM "+TABLE);
+		sbf.append(" FROM "+VIEW);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND advertiser_id =:advertiser_id ");
 		sbf.append(" ORDER BY biz_status, modify_date DESC ");
@@ -141,7 +141,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_status, ");
 		sbf.append("biz_desc, ");
 		sbf.append("industry_name ");	//from view
-		sbf.append(" FROM "+TABLE);
+		sbf.append(" FROM "+VIEW);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND advertiser_id =:advertiser_id ");
 		sbf.append(" AND biz_status =:biz_status ");	
@@ -179,7 +179,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_status, ");
 		sbf.append("biz_desc, ");
 		sbf.append("industry_name ");	//from view
-		sbf.append(" FROM "+TABLE);
+		sbf.append(" FROM "+VIEW);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_id =:biz_id ");
 		
@@ -216,7 +216,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_status, ");
 		sbf.append("biz_desc, ");
 		sbf.append("industry_name ");	//from view
-		sbf.append(" FROM "+TABLE);
+		sbf.append(" FROM "+VIEW);
 		sbf.append(" WHERE 1=1 ");
 		sbf.append(" AND biz_no =:biz_no ");
 		String sql = sbf.toString();

@@ -746,20 +746,19 @@ public class BusinessProfileController {
 		//biz profile
 		Long bizId	= jsonObj.getLong("bizId");
 		
-		// populate presence id and url
 		BusinessProfile bp = new BusinessProfile();
 		bp.setBizId(bizId);
+		bp.setModifyDate(new Date());
 		bp.setBizStatus(BusinessStatus.PUBLISHED);
 		
 		/* execute business logic */
-		//create a new record of BusinessOnlinePresence into master table
 		this.businessProfileService.publishBusinessProfile(bp); 
 		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
+		Map<String,Object> model = mav.getModel();
 		
 	    /* set data */
-	    Map<String,Object> model = mav.getModel();
 	    model.put("bizProfile", bp);
 	    
 		logger.info("exiting... /advertiser/biz/publish");
@@ -783,13 +782,12 @@ public class BusinessProfileController {
 		//biz profile
 		Long bizId	= jsonObj.getLong("bizId");
 		
-		//populate presence id and url
 		BusinessProfile bp = new BusinessProfile();
 		bp.setBizId(bizId);
+		bp.setModifyDate(new Date());
 		bp.setBizStatus(BusinessStatus.DISABLED);
 		
 		/* execute business logic */
-		//create a new record of BusinessOnlinePresence into master table
 		this.businessProfileService.disableBusinessProfile(bp); 
 		
 		/* assemble model and view */
@@ -820,9 +818,9 @@ public class BusinessProfileController {
 		//biz profile
 		Long bizId	= jsonObj.getLong("bizId");
 		
-		/* populate presence id and url */
 		BusinessProfile bp = new BusinessProfile();
 		bp.setBizId(bizId);
+		bp.setModifyDate(new Date());
 		bp.setBizStatus(BusinessStatus.TRASHED);
 		
 		/*create a new record of BusinessOnlinePresence into master table*/

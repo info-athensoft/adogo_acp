@@ -224,7 +224,7 @@
                                 	<span class="caption-subject bold font-dark"> Business Name: </span><br/>
                                 	<span class="caption-subject bold font-dark"> Industry Code: </span><br/>
                                 	<span class="caption-subject bold font-dark"> Created Date: </span><br/>
-                                	<span class="caption-subject bold font-dark"> Last Modifid Date: </span><br/>
+                                	<span class="caption-subject bold font-dark"> Last Modified Date: </span><br/>
                                 </div>
                                 <div class="col-md-6">
                                 	<span class="caption-subject font-dark"> ${bizProfile.bizId}</span><br/>
