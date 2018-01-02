@@ -15,8 +15,8 @@ public class LoginController {
 		logger.info("session="+session);
 //		HttpSession session = request.getSession(true);
 //		session.setAttribute("advertiserId", 1712010002L);
-		session.setAttribute("userId", 123456789L);
-		session.setAttribute("advertiserId", 1712010001L);
+		session.setAttribute("userId", new Long(123456789L));
+		session.setAttribute("advertiserId", new Long(1712010001L));
 		return "uaas/page_user_login_4";
 	}
 	

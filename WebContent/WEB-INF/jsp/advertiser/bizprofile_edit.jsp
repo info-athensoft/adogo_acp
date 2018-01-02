@@ -121,7 +121,7 @@
                 	<div class="portlet light">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-shopping-cart"></i>Edit Business Profile 
+                                Edit Business Profile 
                                 <span class="caption-helper">keeping accurate and up-to-date</span>
                             </div>
                             <div class="actions">

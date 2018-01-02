@@ -59,24 +59,19 @@
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
 	<!-- HEADER -->
     <div class="page-header navbar navbar-fixed-top">
-            <!-- BEGIN HEADER INNER -->
-            <div class="page-header-inner ">
-                <!-- BEGIN LOGO -->
+        <!-- HEADER INNER -->
+        <div class="page-header-inner ">
+                <!-- LOGO -->
                 <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
-                <!-- END LOGO -->
-                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <!-- RESPONSIVE MENU TOGGLER -->
                 <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-                <!-- END RESPONSIVE MENU TOGGLER -->
-                <!-- BEGIN PAGE ACTIONS -->
-                <!-- DOC: Remove "hide" class to enable the page header actions -->
+                <!-- PAGE ACTIONS -->
                 <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
-                <!-- END PAGE ACTIONS -->
-                <!-- BEGIN PAGE TOP -->
+                <!-- PAGE TOP -->
                 <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
-                <!-- END PAGE TOP -->
             </div>
-            <!-- END HEADER INNER -->
-        </div>
+        <!-- END HEADER INNER -->
+    </div>
     <!-- END HEADER -->
     <div class="clearfix"> </div>
         
@@ -96,15 +91,15 @@
             </h1>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
-                            <li>
-                                <i class="icon-home"></i>
-                                <a href="#">Home</a>
-                                <i class="fa fa-angle-right"></i>
-                            </li>
-                            <li>
-                                <span>Dashboard</span>
-                            </li>
-                        </ul>
+                    <li>
+                        <i class="icon-home"></i>
+                        <a href="#">Home</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <span>Dashboard</span>
+                    </li>
+                </ul>
                 <div class="page-toolbar">
                     <div class="btn-group pull-right">
                     	<button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" 
@@ -232,32 +227,8 @@
             
             <div class="row">
                 <div class="col-lg-6 col-xs-12 col-sm-12">
-                </div>
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                </div>
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                </div>
-            </div>
-                    
-            <div class="row">
-                <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-            </div>
-                    
-            <div class="row">
-                <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-                <div class="col-lg-6 col-xs-12 col-sm-12"></div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                </div>
-                <div class="col-lg-6 col-xs-12 col-sm-12">
+                	<p>user ID: ${sessionScope.userId}</p>
+                	<p>advertiser ID: ${sessionScope.advertiserId}</p>
                 </div>
             </div>
                     

@@ -121,16 +121,17 @@
                         <div class="portlet-title">
                             <div class="caption">
                                 <i class=" icon-layers font-green"></i>
-                                <span class="caption-subject font-green bold uppercase">Quick steps</span>
+                                <span class="caption-subject font-green bold uppercase">Quick steps - Register a business</span>
                             </div>
                         </div>
                         <div class="portlet-body">
                             <div class="mt-element-step">
                                 <div class="row step-thin">
+                                    <!-- 
                                     <div class="mt-step-desc">
                                         <div class="font-dark bold uppercase">Register a business</div>
                                         <div class="caption-desc font-grey-cascade"></div>
-                                    </div>
+                                    </div>  -->
                                     <div class="col-md-4 bg-grey mt-step-col">
                                         <div class="mt-step-number bg-white font-grey">1</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Start</div>

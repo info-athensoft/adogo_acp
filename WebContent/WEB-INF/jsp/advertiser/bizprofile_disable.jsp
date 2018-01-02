@@ -125,7 +125,7 @@
                     <div class="portlet light">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-shopping-cart"></i>Disable the specified business <span class="caption-helper">under advertiser</span>
+                                Disable the specified business <span class="caption-helper">under advertiser</span>
                             </div>
                             <div class="actions">
                                 <a class="btn btn-circle btn-info"  onclick="disableBusinessProfile(); return false;">

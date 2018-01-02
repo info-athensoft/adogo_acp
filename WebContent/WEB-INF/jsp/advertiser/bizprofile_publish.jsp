@@ -98,11 +98,11 @@
                         </button>
                         <ul class="dropdown-menu pull-right" role="menu">
                         	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
-		                   <li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business Profile</a></li>
-		                   <li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
-		                   <li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
-		                   <li class="divider"> </li>
-		                   <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
+		                   	<li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business Profile</a></li>
+		                   	<li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
+		                   	<li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
+		                   	<li class="divider"> </li>
+		                   	<li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
 		               </ul>
                     </div>
                 </div>
@@ -112,24 +112,21 @@
             <!-- ROW 1 -->
 		    <div class="row">
 		        <div class="col-md-12">
-		                    <!-- Begin: life time stats -->
-		                    <div class="portlet light">
-		                        <div class="portlet-title">
-		                            <div class="caption">
-		                                <i class="fa fa-shopping-cart"></i>Publish my business <span class="caption-helper">under advertiser</span></div>
-		                            <div class="actions">
-		                                <a class="btn btn-circle btn-info"  onclick="publishBusinessProfile(); return false;">
-		                                    <span> Publish </span>
-		                                </a>
-		                                <a class="btn btn-circle btn-default"  onclick="cancelPublishBusinessProfile(); return false;">
-		                                    <span> Cancel </span>
-		                                </a>
-		                            </div>
-		                        </div>
-		                       
-		                    </div>
-		                    <!-- End: life time stats -->
-		                </div>
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                Publish my business <span class="caption-helper">under advertiser</span></div>
+                            <div class="actions">
+                                <a class="btn btn-circle btn-info"  onclick="publishBusinessProfile(); return false;">
+                                    <span> Publish </span>
+                                </a>
+                                <a class="btn btn-circle btn-default"  onclick="cancelPublishBusinessProfile(); return false;">
+                                    <span> Cancel </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 		    </div>
 		    <!-- END ROW 1 -->
                     

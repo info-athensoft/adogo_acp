@@ -125,30 +125,4 @@ function getContactInfoObject(){
 	//TODO 	
 }
 
-function getBusinessObject(){
-	//	create a json object
-    var p1 = $("#userId").val();
-    var p2 = $("#advertiserId").val();
-    var p3 = $("#bizId").val();
-    var p4 = $("#bizName").val();
-    var p5 = $("#langNo").val();
-    var p6 = $("#langBoothName").val();
-    var p7 = $("#categoryNo").val();
-    var p8 = $("#langBizDesc").val();
-    
-    var businessObject =
-    {
-    		userId    		:   p1,
-    		advertiserId    :   p2,
-    		bizId    		:   p3,
-    		bizName    		:   p4,
-    		langNo    		:   p5,
-    		langBoothName	:   p6,
-    		categoryNo		:   p7,
-    		langBizDesc		:   p8
-    };
-    
-    //alert(p4+","+p5+","+p6+","+p7+","+p8);
-    
-    return businessObject;
-}
+

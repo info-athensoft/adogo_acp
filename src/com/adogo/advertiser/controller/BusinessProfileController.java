@@ -561,7 +561,7 @@ public class BusinessProfileController {
 		String advertiserId	= jsonObj.getString("advertiserId");
 		
 		// populate presence id and url
-		final int PRESENCE_COUNT = 6;						//TODO HardCode
+		final int PRESENCE_COUNT = 6;						//FIXME HardCode
 		String[] presenceNo = new String[PRESENCE_COUNT];
 		String[] presenceURL = new String[PRESENCE_COUNT];
 		

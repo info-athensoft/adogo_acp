@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.adogo.advertiser.entity.BusinessProfile;
 
@@ -22,7 +22,7 @@ import com.adogo.advertiser.entity.BusinessProfile;
  * @author Athens
  *
  */
-@Component
+@Repository
 @Qualifier("businessProfileDaoJdbcImpl")
 public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 	

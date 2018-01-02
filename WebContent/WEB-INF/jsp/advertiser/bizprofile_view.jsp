@@ -119,7 +119,7 @@
                     <div class="portlet light">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-shopping-cart"></i>View my business profile <span class="caption-helper">in detail</span>
+                                View my business profile <span class="caption-helper">in detail</span>
                             </div>
                             <div class="actions">
                                 <a href="${webapp_name}/advertiser/biz/" class="btn btn-circle btn-info">

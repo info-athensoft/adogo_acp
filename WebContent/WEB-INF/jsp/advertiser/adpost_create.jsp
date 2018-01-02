@@ -397,8 +397,6 @@
 								                                            </div>
 						                                        		</div>
 						                                        	</div>
-						                                        	
-						                                        	
 						                                        </div>
 						                                    </form>
 						                                </div>
@@ -667,19 +665,19 @@
 <!-- BEGIN CORE PLUGINS -->
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/js.cookie.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery.blockui.min.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
-<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
-<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
-<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
-<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-markdown/lib/markdown.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-summernote/summernote.min.js"></script>
 
-<script type="text/javascript" src="${webapp_name}/assets/global/scripts/datatable.js" type="text/javascript"></script>
+<script type="text/javascript" src="${webapp_name}/assets/global/scripts/datatable.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/datatables/datatables.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
@@ -699,21 +697,18 @@
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-editors.min.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/ui-blockui.min.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/adpost.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/adpost-create.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/temp/adpost-create-test.js"></script>
+
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"></script>
-
-<!-- 
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
- -->
 <!-- END THEME LAYOUT SCRIPTS -->
+
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/adpost.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/adpost-create.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/temp/adpost-create-test.js"></script>
 <script>
 jQuery(document).ready(function() {
 	EventNewsEdit.init('1011');		//TODO to change
@@ -733,7 +728,7 @@ function clickUpload(id) {
 	  form_data.append("file", file_data); // Appending parameter named file with properties of file_field to form_data
 	  
 	  $.ajax({
-		url:'/acp/ad/adpost/imageUpload?eventUUID='+id,
+		url:'/acp/advertiser/adpost/imageUpload?eventUUID='+id,
 	    //dataType: 'script',
 	    cache: false,
 	    contentType: false,

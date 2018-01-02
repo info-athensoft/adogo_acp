@@ -120,7 +120,7 @@
                             <div class="portlet light">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-shopping-cart"></i>Edit a booth <span class="caption-helper">write contents for your booth to present</span></div>
+                                        Edit a booth <span class="caption-helper">write contents for your booth to present</span></div>
                                     <div class="actions">
                                         <a href="#" class="btn btn-circle btn-info">
                                             <i class="fa fa-plus"></i><span class="hidden-xs"> Save booth </span>

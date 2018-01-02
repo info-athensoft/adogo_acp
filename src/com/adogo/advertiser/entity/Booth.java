@@ -26,10 +26,10 @@ public class Booth {
 	private Date modifyDate;
 	private Integer boothStatus;
 	
-	private Integer visitNum;
-	private Integer followerNum;
-	private Integer likeNum;
-	private Double boothScore;
+	private Integer visitNum 		= 0;
+	private Integer followerNum		= 0;
+	private Integer likeNum			= 0;
+	private Integer boothScore		= 0;
 	
 	public Long getGlobalId() {
 		return globalId;
@@ -109,10 +109,10 @@ public class Booth {
 	public void setLikeNum(Integer likeNum) {
 		this.likeNum = likeNum;
 	}
-	public Double getBoothScore() {
+	public Integer getBoothScore() {
 		return boothScore;
 	}
-	public void setBoothScore(Double boothScore) {
+	public void setBoothScore(Integer boothScore) {
 		this.boothScore = boothScore;
 	}
 	public Date getCreateDate() {
@@ -139,6 +139,15 @@ public class Booth {
 	public void setLangName(String langName) {
 		this.langName = langName;
 	}
+	
+	public static Long createBoothId(Long bizId, Integer langNo){
+		return Long.parseLong(""+bizId+langNo);
+	}
+	
+	public static Long createBoothId(String bizId, String langNo){
+		return Long.parseLong(bizId+langNo);
+	}
+	
 	@Override
 	public String toString() {
 		return "Booth [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId + ", bizId="

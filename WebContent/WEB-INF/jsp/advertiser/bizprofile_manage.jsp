@@ -118,7 +118,7 @@
                     <div class="portlet light">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-shopping-cart"></i> Manage business status 
+                                Manage business status 
                                 <span class="caption-helper">under advertiser</span>
                             </div>
                             <div class="actions">
@@ -127,6 +127,13 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="portlet-body">
+	            			<c:if test="${sessionScope.advertiserId == null or sessionScope.advertiserId =='0'}">
+			                	<div class="alert alert-info">
+	                                ${errorMsg}
+	                            </div>
+                           </c:if>
+	                </div>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ package com.adogo.advertiser.controller;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,8 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.advertiser.entity.Booth;
+import com.adogo.advertiser.entity.BoothStatus;
 import com.adogo.advertiser.entity.BusinessHours;
 import com.adogo.advertiser.entity.BusinessProfile;
+import com.adogo.advertiser.entity.BusinessStatus;
 import com.adogo.advertiser.service.BoothService;
 import com.adogo.advertiser.service.BusinessHoursService;
 import com.adogo.advertiser.service.BusinessProfileService;
@@ -31,6 +34,9 @@ import com.athensoft.info.lang.LanguageMap;
 public class BoothController {
 	
 	private static final Logger logger = Logger.getLogger(BoothController.class);
+	
+	private static final String MSG_NO_SUCH_USER = "WARNING: No such user or please login in!";
+	private static final String MSG_NO_SUCH_ADVERTISER = "WARNING: No such advertiser or please login in!";
 	
 	@Autowired
 	private BoothService boothService;
@@ -64,33 +70,41 @@ public class BoothController {
 		this.langMapObj = langMapObj;
 	}
 	
+	/**
+	 * goto the page of booth index
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/")
 	public ModelAndView gotoBoothIndex(HttpSession session){
-//	public ModelAndView gotoBoothIndex(@RequestParam long advertiserId){
 		logger.info("entering... /advertiser/booth/");
 		
-		//long advertiserId = 1712010001L;	//TODO test: get from session
+		/* get data from session */
 		Object advertiserIdObj = session.getAttribute("advertiserId");
 		long advertiserId = 0L;
 		if(advertiserIdObj != null){
 			advertiserId = (Long)advertiserIdObj;
 		}		
-		System.out.println("advertiserId="+advertiserId);
+		logger.info("advertiserIdObj="+advertiserIdObj);
+		logger.info("advertiserId="+advertiserId);
 		
-		//load business profiles
-		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId);
-		//test
-//		System.out.println("listBizProfile.size()="+listBizProfile.size());
+		Object userIdObj = session.getAttribute("userId");
+		long userId = 0L;
+		if(userIdObj != null){
+			userId = (Long)userIdObj;
+		}		
+		logger.info("userIdObj="+userIdObj);
+		logger.info("userId="+userId);
+		
+		//load business profiles in status of PUBLISHED
+		List<BusinessProfile> listBizProfile = businessProfileService.getBusinessProfileByAdvertiserId(advertiserId,BusinessStatus.PUBLISHED);
 		
 		//load booths
 		List<Booth> listBooth = boothService.getBoothByAdvertiserId(advertiserId);
-		//test
-//		System.out.println("listBooth.size()="+listBooth.size());
 		
-		//
-		List<VOBizProfileBooth> listVOBizProfileBooth = new ArrayList<VOBizProfileBooth>();
-		
+		/* execute business logic */
 		//separate listBooth into sub-lists by bizId
+		List<VOBizProfileBooth> listVOBizProfileBooth = new ArrayList<VOBizProfileBooth>();
 		int numOfBizProfile = 0;
 		numOfBizProfile = listBizProfile.size();
 		if(numOfBizProfile==0){
@@ -99,40 +113,29 @@ public class BoothController {
 		
 		for(BusinessProfile bizProfile: listBizProfile){
 			long currentBizId = bizProfile.getBizId();
-			String strCurrentBizId = String.valueOf(currentBizId);
+//			String strCurrentBizId = String.valueOf(currentBizId);
 			List<Booth> currentSubListBooth = boothService.getSubListBoothByBizId(listBooth, currentBizId);
 			
 			VOBizProfileBooth vo_bizProfileBooth = new VOBizProfileBooth();
 			vo_bizProfileBooth.setBizProfile(bizProfile);
 			vo_bizProfileBooth.setListBooth(currentSubListBooth);
 			listVOBizProfileBooth.add(vo_bizProfileBooth);
-			
-			//test
-			//System.out.println("\t "+strCurrentBizId+"\t"+currentSubListBooth.size());
 		}
 		
-		//language map object
-		//LanguageMap langMapObj = new LanguageMap();
-		logger.info("langMapObj="+langMapObj);
-		
-		/* initial settings */
-		ModelAndView mav = new ModelAndView();
+//		logger.info("langMapObj="+langMapObj);
 		
 		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
 		Map<String,Object> model = mav.getModel();
+		
+		/* set data */
 		model.put("listVOBizProfileBooth", listVOBizProfileBooth);
 		model.put("listBizProfile", listBizProfile);
 		model.put("langMapObj", langMapObj);
 		
-		String viewName = "advertiser/booth_index";	//TODO booth page does not exist yet
+		/* set view */
+		String viewName = "advertiser/booth_index";
         mav.setViewName(viewName);
-		
-//        System.out.println("listBizProfile.size()="+listBizProfile.size());
-//        System.out.println(listBizProfile);
-        
-//        System.out.println("listVOBizProfileBooth.size()="+listVOBizProfileBooth.size());
-//        System.out.println(listVOBizProfileBooth);
-        
         
 		logger.info("exiting... /advertiser/booth/");
 		return mav;
@@ -140,25 +143,36 @@ public class BoothController {
 	
 	@RequestMapping("/index")
 	public String gotoBoothIndex2(){
+		logger.info("entering... /advertiser/booth/index");
+		
+		/* set view */
 		String viewName = "advertiser/booth_index";
+		
+		logger.info("entering... /advertiser/booth/index");
 		return viewName;
 	}
 	
 	
+	/**
+	 * goto to page of booth create
+	 * @param bizId
+	 * @return
+	 */
 	@RequestMapping("/create.html")
-	public ModelAndView gotoCreate(@RequestParam long bizId){
+	public ModelAndView gotoBoothCreate(@RequestParam long bizId){
 		logger.info("entering... /advertiser/booth/create.html");
 		
-		
-		
+		/* execute business logic */
 		BusinessProfile bp = businessProfileService.getBusinessProfileByBizId(bizId);
 		
-		
-		// initial settings 
+		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();
+		
+		/* set data */
 		model.put("bizProfile", bp);
 		
+		/* set view */
 		String viewName = "advertiser/booth_create";
 		mav.setViewName(viewName);
 		
@@ -167,18 +181,30 @@ public class BoothController {
 	}
 	
 	
+	/**
+	 * create a booth
+	 * @param boothJSONString
+	 * @return
+	 */
 	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> createBooth(@RequestParam String boothJSONString){		
+	public Map<String,Object> createBooth(HttpSession session, @RequestParam String boothJSONString){		
 		logger.info("entering... /advertiser/booth/create");
 		
-		/* initial settings */
-		ModelAndView mav = new ModelAndView();
+		/* get data from session */
+		Object userIdObj = session.getAttribute("userId");
+		long userId = 0L;
+		String errorMsg = "";
 		
-		/* prepare data */		
+		if(userIdObj != null){
+			userId = (Long)userIdObj;
+		}else{
+			errorMsg = MSG_NO_SUCH_USER;
+		}
+		
+		/* get data from JSON */		
 		JSONObject jsonObj= new JSONObject(boothJSONString);
 		
-		Long userId 			= jsonObj.getLong("userId");
 		Long advertiserId		= jsonObj.getLong("advertiserId");
 		Long bizId				= jsonObj.getLong("bizId");
 		String bizName			= jsonObj.getString("bizName");
@@ -187,46 +213,62 @@ public class BoothController {
 		Integer categoryNo		= jsonObj.getInt("categoryNo");
 		String langBizDesc		= jsonObj.getString("langBizDesc");
 		
-		/*create a new record of Booth into table*/
+		/* prepare data */
+		final Long boothId = Booth.createBoothId(bizId, langNo);
+		final Date today = new Date();
+		
 		Booth booth = new Booth();
 		booth.setUserId(userId);
 		booth.setAdvertiserId(advertiserId);
 		booth.setBizId(bizId);
 		booth.setBizName(bizName);
 		booth.setLangNo(langNo);
+		booth.setBoothId(boothId);
 		booth.setBoothName(langBoothName);
 		booth.setCategoryNo(categoryNo);
 		booth.setBizDesc(langBizDesc);
+		booth.setCreateDate(today);
+		booth.setModifyDate(today);
+		booth.setBoothStatus(BoothStatus.CREATED);
 		
+		/* execute business logic */
 		this.boothService.createBooth(booth);
 		
 		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
 		Map<String,Object> model = mav.getModel();
+		
+		/* set data */
+		model.put("errorMsg", errorMsg);
+		
+		/* set view */
 		
 		logger.info("exiting... /advertiser/booth/create");
 		return model;
 	}
 	
+	/**
+	 * goto the page of boot edit
+	 * @param boothId
+	 * @return
+	 */
 	@RequestMapping("/edit.html")
 	public ModelAndView gotoBoothEdit(@RequestParam Long boothId){
 		logger.info("entering... /advertiser/booth/edit.html");
 		
-		System.out.println("boothId="+boothId);
+		logger.info("boothId="+boothId);
 		
-		// initial settings 
+		/* execute business logic */
+		Booth booth = boothService.getBoothByBoothId(boothId);
+		
+		/* assemble model and view */ 
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();
 		
-		//TODO
-//		Booth booth = new Booth();
-//		booth.setBoothId(boothId);
-//		booth.setLangNo(2052);
-//		booth.setLangNo(3084);
-		
-		Booth booth = boothService.getBoothByBoothId(boothId);
-		
+		/* set data */
 		model.put("booth", booth);
 		
+		/* set view */
 		String viewName = "advertiser/booth_edit";
 		mav.setViewName(viewName);
 		
@@ -235,7 +277,8 @@ public class BoothController {
 	}
 	
 	/**
-	 * @param adPostJSONString
+	 * save update of business hours
+	 * @param businessHoursJSONString
 	 * @return
 	 * 
 	 * @author sfz
@@ -245,13 +288,9 @@ public class BoothController {
 	public Map<String,Object> saveBusinessHours(@RequestParam String businessHoursJSONString){		
 		logger.info("entering... /advertiser/booth/saveBusinessHours");
 		
-		/* initial settings */
-		ModelAndView mav = new ModelAndView();
-		
-		/* prepare data */		
+		/* get data from JSON */		
 		JSONObject jsonObj= new JSONObject(businessHoursJSONString);
 		
-//		Long uId 			= UUIDHelper.getUniqueLongId();
 		Long businessId 		= jsonObj.getLong("businessId");
 		Integer langNo			= jsonObj.getInt("langNo");
 		String day1StartTime 	= jsonObj.getString("day1StartTime");
@@ -268,14 +307,9 @@ public class BoothController {
 		String day6EndTime 		= jsonObj.getString("day6EndTime");
 		String day7StartTime 	= jsonObj.getString("day7StartTime");
 		String day7EndTime 		= jsonObj.getString("day7EndTime");
-		String comment	= jsonObj.getString("comment");
-		logger.info("businessId="+businessId);
-		logger.info("day1StartTime="+day1StartTime);
-		logger.info("day1EndTime="+day1EndTime);
-		logger.info("comment="+comment);
+		String comment			= jsonObj.getString("comment");
 
-		
-		/*create a new record of BusinessHours into master table*/
+		/* prepare data */
 		BusinessHours businessHours = new BusinessHours();
 		businessHours.setBusinessId(businessId);
 		businessHours.setLangNo(langNo);
@@ -295,18 +329,14 @@ public class BoothController {
 		businessHours.setDay7EndTime(day7EndTime);
 		businessHours.setComment(comment);
 		
+		/* execute business logic */
 		this.businessHoursService.persistBusinessHours(businessHours); 
 		
-		
-		
 		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
 		Map<String,Object> model = mav.getModel();
-		
-		//String viewName = "ad/booth";	//TODO booth page does not exist yet
-        //mav.setViewName(viewName);
 		
 		logger.info("exiting... /advertiser/booth/saveBusinessHours");
 		return model;
 	}
-
 }
