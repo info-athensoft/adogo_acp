@@ -413,7 +413,7 @@
 			                                        <span class="fileinput-exists btn-sm"> Change </span>
 			                                        <input type="file" id="ufile" name="..."> </span>
 			                                        <a href="javascript:;" class="btn btn-sm red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-			                                        <a href="javascript:;" class="btn btn-sm green fileinput-exists" data-dismiss="fileinput" onclick=" clickUpload('${bizProfile.advertiserId}')"> Upload </a>
+			                                        <a href="javascript:;" class="btn btn-sm green fileinput-exists" data-dismiss="fileinput" onclick=" clickUpload('${bizProfile.advertiserId}','${bizProfile.bizId}')"> Upload </a>
 			                                    </div>
 			                                </div>
 			                                
