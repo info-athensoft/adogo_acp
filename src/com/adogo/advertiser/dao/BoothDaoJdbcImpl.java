@@ -49,6 +49,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
 		sbf.append("booth_name, ");
+		sbf.append("booth_img, ");
 		sbf.append("category_no, ");
 		sbf.append("visit_num, ");
 		sbf.append("follower_num, ");
@@ -81,6 +82,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
 		sbf.append("booth_name, ");
+		sbf.append("booth_img, ");
 		sbf.append("category_no, ");
 		sbf.append("biz_desc, ");
 		sbf.append("visit_num, ");
@@ -113,6 +115,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("biz_name, ");
 		sbf.append("booth_id, ");
 		sbf.append("booth_name, ");
+		sbf.append("booth_img, ");
 		sbf.append("category_no, ");
 		sbf.append("biz_desc, ");
 		sbf.append("visit_num, ");
@@ -143,6 +146,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("biz_id, ");
 		sbf.append("lang_no, ");
 		sbf.append("biz_name, ");
+		sbf.append("booth_img, ");
 		sbf.append("booth_id, ");
 		sbf.append("booth_name, ");
 		sbf.append("category_no, ");
@@ -178,6 +182,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append("category_no,");
 		sbf.append("biz_desc,");
 		sbf.append("booth_name,");
+		sbf.append("booth_img, ");
 		sbf.append("visit_num,");
 		sbf.append("follower_num,");
 		sbf.append("like_num,");
@@ -193,9 +198,11 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append(":lang_no,");
 		sbf.append(":booth_id,");
 		sbf.append(":biz_name,");
+		sbf.append("booth_img, ");
 		sbf.append(":category_no,");
 		sbf.append(":biz_desc,");
 		sbf.append(":booth_name,");
+		sbf.append(":booth_img,");
 		sbf.append(":visit_num,");
 		sbf.append(":follower_num,");
 		sbf.append(":like_num,");
@@ -212,6 +219,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		paramSource.addValue("lang_no", x.getLangNo());
 		paramSource.addValue("booth_id", x.getBizId());
 		paramSource.addValue("biz_name", x.getBizName());
+		paramSource.addValue("booth_img", x.getBoothImg());
 		paramSource.addValue("biz_desc", x.getBizDesc());
 		paramSource.addValue("booth_name", x.getBoothName());
 		paramSource.addValue("category_no", x.getCategoryNo());
@@ -244,6 +252,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 			x.setLangNo(rs.getInt("lang_no"));
 			x.setBoothId(rs.getLong("booth_id"));
 			x.setBizName(rs.getString("biz_name"));
+			x.setBoothImg(rs.getString("booth_img"));
 			x.setBoothName(rs.getString("booth_name"));
 			x.setCategoryNo(rs.getInt("category_no"));
 			x.setVisitNum(rs.getInt("visit_num"));

@@ -435,7 +435,7 @@
 						                                    </div>
 						                                </div>
 						                    			<div class="portlet-body form">
-						                                    <form class="form-horizontal" role="form">
+						                                    <div class="form-horizontal" role="form">
 						                                        <div class="form-body">
 						                                        
 						                                        	<div class="form-group">
@@ -460,7 +460,7 @@
 						                                            </div>
 						                                        	
 						                                        </div>
-						                                    </form>
+						                                    </div>
 						                                </div>
 						                    		</div>
 						                    		
@@ -497,7 +497,7 @@
 						                                    </div>
 						                                </div>
 						                    			<div class="portlet-body form">
-						                                    <form class="form-horizontal" role="form">
+						                                    <div class="form-horizontal" role="form">
 						                                        <div class="form-body">
 						                                        
 						                                        	<div class="form-group">
@@ -522,7 +522,7 @@
 						                                            </div>
 						                                        	
 						                                        </div>
-						                                    </form>
+						                                    </div>
 						                                </div>
 						                    		</div>
                     		
@@ -614,7 +614,6 @@
 															</td>
 															<td>
 																<input type="text" class="form-control" name="primaryMedia" value="${eventMedia.primaryMedia}" disabled="disabled">
-																<!-- <div></div>  -->
 															</td>
 															<td>
 																<a href="javascript:;" onclick="setCoverMedia(${eventMedia.mediaId},'${eventMedia.eventUUID}');return false;" class="btn default btn-sm">
@@ -634,16 +633,6 @@
                             
                         </div>
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    <!-- original design before 2017-10-13 -->
-                   
-                    
-                  
                 </div>
                 <!-- END CONTENT BODY -->
             </div>

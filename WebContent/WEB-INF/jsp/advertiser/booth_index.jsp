@@ -119,17 +119,12 @@
                         <div class="portlet-title">
                             <div class="caption">
                                 <i class=" icon-layers font-green"></i>
-                                <span class="caption-subject font-green bold uppercase">Quick steps - Publish a booth</span>
+                                <span class="caption-subject font-green bold uppercase">Quick steps - Create a booth</span>
                             </div>
                         </div>
                         <div class="portlet-body">
                             <div class="mt-element-step">
                                 <div class="row step-thin">
-                                	<!--  
-                                    <div class="mt-step-desc">
-                                        <div class="font-dark bold uppercase">Publish a booth</div>
-                                        <div class="caption-desc font-grey-cascade"></div>
-                                    </div> -->
                                     <div class="col-md-4 bg-grey mt-step-col done">
                                         <div class="mt-step-number bg-white font-grey">1</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Choose Business</div>
@@ -223,7 +218,7 @@
                                 <hr/>
                                 <div class="row">
 	                             	<div class="col-md-3" style="text-align:center">
-	                                    <img src="${webapp_name}/assets/athensoft/booth-logo/01.jpg" alt="" style="width: 80%;">
+	                                    <img src="${booth.boothImg}" alt="" style="width: 80%;">
 	                                </div>
 	                                <div class="col-md-6">
 	                                	<span class="bold">${booth.boothName}</span>
@@ -234,7 +229,7 @@
 	                                	<p>${booth.bizDesc}</p>
 	                                </div>
 	                                <div class="col-md-3"  style="text-align:right">
-	                                	<a href="/acp/advertiser/booth/edit.html?boothId=${booth.boothId}" class="btn yellow"> Edit </a>
+	                                	<a href="${webapp_name}/advertiser/booth/edit.html?boothId=${booth.boothId}" class="btn yellow"> Edit </a>
 	                                    <a href="javascript:;" class="btn default"> Preview </a>
 	                                </div>
                                 </div>

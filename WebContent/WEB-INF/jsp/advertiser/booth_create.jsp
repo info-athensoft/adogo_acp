@@ -117,16 +117,12 @@
                         <div class="portlet-title">
                             <div class="caption">
                                 <i class=" icon-layers font-green"></i>
-                                <span class="caption-subject font-green bold uppercase">Quick steps</span>
+                                <span class="caption-subject font-green bold uppercase">Quick steps - Create a booth</span>
                             </div>
                         </div>
                         <div class="portlet-body">
                             <div class="mt-element-step">
                                 <div class="row step-thin">
-                                    <div class="mt-step-desc">
-                                        <div class="font-dark bold uppercase">Publish a booth</div>
-                                        <div class="caption-desc font-grey-cascade"></div>
-                                    </div>
                                     <div class="col-md-4 bg-grey mt-step-col">
                                         <div class="mt-step-number bg-white font-grey">1</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Choose Business</div>
@@ -135,7 +131,7 @@
                                     <div class="col-md-4 bg-grey mt-step-col done">
                                         <div class="mt-step-number bg-white font-grey">2</div>
                                         <div class="mt-step-title uppercase font-grey-cascade">Create Booth</div>
-                                        <div class="mt-step-content font-grey-cascade">Input booth information</div>
+                                        <div class="mt-step-content font-grey-cascade">Input booth details</div>
                                     </div>
                                     <div class="col-md-4 bg-grey mt-step-col">
                                         <div class="mt-step-number bg-white font-grey">3</div>
@@ -145,7 +141,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                     </div>
                 </div>
             </div>
 			<!-- END ROW 1-->
@@ -417,7 +413,7 @@
 			                                        <span class="fileinput-exists btn-sm"> Change </span>
 			                                        <input type="file" id="ufile" name="..."> </span>
 			                                        <a href="javascript:;" class="btn btn-sm red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-			                                        <a href="javascript:;" class="btn btn-sm green fileinput-exists" data-dismiss="fileinput" onclick=" clickUpload('1011')"> Upload </a>
+			                                        <a href="javascript:;" class="btn btn-sm green fileinput-exists" data-dismiss="fileinput" onclick=" clickUpload('${bizProfile.advertiserId}')"> Upload </a>
 			                                    </div>
 			                                </div>
 			                                
@@ -701,7 +697,9 @@
 
 <script>
 jQuery(document).ready(function() {
-	EventNewsEdit.init('1011');		//TODO to change
+	var advertiserId = '${bizProfile.advertiserId}';
+	EventNewsEdit.init(advertiserId);		//TODO to change
+//	EventNewsEdit.init('1011');		//TODO to change
 })
 
 

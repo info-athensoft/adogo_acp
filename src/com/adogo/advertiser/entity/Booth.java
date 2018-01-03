@@ -21,6 +21,7 @@ public class Booth {
 	 */
 	private Long boothId;			
 	private String boothName;
+	private String boothImg;
 	private Integer categoryNo;
 	private Date createDate;
 	private Date modifyDate;
@@ -72,6 +73,12 @@ public class Booth {
 	}
 	public void setBizName(String bizName) {
 		this.bizName = bizName;
+	}
+	public String getBoothImg() {
+		return boothImg;
+	}
+	public void setBoothImg(String boothImg) {
+		this.boothImg = boothImg;
 	}
 	public String getBizDesc() {
 		return bizDesc;
@@ -152,9 +159,9 @@ public class Booth {
 	public String toString() {
 		return "Booth [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId + ", bizId="
 				+ bizId + ", langNo=" + langNo + ", langName=" + langName + ", bizName=" + bizName + ", bizDesc="
-				+ bizDesc + ", boothId=" + boothId + ", boothName=" + boothName + ", categoryNo=" + categoryNo
-				+ ", createDate=" + createDate + ", modifyDate=" + modifyDate + ", boothStatus=" + boothStatus
-				+ ", visitNum=" + visitNum + ", followerNum=" + followerNum + ", likeNum=" + likeNum + ", boothScore="
-				+ boothScore + "]";
+				+ bizDesc + ", boothId=" + boothId + ", boothName=" + boothName + ", boothImg=" + boothImg
+				+ ", categoryNo=" + categoryNo + ", createDate=" + createDate + ", modifyDate=" + modifyDate
+				+ ", boothStatus=" + boothStatus + ", visitNum=" + visitNum + ", followerNum=" + followerNum
+				+ ", likeNum=" + likeNum + ", boothScore=" + boothScore + "]";
 	}	
 }
