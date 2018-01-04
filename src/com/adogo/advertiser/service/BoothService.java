@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.adogo.advertiser.booth.entity.Booth;
 import com.adogo.advertiser.dao.BoothDao;
-import com.adogo.advertiser.entity.Booth;
 
 @Service
 public class BoothService {

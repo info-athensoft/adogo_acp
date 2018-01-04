@@ -1,4 +1,6 @@
-package com.adogo.ad.entity;
+package com.adogo.advertiser.adpost.entity;
+
+import com.adogo.advertiser.entity.MediaType;
 
 /**
  * @author Athens
@@ -8,7 +10,7 @@ public class AdPostText extends AdPostBody{
 	private String longDesc;
 	
 	public AdPostText(){
-		super.setMediaType(MediaTypeConst.TEXT);
+		super.setMediaType(MediaType.TEXT);
 	}
 	
 	public AdPostText(AdPostBody adPostBody){
@@ -21,7 +23,7 @@ public class AdPostText extends AdPostBody{
 		this.mediaType = adPostBody.getMediaType();
 		this.langNo = adPostBody.getLangNo();
 		this.sortNo = adPostBody.getSortNo();
-		super.setMediaType(MediaTypeConst.TEXT);
+		super.setMediaType(MediaType.TEXT);
 	}
 
 	public String getLongDesc() {

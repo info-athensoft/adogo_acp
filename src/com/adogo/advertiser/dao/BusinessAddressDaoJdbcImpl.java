@@ -14,7 +14,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.advertiser.entity.BusinessAddress;
+import com.adogo.advertiser.business.entity.BusinessAddress;
 import com.athensoft.util.sql.Query;
 
 

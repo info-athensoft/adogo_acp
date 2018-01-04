@@ -14,7 +14,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.ad.entity.AdPostGalleryImage;
+import com.adogo.advertiser.adpost.entity.AdPostGalleryImage;
 
 @Component
 @Qualifier("adPostGalleryImageDaoJdbcImpl")

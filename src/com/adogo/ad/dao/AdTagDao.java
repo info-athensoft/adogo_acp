@@ -1,6 +1,6 @@
 package com.adogo.ad.dao;
 
-import com.adogo.ad.entity.AdTag;
+import com.adogo.advertiser.adpost.entity.AdTag;
 
 public interface AdTagDao {
 	

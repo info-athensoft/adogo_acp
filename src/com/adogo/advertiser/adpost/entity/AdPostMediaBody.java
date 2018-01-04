@@ -1,4 +1,4 @@
-package com.adogo.ad.entity;
+package com.adogo.advertiser.adpost.entity;
 
 public class AdPostMediaBody extends AdPostBody{
 	protected String mediaTitle;

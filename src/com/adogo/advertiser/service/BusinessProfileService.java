@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.adogo.advertiser.business.entity.BusinessProfile;
 import com.adogo.advertiser.dao.BusinessAddressDao;
 import com.adogo.advertiser.dao.BusinessOnlinePresenceDao;
 import com.adogo.advertiser.dao.BusinessProfileDao;
-import com.adogo.advertiser.entity.BusinessProfile;
 
 @Service
 public class BusinessProfileService {

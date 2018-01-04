@@ -466,7 +466,8 @@
                         </div>
                     </div>
                     <!-- END BOOTH BANNER -->
-                    	
+                    
+                    <!-- BOOTH TEXT CONTENT -->	
                     <div class="portlet light">
                     	<div class="portlet-title">
                             <div class="caption font-red-sunglo">
@@ -526,6 +527,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- END BOOTH TEXT CONTENT -->
                     		
                     <div class="portlet light">
                     	<div class="portlet-title">

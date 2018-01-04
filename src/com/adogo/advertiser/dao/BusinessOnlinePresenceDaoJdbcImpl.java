@@ -16,7 +16,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
 
-import com.adogo.advertiser.entity.BusinessOnlinePresence;
+import com.adogo.advertiser.business.entity.BusinessOnlinePresence;
 
 @Component
 @Qualifier("businessOnlinePresenceDaoJdbcImpl")

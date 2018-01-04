@@ -1,6 +1,6 @@
 package com.adogo.advertiser.dao;
 
-import com.adogo.advertiser.entity.BusinessHours;
+import com.adogo.advertiser.business.entity.BusinessHours;
 
 public interface BusinessHoursDao {
 	

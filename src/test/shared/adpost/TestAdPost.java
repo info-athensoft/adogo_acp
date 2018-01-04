@@ -3,10 +3,10 @@ package test.shared.adpost;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.adogo.ad.entity.AdPost;
-import com.adogo.ad.entity.AdPostCoverImage;
-import com.adogo.ad.entity.AdPostGalleryImage;
-import com.adogo.ad.entity.AdPostSlideImage;
+import com.adogo.advertiser.adpost.entity.AdPost;
+import com.adogo.advertiser.adpost.entity.AdPostCoverImage;
+import com.adogo.advertiser.adpost.entity.AdPostGalleryImage;
+import com.adogo.advertiser.adpost.entity.AdPostSlideImage;
 
 public class TestAdPost {
 

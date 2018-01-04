@@ -1,9 +1,11 @@
-package com.adogo.ad.entity;
+package com.adogo.advertiser.adpost.entity;
+
+import com.adogo.advertiser.entity.MediaType;
 
 public class AdPostGalleryImage extends AdPostMediaBody {
 	
 	public AdPostGalleryImage(){
-		super.setMediaType(MediaTypeConst.GALLERY_IMAGE);
+		super.setMediaType(MediaType.GALLERY_IMAGE);
 	}
 	
 	public AdPostGalleryImage(AdPostMediaBody adPostMediaBody){
@@ -19,7 +21,7 @@ public class AdPostGalleryImage extends AdPostMediaBody {
 		this.mediaTitle = adPostMediaBody.getMediaTitle();
 		this.mediaUrl = adPostMediaBody.getMediaUrl();
 		this.mediaDesc = adPostMediaBody.getMediaDesc();
-		super.setMediaType(MediaTypeConst.COVER_IMAGE);
+		super.setMediaType(MediaType.COVER_IMAGE);
 	}
 
 	@Override

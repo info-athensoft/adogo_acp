@@ -1,4 +1,4 @@
-package com.adogo.advertiser.entity;
+package com.adogo.advertiser.booth.entity;
 
 import java.util.Date;
 

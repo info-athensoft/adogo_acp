@@ -1,4 +1,4 @@
-package com.adogo.advertiser.entity;
+package com.adogo.advertiser.business.entity;
 
 public class BusinessStatus {
 	public static final int CREATED = 1;		//created and not published yet

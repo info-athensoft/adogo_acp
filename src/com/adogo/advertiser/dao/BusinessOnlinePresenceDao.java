@@ -2,7 +2,7 @@ package com.adogo.advertiser.dao;
 
 import java.util.List;
 
-import com.adogo.advertiser.entity.BusinessOnlinePresence;
+import com.adogo.advertiser.business.entity.BusinessOnlinePresence;
 
 public interface BusinessOnlinePresenceDao {
 	

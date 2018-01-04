@@ -1,4 +1,6 @@
-package com.adogo.ad.entity;
+package com.adogo.advertiser.adpost.entity;
+
+import com.adogo.advertiser.entity.MediaType;
 
 public class AdPostVideo extends AdPostMediaBody {
 	//private String mediaTitle;
@@ -7,7 +9,7 @@ public class AdPostVideo extends AdPostMediaBody {
 	//private String mediaDesc;
 	
 	public AdPostVideo(){
-		super.setMediaType(MediaTypeConst.VIDEO);
+		super.setMediaType(MediaType.VIDEO);
 	}
 	
 	public AdPostVideo(AdPostMediaBody adPostMediaBody){
@@ -23,7 +25,7 @@ public class AdPostVideo extends AdPostMediaBody {
 		this.mediaTitle = adPostMediaBody.getMediaTitle();
 		this.mediaUrl = adPostMediaBody.getMediaUrl();
 		this.mediaDesc = adPostMediaBody.getMediaDesc();
-		super.setMediaType(MediaTypeConst.VIDEO);
+		super.setMediaType(MediaType.VIDEO);
 	}
 /*	
 	public String getMediaTitle() {

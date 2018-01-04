@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.advertiser.entity.Booth;
-import com.adogo.advertiser.entity.BoothStatus;
-import com.adogo.advertiser.entity.BusinessHours;
-import com.adogo.advertiser.entity.BusinessProfile;
-import com.adogo.advertiser.entity.BusinessStatus;
+import com.adogo.advertiser.booth.entity.Booth;
+import com.adogo.advertiser.booth.entity.BoothStatus;
+import com.adogo.advertiser.business.entity.BusinessHours;
+import com.adogo.advertiser.business.entity.BusinessProfile;
+import com.adogo.advertiser.business.entity.BusinessStatus;
 import com.adogo.advertiser.service.BoothService;
 import com.adogo.advertiser.service.BusinessHoursService;
 import com.adogo.advertiser.service.BusinessProfileService;

@@ -14,8 +14,8 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.ad.entity.AdPostVideo;
-import com.adogo.ad.entity.MediaTypeConst;
+import com.adogo.advertiser.adpost.entity.AdPostVideo;
+import com.adogo.advertiser.entity.MediaType;
 
 @Component
 @Qualifier("adPostVideoDaoJdbcImpl")
@@ -73,7 +73,7 @@ public class AdPostVideoDaoJdbcImpl implements AdPostVideoDao {
 		logger.info("sql="+sql);
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("adpost_id", adPostId);
-		paramSource.addValue("media_type", MediaTypeConst.VIDEO);
+		paramSource.addValue("media_type", MediaType.VIDEO);
 		return jdbc.query(sql,paramSource,new AdPostVideoRowMapper());
 	}
 

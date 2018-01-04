@@ -2,7 +2,7 @@ package com.adogo.ad.dao;
 
 import java.util.List;
 
-import com.adogo.ad.entity.AdPostCoverImage;
+import com.adogo.advertiser.adpost.entity.AdPostCoverImage;
 
 public interface AdPostCoverImageDao {
 	public List<AdPostCoverImage> findAll();

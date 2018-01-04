@@ -1,4 +1,4 @@
-package com.adogo.advertiser.entity;
+package com.adogo.advertiser.booth.entity;
 
 /**
  * The definitions of Booth Status

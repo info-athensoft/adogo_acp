@@ -1,4 +1,6 @@
-package com.adogo.advertiser.entity;
+package com.adogo.advertiser.business.entity;
+
+import com.adogo.advertiser.entity.Address;
 
 public class BusinessAddress extends Address {
 	

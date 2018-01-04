@@ -14,8 +14,8 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.ad.entity.AdPostAudio;
-import com.adogo.ad.entity.MediaTypeConst;
+import com.adogo.advertiser.adpost.entity.AdPostAudio;
+import com.adogo.advertiser.entity.MediaType;
 
 @Component
 @Qualifier("adPostAudioDaoJdbcImpl")
@@ -74,7 +74,7 @@ public class AdPostAudioDaoJdbcImpl implements AdPostAudioDao {
 		logger.info("sql="+sql);
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("adpost_id", adPostId);
-		paramSource.addValue("media_type", MediaTypeConst.AUDIO);
+		paramSource.addValue("media_type", MediaType.AUDIO);
 		return jdbc.query(sql,paramSource,new AdPostAudioRowMapper());
 	}
 

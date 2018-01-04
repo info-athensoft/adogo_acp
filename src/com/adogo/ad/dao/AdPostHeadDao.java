@@ -2,7 +2,7 @@ package com.adogo.ad.dao;
 
 import java.util.List;
 
-import com.adogo.ad.entity.AdPostHead;
+import com.adogo.advertiser.adpost.entity.AdPostHead;
 
 public interface AdPostHeadDao {
 	

@@ -19,19 +19,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-
-import com.adogo.ad.entity.AdPost;
-
-import com.adogo.ad.entity.AdPostAudio;
-import com.adogo.ad.entity.AdPostBody;
-import com.adogo.ad.entity.AdPostCoverImage;
-import com.adogo.ad.entity.AdPostGalleryImage;
-import com.adogo.ad.entity.AdPostHead;
-import com.adogo.ad.entity.AdPostMediaBody;
-import com.adogo.ad.entity.AdPostText;
-import com.adogo.ad.entity.AdPostVideo;
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
+import com.adogo.advertiser.adpost.entity.AdPost;
+import com.adogo.advertiser.adpost.entity.AdPostAudio;
+import com.adogo.advertiser.adpost.entity.AdPostBody;
+import com.adogo.advertiser.adpost.entity.AdPostCoverImage;
+import com.adogo.advertiser.adpost.entity.AdPostGalleryImage;
+import com.adogo.advertiser.adpost.entity.AdPostHead;
+import com.adogo.advertiser.adpost.entity.AdPostMediaBody;
+import com.adogo.advertiser.adpost.entity.AdPostText;
+import com.adogo.advertiser.adpost.entity.AdPostVideo;
 import com.athensoft.util.id.UUIDHelper;
 
 @Controller

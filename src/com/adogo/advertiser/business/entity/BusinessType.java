@@ -1,4 +1,4 @@
-package com.adogo.advertiser.entity;
+package com.adogo.advertiser.business.entity;
 
 public class BusinessType {
 	public final static int PROD = 1;

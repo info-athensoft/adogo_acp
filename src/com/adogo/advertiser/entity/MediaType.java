@@ -1,6 +1,6 @@
-package com.adogo.ad.entity;
+package com.adogo.advertiser.entity;
 
-public class MediaTypeConst {
+public class MediaType {
 	public static final int IMAGE 			= 100;
 	public static final int COVER_IMAGE 	= 101;
 	public static final int THUMBNAIL_IMAGE = 102;

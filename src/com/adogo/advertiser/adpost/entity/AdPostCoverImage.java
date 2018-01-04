@@ -1,12 +1,14 @@
-package com.adogo.ad.entity;
+package com.adogo.advertiser.adpost.entity;
 
-public class AdPostSlideImage extends AdPostMediaBody {
+import com.adogo.advertiser.entity.MediaType;
+
+public class AdPostCoverImage extends AdPostMediaBody{
 	
-	public AdPostSlideImage(){
-		super.setMediaType(MediaTypeConst.SLIDE_IMAGE);
+	public AdPostCoverImage(){
+		super.setMediaType(MediaType.COVER_IMAGE);
 	}
 	
-	public AdPostSlideImage(AdPostMediaBody adPostMediaBody){
+	public AdPostCoverImage(AdPostMediaBody adPostMediaBody){
 		this.globalId = adPostMediaBody.getAdPostId();
 		this.userId = adPostMediaBody.getUserId();
 		this.adPostId = adPostMediaBody.getAdPostId();
@@ -19,16 +21,17 @@ public class AdPostSlideImage extends AdPostMediaBody {
 		this.mediaTitle = adPostMediaBody.getMediaTitle();
 		this.mediaUrl = adPostMediaBody.getMediaUrl();
 		this.mediaDesc = adPostMediaBody.getMediaDesc();
-		super.setMediaType(MediaTypeConst.SLIDE_IMAGE);
+		super.setMediaType(MediaType.COVER_IMAGE);
 	}
 
 	@Override
 	public String toString() {
-		return "AdPostSlideImage [mediaTitle=" + mediaTitle + ", mediaIndex=" + mediaIndex + ", isPrimary=" + isPrimary
+		return "AdPostCoverImage [mediaTitle=" + mediaTitle + ", mediaIndex=" + mediaIndex + ", isPrimary=" + isPrimary
 				+ ", mediaDesc=" + mediaDesc + ", globalId=" + globalId + ", userId=" + userId + ", adPostId="
 				+ adPostId + ", mediaCoverUrl=" + mediaCoverUrl + ", mediaType=" + mediaType + ", langNo=" + langNo
 				+ ", sortNo=" + sortNo + "]";
 	}
+	
 	
 	
 }

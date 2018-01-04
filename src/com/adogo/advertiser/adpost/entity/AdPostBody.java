@@ -1,4 +1,4 @@
-package com.adogo.ad.entity;
+package com.adogo.advertiser.adpost.entity;
 
 public class AdPostBody {
 	protected Long globalId;
