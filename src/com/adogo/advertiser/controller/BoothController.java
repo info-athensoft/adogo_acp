@@ -212,6 +212,7 @@ public class BoothController {
 		String langBoothName	= jsonObj.getString("langBoothName");
 		Integer categoryNo		= jsonObj.getInt("categoryNo");
 		String langBizDesc		= jsonObj.getString("langBizDesc");
+		String boothImg			= jsonObj.getString("boothImg");
 		
 		/* prepare data */
 		final Long boothId = Booth.createBoothId(bizId, langNo);
@@ -225,6 +226,7 @@ public class BoothController {
 		booth.setLangNo(langNo);
 		booth.setBoothId(boothId);
 		booth.setBoothName(langBoothName);
+		booth.setBoothImg(boothImg);
 		booth.setCategoryNo(categoryNo);
 		booth.setBizDesc(langBizDesc);
 		booth.setCreateDate(today);

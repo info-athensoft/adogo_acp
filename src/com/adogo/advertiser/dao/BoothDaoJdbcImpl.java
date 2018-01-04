@@ -198,7 +198,6 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append(":lang_no,");
 		sbf.append(":booth_id,");
 		sbf.append(":biz_name,");
-		sbf.append("booth_img, ");
 		sbf.append(":category_no,");
 		sbf.append(":biz_desc,");
 		sbf.append(":booth_name,");

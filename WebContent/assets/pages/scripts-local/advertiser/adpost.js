@@ -28,7 +28,7 @@ function getBusinessObject(){
     var p16 = $("#adPost-audio-content-title").val();
     var p17 = $("#adPost-audio-content-url").val();
     var p18 = $("#adPost-audio-content-short-desc").val();
-/*    var p19 = $("#adPost-gallery-img-title1").val();
+/*  var p19 = $("#adPost-gallery-img-title1").val();
     var p20 = $("#adPost-gallery-img-url1").val();
     var p21 = $("#adPost-gallery-img-short-desc1").val();
     

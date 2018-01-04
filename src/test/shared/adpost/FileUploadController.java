@@ -1,4 +1,4 @@
-package com.adogo.ad.service;
+package test.shared.adpost;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,112 +16,48 @@ import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.ad.controller.FileUploadController;
+@Controller
+@RequestMapping("/resource/")
+public class FileUploadController {
 
-@Service
-public class FileUploadService {
-	private static final Logger logger = Logger.getLogger(FileUploadService.class);
-	
+	private static final Logger logger = Logger.getLogger(FileUploadController.class);
+
 	private static final String RESP_SUCCESS = "{\"jsonrpc\" : \"2.0\", \"result\" : \"OK\", \"id\" : \"id\"}";
 	private static final String RESP_ERROR = "{\"jsonrpc\" : \"2.0\", \"error\" : {\"code\": 101, \"message\": \"Failed to open input stream.\"}, \"id\" : \"id\"}";
 
-	private static final String FOLDER_NAME_LOGO 	= "logo";
-	private static final String FOLDER_NAME_COVER 	= "cover";
-	private static final String FOLDER_NAME_BANNER 	= "banner";
-	private static final String FOLDER_NAME_SLIDER 	= "slider";
-	
-	
 	private int chunk;
 	private int chunks;
 	private String name;
 	private String user;
 	private String time;
 	// private String curl; //TODO
-	
-	public String uploadImageBizLogo(HttpServletRequest request){
-		// parameter
-		String advertiserId = (String) request.getParameter("advertiserId");
-		logger.info("advertiserId=" + advertiserId);
-		
-		// parameter
-		String bizId = (String) request.getParameter("bizId");
-		logger.info("bizId=" + bizId);
-		
-		String filePath = File.separator + advertiserId + File.separator + bizId +  File.separator + FOLDER_NAME_LOGO;
-		
-		String fileUrlFull = processUploadFile(request, filePath);
-		return fileUrlFull;
-	}
-	
-	public String uploadImageBoothCover(HttpServletRequest request){
-		// parameter
-		String advertiserId = (String) request.getParameter("advertiserId");
-		logger.info("advertiserId=" + advertiserId);
-		
-		// parameter
-		String bizId = (String) request.getParameter("bizId");
-		logger.info("bizId=" + bizId);
-		
-		// parameter
-		String langNo = (String) request.getParameter("langNo");
-		logger.info("langNo=" + langNo);
-		
-		String filePath = File.separator + advertiserId + File.separator + bizId +  File.separator + langNo + File.separator + FOLDER_NAME_COVER;
-		
-		String fileUrlFull = processUploadFile(request, filePath);
-		return fileUrlFull;
-	}
-	
-	public String uploadImageBoothSlider(HttpServletRequest request){
-		// parameter
-		String advertiserId = (String) request.getParameter("advertiserId");
-		logger.info("advertiserId=" + advertiserId);
-		
-		// parameter
-		String bizId = (String) request.getParameter("bizId");
-		logger.info("bizId=" + bizId);
-		
-		// parameter
-		String langNo = (String) request.getParameter("langNo");
-		logger.info("langNo=" + langNo);
-		
-		String filePath = File.separator + advertiserId + File.separator + bizId +  File.separator + langNo + File.separator + FOLDER_NAME_SLIDER;
-		
-		String fileUrlFull = processUploadFile(request, filePath);
-		return fileUrlFull;
-	}
-	
-	public String uploadImageBoothBanner(HttpServletRequest request){
-		// parameter
-		String advertiserId = (String) request.getParameter("advertiserId");
-		logger.info("advertiserId=" + advertiserId);
-		
-		// parameter
-		String bizId = (String) request.getParameter("bizId");
-		logger.info("bizId=" + bizId);
-		
-		// parameter
-		String langNo = (String) request.getParameter("langNo");
-		logger.info("langNo=" + langNo);
-		
-		String filePath = File.separator + advertiserId + File.separator + bizId +  File.separator + langNo + File.separator + FOLDER_NAME_BANNER;
-		
-		String fileUrlFull = processUploadFile(request, filePath);
-		return fileUrlFull;
-	}
-	
-	
+
+	private static Properties pro = new Properties();
+
 	/**
-	 * process multi-part data of form submitted
-	 * @param request	
-	 * @param filePath  exclude doc base such as /userimg
+	 * upload files and then create corresponding records
+	 * 
+	 * @param request
 	 * @return
 	 */
-	private String processUploadFile(HttpServletRequest request, String filePath){
-		String fileUrlFull ="";
+	@RequestMapping(value = "/image/upload", produces = "application/json")
+	@ResponseBody
+	public Map<String, Object> imageUpload(HttpServletRequest request) {
+		logger.info("entering... /resource/image/upload");
+
+		// parameter
+		String advertiserId = (String) request.getParameter("advertiserId");
+		logger.info("advertiserId=" + advertiserId);
 		
+		// parameter
+		String bizId = (String) request.getParameter("bizId");
+		logger.info("bizId=" + bizId);
+
 		String responseString = RESP_SUCCESS;
 
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
@@ -163,10 +100,8 @@ public class FileUploadService {
 					// Handle a multi-part MIME encoded file.
 					else {
 
-						String fileBaseDir = getFileBaseDir(getLoadedProperties());
-						
-						// construct the file path: /userimg/{advertiserId}/{bizId}/logo
-						String fileDir = fileBaseDir + filePath;		
+						String fileBaseDir = getFileBaseDir(getLoadedProperties()); 
+						String fileDir = fileBaseDir + File.separator + advertiserId + File.separator + bizId +  File.separator + "logo";		// construct the file path: /userimg/{advertiserId}/{bizId}/logo
 						
 						File dstFile = new File(fileDir);
 						if (!dstFile.exists()) {
@@ -178,7 +113,8 @@ public class FileUploadService {
 						logger.info("fileDir:" + fileDir);
 						logger.info("fileName:" + this.name);
 
-						doUploadFile(input, dst);
+						saveUploadFile(input, dst);
+						
 					}
 				} // end-of-while-loop
 			} catch (Exception e) {
@@ -192,18 +128,31 @@ public class FileUploadService {
 
 		logger.info("responseString:" + responseString);
 
-		fileUrlFull = getFileBaseUrl(getLoadedProperties()) + filePath + File.separator + this.name;
+		String fileUrlFull = getFileBaseUrl(getLoadedProperties()) 
+							+ File.separator + advertiserId + File.separator + bizId +  File.separator + "logo" + File.separator + this.name;
 		fileUrlFull = fileUrlFull.replaceAll("\\\\", "/");
 		
-		return fileUrlFull;
+		/* assemble data and view */
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		
+		/* set data */
+		model.put("url", fileUrlFull);
+// 		model.put("jsonrpc", "2.0");
+// 		model.put("result", "OK");
+// 		model.put("id", "id");
+// 		model.put("url", "url");
+		
+		logger.info("exiting... /resource/image/upload");
+		return model;
 	}
-	
+
 	/**
 	 * @param input
 	 * @param dst
 	 * @throws IOException
 	 */
-	private void doUploadFile(InputStream input, File dst) throws IOException {
+	private void saveUploadFile(InputStream input, File dst) throws IOException {
 		final int BUF_SIZE = 2 * 1024;
 		
 		OutputStream out = null;
@@ -254,10 +203,9 @@ public class FileUploadService {
 	}
 
 	private static Properties getLoadedProperties() {
-		Properties pro = new Properties();
-		
 		/* get the docbase of uploading photos */
 		InputStream is = FileUploadController.class.getResourceAsStream("file-upload-adogo.properties");
+		// Properties pro = new Properties();
 		try {
 			pro.load(is);
 			is.close();
@@ -266,7 +214,7 @@ public class FileUploadService {
 		}
 		return pro;
 	}
-	
+
 	public static void main(String[] arg) {
 		Properties pro = getLoadedProperties();
 		String path = getFileBaseDir(pro);
@@ -276,5 +224,4 @@ public class FileUploadService {
 		System.out.println(url);
 
 	}
-	
 }

@@ -111,6 +111,15 @@
                 </div>
             </div>
             <!-- END PAGE HEADER-->
+			
+			<!-- ROW DATA -->
+			<div class="row">
+                <div class="col-lg-6 col-xs-12 col-sm-12">
+                	<p>user ID: ${sessionScope.userId}</p>
+                	<p>advertiser ID: ${sessionScope.advertiserId}</p>
+                </div>
+            </div>
+			<!-- END ROW DATA -->
 
             <!-- ROW 1 -->        
             <div class="row">

@@ -327,12 +327,70 @@
                             </div>
                         </div>
                     </div>
-                    		
+                   
+                    <!-- BOOTH COVER -->
                     <div class="portlet light">
                     	<div class="portlet-title">
                             <div class="caption font-red-sunglo">
                                 <i class="icon-settings"></i>
-                                <span class="caption-subject sbold uppercase">Cover Image</span>
+                                <span class="caption-subject sbold uppercase">Booth Cover Image</span>
+                            </div>
+                    	</div>
+                    	<div class="portlet-body form">
+                            <div class="form-horizontal" role="form">
+                                <div class="form-body" id="div_boothCover">
+                                	<div class="row">
+	                                	<div class="col-md-5">
+			                       			<div class="fileinput fileinput-new" data-provides="fileinput">
+			                                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+			                                       	<!--  <img id="fileinput-new-img" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/> -->
+			                                       	<img id="fileinput-new-img" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+												</div>
+			                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+												</div>
+			                                    <div>
+			                                        <span class="btn btn-sm default btn-file">
+			                                        	<span class="fileinput-new btn-sm"> Select image </span>
+			                                        	<span class="fileinput-exists btn-sm"> Change </span>
+			                                        	<input type="file" id="ufile" name="...">
+													</span>
+			                                        <a href="javascript:;" class="btn btn-sm red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+			                                        <a href="javascript:;" class="btn btn-sm green fileinput-exists" data-dismiss="fileinput" onclick=" clickUpload('${bizProfile.advertiserId}','${bizProfile.bizId}')"> Upload </a>
+			                                    </div>
+			                                </div>
+			                                
+	                       				</div>
+                       					<div class="col-md-7">
+			                    		  	<div class="form-group">
+			                              		<div class="col-md-12">
+			                                  		<input type="text" id="adPost-cover-img-title" class="form-control" placeholder="Image Title">
+			                              		</div>
+			                              	</div>
+			                            
+			                             	<div class="form-group">
+			                                	<div class="col-md-12">
+			                                    	<input type="text" id="booth-cover-img-url" class="form-control" placeholder="Image URL">
+			                                	</div>
+			                            	</div>
+			                            	<div class="form-group">
+			                                	<div class="col-md-12">
+			                                    	<span class="label label-danger">NOTE!</span> Image dimension must be in ratio of 4:3 at least by 400 x 300
+			                                	</div>
+			                            	</div> 
+			                      		</div>
+                       				</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END BOOTH COVER -->
+                    
+                    <!-- BOOTH BANNER --> 		
+                    <div class="portlet light">
+                    	<div class="portlet-title">
+                            <div class="caption font-red-sunglo">
+                                <i class="icon-settings"></i>
+                                <span class="caption-subject sbold uppercase">Booth Banner Image</span>
                             </div>
                             <div class="actions">
                                 <div class="btn-group">
@@ -362,58 +420,24 @@
                         </div>
                     	<div class="portlet-body form">
                             <div class="form-horizontal" role="form">
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Image Title</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="Enter text">
-                                        </div>
-                                    </div>
-                                            
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">URL</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="Enter text">
-                                        </div>
-                                    </div>
-                                            
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Short Description</label>
-                                        <div class="col-md-9">
-                                            <textarea class="form-control" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- TEST -->
-                    <div class="portlet light">
-                    	<div class="portlet-title">
-                            <div class="caption font-red-sunglo">
-                                <i class="icon-settings"></i>
-                                <span class="caption-subject sbold uppercase">Cover Image</span>
-                            </div>
-                    	</div>
-                    	<div class="portlet-body form">
-                            <div class="form-horizontal" role="form">
-                                <div class="form-body" id="blockui_sample_id">
-                                	<div class="row">
+                                <div class="form-body" id="div_boothBanner">
+                                    <div class="row">
 	                                	<div class="col-md-5">
 			                       			<div class="fileinput fileinput-new" data-provides="fileinput">
 			                                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-			                                       	<img id="fileinput-new-img" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+			                                       	<!--  <img id="fileinput-new-img" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/> -->
+			                                       	<img id="fileinput-new-img_boothBanner" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
 												</div>
 			                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
 												</div>
 			                                    <div>
 			                                        <span class="btn btn-sm default btn-file">
-			                                        <span class="fileinput-new btn-sm"> Select image </span>
-			                                        <span class="fileinput-exists btn-sm"> Change </span>
-			                                        <input type="file" id="ufile" name="..."> </span>
+			                                        	<span class="fileinput-new btn-sm"> Select image </span>
+			                                        	<span class="fileinput-exists btn-sm"> Change </span>
+			                                        	<input type="file" id="ufile_boothBanner" name="...">
+													</span>
 			                                        <a href="javascript:;" class="btn btn-sm red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-			                                        <a href="javascript:;" class="btn btn-sm green fileinput-exists" data-dismiss="fileinput" onclick=" clickUpload('${bizProfile.advertiserId}','${bizProfile.bizId}')"> Upload </a>
+			                                        <a href="javascript:;" class="btn btn-sm green fileinput-exists" data-dismiss="fileinput" onclick=" clickUploadBoothBanner('${bizProfile.advertiserId}','${bizProfile.bizId}')"> Upload </a>
 			                                    </div>
 			                                </div>
 			                                
@@ -421,34 +445,27 @@
                        					<div class="col-md-7">
 			                    		  	<div class="form-group">
 			                              		<div class="col-md-12">
-			                                  		<input type="text" id="adPost-cover-img-title" class="form-control" placeholder="Image Title">
+			                                  		<input type="text" id="booth-banner-img-title" class="form-control" placeholder="Image Title">
 			                              		</div>
 			                              	</div>
 			                            
 			                             	<div class="form-group">
 			                                	<div class="col-md-12">
-			                                    	<input type="text" id="adPost-cover-img-url" class="form-control" placeholder="Image URL">
+			                                    	<input type="text" id="booth-banner-img-url" class="form-control" placeholder="Image URL">
 			                                	</div>
 			                            	</div>
 			                            	<div class="form-group">
 			                                	<div class="col-md-12">
-			                                    	<span class="label label-danger">NOTE!</span> Image dimension must be 900 x 400
+			                                    	<span class="label label-danger">NOTE!</span> Image dimension must be in ratio of 4:3 at least by 900 x 400
 			                                	</div>
 			                            	</div> 
-		                                   	<!--   TEST
-			                            	<div class="form-group">
-			                                	<div class="col-md-12">
-			                                    	<textarea id="adPost-cover-img-short-desc" class="form-control" rows="2" placeholder="Description"></textarea>
-			                                	</div>
-			                            	</div> -->
 			                      		</div>
                        				</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    
+                    <!-- END BOOTH BANNER -->
                     	
                     <div class="portlet light">
                     	<div class="portlet-title">
@@ -691,55 +708,27 @@
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/booth-create.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 
+<!-- 
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/adpost.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/adpost-create.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/temp/adpost-create-test.js"></script>
+ -->
+ <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/booth-create.js"></script>
 
 <script>
 jQuery(document).ready(function() {
-	var advertiserId = '${bizProfile.advertiserId}';
-	EventNewsEdit.init(advertiserId);		//TODO to change
-//	EventNewsEdit.init('1011');		//TODO to change
-})
-
-
-function chooseLanguage(){
-//	alert("INFO: chooseLanguage()");
-	var langName=$("#langNo").find("option:selected").text();
-	var langNoValue = $("#langNo").val();
-//	alert(langNoValue);
-	if(langNoValue!=0){
-		$("#msgLangBoothName").text("Booth name must be in "+langName);
-		$("#msgLangBizDesc").text("Business descrption must be in "+langName);
-	}else{
-		$("#msgLangBoothName").text("");
-		$("#msgLangBizDesc").text("");
-	}
-}
-
-
-//may be a problem, not perfect yet
-function showCategoryList(){
-//	alert("INFO: showCategoryList()");	
+	//var advertiserId = '${bizProfile.advertiserId}';
+	//EventNewsEdit.init(advertiserId);		//TODO to change
 	
-	$("#boothCategoryDiv").toggle(
-		function() {
-	    	$("#boothCategoryChooser").text("Collpase");
-		},
-		function() {
-		    $("#boothCategoryChooser").html("&nbsp;&nbsp;Choose&nbsp;&nbsp;");
-		}
-	);
-}
-
-$(document).ready(function(){
+	
+	//booth Category no
 	$("#boothCategoryDiv").hide();
 	
 	$("#boothCategoryList").html(
 			"1,1,1,1<br/>1,1,1,1<br/>"
 	);
-			
-});
+})
+
 </script>
 </body>
 </html>
