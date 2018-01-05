@@ -1,9 +1,12 @@
 package com.adogo.advertiser.business.entity;
 
 public class BusinessHours {
-	private Long uid;
-	private Long businessId;
+	private Long globalId;
+	private Long userId;
+	private Long advertiserId;
+	private Long bizId;
 	private Integer langNo;
+	private Long boothId;
 	private String day1StartTime;
 	private String day1EndTime;
 	private String day2StartTime;
@@ -20,23 +23,41 @@ public class BusinessHours {
 	private String day7EndTime;
 	private String comment;
 	
-	public Long getUid() {
-		return uid;
+	public Long getGlobalId() {
+		return globalId;
 	}
-	public void setUid(Long uid) {
-		this.uid = uid;
+	public void setGlobalId(Long globalId) {
+		this.globalId = globalId;
 	}
-	public Long getBusinessId() {
-		return businessId;
+	public Long getUserId() {
+		return userId;
 	}
-	public void setBusinessId(Long businessId) {
-		this.businessId = businessId;
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	public Long getAdvertiserId() {
+		return advertiserId;
+	}
+	public void setAdvertiserId(Long advertiserId) {
+		this.advertiserId = advertiserId;
+	}
+	public Long getBizId() {
+		return bizId;
+	}
+	public void setBizId(Long bizId) {
+		this.bizId = bizId;
 	}
 	public Integer getLangNo() {
 		return langNo;
 	}
 	public void setLangNo(Integer langNo) {
 		this.langNo = langNo;
+	}
+	public Long getBoothId() {
+		return boothId;
+	}
+	public void setBoothId(Long boothId) {
+		this.boothId = boothId;
 	}
 	public String getDay1StartTime() {
 		return day1StartTime;
@@ -130,14 +151,12 @@ public class BusinessHours {
 	}
 	@Override
 	public String toString() {
-		return "BusinessHours [uid=" + uid + ", businessId=" + businessId + ", langNo=" + langNo + ", day1StartTime="
+		return "BusinessHours [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId
+				+ ", bizId=" + bizId + ", langNo=" + langNo + ", boothId=" + boothId + ", day1StartTime="
 				+ day1StartTime + ", day1EndTime=" + day1EndTime + ", day2StartTime=" + day2StartTime + ", day2EndTime="
 				+ day2EndTime + ", day3StartTime=" + day3StartTime + ", day3EndTime=" + day3EndTime + ", day4StartTime="
 				+ day4StartTime + ", day4EndTime=" + day4EndTime + ", day5StartTime=" + day5StartTime + ", day5EndTime="
 				+ day5EndTime + ", day6StartTime=" + day6StartTime + ", day6EndTime=" + day6EndTime + ", day7StartTime="
 				+ day7StartTime + ", day7EndTime=" + day7EndTime + ", comment=" + comment + "]";
 	}
-	
-	
-	
 }

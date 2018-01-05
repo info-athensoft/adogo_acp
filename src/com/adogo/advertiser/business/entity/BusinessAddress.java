@@ -4,9 +4,6 @@ import com.adogo.advertiser.entity.Address;
 
 public class BusinessAddress extends Address {
 	
-	public static final int LOC_TYPE_HQ 	= 1;	
-	public static final int LOC_TYPE_OUTLET = 2;
-	
 	private Long 	advertiserId;
 	private Long	bizId;
 	private Long 	boothId;

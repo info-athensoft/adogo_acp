@@ -10,4 +10,7 @@ public interface BusinessHoursDao {
 	 */
 	public BusinessHours findBusinessHoursByBusinessId(Long businessId);
 	public int persistBusinessHours(BusinessHours businessHours);
+	
+	public int create(BusinessHours businessHours);
+	public int update(BusinessHours businessHours);
 }

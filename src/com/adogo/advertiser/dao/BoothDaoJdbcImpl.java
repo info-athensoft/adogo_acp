@@ -216,7 +216,7 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		paramSource.addValue("advertiser_id", x.getAdvertiserId());
 		paramSource.addValue("biz_id", x.getBizId());
 		paramSource.addValue("lang_no", x.getLangNo());
-		paramSource.addValue("booth_id", x.getBizId());
+		paramSource.addValue("booth_id", x.getBoothId());
 		paramSource.addValue("biz_name", x.getBizName());
 		paramSource.addValue("booth_img", x.getBoothImg());
 		paramSource.addValue("biz_desc", x.getBizDesc());

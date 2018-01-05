@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.advertiser.business.entity.BusinessAddress;
+import com.adogo.advertiser.business.entity.BusinessAddressType;
 import com.adogo.advertiser.business.entity.BusinessOnlinePresence;
 import com.adogo.advertiser.business.entity.BusinessProfile;
 import com.adogo.advertiser.business.entity.BusinessStatus;
@@ -494,7 +495,7 @@ public class BusinessProfileController {
 		hqAddress.setCityName(cityName);
 		hqAddress.setProvName(provName);
 		hqAddress.setPostalCode(postalCode);
-		hqAddress.setLocationType(BusinessAddress.LOC_TYPE_HQ);
+		hqAddress.setLocationType(BusinessAddressType.HQ);
 		
 		businessProfile.setHqAddress(hqAddress);
 		
@@ -695,7 +696,7 @@ public class BusinessProfileController {
 		ba.setCityName(cityName);
 		ba.setProvName(provName);
 		ba.setPostalCode(postalCode);
-		ba.setLocationType(BusinessAddress.LOC_TYPE_HQ);
+		ba.setLocationType(BusinessAddressType.HQ);
 		
 		List<BusinessOnlinePresence> bopList = new ArrayList<BusinessOnlinePresence>();
 		

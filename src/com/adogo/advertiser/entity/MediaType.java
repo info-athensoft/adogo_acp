@@ -7,6 +7,7 @@ public class MediaType {
 	public static final int SLIDE_IMAGE 	= 103;
 	public static final int GALLERY_IMAGE 	= 104;
 	public static final int CATALOG_IMAGE 	= 105;
+	public static final int BANNER_IMAGE 	= 106;
 	public static final int VIDEO 			= 200;
 	public static final int AUDIO 			= 300;
 	public static final int TEXT 			= 400;

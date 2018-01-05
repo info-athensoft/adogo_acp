@@ -326,8 +326,7 @@
 	                     </div>
 	                    
 	                    <div class="portlet-body form">
-	                        <!-- BEGIN FORM-->
-	                        <form action="#" class="form-horizontal">
+	                        <div class="form-horizontal">
 	                        	<div class="form-body">
 	                    			<div class="form-group">
 	                                    <label class="col-md-3 control-label">Head Office Address</label>
@@ -413,8 +412,7 @@
 	                                    </div>
 	                                </div>
 	                            </div>
-	                        </form>
-	                        <!-- END FORM-->
+	                        </div>
 	                    </div>
             		</div>
             		<!-- END SECTION 2 -->

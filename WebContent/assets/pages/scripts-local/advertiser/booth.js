@@ -29,14 +29,7 @@ function saveBusinessHours(){
 	          }); 
 		    },		
 		complete: function() {
-			//alert('completed');
-			/*	//Blockui App
-		      App.blockUI({
-	              target: '#blockui_buz_hrs_id',
-	              message: 'SAVING INFORMATION ......  '
-	          }); */
-		      //Blockui App
-	          
+
 	          window.setTimeout(function() {
 	              App.unblockUI('#blockui_buz_hrs_id');
 	          }, 9000); 
@@ -82,23 +75,23 @@ function getBusinessHoursObject(){
     
     var businessObject =
     {
-    		businessId    			      :   p1,
-    		day1StartTime   		   	  :   p2,
-    		day1EndTime    		    	  :   p3,
-    		day2StartTime   		   	  :   p4,
-    		day2EndTime    		    	  :   p5,          
-    		day3StartTime   		   	  :   p6,
-    		day3EndTime    		    	  :   p7,
-    		day4StartTime   		      :   p8,
-    		day4EndTime    		    	  :   p9,
-    		day5StartTime   		   	  :   p10,
-    		day5EndTime    		    	  :   p11,          
-    		day6StartTime   		   	  :   p12,
-    		day6EndTime    		    	  :   p13,
-    		day7StartTime   		   	  :   p14,
-    		day7EndTime    		    	  :   p15,
-    		comment              		  :   p16,
-    		langNo              		  :   p17
+    		bizId    			:   p1,
+    		day1StartTime   	:   p2,
+    		day1EndTime    		:   p3,
+    		day2StartTime   	:   p4,
+    		day2EndTime    		:   p5,          
+    		day3StartTime   	:   p6,
+    		day3EndTime    		:   p7,
+    		day4StartTime   	:   p8,
+    		day4EndTime    		:   p9,
+    		day5StartTime   	:   p10,
+    		day5EndTime    		:   p11,          
+    		day6StartTime   	:   p12,
+    		day6EndTime    		:   p13,
+    		day7StartTime   	:   p14,
+    		day7EndTime    		:   p15,
+    		comment             :   p16,
+    		langNo              :   p17
     };
     
     return businessObject;
@@ -124,5 +117,3 @@ function getContactInfoObject(){
 	alert("getContactInfoObject called!");
 	//TODO 	
 }
-
-

@@ -1,6 +1,9 @@
 package com.adogo.advertiser.booth.entity;
 
 import java.util.Date;
+import java.util.List;
+
+import com.adogo.advertiser.business.entity.BusinessHours;
 
 public class Booth {
 	private Long globalId;
@@ -16,6 +19,33 @@ public class Booth {
 	private String bizName;
 	private String bizDesc;
 	
+	
+	private BoothImage boothBanner;
+	
+	private BusinessHours businessHours;
+	
+	private List<BoothText> boothTextList;
+	
+	
+	public List<BoothText> getBoothTextList() {
+		return boothTextList;
+	}
+	public void setBoothTextList(List<BoothText> boothTextList) {
+		this.boothTextList = boothTextList;
+	}
+	public BusinessHours getBusinessHours() {
+		return businessHours;
+	}
+	public void setBusinessHours(BusinessHours businessHours) {
+		this.businessHours = businessHours;
+	}
+	public BoothImage getBoothBanner() {
+		return boothBanner;
+	}
+	public void setBoothBanner(BoothImage boothBanner) {
+		this.boothBanner = boothBanner;
+	}
+
 	/**
 	 * Booth ID is consisted of bizId and langNo
 	 */

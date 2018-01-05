@@ -19,11 +19,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.advertiser.booth.entity.Booth;
+import com.adogo.advertiser.booth.entity.BoothImage;
 import com.adogo.advertiser.booth.entity.BoothStatus;
+import com.adogo.advertiser.business.entity.BusinessAddress;
 import com.adogo.advertiser.business.entity.BusinessHours;
 import com.adogo.advertiser.business.entity.BusinessProfile;
 import com.adogo.advertiser.business.entity.BusinessStatus;
+import com.adogo.advertiser.entity.MediaType;
 import com.adogo.advertiser.service.BoothService;
+import com.adogo.advertiser.service.BusinessAddressService;
 import com.adogo.advertiser.service.BusinessHoursService;
 import com.adogo.advertiser.service.BusinessProfileService;
 import com.adogo.advertiser.vo.VOBizProfileBooth;
@@ -60,6 +64,14 @@ public class BoothController {
 	@Autowired
 	public void setBusinessHoursService(BusinessHoursService businessHoursService) {
 		this.businessHoursService = businessHoursService;
+	}
+	
+	@Autowired
+	private BusinessAddressService businessAddressService;
+		
+	@Autowired
+	public void setBusinessAddressService(BusinessAddressService businessAddressService) {
+		this.businessAddressService = businessAddressService;
 	}
 	
 	@Autowired
@@ -164,6 +176,12 @@ public class BoothController {
 		
 		/* execute business logic */
 		BusinessProfile bp = businessProfileService.getBusinessProfileByBizId(bizId);
+		BusinessAddress hqAddress = businessAddressService.getHQAddressByBizId(bizId);
+		bp.setHqAddress(hqAddress);
+		
+		//test
+		logger.info(bp.toString());
+		logger.info(hqAddress.toString());
 		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
@@ -171,6 +189,7 @@ public class BoothController {
 		
 		/* set data */
 		model.put("bizProfile", bp);
+		model.put("hqAddress", hqAddress);
 		
 		/* set view */
 		String viewName = "advertiser/booth_create";
@@ -214,8 +233,28 @@ public class BoothController {
 		String langBizDesc		= jsonObj.getString("langBizDesc");
 		String boothImg			= jsonObj.getString("boothImg");
 		
+		//booth banner
+		String boothBannerImgUrl= jsonObj.getString("boothBannerImg");
+		
+		String day1StartTime 	= jsonObj.getString("day1StartTime");
+		String day1EndTime 		= jsonObj.getString("day1EndTime");
+		String day2StartTime 	= jsonObj.getString("day2StartTime");
+		String day2EndTime 		= jsonObj.getString("day2EndTime");
+		String day3StartTime 	= jsonObj.getString("day3StartTime");
+		String day3EndTime 		= jsonObj.getString("day3EndTime");
+		String day4StartTime 	= jsonObj.getString("day4StartTime");
+		String day4EndTime 		= jsonObj.getString("day4EndTime");
+		String day5StartTime 	= jsonObj.getString("day5StartTime");
+		String day5EndTime 		= jsonObj.getString("day5EndTime");
+		String day6StartTime 	= jsonObj.getString("day6StartTime");
+		String day6EndTime 		= jsonObj.getString("day6EndTime");
+		String day7StartTime 	= jsonObj.getString("day7StartTime");
+		String day7EndTime 		= jsonObj.getString("day7EndTime");
+		String comment			= jsonObj.getString("comment");
+		
 		/* prepare data */
 		final Long boothId = Booth.createBoothId(bizId, langNo);
+		logger.info("boothId="+boothId);
 		final Date today = new Date();
 		
 		Booth booth = new Booth();
@@ -232,6 +271,41 @@ public class BoothController {
 		booth.setCreateDate(today);
 		booth.setModifyDate(today);
 		booth.setBoothStatus(BoothStatus.CREATED);
+		
+		BoothImage boothBanner = new BoothImage();
+		boothBanner.setUserId(userId);
+		boothBanner.setAdvertiserId(advertiserId);
+		boothBanner.setBizId(bizId);
+		boothBanner.setLangNo(langNo);
+		boothBanner.setBoothId(boothId);
+		boothBanner.setMediaUrl(boothBannerImgUrl);
+		boothBanner.setMediaType(MediaType.BANNER_IMAGE);		
+		
+		
+		BusinessHours businessHours = new BusinessHours();
+		businessHours.setUserId(userId);
+		businessHours.setAdvertiserId(advertiserId);
+		businessHours.setBizId(bizId);
+		businessHours.setLangNo(langNo);
+		businessHours.setBoothId(Booth.createBoothId(bizId, langNo));		
+		businessHours.setDay1StartTime(day1StartTime);
+		businessHours.setDay1EndTime(day1EndTime);
+		businessHours.setDay2StartTime(day2StartTime);
+		businessHours.setDay2EndTime(day2EndTime);
+		businessHours.setDay3StartTime(day3StartTime);
+		businessHours.setDay3EndTime(day3EndTime);
+		businessHours.setDay4StartTime(day4StartTime);
+		businessHours.setDay4EndTime(day4EndTime);
+		businessHours.setDay5StartTime(day5StartTime);
+		businessHours.setDay5EndTime(day5EndTime);
+		businessHours.setDay6StartTime(day6StartTime);
+		businessHours.setDay6EndTime(day6EndTime);
+		businessHours.setDay7StartTime(day7StartTime);
+		businessHours.setDay7EndTime(day7EndTime);
+		businessHours.setComment(comment);
+		
+		booth.setBoothBanner(boothBanner);
+		booth.setBusinessHours(businessHours);
 		
 		/* execute business logic */
 		this.boothService.createBooth(booth);
@@ -287,14 +361,35 @@ public class BoothController {
 	 */
 	@RequestMapping(value="/saveBusinessHours",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> saveBusinessHours(@RequestParam String businessHoursJSONString){		
+	public Map<String,Object> saveBusinessHours(HttpSession session, @RequestParam String businessHoursJSONString){		
 		logger.info("entering... /advertiser/booth/saveBusinessHours");
+		
+		/* get data from session */
+		Object userIdObj = session.getAttribute("userId");
+		Object advertiserIdObj = session.getAttribute("advertiserId");
+		long userId = 0L;
+		long advertiserId = 0L;
+		String errorMsg = "";
+		
+		if(userIdObj != null){
+			userId = (Long)userIdObj;
+		}else{
+			errorMsg = MSG_NO_SUCH_USER;
+		}
+		
+		if(advertiserIdObj != null){
+			advertiserId = (Long)advertiserIdObj;
+		}else{
+			errorMsg = MSG_NO_SUCH_ADVERTISER;
+		}
+		
 		
 		/* get data from JSON */		
 		JSONObject jsonObj= new JSONObject(businessHoursJSONString);
 		
-		Long businessId 		= jsonObj.getLong("businessId");
+		Long bizId 				= jsonObj.getLong("businessId");
 		Integer langNo			= jsonObj.getInt("langNo");
+		
 		String day1StartTime 	= jsonObj.getString("day1StartTime");
 		String day1EndTime 		= jsonObj.getString("day1EndTime");
 		String day2StartTime 	= jsonObj.getString("day2StartTime");
@@ -313,8 +408,12 @@ public class BoothController {
 
 		/* prepare data */
 		BusinessHours businessHours = new BusinessHours();
-		businessHours.setBusinessId(businessId);
+		businessHours.setUserId(userId);
+		businessHours.setAdvertiserId(advertiserId);
+		businessHours.setBizId(bizId);
 		businessHours.setLangNo(langNo);
+		businessHours.setBoothId(Booth.createBoothId(bizId, langNo));
+		
 		businessHours.setDay1StartTime(day1StartTime);
 		businessHours.setDay1EndTime(day1EndTime);
 		businessHours.setDay2StartTime(day2StartTime);

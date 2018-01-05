@@ -26,6 +26,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="description" content=""/>
 <meta name="author" content="Informatique Athensoft"/>
+
+<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
      
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
@@ -34,49 +36,45 @@
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
+
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/datatables.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.css"/>
 <!-- END PAGE LEVEL PLUGINS -->
+
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
 <!-- END THEME GLOBAL STYLES -->
+
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css"id="style_color" />
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
 <!-- END THEME LAYOUT STYLES -->
-<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
 </head>
 
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
-            <!-- BEGIN HEADER INNER -->
-            <div class="page-header-inner ">
+        <!-- BEGIN HEADER INNER -->
+        	<div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
                 <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
-                <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
                 <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-                <!-- END RESPONSIVE MENU TOGGLER -->
                 <!-- BEGIN PAGE ACTIONS -->
-                <!-- DOC: Remove "hide" class to enable the page header actions -->
                 <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
-                <!-- END PAGE ACTIONS -->
                 <!-- BEGIN PAGE TOP -->
                 <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
-                <!-- END PAGE TOP -->
             </div>
-            <!-- END HEADER INNER -->
+        <!-- END HEADER INNER -->
         </div>
         <!-- END HEADER -->
-        <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
+        
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
@@ -87,8 +85,6 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
-                    <!-- BEGIN THEME PANEL -->
-                    <!-- END THEME PANEL -->
                     <h1 class="page-title"> Advertiser | Booth <small>edit my booth</small></h1>
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
@@ -116,7 +112,6 @@
                     <!-- END PAGE HEADER-->
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- Begin: life time stats -->
                             <div class="portlet light">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -159,12 +154,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- End: life time stats -->
                         </div>
                     </div>
                     
                     <div class="row">
-                    	
                     	<div class="col-md-6">
                     		<!-- Section of Basic info -->
                     		<div class="portlet light">
@@ -206,7 +199,6 @@
                                 </div>
                     		</div>
                     		<!-- End of Section -->
-                    		
                     		
                     		<!-- Section of Business Contact -->
                     		<div class="portlet light">
@@ -292,7 +284,6 @@
                                 </div>
                     		</div>
 							<!-- End of Section -->
-                    		
                     		
                     		<!-- Section of Business Location -->
                     		<div class="portlet light">
@@ -407,12 +398,6 @@
                                 </div>
                     		</div>
 							<!-- End of Section -->
-                    		
-                    		
-                    		
-                    		
-                    		
-                    		
 						</div>
                     	
                     	
@@ -453,7 +438,7 @@
                                     </div>
                                 </div>
                     			<div class="portlet-body form">
-                                    <form class="form-horizontal" role="form">
+                                    <div class="form-horizontal" role="form">
                                         <div class="form-body" id="blockui_buz_hrs_id">
                                         	
                                         	<div class="form-group">
@@ -561,10 +546,8 @@
                                                     <textarea id="comment" class="form-control" rows="2"></textarea>
                                                 </div>
                                             </div>
-                                            
-                                        	
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                     		</div>
                     	</div>
@@ -710,11 +693,10 @@
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
-            <!-- BEGIN ${webapp_name} SIDEBAR -->
-            <!-- Removed to quick_sidebar.html -->
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
+        
         <!-- BEGIN FOOTER -->
         <jsp:include page="${inc_dir}/page-footer.jsp"></jsp:include>
         <!-- END FOOTER -->
@@ -765,5 +747,4 @@
 	});
 </script>
 </body>
-
 </html>

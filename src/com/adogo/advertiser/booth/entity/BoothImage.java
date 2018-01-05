@@ -1,7 +1,7 @@
 package com.adogo.advertiser.booth.entity;
 
-public class BoothText {
-	
+
+public class BoothImage {
 	protected Long globalId;
 	protected Long userId;
 	protected Long advertiserId;
@@ -9,17 +9,23 @@ public class BoothText {
 	protected Integer langNo;
 	protected Long boothId;
 	
-	private String textTitle;
-	private String textContent;
-	private int sortNo;
+	protected String mediaUrl;
+	protected Integer mediaType;
+	
+	public String getMediaUrl() {
+		return mediaUrl;
+	}
+	public void setMediaUrl(String mediaUrl) {
+		this.mediaUrl = mediaUrl;
+	}
+	public Integer getMediaType() {
+		return mediaType;
+	}
+	public void setMediaType(Integer mediaType) {
+		this.mediaType = mediaType;
+	}
 	
 	
-	public int getSortNo() {
-		return sortNo;
-	}
-	public void setSortNo(int sortNo) {
-		this.sortNo = sortNo;
-	}
 	public Long getGlobalId() {
 		return globalId;
 	}
@@ -56,23 +62,5 @@ public class BoothText {
 	public void setBoothId(Long boothId) {
 		this.boothId = boothId;
 	}
-	public String getTextTitle() {
-		return textTitle;
-	}
-	public void setTextTitle(String textTitle) {
-		this.textTitle = textTitle;
-	}
-	public String getTextContent() {
-		return textContent;
-	}
-	public void setTextContent(String textContent) {
-		this.textContent = textContent;
-	}
-	@Override
-	public String toString() {
-		return "BoothText [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId + ", bizId="
-				+ bizId + ", langNo=" + langNo + ", boothId=" + boothId + ", textTitle=" + textTitle + ", textContent="
-				+ textContent + "]";
-	}
 	
-}
+}	

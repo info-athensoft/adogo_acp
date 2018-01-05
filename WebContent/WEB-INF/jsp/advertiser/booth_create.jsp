@@ -26,6 +26,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="description" content=""/>
 <meta name="author" content="Informatique Athensoft"/>
+
+<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
       
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
@@ -34,6 +36,7 @@
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
+
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/datatables.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css"/>
@@ -41,16 +44,17 @@
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
 <!-- END PAGE LEVEL PLUGINS -->
+
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/components.min.css" id="style_components"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/global/css/plugins.min.css"/>
 <!-- END THEME GLOBAL STYLES -->
+
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/layout.min.css"/>
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/themes/blue.min.css" id="style_color" />
 <link rel="stylesheet" type="text/css" href="${webapp_name}/assets/layouts/layout2/css/custom.min.css"/>
 <!-- END THEME LAYOUT STYLES -->
-<link rel="shortcut icon" href="${webapp_name}/assets/athensoft/ico/favicon.ico"/>
 </head>
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
@@ -157,7 +161,7 @@
                     <div class="portlet light">
                         <div class="portlet-title">
                             <div class="caption">
-                                Create a booth <span class="caption-helper"> under a business </span>
+                                Create a booth <span class="caption-helper"> under ${bizProfile.bizName} </span>
                             </div>
                             <div class="actions">
                                 <a href="#" class="btn btn-circle btn-info">
@@ -202,6 +206,11 @@
                     			<span class="col-md-6">${bizProfile.industryCode} : ${bizProfile.industryName}</span>
                    			</div>
                    			<div class="row">
+                    			<span class="col-md-3 bold"> Business Description: </span>
+                    			<span class="col-md-6">${bizProfile.bizDesc}</span>
+                   			</div>
+                   			
+                   			<div class="row">
                     			<span class="col-md-3 bold"> Business Profile Status: </span>
                     			<c:choose>
 									<c:when test = "${bizProfile.bizStatus == 1}">
@@ -243,6 +252,7 @@
             <!-- ROW 3 -->      
             <div class="row">
                 <div class="col-md-8">
+                	<!-- BOOTH PROFILE -->
                     <div class="portlet light">
                     	<div class="portlet-title">
                             <div class="caption font-red-sunglo">
@@ -316,18 +326,13 @@
                                         <div class="col-md-9" id="boothCategoryList"></div>
                                     </div>
                                                                                         
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Business Description</label>
-                                        <div class="col-md-9">
-                                            <textarea class="form-control" rows="4" id="langBizDesc">${bizProfile.bizDesc}</textarea>
-                                            <span class="help-inline" id="msgLangBizDesc"></span>
-                                        </div>
-                                    </div>
+                                    
                               </div>
                             </div>
                         </div>
                     </div>
-                   
+                    <!-- END BOOTH PROFILE -->
+                    
                     <!-- BOOTH COVER -->
                     <div class="portlet light">
                     	<div class="portlet-title">
@@ -369,7 +374,8 @@
 			                            
 			                             	<div class="form-group">
 			                                	<div class="col-md-12">
-			                                    	<input type="text" id="booth-cover-img-url" class="form-control" placeholder="Image URL">
+			                                    	<input type="text" id="booth-cover-img-url" class="form-control" placeholder="Image URL" disabled="disabled">
+			                                    	
 			                                	</div>
 			                            	</div>
 			                            	<div class="form-group">
@@ -451,7 +457,7 @@
 			                            
 			                             	<div class="form-group">
 			                                	<div class="col-md-12">
-			                                    	<input type="text" id="booth-banner-img-url" class="form-control" placeholder="Image URL">
+			                                    	<input type="text" id="booth-banner-img-url" class="form-control" placeholder="Image URL" disabled="disabled">
 			                                	</div>
 			                            	</div>
 			                            	<div class="form-group">
@@ -472,7 +478,7 @@
                     	<div class="portlet-title">
                             <div class="caption font-red-sunglo">
                                 <i class="icon-settings"></i>
-                                <span class="caption-subject sbold uppercase">Text Content</span>
+                                <span class="caption-subject sbold uppercase">Booth Introduction</span>
                             </div>
                             <div class="actions">
                                 <div class="btn-group">
@@ -503,24 +509,36 @@
                     	<div class="portlet-body form">
                             <div class="form-horizontal" role="form">
                                 <div class="form-body">
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Ad Title</label>
+                                
+                                	<div class="form-group">
+                                        <label class="col-md-3 control-label">Booth Description</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="Enter text">
+                                            <textarea class="form-control" rows="4" id="textBoothDesc" placeholder="usually put your business description here and should be in the chosen language"></textarea>
+                                            <span class="help-inline" id="msgLangBizDesc1"></span>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Who are we?</label>
+                                        <div class="col-md-9">
+                                            <textarea class="form-control" rows="3" id="text1" placeholder="please input brief introduction to your company or yourself here"></textarea>
+                                            <span class="help-inline" id="msgLangBizDesc2"></span>
                                         </div>
                                     </div>
                                             
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Short Description</label>
+                                        <label class="col-md-3 control-label">What do we provide?</label>
                                         <div class="col-md-9">
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" rows="3" id="text2" placeholder="please briefly list your services or products your company is providing here"></textarea>
+                                            <span class="help-inline" id="msgLangBizDesc3"></span>
                                         </div>
                                     </div>
                                             
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label">Long Description</label>
+                                        <label class="col-md-3 control-label">Competences</label>
                                         <div class="col-md-9">
-                                            <textarea class="form-control" rows="5"></textarea>
+                                            <textarea class="form-control" rows="3" id="text3" placeholder="please briefly list your strong points to other similar businesses here"></textarea>
+                                            <span class="help-inline" id="msgLangBizDesc4"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -528,7 +546,270 @@
                         </div>
                     </div>
                     <!-- END BOOTH TEXT CONTENT -->
-                    		
+                    
+                    <!-- BOOTH CONTACT -->
+            		<div class="portlet light">
+            			<div class="portlet-title">
+	                         <div class="caption">
+	                             <i class="icon-equalizer font-red-sunglo"></i>
+	                             <span class="caption-subject font-red-sunglo bold uppercase">Contact Information</span>
+	                             <span class="caption-helper"></span>
+	                         </div>
+	                         <div class="actions">
+	                             <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                 <i class="icon-cloud-upload"></i>
+	                             </a>
+	                             <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                 <i class="icon-wrench"></i>
+	                             </a>
+	                             <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+	                                 <i class="icon-trash"></i>
+	                             </a>
+	                         </div>
+	                     </div>
+	                    
+	                    <div class="portlet-body form">
+	                        <div class="form-horizontal">
+	                            <div class="form-body">
+	                               	<div class="form-group">
+	                                    <label class="col-md-3 control-label">Head Office Address</label>
+	                                    <div class="col-md-9">
+                                        	<div class="row">
+                                        		<div class="col-md-3">
+                                        			<input type="text" class="form-control" placeholder="Street no." id="streetNo" value="${hqAddress.streetNo}">
+                                        		</div>
+                                        		<div class="col-md-4">
+                                        			<select class="form-control" id="streetType">
+                                              			<option value="21">Rue</option>
+                                              			<option value="22">Avenue/Av.</option>
+                                              			<option value="23">Boulevard/Blvd.</option>
+                                              			<option value="11">St.</option>
+                                            		</select>
+                                        		</div>
+                                        		<div class="col-md-5">
+                                        			<input type="text" class="form-control" placeholder="Street name" id="streetName" value="${hqAddress.streetName}">
+                                        		</div>
+                                        	</div>
+                                        	<p></p>
+                                        	<div class="row">
+                                        		<div class="col-md-3">
+                               						<select class="form-control" id="portType">
+                                       					<option value="1">Port</option>
+                                       					<option value="2">Suite</option>
+                                       					<option value="3">Apt</option>
+                                       					<option value="4">App</option>
+                                   					</select>
+                               					</div>
+                                        		<div class="col-md-3">
+                                        			<input type="text" class="form-control" placeholder="Port no." id="portNo" value="${hqAddress.portNo}">
+                                        		</div>
+                                        	</div>
+                                        	<p></p>
+                                        	<div class="row">
+                                        		<div class="col-md-4">
+                                        			<input type="text" class="form-control" placeholder="City" id="cityName"  value="${hqAddress.cityName}">
+                                        		</div>
+                                        		<div class="col-md-4">
+                                        			<input type="text" class="form-control" placeholder="Province" id="provName"  value="${hqAddress.provName}">
+                                        		</div>
+                                        		<div class="col-md-4">
+                                        			<input type="text" class="form-control" placeholder="Postal code" id="postalCode" value="${hqAddress.postalCode}">
+                                        		</div>
+                                        	</div>
+                                         </div>
+	                                </div>
+	                                            
+	                                <div class="form-group">
+	                                    <label class="col-md-3 control-label">Phone no.</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder="Phone no." id="bizPhone" value="${bizProfile.bizPhone}">
+                                        </div>
+	                                </div>
+	                                            
+	                                <div class="form-group">
+                                    	<label class="col-md-3 control-label">Fax no.</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder="Fax no." id="bizFax" value="${bizProfile.bizFax}">
+                                        </div>
+                                    </div>
+	                                            
+	                                <div class="form-group">
+				                        <label class="col-md-3 control-label">Email</label>
+	                                    <div class="col-md-9">
+	                                    	<input type="text" class="form-control" placeholder="email" id="bizEmail" value="${bizProfile.bizEmail}">
+	                                    </div>
+				                    </div>
+	                                            
+	                                <div class="form-group">
+	                                    <label class="col-md-3 control-label">Website</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder="URL of your website or home page" id="bizWebsite" value="${bizProfile.bizWebsite}">
+                                        </div>
+                                    </div>
+                                </div> 
+	                            
+	                            
+	                            <div class="form-actions">
+	                                <div class="row">
+	                                    <div class="col-md-offset-3 col-md-7">
+	                                        <a class="btn green" onclick="createBooth(); return false;">Save and Create</a>
+	                                        <a class="btn default" onclick="cancelCreateBooth(); return false;">Cancel</a>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+            		</div>
+            		<!-- END BOOTH CONTACT -->
+                    
+                    <!-- BUSINESS HOURS -->
+                    <div class="portlet light">
+                    			<div class="portlet-title">
+                                    <div class="caption font-red-sunglo">
+                                        <i class="icon-settings"></i>
+                                        <span class="caption-subject sbold uppercase">Opening hours</span>
+                                    </div>
+                                    <div class="actions">
+                                    	<button class="btn btn-success" onclick="saveBusinessHours(); return false;">
+                                                <i class="fa fa-check"></i> Quick Save</button>
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;" onclick="saveBusinessHours(); return false;" >
+                                                        <i class="fa fa-pencil"></i> Save this section </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-ban"></i> Ban </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;"> Make admin </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                    			<div class="portlet-body form">
+                                    <div class="form-horizontal" role="form">
+                                        <div class="form-body" id="blockui_buz_hrs_id">
+                                        	
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Monday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day1_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day1_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Tuesday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day2_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day2_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Wednesday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day3_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day3_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Thursday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day4_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day4_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Friday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day5_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day5_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Saturday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day6_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day6_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Sunday</label>
+                                                <div class="col-md-4">
+                                                    <input id="day7_start_time" type="text" class="form-control" placeholder="start time">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="day7_end_time" type="text" class="form-control" placeholder="end time">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Announcement</label>
+                                                <div class="col-md-9">
+                                                    <textarea id="comment" class="form-control" rows="2" placeholder="please input your announcement or reminding information about opening hours or special schedule of holidays for your clients"></textarea>
+                                                    <p>
+                                                    	<br/>
+                                                    	<span class="label label-danger">NOTE!</span> You may input 12/24 hour style or CLOSE into each field, i.e. 10:00 am, 18h, CLOSE, etc.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                    		</div>
+                    <!-- END BUSINESS HOURS -->
+                    
+                    <!--
                     <div class="portlet light">
                     	<div class="portlet-title">
                             <div class="caption font-red-sunglo">
@@ -588,7 +869,9 @@
                             </div>
                         </div>
                     </div>
-                    		
+                     -->
+                    
+                    <!--  		
                     <div class="portlet light">
                     	<div class="portlet-title">
                             <div class="caption font-red-sunglo">
@@ -648,6 +931,7 @@
                             </div>
                         </div>
                     </div>
+            		-->
             	</div>
             	
             </div>
@@ -706,11 +990,11 @@
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/booth.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/booth-create.js"></script>
+
 <!-- END PAGE LEVEL SCRIPTS -->
 
-<!-- 
+<!--
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/booth.js"></script> 
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/adpost.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/adpost-create.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/temp/adpost-create-test.js"></script>

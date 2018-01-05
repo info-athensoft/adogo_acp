@@ -15,11 +15,34 @@ function getBusinessCreateObject(){
     var p7 = $("#categoryNo").val();
     var p8 = $("#langBizDesc").val();
     
-    //booth cover url
+    //booth cover image
     var p9 = $("#booth-cover-img-url").val();
     if(p9.trim()==''){
     	p9 = "http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image";
     }
+    
+    //booth banner image
+    var p10 = $("#booth-banner-img-url").val();
+    if(p10.trim()==''){
+    	p10 = "http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image";
+    }
+    
+    //business hours
+    var p61 = $("#day1_start_time").val();        
+    var p62 = $("#day1_end_time").val();
+    var p63 = $("#day2_start_time").val();        
+    var p64 = $("#day2_end_time").val();
+    var p65 = $("#day3_start_time").val();        
+    var p66 = $("#day3_end_time").val();
+    var p67 = $("#day4_start_time").val();        
+    var p68 = $("#day4_end_time").val();
+    var p69 = $("#day5_start_time").val();        
+    var p70 = $("#day5_end_time").val();
+    var p71 = $("#day6_start_time").val();        
+    var p72 = $("#day6_end_time").val();
+    var p73 = $("#day7_start_time").val();        
+    var p74 = $("#day7_end_time").val();
+    var p75 = $("#comment").val();
     
     var businessObject =
     {
@@ -30,9 +53,29 @@ function getBusinessCreateObject(){
     		langNo    		:   p5,
     		langBoothName	:   p6,
     		categoryNo		:   p7,
-    		langBizDesc		:   p8,
+    		langBizDesc		:   p8,    		
+    		boothImg		: 	p9,		//booth cover image
     		
-    		boothImg		: 	p9
+    		
+    		boothBannerImg	:	p10,		//booth banner image
+    		
+    		day1StartTime   	:   p61,
+    		day1EndTime    		:   p62,
+    		day2StartTime   	:   p63,
+    		day2EndTime    		:   p64,          
+    		day3StartTime   	:   p65,
+    		day3EndTime    		:   p65,
+    		day4StartTime   	:   p66,
+    		day4EndTime    		:   p67,
+    		day5StartTime   	:   p68,
+    		day5EndTime    		:   p69,          
+    		day6StartTime   	:   p70,
+    		day6EndTime    		:   p71,
+    		day7StartTime   	:   p72,
+    		day7EndTime    		:   p73,
+    		comment             :   p74,
+    		
+    		
     };
     
 //  alert("INFO: businessObject="+businessObject);    
@@ -67,10 +110,16 @@ function chooseLanguage(){
 //	alert(langNoValue);
 	if(langNoValue!=0){
 		$("#msgLangBoothName").text("Booth name must be in "+langName);
-		$("#msgLangBizDesc").text("Business descrption must be in "+langName);
+		$("#msgLangBizDesc1").text("This must be written in "+langName);
+		$("#msgLangBizDesc2").text("This must be written in "+langName);
+		$("#msgLangBizDesc3").text("This must be written in "+langName);
+		$("#msgLangBizDesc4").text("This must be written in "+langName);
 	}else{
 		$("#msgLangBoothName").text("");
-		$("#msgLangBizDesc").text("");
+		$("#msgLangBizDesc1").text("");
+		$("#msgLangBizDesc2").text("");
+		$("#msgLangBizDesc3").text("");
+		$("#msgLangBizDesc4").text("");
 	}
 }
 
