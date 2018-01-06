@@ -45,13 +45,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
     		if ( session == null) { //if ( s.equals( "null" )) { 
     			logger.info("WARNING: httpSession is null. ");
         		sendRedirect(request, response, ACP_LOGIN, "Please login first!");
-        		flag = false;
+        		return false;
     		}
     		
     		if ( session.getAttribute("userAccount") == null) { //if ( s.equals( "null" )) { 
     			logger.info("<<<<<< UserAccount is null. " + ">>>>>>" );
         		sendRedirect(request, response, ACP_LOGIN, "Please login first!");
-        		flag = false;
+        		return false;
     		}
     		
         	//UserAccount userAccount = (UserAccount) session.getAttribute("userAccount");

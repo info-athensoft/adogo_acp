@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.uaas.entity.Role;
+import com.adogo.uaas.entity.RoleStatus;
 import com.adogo.uaas.service.RoleService;
 
 @Controller
@@ -112,19 +113,19 @@ public class RoleController {
 		String objectStatus = "";
 		String objectStatusKey = "";
 		switch(intObjectStatus){
-			case Role.ACTIVE: 
+			case RoleStatus.ACTIVE: 
 				objectStatus = "Active";
 				objectStatusKey = "success";
 				break;
-			case Role.INACTIVE: 
+			case RoleStatus.INACTIVE: 
 				objectStatus = "Inactive";
 				objectStatusKey = "warning";
 				break;
-			case Role.PENDING: 
+			case RoleStatus.PENDING: 
 				objectStatus = "Pending";
 				objectStatusKey = "danger";
 				break;
-			case Role.DISABLED: 
+			case RoleStatus.DISABLED: 
 				objectStatus = "Disabled";
 				objectStatusKey = "default";
 				break;

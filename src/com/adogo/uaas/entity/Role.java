@@ -2,10 +2,16 @@ package com.adogo.uaas.entity;
 
 public class Role {
 	
-	public static final int INACTIVE = 0;
-	public static final int ACTIVE = 1;
-	public static final int PENDING = 2;
-	public static final int  DISABLED= 3;
+	public static final Integer VISITOR 	= 1;
+	public static final Integer ADVERTISER 	= 2;
+	public static final Integer DISTRIBUTOR	= 3;
+	public static final Integer COOPERATOR	= 4;
+	
+	public static final Integer SYS_OPERATOR	= 11;
+	
+	public static final Integer SYS_ADMIN		= 21;
+	public static final Integer SYS_SUPERADMIN	= 22;
+	
 	
 	private Integer roleId;
 	private String roleCode;
@@ -56,10 +62,6 @@ public class Role {
 	public String toString() {
 		return "Role [roleId=" + roleId + ", roleCode=" + roleCode + ", roleLevel=" + roleLevel + ", roleType="
 				+ roleType + ", roleName=" + roleName + ", roleStatus=" + roleStatus + "]";
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(Role.ACTIVE);
 	}
 	
 }
