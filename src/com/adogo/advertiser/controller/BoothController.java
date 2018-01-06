@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.advertiser.booth.entity.Booth;
-import com.adogo.advertiser.booth.entity.BoothImage;
-import com.adogo.advertiser.booth.entity.BoothStatus;
-import com.adogo.advertiser.business.entity.BusinessAddress;
-import com.adogo.advertiser.business.entity.BusinessHours;
-import com.adogo.advertiser.business.entity.BusinessProfile;
-import com.adogo.advertiser.business.entity.BusinessStatus;
 import com.adogo.advertiser.entity.MediaType;
+import com.adogo.advertiser.entity.booth.Booth;
+import com.adogo.advertiser.entity.booth.BoothImage;
+import com.adogo.advertiser.entity.booth.BoothStatus;
+import com.adogo.advertiser.entity.business.BusinessAddress;
+import com.adogo.advertiser.entity.business.BusinessHours;
+import com.adogo.advertiser.entity.business.BusinessProfile;
+import com.adogo.advertiser.entity.business.BusinessStatus;
 import com.adogo.advertiser.service.BoothService;
 import com.adogo.advertiser.service.BusinessAddressService;
 import com.adogo.advertiser.service.BusinessHoursService;
 import com.adogo.advertiser.service.BusinessProfileService;
 import com.adogo.advertiser.vo.VOBizProfileBooth;
-import com.athensoft.info.lang.LanguageMap;
+import com.adogo.info.lang.LanguageMap;
 
 @Controller
 @RequestMapping("/advertiser/booth")

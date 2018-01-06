@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.advertiser.business.entity.BusinessHours;
+import com.adogo.advertiser.entity.business.BusinessHours;
 
 @Component
 @Qualifier("businessHoursDaoJdbcImpl")

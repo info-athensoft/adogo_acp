@@ -14,7 +14,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.adogo.advertiser.booth.entity.BoothText;
+import com.adogo.advertiser.entity.booth.BoothText;
 
 @Repository
 @Qualifier("boothTextDaoJdbcImpl")

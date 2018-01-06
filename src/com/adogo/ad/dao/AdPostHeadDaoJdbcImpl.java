@@ -18,7 +18,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
-import com.adogo.advertiser.adpost.entity.AdPostHead;
+import com.adogo.advertiser.entity.adpost.AdPostHead;
 
 
 @Component

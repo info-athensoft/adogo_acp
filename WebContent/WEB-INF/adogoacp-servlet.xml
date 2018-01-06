@@ -27,7 +27,7 @@
 	
 	<!-- Adogo Custom defined beans -->
 	<bean id="langMapObj"
-		class="com.athensoft.info.lang.LanguageMap" />
+		class="com.adogo.info.lang.LanguageMap" />
 	
 	<!-- 
 	<mvc:resources mapping="/images/**" location="images/" /> 
@@ -38,5 +38,23 @@
 	<mvc:resources mapping="/customer/**" location="customer/" />
 	 -->
 	<mvc:resources mapping="/assets/**" location="assets/" />
+	
+	 
+	<mvc:interceptors>
+		<mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/assets/**" />
+            <mvc:exclude-mapping path="/login.html" />
+            <mvc:exclude-mapping path="/login" />
+            <mvc:exclude-mapping path="/logout" />
+            <bean class="com.adogo.web.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        
+        <mvc:interceptor>
+            <mvc:mapping path="/advertiser/**"/>
+            <bean class="com.adogo.web.interceptor.AdvertiserInterceptor"/>
+        </mvc:interceptor>
+        
+	</mvc:interceptors>
 	
 </beans>

@@ -126,7 +126,7 @@ var Login = function () {
 
 	var handleRegister = function () {
 
-		        function format(state) {
+		function format(state) {
             if (!state.id) { return state.text; }
             var $state = $(
              '<span><img src="'+webapp_name+'/assets/global/img/flags/' + state.element.value.toLowerCase() + '.png" class="img-flag" /> ' + state.text + '</span>'
@@ -257,13 +257,27 @@ var Login = function () {
 
             // init background slide images
 		    $.backstretch([
-		        webapp_name+"/assets/pages/media/bg/1.jpg",
-		        webapp_name+"/assets/pages/media/bg/2.jpg",
-		        webapp_name+"/assets/pages/media/bg/3.jpg",
-		        webapp_name+"/assets/pages/media/bg/4.jpg"
+		       webapp_name+"/assets/pages/media/bg/1.jpg",
+		       webapp_name+"/assets/pages/media/bg/2.jpg",
+		       webapp_name+"/assets/pages/media/bg/3.jpg",
+		       webapp_name+"/assets/pages/media/bg/4.jpg",
+		       webapp_name+"/assets/pages/media/bg/5.jpg",
+		       webapp_name+"/assets/pages/media/bg/6.jpg",
+		       webapp_name+"/assets/pages/media/bg/7.jpg",
+		       webapp_name+"/assets/pages/media/bg/8.jpg",
+		       webapp_name+"/assets/pages/media/bg/9.jpg",
+		       webapp_name+"/assets/pages/media/bg/10.jpg",
+		       webapp_name+"/assets/pages/media/bg/11.jpg",
+		       webapp_name+"/assets/pages/media/bg/12.jpg",
+		       webapp_name+"/assets/pages/media/bg/13.jpg",
+		       webapp_name+"/assets/pages/media/bg/14.jpg",
+		       webapp_name+"/assets/pages/media/bg/15.jpg",
+		       webapp_name+"/assets/pages/media/bg/16.jpg"
 		        ], {
+		         // fade: 500,
+		         // duration: 1000	
 		          fade: 1000,
-		          duration: 5000
+		          duration: 5000	
 		    	}
         	);
         }

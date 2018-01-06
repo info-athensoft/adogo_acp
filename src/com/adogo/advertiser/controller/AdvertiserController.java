@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.advertiser.business.entity.BusinessProfile;
 import com.adogo.advertiser.entity.IndustryCode;
+import com.adogo.advertiser.entity.business.BusinessProfile;
 import com.adogo.advertiser.service.BusinessProfileService;
 import com.adogo.advertiser.service.IndustryCodeService;
 

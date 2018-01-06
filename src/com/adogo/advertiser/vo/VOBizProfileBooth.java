@@ -3,8 +3,8 @@ package com.adogo.advertiser.vo;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.adogo.advertiser.booth.entity.Booth;
-import com.adogo.advertiser.business.entity.BusinessProfile;
+import com.adogo.advertiser.entity.booth.Booth;
+import com.adogo.advertiser.entity.business.BusinessProfile;
 
 public class VOBizProfileBooth{
 	

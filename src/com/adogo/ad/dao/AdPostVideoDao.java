@@ -2,7 +2,7 @@ package com.adogo.ad.dao;
 
 import java.util.List;
 
-import com.adogo.advertiser.adpost.entity.AdPostVideo;
+import com.adogo.advertiser.entity.adpost.AdPostVideo;
 
 public interface AdPostVideoDao {
 	public List<AdPostVideo> findAll();

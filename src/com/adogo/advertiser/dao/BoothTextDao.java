@@ -2,7 +2,7 @@ package com.adogo.advertiser.dao;
 
 import java.util.List;
 
-import com.adogo.advertiser.booth.entity.BoothText;
+import com.adogo.advertiser.entity.booth.BoothText;
 
 public interface BoothTextDao {
 		public List<BoothText> findByBoothId(long boothId);

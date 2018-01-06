@@ -2,7 +2,7 @@ package com.adogo.advertiser.dao;
 
 import java.util.List;
 
-import com.adogo.advertiser.business.entity.BusinessAddress;
+import com.adogo.advertiser.entity.business.BusinessAddress;
 import com.athensoft.util.sql.Query;
 
 public interface BusinessAddressDao {

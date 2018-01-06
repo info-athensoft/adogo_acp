@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adogo.advertiser.booth.entity.Booth;
 import com.adogo.advertiser.dao.BoothDao;
 import com.adogo.advertiser.dao.BoothImageDao;
 import com.adogo.advertiser.dao.BusinessHoursDao;
+import com.adogo.advertiser.entity.booth.Booth;
 
 @Service
 public class BoothService {

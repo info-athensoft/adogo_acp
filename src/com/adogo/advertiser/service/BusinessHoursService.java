@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.adogo.advertiser.business.entity.BusinessHours;
 import com.adogo.advertiser.dao.BusinessHoursDao;
+import com.adogo.advertiser.entity.business.BusinessHours;
 
 @Service
 public class BusinessHoursService {

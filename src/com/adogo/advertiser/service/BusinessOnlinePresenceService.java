@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.adogo.advertiser.business.entity.BusinessOnlinePresence;
 import com.adogo.advertiser.dao.BusinessOnlinePresenceDao;
+import com.adogo.advertiser.entity.business.BusinessOnlinePresence;
 
 @Service
 public class BusinessOnlinePresenceService {

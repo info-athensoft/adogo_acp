@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -18,12 +19,16 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
-//import com.adogo.uaas.dao.UserAccountDaoParamImpl.UserAccountRowMapper;
 import com.adogo.uaas.entity.UserAccount;
+import com.adogo.uaas.entity.UserAccountStatus;
 
 @Component
 @Qualifier("userAccountDaoParamImpl")
 public class UserAccountDaoParamImpl implements UserAccountDao {
+	
+	private static final Logger logger = Logger.getLogger(UserAccountDaoParamImpl.class);
+	
+	private static final String TABLE = "UAAS_USER_ACCOUNT";
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
@@ -40,9 +45,17 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 
 	@Override
 	public UserAccount findById(long acctId) {
-		String sql = "select * from UAAS_USER_ACCOUNT where acct_id =:acctId";
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT * ");
+		sbf.append(" FROM ").append(TABLE);
+		sbf.append(" WHERE 1 = 1");
+		sbf.append(" AND acct_id =:acct_Id");
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("acctId", acctId);
+		paramSource.addValue("acct_Id", acctId);
 		UserAccount ua = null;
 		try{
 			ua = jdbc.queryForObject(sql, paramSource, new UserAccountRowMapper());
@@ -53,15 +66,24 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 	}
 	
 	@Override
-	public UserAccount findByName(String name) {
-		String sql = "select * from UAAS_USER_ACCOUNT where acct_name =:name";
+	public UserAccount findByName(String acctName) {
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT * ");
+		sbf.append(" FROM ").append(TABLE);
+		sbf.append(" WHERE 1 = 1");
+		sbf.append(" AND acct_name =:acct_name");
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("name", name);
+		paramSource.addValue("acct_name", acctName);
 		UserAccount ua = null;
 		try{
 			ua = jdbc.queryForObject(sql, paramSource, new UserAccountRowMapper());
 		}catch(EmptyResultDataAccessException ex){
-			ua = null;
+			ex.printStackTrace();
 		}
 		return ua;
 	}
@@ -78,17 +100,33 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 
 	@Override
 	public long create(UserAccount userAccount) {
-		final String TABLE1 = "UAAS_USER_ACCOUNT";
 		
 		StringBuffer sbf = new StringBuffer();
-		sbf.append("insert into "+TABLE1);
-		sbf.append("(acct_name,password,primary_email,secure_email,create_date,last_mod_date,acct_status) ");
-		sbf.append("values(:acct_name,:password,:primary_email,:secure_email,:create_date,:last_mod_date,:acct_status)");
-		String sql = sbf.toString();
+		sbf.append("INSERT INTO ").append(TABLE).append("(");
+		sbf.append("acct_name,");
+		sbf.append("password,");
+		sbf.append("primary_email,");
+		sbf.append("secure_email,");
+		sbf.append("create_date,");
+		sbf.append("last_mod_date,");
+		sbf.append("acct_status");
+		sbf.append(") ");
+		sbf.append("VALUES(");
+		sbf.append(":acct_name,");
+		sbf.append(":password,"); 
+		sbf.append(":primary_email,"); 
+		sbf.append(":secure_email,");
+		sbf.append(":create_date,"); 
+		sbf.append(":last_mod_date,");
+		sbf.append(":acct_status");
+		sbf.append(")");
 		
-		final int USER_ACCOUNT_STATUS 	= 0;  //1: registered and active, 0: in-activated, 2: locked, pending     
-		final Date dateCreate 			= new Date();
-		final Date dateLastModified 	= dateCreate;
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		final Date dateCreate 			= new Date();		//FIXME
+		final Date dateLastModified 	= dateCreate;		//FIXME
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("acct_name", userAccount.getAcctName());
 		paramSource.addValue("password", userAccount.getPassword());
@@ -96,48 +134,52 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 		paramSource.addValue("secure_email",userAccount.getSecureEmail());
 		paramSource.addValue("create_date",new java.sql.Timestamp(dateCreate.getTime()));
 		paramSource.addValue("last_mod_date",new java.sql.Timestamp(dateLastModified.getTime()));
-		paramSource.addValue("acct_status",USER_ACCOUNT_STATUS);
+		paramSource.addValue("acct_status",UserAccountStatus.REGISERTED);
 		
 		KeyHolder keyholder = new GeneratedKeyHolder();
 		jdbc.update(sql, paramSource, keyholder);
 		return (long)keyholder.getKey();
-		
-		//return jdbc.execute(sql, new UserAccountRowMapper());
 	}
 
 	@Override
 	public void update(UserAccount userAccount) {						
-			final String TABLE1 = "UAAS_USER_ACCOUNT";
 			
-			StringBuffer sbf = new StringBuffer();
-			sbf.append("update "+TABLE1);
-			sbf.append(" set acct_name=:acct_name,password=:password,primary_email=:primary_email,secure_email=:secure_email,last_mod_date=:last_mod_date,acct_status=:acct_status ");
-			sbf.append("where 1=1 ");
-			sbf.append("and acct_id=:acct_id");
-			String sql = sbf.toString();
-			
-			//1: registered and active, 0: in-activated, 2: locked, pending     
-//			final Date dateCreate 			= new Date();
-			final Date dateLastModified 	= new Date();
-			MapSqlParameterSource paramSource = new MapSqlParameterSource();
-			paramSource.addValue("acct_name", userAccount.getAcctName());
-			paramSource.addValue("password", userAccount.getPassword());
-			paramSource.addValue("primary_email",userAccount.getPrimaryEmail());
-			paramSource.addValue("secure_email",userAccount.getSecureEmail());
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE "+TABLE);
+		sbf.append(" SET ");
+		sbf.append("acct_name=:acct_name,  ");
+		sbf.append("password=:password,  ");
+		sbf.append("primary_email=:primary_email,  ");
+		sbf.append("secure_email=:secure_email,  ");
+		sbf.append("last_mod_date=:last_mod_date,  ");
+		sbf.append("acct_status=:acct_status ");
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND acct_id=:acct_id");
+		String sql = sbf.toString();
+		
+		final Date dateLastModified 	= new Date();		//FIXME
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("acct_name", userAccount.getAcctName());
+		paramSource.addValue("password", userAccount.getPassword());
+		paramSource.addValue("primary_email",userAccount.getPrimaryEmail());
+		paramSource.addValue("secure_email",userAccount.getSecureEmail());
 //			paramSource.addValue("create_date",new java.sql.Timestamp(dateCreate.getTime()));
-			paramSource.addValue("last_mod_date",new java.sql.Timestamp(dateLastModified.getTime()));
-			paramSource.addValue("acct_status",userAccount.getAcctStatus());
-			paramSource.addValue("acct_id",userAccount.getAcctId());
-			
-			jdbc.update(sql, paramSource);
+		paramSource.addValue("last_mod_date",new java.sql.Timestamp(dateLastModified.getTime()));
+		paramSource.addValue("acct_status",userAccount.getAcctStatus());
+		paramSource.addValue("acct_id",userAccount.getAcctId());
+		
+		jdbc.update(sql, paramSource);
 
 	}
 
 	@Override
 	public void delete(long acctId) {
-		String sql = "delete from UAAS_USER_ACCOUNT where acct_id =:acctId";
+		String sql = "delete from UAAS_USER_ACCOUNT where acct_id =:acct_id";
+		
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("acctId", acctId);
+		paramSource.addValue("acct_id", acctId);
 		jdbc.update(sql, paramSource);
 	}
 	
@@ -158,18 +200,18 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 
 	@Override
 	public void activateAccount(UserAccount userAccount) {
-		final String TABLE1 = "UAAS_USER_ACCOUNT";
 		
 		StringBuffer sbf = new StringBuffer();
-		sbf.append("update "+TABLE1);
-		sbf.append(" set last_mod_date=:last_mod_date,acct_status=:acct_status ");
-		sbf.append("where 1=1 ");
-		sbf.append("and acct_id=:acct_id");
+		sbf.append("UPDATE "+TABLE);
+		sbf.append(" SET ");
+		sbf.append(" last_mod_date=:last_mod_date,");
+		sbf.append(" acct_status=:acct_status ");
+		sbf.append(" WHERE 1=1 ");
+		sbf.append(" AND acct_id=:acct_id");
 		String sql = sbf.toString();
 		
-		//1: registered and active, 0: in-activated, 2: locked, pending     
-//		final Date dateCreate 			= new Date();
-		final Date dateLastModified 	= new Date();
+		final Date dateLastModified 	= new Date();		//FIXME
+		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("last_mod_date",new java.sql.Timestamp(dateLastModified.getTime()));
 		paramSource.addValue("acct_status",userAccount.getAcctStatus());

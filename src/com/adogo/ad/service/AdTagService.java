@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.adogo.ad.dao.AdTagDao;
-import com.adogo.advertiser.adpost.entity.AdTag;
+import com.adogo.advertiser.entity.adpost.AdTag;
 
 @Service
 public class AdTagService {

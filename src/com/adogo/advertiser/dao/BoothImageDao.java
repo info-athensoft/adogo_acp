@@ -2,7 +2,7 @@ package com.adogo.advertiser.dao;
 
 import java.util.List;
 
-import com.adogo.advertiser.booth.entity.BoothImage;
+import com.adogo.advertiser.entity.booth.BoothImage;
 
 public interface BoothImageDao {
 	
