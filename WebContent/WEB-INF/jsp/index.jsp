@@ -227,8 +227,13 @@
             
             <div class="row">
                 <div class="col-lg-6 col-xs-12 col-sm-12">
-                	<p>user ID: ${sessionScope.userId}</p>
-                	<p>advertiser ID: ${sessionScope.advertiserId}</p>
+                	<!-- 
+                	<c:if test="${flag_NotAdvertiser}" >
+	                	<div class="alert alert-info">
+		                	${sessionScope.advertiserRoleMsg}
+		                </div>
+	                </c:if> -->
+                	<p>user ID: ${sessionScope.userId} , advertiser ID: ${sessionScope.advertiserId}</p>
                 </div>
             </div>
                     
