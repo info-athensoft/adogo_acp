@@ -83,7 +83,7 @@ public class UserAccountDaoParamImpl implements UserAccountDao {
 		try{
 			ua = jdbc.queryForObject(sql, paramSource, new UserAccountRowMapper());
 		}catch(EmptyResultDataAccessException ex){
-			ex.printStackTrace();
+			ua = null;
 		}
 		return ua;
 	}

@@ -513,7 +513,7 @@
                                 	<div class="form-group">
                                         <label class="col-md-3 control-label">Booth Description</label>
                                         <div class="col-md-9">
-                                            <textarea class="form-control" rows="4" id="textBoothDesc" placeholder="usually put your business description here and should be in the chosen language"></textarea>
+                                            <textarea class="form-control" rows="4" id="langBizDesc" placeholder="usually put your business description here and should be in the chosen language"></textarea>
                                             <span class="help-inline" id="msgLangBizDesc1"></span>
                                         </div>
                                     </div>

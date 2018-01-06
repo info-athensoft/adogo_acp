@@ -9,6 +9,8 @@ public class Role {
 	
 	public static final Integer SYS_OPERATOR	= 11;
 	
+	
+	public static final Integer ADMIN			= 20;
 	public static final Integer SYS_ADMIN		= 21;
 	public static final Integer SYS_SUPERADMIN	= 22;
 	

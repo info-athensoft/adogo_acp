@@ -63,7 +63,14 @@ public class UserRoleService {
 		return isRole;
 	}
 	
-	
+	public boolean isAdminUnderAccount(long acctId){
+		boolean isRole = false;
+		ArrayList<Integer> roleIdList = userRoleDao.getRoleIdListByAcctId(acctId);
+		if(roleIdList.contains(Role.ADMIN)){
+			isRole = true;
+		}
+		return isRole;
+	}
 	
 	
 }

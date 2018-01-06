@@ -55,6 +55,11 @@
             <bean class="com.adogo.web.interceptor.AdvertiserInterceptor"/>
         </mvc:interceptor>
         
+        <mvc:interceptor>
+            <mvc:mapping path="/uaas/**"/>
+            <bean class="com.adogo.web.interceptor.UaasInterceptor"/>
+        </mvc:interceptor>
+        
 	</mvc:interceptors>
 	
 </beans>
