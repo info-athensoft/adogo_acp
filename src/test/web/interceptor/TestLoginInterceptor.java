@@ -15,7 +15,7 @@ import com.adogo.uaas.entity.UserAccount;
 import test.service.TestUserRoleService;
 
 public class TestLoginInterceptor extends HandlerInterceptorAdapter {
-	private static final String[] FILTERS = {"login", "assets"};
+	private static final String[] FILTERS = {"login", "assets", "test"};
 	private static final String LOGIN = "login";
 //	private static final int ADVERTISER = 2;
     private static final String ACP_LOGIN = "/acp/login";

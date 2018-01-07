@@ -16,6 +16,16 @@ public class TestIndexController {
 		return "test/index_sample";
 	}
 	
+	@RequestMapping("/testfw")
+	public String gotoTestFormWizard(){
+		return "test/form_wizard2";
+	}
+	
+	@RequestMapping("/testfv")
+	public String gotoTestFormValidation(){
+		return "test/form_validation";
+	}
+	
 	public void testSession(HttpSession session, 
 							@RequestParam long acctId,
 							@RequestParam String acctName){
