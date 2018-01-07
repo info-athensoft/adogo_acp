@@ -43,5 +43,11 @@ public class GlobalController {
 	}
 	
 	
+	@RequestMapping("/testjs")
+	public String gotoIndexTest(){
+		System.out.println("/testjs");
+		return "index-test";
+	}
+	
 		
 }
