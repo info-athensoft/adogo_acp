@@ -419,18 +419,18 @@ public class BusinessProfileController {
 		logger.info("entering... /advertiser/biz/create");
 		
 		/* get data from session */
-		Object userIdObj = session.getAttribute("userId");
-		Object advertiserIdObj = session.getAttribute("advertiserId");
-		long userId = 0L;
-		long advertiserId = 0L;
 		String errorMsg = "";
 		
+		long userId = 0L;
+		Object userIdObj = session.getAttribute("userId");
 		if(userIdObj != null){
 			userId = (Long)userIdObj;
 		}else{
 			errorMsg = MSG_NO_SUCH_USER;
 		}
 		
+		long advertiserId = 0L;
+		Object advertiserIdObj = session.getAttribute("advertiserId");
 		if(advertiserIdObj != null){
 			advertiserId = (Long)advertiserIdObj;
 		}else{
@@ -467,6 +467,7 @@ public class BusinessProfileController {
 		Integer bizType 	= bizTypeProduct+bizTypeEProduct+bizTypeService;
 		
 		BusinessProfile businessProfile = new BusinessProfile();
+		businessProfile.setUserId(userId);
 		businessProfile.setAdvertiserId(advertiserId);
 		businessProfile.setBizId(bizId);
 		businessProfile.setBizName(bizName);
@@ -486,6 +487,7 @@ public class BusinessProfileController {
 		businessProfile.setBizStatus(BusinessStatus.CREATED);
 		
 		BusinessAddress hqAddress = new BusinessAddress();
+		hqAddress.setAdvertiserId(advertiserId);
 		hqAddress.setBizId(bizId);
 		hqAddress.setStreetNo(streetNo);
 		hqAddress.setStreetType(streetType);
@@ -610,14 +612,22 @@ public class BusinessProfileController {
 	 */
 	@RequestMapping(value="/save",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
-	public Map<String,Object> saveBizProfile(HttpSession session, @RequestParam String bizProfileJSONString){		
+	public Map<String,Object> updateBizProfile(HttpSession session, @RequestParam String bizProfileJSONString){		
 		logger.info("entering... /advertiser/biz/save");
 		
 		/* get data from session */
-		Object advertiserIdObj = session.getAttribute("advertiserId");
-		long advertiserId = 0L;
 		String errorMsg = "";
 		
+		long userId = 0L;
+		Object userIdObj = session.getAttribute("userId");
+		if(userIdObj != null){
+			userId = (Long)userIdObj;
+		}else{
+			errorMsg = MSG_NO_SUCH_USER;
+		}
+		
+		long advertiserId = 0L;
+		Object advertiserIdObj = session.getAttribute("advertiserId");
 		if(advertiserIdObj != null){
 			advertiserId = (Long)advertiserIdObj;
 		}else{
@@ -670,6 +680,7 @@ public class BusinessProfileController {
 		}
 		
 		BusinessProfile bp = new BusinessProfile();
+		bp.setUserId(userId);
 		bp.setAdvertiserId(advertiserId);
 		bp.setBizId(bizId);
 		bp.setBizName(bizName);

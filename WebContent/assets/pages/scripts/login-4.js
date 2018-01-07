@@ -262,17 +262,7 @@ var Login = function () {
 		       webapp_name+"/assets/pages/media/bg/3.jpg",
 		       webapp_name+"/assets/pages/media/bg/4.jpg",
 		       webapp_name+"/assets/pages/media/bg/5.jpg",
-		       webapp_name+"/assets/pages/media/bg/6.jpg",
-		       webapp_name+"/assets/pages/media/bg/7.jpg",
-		       webapp_name+"/assets/pages/media/bg/8.jpg",
-		       webapp_name+"/assets/pages/media/bg/9.jpg",
-		       webapp_name+"/assets/pages/media/bg/10.jpg",
-		       webapp_name+"/assets/pages/media/bg/11.jpg",
-		       webapp_name+"/assets/pages/media/bg/12.jpg",
-		       webapp_name+"/assets/pages/media/bg/13.jpg",
-		       webapp_name+"/assets/pages/media/bg/14.jpg",
-		       webapp_name+"/assets/pages/media/bg/15.jpg",
-		       webapp_name+"/assets/pages/media/bg/16.jpg"
+		       webapp_name+"/assets/pages/media/bg/6.jpg"
 		        ], {
 		         // fade: 500,
 		         // duration: 1000	

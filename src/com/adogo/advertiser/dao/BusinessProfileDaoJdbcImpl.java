@@ -251,6 +251,7 @@ public class BusinessProfileDaoJdbcImpl implements BusinessProfileDao{
 		sbf.append("biz_website,");		
 		sbf.append("biz_desc,");
 		sbf.append("biz_status) ");
+		
 		sbf.append("VALUES(");
 		sbf.append(":user_id,");
 		sbf.append(":advertiser_id,");

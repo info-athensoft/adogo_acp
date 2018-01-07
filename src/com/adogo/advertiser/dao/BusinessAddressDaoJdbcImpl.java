@@ -90,6 +90,7 @@ public class BusinessAddressDaoJdbcImpl implements BusinessAddressDao {
 	public int create(BusinessAddress ba) {
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("INSERT INTO ").append(TABLE).append(" (");
+		sbf.append("advertiser_id,");
 		sbf.append("biz_id,");
 		sbf.append("street_no,");
 		sbf.append("street_type,");
@@ -102,6 +103,7 @@ public class BusinessAddressDaoJdbcImpl implements BusinessAddressDao {
 		sbf.append("loc_type");
 		sbf.append(")");
 		sbf.append(" VALUES(");
+		sbf.append(":advertiser_id,");
 		sbf.append(":biz_id,");
 		sbf.append(":street_no,");
 		sbf.append(":street_type,");
@@ -118,6 +120,8 @@ public class BusinessAddressDaoJdbcImpl implements BusinessAddressDao {
 		logger.info(sql);
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("biz_id", ba.getBizId());
+		paramSource.addValue("advertiser_id", ba.getAdvertiserId());
 		paramSource.addValue("street_no", ba.getStreetNo());
 		paramSource.addValue("street_type",ba.getStreetType());
 		paramSource.addValue("street_name",ba.getStreetName());
@@ -126,8 +130,6 @@ public class BusinessAddressDaoJdbcImpl implements BusinessAddressDao {
 		paramSource.addValue("loc_city",ba.getCityName());
 		paramSource.addValue("loc_prov",ba.getProvName());
 		paramSource.addValue("postal_code",ba.getPostalCode());
-		
-		paramSource.addValue("biz_id", ba.getBizId());
 		paramSource.addValue("loc_type", ba.getLocationType());
 		return jdbc.update(sql,paramSource);
 	}

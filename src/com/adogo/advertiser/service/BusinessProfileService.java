@@ -75,11 +75,11 @@ public class BusinessProfileService {
 	
 	@Transactional
 	public void createBusinessProfile(BusinessProfile bp){
-		logger.info("enter saveBusinessProfile(BusinessProfile bp)");
+//		logger.info("enter saveBusinessProfile(BusinessProfile bp)");
 		businessProfileDao.create(bp);
 		businessAddressDao.create(bp.getHqAddress());
 		businessOnlinePresenceDao.createInBatch(bp.getBusinessOnlinePresenceList());
-		logger.info("exit saveBusinessProfile(BusinessProfile bp)");
+//		logger.info("exit saveBusinessProfile(BusinessProfile bp)");
 	}
 	
 	public void updateBusinessProfile(BusinessProfile bp){
