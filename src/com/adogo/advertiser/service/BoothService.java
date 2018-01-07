@@ -40,7 +40,7 @@ public class BoothService {
 	}
 	
 	@Autowired
-	@Qualifier("boothTextDaoDaoJdbcImpl")
+	@Qualifier("boothTextDaoJdbcImpl")
 	public void setBoothTextDao(BoothTextDao boothTextDao) {
 		this.boothTextDao = boothTextDao;
 	}
@@ -80,6 +80,4 @@ public class BoothService {
 		}
 		return subListBooth;
 	}
-	
-	
 }

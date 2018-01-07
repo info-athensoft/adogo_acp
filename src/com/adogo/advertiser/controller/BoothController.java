@@ -312,7 +312,7 @@ public class BoothController {
 		bt2.setBoothId(boothId);
 		bt2.setTextTitle(textTitle2);
 		bt2.setTextContent(text2);
-		bt1.setSortNo(2);				//HARDCODE
+		bt2.setSortNo(2);				//HARDCODE
 		
 		BoothText bt3 = new BoothText();
 		bt3.setUserId(userId);
@@ -322,7 +322,7 @@ public class BoothController {
 		bt3.setBoothId(boothId);
 		bt3.setTextTitle(textTitle3);
 		bt3.setTextContent(text3);
-		bt1.setSortNo(3);				//HARDCODE
+		bt3.setSortNo(3);				//HARDCODE
 		
 		List<BoothText> boothTextList = new ArrayList<BoothText>();
 		boothTextList.add(bt1);
