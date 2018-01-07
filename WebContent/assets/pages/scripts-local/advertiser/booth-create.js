@@ -13,7 +13,7 @@ function getBusinessCreateObject(){
     var p5 = $("#langNo").val();
     var p6 = $("#langBoothName").val();
     var p7 = $("#categoryNo").val();
-    var p8 = $("#langBizDesc").val();
+    var p8 = $("#langBizDesc").val();	//booth description in specified language
     
     //booth cover image
     var p9 = $("#booth-cover-img-url").val();
@@ -26,6 +26,15 @@ function getBusinessCreateObject(){
     if(p10.trim()==''){
     	p10 = "http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image";
     }
+    
+    //booth introduction - text content
+    var p41 = $("#textTitle1").val();
+    var p42 = $("#text1").val();
+    var p43 = $("#textTitle2").val();
+    var p44 = $("#text2").val();
+    var p45 = $("#textTitle3").val();
+    var p46 = $("#text3").val();
+    
     
     //business hours
     var p61 = $("#day1_start_time").val();        
@@ -46,7 +55,7 @@ function getBusinessCreateObject(){
     
     var businessObject =
     {
-//    		userId    		:   p1,
+//    		userId    		:   p1,		//booth basic info.
     		advertiserId    :   p2,
     		bizId    		:   p3,
     		bizName    		:   p4,
@@ -57,24 +66,30 @@ function getBusinessCreateObject(){
     		boothImg		: 	p9,		//booth cover image
     		
     		
-    		boothBannerImg	:	p10,		//booth banner image
+    		boothBannerImg	:	p10,	//booth banner image
     		
-    		day1StartTime   	:   p61,
-    		day1EndTime    		:   p62,
-    		day2StartTime   	:   p63,
-    		day2EndTime    		:   p64,          
-    		day3StartTime   	:   p65,
-    		day3EndTime    		:   p65,
-    		day4StartTime   	:   p66,
-    		day4EndTime    		:   p67,
-    		day5StartTime   	:   p68,
-    		day5EndTime    		:   p69,          
-    		day6StartTime   	:   p70,
-    		day6EndTime    		:   p71,
-    		day7StartTime   	:   p72,
-    		day7EndTime    		:   p73,
-    		comment             :   p74,
+    		textTitle1		:	p41,	//booth introduction
+    		text1			:	p42,
+    		textTitle2		:	p43,
+    		text2			:	p44,
+    		textTitle3		:	p45,
+    		text3			:	p46,
     		
+    		day1StartTime   :   p61,	//business hours
+    		day1EndTime    	:   p62,
+    		day2StartTime   :   p63,
+    		day2EndTime    	:   p64,          
+    		day3StartTime   :   p65,
+    		day3EndTime    	:   p65,
+    		day4StartTime   :   p66,
+    		day4EndTime    	:   p67,
+    		day5StartTime   :   p68,
+    		day5EndTime    	:   p69,          
+    		day6StartTime   :   p70,
+    		day6EndTime    	:   p71,
+    		day7StartTime   :   p72,
+    		day7EndTime    	:   p73,
+    		comment         :   p74   		
     		
     };
     

@@ -22,6 +22,7 @@ import com.adogo.advertiser.entity.MediaType;
 import com.adogo.advertiser.entity.booth.Booth;
 import com.adogo.advertiser.entity.booth.BoothImage;
 import com.adogo.advertiser.entity.booth.BoothStatus;
+import com.adogo.advertiser.entity.booth.BoothText;
 import com.adogo.advertiser.entity.business.BusinessAddress;
 import com.adogo.advertiser.entity.business.BusinessHours;
 import com.adogo.advertiser.entity.business.BusinessProfile;
@@ -233,9 +234,18 @@ public class BoothController {
 		String langBizDesc		= jsonObj.getString("langBizDesc");
 		String boothImg			= jsonObj.getString("boothImg");
 		
-		//booth banner
+		//booth banner image
 		String boothBannerImgUrl= jsonObj.getString("boothBannerImg");
 		
+		//booth introduction 
+		String textTitle1 		= jsonObj.getString("textTitle1");
+		String text1 			= jsonObj.getString("text1");
+		String textTitle2 		= jsonObj.getString("textTitle2");
+		String text2 			= jsonObj.getString("text2");
+		String textTitle3 		= jsonObj.getString("textTitle3");
+		String text3 			= jsonObj.getString("text3");
+		
+		//business hours
 		String day1StartTime 	= jsonObj.getString("day1StartTime");
 		String day1EndTime 		= jsonObj.getString("day1EndTime");
 		String day2StartTime 	= jsonObj.getString("day2StartTime");
@@ -257,6 +267,7 @@ public class BoothController {
 		logger.info("boothId="+boothId);
 		final Date today = new Date();
 		
+		//booth basic information
 		Booth booth = new Booth();
 		booth.setUserId(userId);
 		booth.setAdvertiserId(advertiserId);
@@ -272,6 +283,7 @@ public class BoothController {
 		booth.setModifyDate(today);
 		booth.setBoothStatus(BoothStatus.CREATED);
 		
+		//booth banner image
 		BoothImage boothBanner = new BoothImage();
 		boothBanner.setUserId(userId);
 		boothBanner.setAdvertiserId(advertiserId);
@@ -281,7 +293,43 @@ public class BoothController {
 		boothBanner.setMediaUrl(boothBannerImgUrl);
 		boothBanner.setMediaType(MediaType.BANNER_IMAGE);		
 		
+		//booth introduction
+		BoothText bt1 = new BoothText();
+		bt1.setUserId(userId);
+		bt1.setAdvertiserId(advertiserId);
+		bt1.setBizId(bizId);
+		bt1.setLangNo(langNo);
+		bt1.setBoothId(boothId);
+		bt1.setTextTitle(textTitle1);
+		bt1.setTextContent(text1);
+		bt1.setSortNo(1);				//HARDCODE
 		
+		BoothText bt2 = new BoothText();
+		bt2.setUserId(userId);
+		bt2.setAdvertiserId(advertiserId);
+		bt2.setBizId(bizId);
+		bt2.setLangNo(langNo);
+		bt2.setBoothId(boothId);
+		bt2.setTextTitle(textTitle2);
+		bt2.setTextContent(text2);
+		bt1.setSortNo(2);				//HARDCODE
+		
+		BoothText bt3 = new BoothText();
+		bt3.setUserId(userId);
+		bt3.setAdvertiserId(advertiserId);
+		bt3.setBizId(bizId);
+		bt3.setLangNo(langNo);
+		bt3.setBoothId(boothId);
+		bt3.setTextTitle(textTitle3);
+		bt3.setTextContent(text3);
+		bt1.setSortNo(3);				//HARDCODE
+		
+		List<BoothText> boothTextList = new ArrayList<BoothText>();
+		boothTextList.add(bt1);
+		boothTextList.add(bt2);
+		boothTextList.add(bt3);
+		
+		//business hours
 		BusinessHours businessHours = new BusinessHours();
 		businessHours.setUserId(userId);
 		businessHours.setAdvertiserId(advertiserId);
@@ -304,8 +352,10 @@ public class BoothController {
 		businessHours.setDay7EndTime(day7EndTime);
 		businessHours.setComment(comment);
 		
+		// set contained objects
 		booth.setBoothBanner(boothBanner);
 		booth.setBusinessHours(businessHours);
+		booth.setBoothTextList(boothTextList);
 		
 		/* execute business logic */
 		this.boothService.createBooth(booth);
@@ -316,8 +366,6 @@ public class BoothController {
 		
 		/* set data */
 		model.put("errorMsg", errorMsg);
-		
-		/* set view */
 		
 		logger.info("exiting... /advertiser/booth/create");
 		return model;

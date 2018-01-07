@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Repository;
 
 import com.adogo.advertiser.entity.booth.BoothText;
@@ -83,7 +85,9 @@ public class BoothTextDaoJdbcImpl implements BoothTextDao {
 		sbf.append(":text_content,");
 		sbf.append(":sort_no ");
 		sbf.append(")");
+		
 		String sql = sbf.toString();
+		logger.info(sql);
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("user_id", x.getUserId());
@@ -95,18 +99,81 @@ public class BoothTextDaoJdbcImpl implements BoothTextDao {
 		paramSource.addValue("text_content", x.getTextContent());
 		paramSource.addValue("sort_no", x.getSortNo());
 		
-		
-		logger.info(sql);
-		
 		return jdbc.update(sql,paramSource);
 	}
 
 	@Override
-	public int update(BoothText boothText) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int[] createInBatch(List<BoothText> boothTextList) {
+		//WARNING: when creating batch, the placeholder name must be the same as the property name defined in the entity class
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("INSERT INTO ").append(TABLE).append("(");
+		sbf.append("user_id,");
+		sbf.append("advertiser_id,");
+		sbf.append("biz_id,");
+		sbf.append("lang_no,");
+		sbf.append("booth_id,");
+		sbf.append("text_title,");
+		sbf.append("text_content,");
+		sbf.append("sort_no");
+		sbf.append(")");
+		
+		sbf.append(" VALUES (");
+		sbf.append(":userId,");
+		sbf.append(":advertiserId,");
+		sbf.append(":bizId,");
+		sbf.append(":langNo,");
+		sbf.append(":boothId,");
+		sbf.append(":textTitle,");
+		sbf.append(":textContent,");
+		sbf.append(":sortNo");
+		sbf.append(")");
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		SqlParameterSource[] batch = SqlParameterSourceUtils.createBatch(boothTextList.toArray());
+		int[] updateCounts = jdbc.batchUpdate(sql, batch);
+		return updateCounts;
+	}
+
+	@Override
+	public int update(BoothText x) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE ").append(TABLE).append(" SET ");
+		sbf.append("text_title=:textTitle,");
+		sbf.append("text_content=:textContent");
+		sbf.append(" WHERE 1=1");
+		sbf.append(" AND booth_id=:boothId ");
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("booth_id", x.getBoothId());
+		paramSource.addValue("text_title", x.getTextTitle());
+		paramSource.addValue("text_content", x.getTextContent());
+		
+		return jdbc.update(sql,paramSource);
 	}
 	
+	@Override
+	public int[] updateInBatch(List<BoothText> boothTextList) {
+		//WARNING: when creating batch, the placeholder name must be the same as the property name defined in the entity class
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE ").append(TABLE).append(" SET ");
+		sbf.append("text_title=:textTitle,");
+		sbf.append("text_content=:textContent");
+		sbf.append(" WHERE 1=1");
+		sbf.append(" AND booth_id=:boothId ");
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		SqlParameterSource[] batch = SqlParameterSourceUtils.createBatch(boothTextList.toArray());
+		int[] updateCounts = jdbc.batchUpdate(sql, batch);
+		return updateCounts;
+	}
+
 	private static class BoothTextRowMapper implements RowMapper<BoothText>{
 		@Override
 		public BoothText mapRow(ResultSet rs, int rowNumber) throws SQLException {

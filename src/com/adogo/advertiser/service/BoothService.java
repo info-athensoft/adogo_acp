@@ -10,28 +10,28 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.adogo.advertiser.dao.BoothDao;
 import com.adogo.advertiser.dao.BoothImageDao;
+import com.adogo.advertiser.dao.BoothTextDao;
 import com.adogo.advertiser.dao.BusinessHoursDao;
 import com.adogo.advertiser.entity.booth.Booth;
 
 @Service
 public class BoothService {
 	private BoothDao boothDao;
-
+	private BoothImageDao boothImageDao;
+	private BusinessHoursDao businessHoursDao;
+	private BoothTextDao boothTextDao;
+	
 	@Autowired
 	@Qualifier("boothDaoJdbcImpl")
 	public void setBoothDao(BoothDao boothDao) {
 		this.boothDao = boothDao;
 	}
-	
-	private BoothImageDao boothImageDao;
 
 	@Autowired
 	@Qualifier("boothImageDaoJdbcImpl")
 	public void setBoothImageDao(BoothImageDao boothImageDao) {
 		this.boothImageDao = boothImageDao;
 	}
-	
-	private BusinessHoursDao businessHoursDao;
 
 	@Autowired
 	@Qualifier("businessHoursDaoJdbcImpl")
@@ -39,6 +39,12 @@ public class BoothService {
 		this.businessHoursDao = businessHoursDao;
 	}
 	
+	@Autowired
+	@Qualifier("boothTextDaoDaoJdbcImpl")
+	public void setBoothTextDao(BoothTextDao boothTextDao) {
+		this.boothTextDao = boothTextDao;
+	}
+
 	public List<Booth> getBoothByUserId(long userId){
 		return boothDao.findBoothByUserId(userId);
 	}
@@ -60,6 +66,7 @@ public class BoothService {
 		boothDao.create(booth);
 		boothImageDao.create(booth.getBoothBanner());
 		businessHoursDao.create(booth.getBusinessHours());
+		boothTextDao.createInBatch(booth.getBoothTextList());
 	}
 	
 	public List<Booth> getSubListBoothByBizId(List<Booth> listBooth, long bizId){
