@@ -50,7 +50,7 @@ public class UserRoleService {
 		ArrayList<Integer> roleIdList = userRoleDao.getRoleIdListByAcctId(acctId);
 		if(roleIdList.contains(Role.DISTRIBUTOR)){
 			isRole = true;
-		}
+	}
 		return isRole;
 	}
 	

@@ -10,14 +10,13 @@ import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.adogo.uaas.entity.UserAccount;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter{
 	
 	private static final Logger logger = Logger.getLogger(LoginInterceptor.class);
 	
 //	private static final String[] FILTERS = {"login", "assets"};
-	private static final String LOGIN = "login";
+//	private static final String LOGIN = "login";
 //	private static final int ADVERTISER = 2;
     private static final String ACP_LOGIN = "/acp/login.html";
     
