@@ -128,9 +128,23 @@ public class BoothImageDaoJdbcImpl implements BoothImageDao {
 	}
 
 	@Override
-	public int update(BoothImage boothImage) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int update(BoothImage x) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE ").append(TABLE).append(" SET ");
+		sbf.append("media_url=:media_url");
+		
+		sbf.append(" WHERE 1=1");
+		sbf.append(" AND booth_id=:booth_id");
+		
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("booth_id", x.getBoothId());
+		paramSource.addValue("media_url", x.getMediaUrl());
+		
+		return jdbc.update(sql,paramSource);
 	}
 
 	private static class BoothImageRowMapper implements RowMapper<BoothImage>{

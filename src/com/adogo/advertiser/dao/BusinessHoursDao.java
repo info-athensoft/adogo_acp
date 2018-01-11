@@ -9,6 +9,7 @@ public interface BusinessHoursDao {
 	 * @return
 	 */
 	public BusinessHours findBusinessHoursByBusinessId(Long businessId);
+	public BusinessHours findByBoothId(Long boothId);
 	public int persistBusinessHours(BusinessHours businessHours);
 	
 	public int create(BusinessHours businessHours);

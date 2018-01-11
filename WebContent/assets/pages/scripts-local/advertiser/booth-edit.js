@@ -1,11 +1,11 @@
 /**
  * Package:	advertiser
  * Module:  booth
- * Page:	booth_create.jsp
+ * Page:	booth_edit.jsp
  */
 
 
-function getBusinessCreateObject(){
+function getBusinessEditObject(){
 //  var p1 = $("#userId").val();
     var p2 = $("#advertiserId").val();
     var p3 = $("#bizId").val();
@@ -80,16 +80,16 @@ function getBusinessCreateObject(){
     		day2StartTime   :   p63,
     		day2EndTime    	:   p64,          
     		day3StartTime   :   p65,
-    		day3EndTime    	:   p65,
-    		day4StartTime   :   p66,
-    		day4EndTime    	:   p67,
-    		day5StartTime   :   p68,
-    		day5EndTime    	:   p69,          
-    		day6StartTime   :   p70,
-    		day6EndTime    	:   p71,
-    		day7StartTime   :   p72,
-    		day7EndTime    	:   p73,
-    		comment         :   p74   		
+    		day3EndTime    	:   p66,
+    		day4StartTime   :   p67,
+    		day4EndTime    	:   p68,
+    		day5StartTime   :   p69,
+    		day5EndTime    	:   p70,          
+    		day6StartTime   :   p71,
+    		day6EndTime    	:   p72,
+    		day7StartTime   :   p73,
+    		day7EndTime    	:   p74,
+    		comment         :   p75   		
     		
     };
     
@@ -97,79 +97,25 @@ function getBusinessCreateObject(){
     return businessObject;
 }
 
+
+
 /**
- * Trigger : button link [Quick Save]
+ * Trigger : button link [Save]
  * @Author Athens
  */
-function createBooth(){
-//	alert("INFO: createBooth()");
-	var businessObject = getBusinessCreateObject();
+function updateBooth(){
+//	alert("INFO: updateBooth()");
+	var businessObject = getBusinessEditObject();
 	
 	$.ajax({
 		type	:	"post",
-		url		:	"/acp/advertiser/booth/create",
+		url		:	"/acp/advertiser/booth/update",
 		dataType:	"json",
 		data	: 	{boothJSONString : JSON.stringify(businessObject) },
 		timeout : 	5000,
 		success	:	function(data){
-//			alert("INFO: createBooth success");
+//			alert("INFO: updateBooth success");
 			window.location.href="/acp/advertiser/booth/";
 		}
 	});
-}
-
-function chooseLanguage(){
-//	alert("INFO: chooseLanguage()");
-	var langName=$("#langNo").find("option:selected").text();
-	var langNoValue = $("#langNo").val();
-//	alert(langNoValue);
-	if(langNoValue!=0){
-		$("#msgLangBoothName").text("Booth name must be in "+langName);
-		$("#msgLangBizDesc1").text("This must be written in "+langName);
-		$("#msgLangBizDesc2").text("This must be written in "+langName);
-		$("#msgLangBizDesc3").text("This must be written in "+langName);
-		$("#msgLangBizDesc4").text("This must be written in "+langName);
-	}else{
-		$("#msgLangBoothName").text("");
-		$("#msgLangBizDesc1").text("");
-		$("#msgLangBizDesc2").text("");
-		$("#msgLangBizDesc3").text("");
-		$("#msgLangBizDesc4").text("");
-	}
-}
-
-
-
-
-//----------------------------------------------------------------
-
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        
-        reader.onload = function (e) {
-            $('#blah').attr('src', e.target.result);
-        }
-        
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-
-function testButtonConfirmLang(){
-	alert("ok");
-}
-
-//may be a problem, not perfect yet
-function showCategoryList(){
-//	alert("INFO: showCategoryList()");	
-	
-	$("#boothCategoryDiv").toggle(
-		function() {
-	    	$("#boothCategoryChooser").text("Collpase");
-		},
-		function() {
-		    $("#boothCategoryChooser").html("&nbsp;&nbsp;Choose&nbsp;&nbsp;");
-		}
-	);
 }

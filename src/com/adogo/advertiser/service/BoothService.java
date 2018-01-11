@@ -13,6 +13,9 @@ import com.adogo.advertiser.dao.BoothImageDao;
 import com.adogo.advertiser.dao.BoothTextDao;
 import com.adogo.advertiser.dao.BusinessHoursDao;
 import com.adogo.advertiser.entity.booth.Booth;
+import com.adogo.advertiser.entity.booth.BoothImage;
+import com.adogo.advertiser.entity.booth.BoothText;
+import com.adogo.advertiser.entity.business.BusinessHours;
 
 @Service
 public class BoothService {
@@ -21,6 +24,20 @@ public class BoothService {
 	private BusinessHoursDao businessHoursDao;
 	private BoothTextDao boothTextDao;
 	
+	private BoothImageService boothImageService;
+	
+	@Autowired
+	public void setBoothImageService(BoothImageService boothImageService) {
+		this.boothImageService = boothImageService;
+	}
+	
+	private BoothTextService boothTextService;
+	
+	@Autowired
+	public void setBoothTextService(BoothTextService boothTextService) {
+		this.boothTextService = boothTextService;
+	}
+
 	@Autowired
 	@Qualifier("boothDaoJdbcImpl")
 	public void setBoothDao(BoothDao boothDao) {
@@ -58,7 +75,14 @@ public class BoothService {
 	}
 	
 	public Booth getBoothByBoothId(long boothId){
-		return boothDao.findBoothByBoothId(boothId);
+		Booth booth = boothDao.findBoothByBoothId(boothId);
+		BoothImage boothBanner = boothImageService.getBoothBannerByBoothId(boothId);
+		BusinessHours businessHours = businessHoursDao.findByBoothId(boothId);
+		List<BoothText> boothTextList = boothTextService.getBoothTextByBoothId(boothId);
+		booth.setBoothBanner(boothBanner);
+		booth.setBusinessHours(businessHours);
+		booth.setBoothTextList(boothTextList);
+		return booth;
 	}
 	
 	@Transactional
@@ -67,6 +91,14 @@ public class BoothService {
 		boothImageDao.create(booth.getBoothBanner());
 		businessHoursDao.create(booth.getBusinessHours());
 		boothTextDao.createInBatch(booth.getBoothTextList());
+	}
+	
+	@Transactional
+	public void updateBooth(Booth booth){
+		boothDao.update(booth);
+		boothImageDao.update(booth.getBoothBanner());
+		businessHoursDao.update(booth.getBusinessHours());
+		boothTextDao.updateInBatch(booth.getBoothTextList());
 	}
 	
 	public List<Booth> getSubListBoothByBizId(List<Booth> listBooth, long bizId){

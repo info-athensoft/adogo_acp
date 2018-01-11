@@ -209,7 +209,9 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		sbf.append(":create_date,");
 		sbf.append(":modify_date,");
 		sbf.append(":booth_status) ");
+		
 		String sql = sbf.toString();
+		logger.info(sql);
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("user_id", x.getUserId());
@@ -229,16 +231,39 @@ public class BoothDaoJdbcImpl implements BoothDao {
 		paramSource.addValue("create_date", x.getCreateDate());
 		paramSource.addValue("modify_date", x.getModifyDate());
 		paramSource.addValue("booth_status", x.getBoothStatus());
-		
-		logger.info(sql);
+
 		
 		return jdbc.update(sql,paramSource);
 	}
 
 	@Override
 	public int update(Booth x) {
-		// TODO Auto-generated method stub
-		return 0;
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE ").append(TABLE).append(" SET ");
+		sbf.append("booth_name=:booth_name,");
+		sbf.append("booth_img=:booth_img,");
+		sbf.append("biz_desc=:biz_desc,");
+		sbf.append("category_no=:category_no,");
+		sbf.append("modify_date=:modify_date,");
+		sbf.append("booth_status=:booth_status");
+		
+		sbf.append(" WHERE 1=1");
+		sbf.append(" AND booth_id=:booth_id");
+		
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+		
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("booth_id", x.getBoothId());
+		paramSource.addValue("booth_name", x.getBoothName());
+		paramSource.addValue("category_no", x.getCategoryNo());
+		paramSource.addValue("booth_img", x.getBoothImg());
+		paramSource.addValue("biz_desc", x.getBizDesc());
+		paramSource.addValue("modify_date", x.getModifyDate());
+		paramSource.addValue("booth_status", x.getBoothStatus());
+		
+		return jdbc.update(sql,paramSource);
 	}
 
 	private static class BoothRowMapper implements RowMapper<Booth>{

@@ -165,6 +165,7 @@ public class BoothTextDaoJdbcImpl implements BoothTextDao {
 		sbf.append("text_content=:textContent");
 		sbf.append(" WHERE 1=1");
 		sbf.append(" AND booth_id=:boothId ");
+		sbf.append(" AND sort_no=:sortNo ");
 		
 		String sql = sbf.toString();
 		logger.info(sql);

@@ -164,7 +164,7 @@
                                 Create a booth <span class="caption-helper"> under ${bizProfile.bizName} </span>
                             </div>
                             <div class="actions">
-                                <a href="#" class="btn btn-circle btn-info">
+                                <a href="createBooth(); return false;" class="btn btn-circle btn-info">
                                     <span> Save and Create </span>
                                 </a>
                                 <div class="btn-group">
@@ -172,23 +172,6 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                        	<!-- TEST -->
-                        	<!-- 
-                        	<div class="row">
-                                <div class="col-md-4">
-                                	<select class="form-control input-inline input-small input-sm" name="groupOption">
-						                <option value="">Select...</option>
-										<option value="1">Publish</option>
-										<option value="2">Wait to post</option>
-										<option value="3">Delete</option>
-										<option value="4">Out of date</option>
-										<option value="5">Suspend</option>
-						            </select>
-			                        <a class="btn btn-sm yellow"><i class="fa fa-check"></i> Submit</a>
-                                </div>
-                            </div>
-                            -->
-                            <!-- END TEST -->
                             <div class="row">
                     			<span class="col-md-3 bold"> Adogo Advertiser ID: </span>
                     			<span class="col-md-6">${bizProfile.advertiserId}</span>
@@ -662,15 +645,6 @@
                                     </div>
                                 </div> 
 	                            
-	                            
-	                            <div class="form-actions">
-	                                <div class="row">
-	                                    <div class="col-md-offset-3 col-md-7">
-	                                        <a class="btn green" onclick="createBooth(); return false;">Save and Create</a>
-	                                        <a class="btn default" onclick="cancelCreateBooth(); return false;">Cancel</a>
-	                                    </div>
-	                                </div>
-	                            </div>
 	                        </div>
 	                    </div>
             		</div>
@@ -818,6 +792,14 @@
                                             </div>
                                             
                                         </div>
+                                    	<div class="form-actions">
+			                                <div class="row">
+			                                    <div class="col-md-offset-3 col-md-7">
+			                                        <a class="btn green" onclick="createBooth(); return false;">Save and Create</a>
+			                                        <a class="btn default" onclick="cancelCreateBooth(); return false;">Cancel</a>
+			                                    </div>
+			                                </div>
+		                            	</div>
                                     </div>
                                 </div>
                     		</div>
@@ -1014,6 +996,7 @@
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/temp/adpost-create-test.js"></script>
  -->
  <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/booth-create.js"></script>
+ <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/booth-upload.js"></script>
 
 <script>
 jQuery(document).ready(function() {

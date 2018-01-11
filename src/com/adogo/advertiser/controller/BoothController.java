@@ -384,6 +384,9 @@ public class BoothController {
 		
 		/* execute business logic */
 		Booth booth = boothService.getBoothByBoothId(boothId);
+		BusinessProfile bizProfile = businessProfileService.getBusinessProfileByBizId(booth.getBizId());
+		
+		logger.info(booth.toString());	//TEST
 		
 		/* assemble model and view */ 
 		ModelAndView mav = new ModelAndView();
@@ -391,6 +394,8 @@ public class BoothController {
 		
 		/* set data */
 		model.put("booth", booth);
+		model.put("bizProfile", bizProfile);
+		model.put("langMapObj", langMapObj);
 		
 		/* set view */
 		String viewName = "advertiser/booth_edit";
@@ -399,6 +404,175 @@ public class BoothController {
 		logger.info("exiting... /advertiser/booth/edit.html");
 		return mav;
 	}
+	
+	/**
+	 * update a booth
+	 * @param boothJSONString
+	 * @return
+	 */
+	@RequestMapping(value="/update",method=RequestMethod.POST,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> updateBooth(HttpSession session, @RequestParam String boothJSONString){		
+		logger.info("entering... /advertiser/booth/update");
+		
+		/* get data from session */
+		Object userIdObj = session.getAttribute("userId");
+		long userId = 0L;
+		String errorMsg = "";
+		
+		if(userIdObj != null){
+			userId = (Long)userIdObj;
+		}else{
+			errorMsg = MSG_NO_SUCH_USER;
+		}
+		
+		/* get data from JSON */		
+		JSONObject jsonObj= new JSONObject(boothJSONString);
+		
+		Long advertiserId		= jsonObj.getLong("advertiserId");
+		Long bizId				= jsonObj.getLong("bizId");
+		String bizName			= jsonObj.getString("bizName");
+		Integer langNo			= jsonObj.getInt("langNo");
+		String langBoothName	= jsonObj.getString("langBoothName");
+		Integer categoryNo		= jsonObj.getInt("categoryNo");
+		String langBizDesc		= jsonObj.getString("langBizDesc");
+		String boothImg			= jsonObj.getString("boothImg");
+		
+		//booth banner image
+		String boothBannerImgUrl= jsonObj.getString("boothBannerImg");
+		
+		//booth introduction 
+		String textTitle1 		= jsonObj.getString("textTitle1");
+		String text1 			= jsonObj.getString("text1");
+		String textTitle2 		= jsonObj.getString("textTitle2");
+		String text2 			= jsonObj.getString("text2");
+		String textTitle3 		= jsonObj.getString("textTitle3");
+		String text3 			= jsonObj.getString("text3");
+		
+		//business hours
+		String day1StartTime 	= jsonObj.getString("day1StartTime");
+		String day1EndTime 		= jsonObj.getString("day1EndTime");
+		String day2StartTime 	= jsonObj.getString("day2StartTime");
+		String day2EndTime 		= jsonObj.getString("day2EndTime");
+		String day3StartTime 	= jsonObj.getString("day3StartTime");
+		String day3EndTime 		= jsonObj.getString("day3EndTime");
+		String day4StartTime 	= jsonObj.getString("day4StartTime");
+		String day4EndTime 		= jsonObj.getString("day4EndTime");
+		String day5StartTime 	= jsonObj.getString("day5StartTime");
+		String day5EndTime 		= jsonObj.getString("day5EndTime");
+		String day6StartTime 	= jsonObj.getString("day6StartTime");
+		String day6EndTime 		= jsonObj.getString("day6EndTime");
+		String day7StartTime 	= jsonObj.getString("day7StartTime");
+		String day7EndTime 		= jsonObj.getString("day7EndTime");
+		String comment			= jsonObj.getString("comment");
+		
+		
+		/* prepare data */
+		final Long boothId = Booth.createBoothId(bizId, langNo);
+		logger.info("boothId="+boothId);
+		final Date today = new Date();
+		
+		//booth basic information
+		Booth booth = new Booth();
+//		booth.setUserId(userId);
+//		booth.setAdvertiserId(advertiserId);
+//		booth.setBizId(bizId);
+//		booth.setBizName(bizName);
+//		booth.setLangNo(langNo);
+		booth.setBoothId(boothId);
+		booth.setBoothName(langBoothName);
+		booth.setBoothImg(boothImg);
+		booth.setCategoryNo(categoryNo);
+		booth.setBizDesc(langBizDesc);
+		booth.setModifyDate(today);
+		booth.setBoothStatus(BoothStatus.CREATED);
+		
+		//booth banner image
+		BoothImage boothBanner = new BoothImage();
+//		boothBanner.setUserId(userId);
+//		boothBanner.setAdvertiserId(advertiserId);
+//		boothBanner.setBizId(bizId);
+//		boothBanner.setLangNo(langNo);
+		boothBanner.setBoothId(boothId);
+		boothBanner.setMediaUrl(boothBannerImgUrl);
+//		boothBanner.setMediaType(MediaType.BANNER_IMAGE);		
+		
+		//booth introduction
+		BoothText bt1 = new BoothText();
+//		bt1.setUserId(userId);
+//		bt1.setAdvertiserId(advertiserId);
+//		bt1.setBizId(bizId);
+//		bt1.setLangNo(langNo);
+		bt1.setBoothId(boothId);
+		bt1.setTextTitle(textTitle1);
+		bt1.setTextContent(text1);
+		bt1.setSortNo(1);				//HARDCODE
+		
+		BoothText bt2 = new BoothText();
+//		bt2.setUserId(userId);
+//		bt2.setAdvertiserId(advertiserId);
+//		bt2.setBizId(bizId);
+//		bt2.setLangNo(langNo);
+		bt2.setBoothId(boothId);
+		bt2.setTextTitle(textTitle2);
+		bt2.setTextContent(text2);
+		bt2.setSortNo(2);				//HARDCODE
+		
+		BoothText bt3 = new BoothText();
+//		bt3.setUserId(userId);
+//		bt3.setAdvertiserId(advertiserId);
+//		bt3.setBizId(bizId);
+//		bt3.setLangNo(langNo);
+		bt3.setBoothId(boothId);
+		bt3.setTextTitle(textTitle3);
+		bt3.setTextContent(text3);
+		bt3.setSortNo(3);				//HARDCODE
+		
+		List<BoothText> boothTextList = new ArrayList<BoothText>();
+		boothTextList.add(bt1);
+		boothTextList.add(bt2);
+		boothTextList.add(bt3);
+		
+		//business hours
+		BusinessHours businessHours = new BusinessHours();
+//		businessHours.setUserId(userId);
+//		businessHours.setAdvertiserId(advertiserId);
+//		businessHours.setBizId(bizId);
+//		businessHours.setLangNo(langNo);
+		businessHours.setBoothId(Booth.createBoothId(bizId, langNo));		
+		businessHours.setDay1StartTime(day1StartTime);
+		businessHours.setDay1EndTime(day1EndTime);
+		businessHours.setDay2StartTime(day2StartTime);
+		businessHours.setDay2EndTime(day2EndTime);
+		businessHours.setDay3StartTime(day3StartTime);
+		businessHours.setDay3EndTime(day3EndTime);
+		businessHours.setDay4StartTime(day4StartTime);
+		businessHours.setDay4EndTime(day4EndTime);
+		businessHours.setDay5StartTime(day5StartTime);
+		businessHours.setDay5EndTime(day5EndTime);
+		businessHours.setDay6StartTime(day6StartTime);
+		businessHours.setDay6EndTime(day6EndTime);
+		businessHours.setDay7StartTime(day7StartTime);
+		businessHours.setDay7EndTime(day7EndTime);
+		businessHours.setComment(comment);
+		
+		// set contained objects
+		booth.setBoothBanner(boothBanner);
+		booth.setBusinessHours(businessHours);
+		booth.setBoothTextList(boothTextList);
+		
+		/* execute business logic */
+		this.boothService.updateBooth(booth);
+		
+		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
+		Map<String,Object> model = mav.getModel();
+		
+		logger.info("exiting... /advertiser/booth/update");
+		return model;
+	}
+	
+	
 	
 	/**
 	 * save update of business hours

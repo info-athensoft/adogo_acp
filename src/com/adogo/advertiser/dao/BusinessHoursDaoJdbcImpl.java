@@ -52,6 +52,25 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 		}
 		return x;
 	}
+	
+	@Override
+	public BusinessHours findByBoothId(Long boothId) {
+		
+		StringBuffer sbf = new StringBuffer(); 
+		sbf.append("SELECT * FROM ").append(TABLE);
+		sbf.append(" WHERE booth_id =:booth_id ");
+		
+		String sql = sbf.toString();
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("booth_id", boothId);
+		BusinessHours x = null;
+		try{
+			x = jdbc.queryForObject(sql, paramSource, new BusinessHoursRowMapper());
+		}catch(EmptyResultDataAccessException ex){
+			x = null;
+		}
+		return x;
+	}
 
 
 	public int create(BusinessHours businessHours) {
@@ -130,10 +149,11 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 	}
 
 	public int update(BusinessHours businessHours) {
+		
 		StringBuffer sbf = new StringBuffer();
 		
-		sbf.append("UPDATE ").append(TABLE).append("SET ");
-		sbf.append( "day1_start_time = :day1_start_time,");
+		sbf.append("UPDATE ").append(TABLE).append(" SET ");
+		sbf.append("day1_start_time = :day1_start_time,");
 		sbf.append("day1_end_time = :day1_end_time,");
            
 		sbf.append("day2_start_time = :day2_start_time,");
@@ -161,6 +181,7 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 		sbf.append(" AND booth_id = :booth_id");
 		
 		String sql = sbf.toString();
+		logger.info(sql);
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 //		paramSource.addValue("biz_id", businessHours.getBizId());
@@ -208,7 +229,7 @@ public class BusinessHoursDaoJdbcImpl implements BusinessHoursDao{
 		public BusinessHours mapRow(ResultSet rs, int rowNumber) throws SQLException {
 			
 			BusinessHours x = new BusinessHours();
-			x.setGlobalId(rs.getLong("globla_id"));
+			x.setGlobalId(rs.getLong("global_id"));
 			x.setUserId(rs.getLong("user_id"));
 			x.setAdvertiserId(rs.getLong("advertiser_id"));
 			x.setBizId(rs.getLong("biz_id"));

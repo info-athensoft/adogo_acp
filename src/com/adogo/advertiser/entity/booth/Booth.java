@@ -184,14 +184,16 @@ public class Booth {
 	public static Long createBoothId(String bizId, String langNo){
 		return Long.parseLong(bizId+langNo);
 	}
-	
 	@Override
 	public String toString() {
 		return "Booth [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId + ", bizId="
 				+ bizId + ", langNo=" + langNo + ", langName=" + langName + ", bizName=" + bizName + ", bizDesc="
-				+ bizDesc + ", boothId=" + boothId + ", boothName=" + boothName + ", boothImg=" + boothImg
+				+ bizDesc + ", boothBanner=" + boothBanner + ", businessHours=" + businessHours + ", boothTextList="
+				+ boothTextList + ", boothId=" + boothId + ", boothName=" + boothName + ", boothImg=" + boothImg
 				+ ", categoryNo=" + categoryNo + ", createDate=" + createDate + ", modifyDate=" + modifyDate
 				+ ", boothStatus=" + boothStatus + ", visitNum=" + visitNum + ", followerNum=" + followerNum
 				+ ", likeNum=" + likeNum + ", boothScore=" + boothScore + "]";
-	}	
+	}
+	
+	
 }
