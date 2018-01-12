@@ -37,15 +37,15 @@ var FormWizard = function () {
                     //account
                     username: {
                         minlength: 5,
-                        required: true
+                        required: false
                     },
                     password: {
                         minlength: 5,
-                        required: true
+                        required: false
                     },
                     rpassword: {
                         minlength: 5,
-                        required: true,
+                        required: false,
                         equalTo: "#submit_form_password"
                     },
                     //profile
@@ -53,7 +53,7 @@ var FormWizard = function () {
                         required: true
                     },
                     email: {
-                        required: true,
+                        required: false,
                         email: true
                     },
                     phone: {

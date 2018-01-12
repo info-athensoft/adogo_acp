@@ -86,18 +86,13 @@
 		<div class="page-header-inner ">
 			<!-- BEGIN LOGO -->
 			<jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
-			<!-- END LOGO -->
 			<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 			<a href="javascript:;" class="menu-toggler responsive-toggler"
 				data-toggle="collapse" data-target=".navbar-collapse"> </a>
-			<!-- END RESPONSIVE MENU TOGGLER -->
 			<!-- BEGIN PAGE ACTIONS -->
-			<!-- DOC: Remove "hide" class to enable the page header actions -->
 			<jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
-			<!-- END PAGE ACTIONS -->
 			<!-- BEGIN PAGE TOP -->
 			<jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
-			<!-- END PAGE TOP -->
 		</div>
 		<!-- END HEADER INNER -->
 	</div>
@@ -213,13 +208,6 @@
 
 				<div class="row">
                         <div class="col-md-12">
-                            <div class="m-heading-1 border-green m-bordered">
-                                <h3>Twitter Bootstrap Wizard Plugin</h3>
-                                <p> This twitter bootstrap plugin </p>
-                                <p> For more info please check out
-                                    <a class="btn red btn-outline" href="http://vadimg.com/twitter-bootstrap-wizard-example" target="_blank">the official documentation</a>
-                                </p>
-                            </div>
                             <div class="portlet light " id="form_wizard_1">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -563,7 +551,7 @@
                     </div>
                 
 
-
+				<!-- 
 				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet light ">
@@ -782,7 +770,8 @@
 
 
 			</div>
-			<!-- END CONTENT BODY -->
+				 -->			
+		<!-- END CONTENT BODY -->
 		</div>
 		<!-- END CONTENT -->
 	</div>
@@ -815,14 +804,6 @@
 		type="text/javascript"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script src="${webapp_name}/assets/global/scripts/datatable.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/datatables/datatables.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"
-		type="text/javascript"></script>
 	<script
 		src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"
 		type="text/javascript"></script>
@@ -832,9 +813,12 @@
 	<script
 		src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"
 		type="text/javascript"></script>
-
+	<!-- 
 	<script
 		src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"
+		type="text/javascript"></script> -->
+	<script
+		src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"
 		type="text/javascript"></script>
 	<script
 		src="${webapp_name}/assets/global/plugins/typeahead/handlebars.min.js"
@@ -845,24 +829,22 @@
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN THEME GLOBAL SCRIPTS -->
 	<!-- <script src="${webapp_name}/assets/global/scripts/app.min.js" type="text/javascript"></script> -->
-	<script src="${webapp_name}/assets/global/scripts/app.js"
-		type="text/javascript"></script>
+	<script type="text/javascript" src="${webapp_name}/assets/global/scripts/app.js"></script>
 	<!-- END THEME GLOBAL SCRIPTS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-	<script type="text/javascript"
-		src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
-
-	<script type="text/javascript"
-		src="${webapp_name}/assets/pages/scripts-local/advertiser/advertiser.js"></script>
+	<!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script> -->
+	
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<!-- BEGIN THEME LAYOUT SCRIPTS -->
-	<script
-		src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"
-		type="text/javascript"></script>
-	<script src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"
-		type="text/javascript"></script>
+	<script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"></script>
+	<script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"></script>
 
 	<!-- END THEME LAYOUT SCRIPTS -->
+	<script type="text/javascript" src="${webapp_name}/assets/global/plugins/select2/js/select2.full.min.js"></script>
+	<script type="text/javascript" src="${webapp_name}/assets/pages/scripts/form-wizard.js"></script>
+	<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
 	<script>
 	 	
 		var currentPage = 0;

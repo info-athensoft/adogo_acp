@@ -296,79 +296,41 @@
 <script src="${webapp_name}/assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
 	<!-- BEGIN CORE PLUGINS -->
-	<script src="${webapp_name}/assets/global/plugins/jquery.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/bootstrap/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script src="${webapp_name}/assets/global/plugins/js.cookie.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/jquery.blockui.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
-		type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script src="${webapp_name}/assets/global/scripts/datatable.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/datatables/datatables.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"
-		type="text/javascript"></script>
-
+	<script src="${webapp_name}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+	<!-- 
 	<script
 		src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"
 		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/typeahead/handlebars.min.js"
-		type="text/javascript"></script>
-	<script
-		src="${webapp_name}/assets/global/plugins/typeahead/typeahead.bundle.min.js"
-		type="text/javascript"></script>
+	 -->	
+	<script src="${webapp_name}/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/plugins/typeahead/typeahead.bundle.min.js" type="text/javascript"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN THEME GLOBAL SCRIPTS -->
 	<!-- <script src="${webapp_name}/assets/global/scripts/app.min.js" type="text/javascript"></script> -->
-	<script src="${webapp_name}/assets/global/scripts/app.js"
-		type="text/javascript"></script>
+	<script src="${webapp_name}/assets/global/scripts/app.js" type="text/javascript"></script>
 	<!-- END THEME GLOBAL SCRIPTS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<!-- 
 	<script type="text/javascript"
 		src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>
-
-	<script type="text/javascript"
-		src="${webapp_name}/assets/pages/scripts-local/event-news.js"></script>
-	<script type="text/javascript"
-		src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-	<script type="text/javascript"
-		src="${webapp_name}/assets/pages/scripts-local/event-news-list.js"></script>
+	 -->
+	
 	<!-- END PAGE LEVEL SCRIPTS -->
 	<!-- BEGIN THEME LAYOUT SCRIPTS -->
-	<script
-		src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js"
-		type="text/javascript"></script>
-	<script src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"
-		type="text/javascript"></script>
+	<script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
+	<script src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js" type="text/javascript"></script>
 
-	<!-- 
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
- -->
 	<!-- END THEME LAYOUT SCRIPTS -->
 <script>
 </script>
