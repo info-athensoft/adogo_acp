@@ -132,7 +132,7 @@
                             </div>
                             <div class="actions">
                                 <a onclick="updateBooth(); return false;" class="btn btn-circle btn-info">
-                                    <span> Confirm update</span>
+                                    <span> Save update</span>
                                 </a>
                                 <a href="${webapp_name}/advertiser/booth/" class="btn btn-circle btn-default">
                                     <span> Back to Booth Home </span>
@@ -780,7 +780,7 @@
                                     	<div class="form-actions">
 			                                <div class="row">
 			                                    <div class="col-md-offset-3 col-md-7">
-			                                        <a class="btn green" onclick="updateBooth(); return false;">Save</a>
+			                                        <a class="btn green" onclick="updateBooth(); return false;">Save update</a>
 			                                        <a class="btn default" onclick="cancelUpdateBooth(); return false;">Cancel</a>
 			                                    </div>
 			                                </div>

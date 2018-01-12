@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import javax.servlet.http.HttpSession;
 
@@ -894,5 +895,35 @@ public class BusinessProfileController {
         
 		logger.info("entering... /advertiser/biz/{bizId}"+bizId);
 		return mav;
+	}
+	
+	@RequestMapping(value="/industrycode/class/{parentIndustryCode}",method=RequestMethod.GET,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> getDataSubIndustyCode(@PathVariable String parentIndustryCode){
+		logger.info("entering RESTFUL API ... /advertiser/industrycode/sub/"+parentIndustryCode);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		//data
+		Map<String, Object> model = mav.getModel();
+		
+		//retrieve data from database via service and dao		
+		List<IndustryCode> listIndustryCode = new ArrayList<IndustryCode>();
+		
+		if (parentIndustryCode.indexOf("-")!=-1) {
+			String[] codes = parentIndustryCode.split("-");
+			int[] arrayCode = IntStream.rangeClosed(Integer.parseInt(codes[0]), Integer.parseInt(codes[1])).toArray();
+			for(int code : arrayCode){
+				listIndustryCode.addAll(industryCodeService.getIndustryCodeByParentCode(Integer.toString(code)));
+			}
+		}
+		else {
+			listIndustryCode = industryCodeService.getIndustryCodeByParentCode(parentIndustryCode);
+		}
+		
+		model.put("listIndustryCode", listIndustryCode);
+		
+		logger.info("exiting RESTFUL API... /advertiser/industrycode/sub/");
+		return model;
 	}
 }
