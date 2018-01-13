@@ -72,8 +72,6 @@ function displayConfirm() {
 	var r3 = $("input[name='q3']:checked").val();
 	var r4 = $("input[name='q4']:checked").val();
 
-	// var rt1 = "q1"+$("input[name='q1']:checked").val();
-	// alert("r1,r2,r3,r4="+r1+","+r2+","+r3+","+r4);
 	$("#q1").html(r1);
 	$("#q2").html(r2);
 	$("#q3").html(r3);
@@ -182,8 +180,8 @@ function getAnswer(quizObj, quesNo, optNo) {
 
 
 function initQuizPage(quizObj) {
-
-	for (var i = 1; i <= 4; i++) {
+	var quizPage = 4;
+	for (var i = 1; i <= quizPage; i++) {
 		$("#a" + i + "a").text(quizObj['quizObj' + i]['A']);
 		$("#a" + i + "b").text(quizObj['quizObj' + i]['B']);
 		$("#a" + i + "c").text(quizObj['quizObj' + i]['C']);

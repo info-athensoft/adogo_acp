@@ -772,8 +772,7 @@
                                            <div class="form-group">
                                                <label class="control-label col-md-3">Q1: </label>
                                                <div class="col-md-4">
-                                               	<label class="control-label" id="aques1"> </label>
-                                               		<br/>
+                                               	<p class="" id="aques1"> </p>
                                                    <p class="form-control-static" data-display="q1" id="q1"> </p>
                                                    <span>&nbsp;&nbsp;&nbsp;<i class="fa fa-check"></i></span>
                                                </div>
@@ -782,8 +781,7 @@
                                            <div class="form-group">
                                                <label class="control-label col-md-3">Q2:</label>
                                                <div class="col-md-4">
-                                               		<label class="control-label" id="aques2"></label>
-                                               		<br/>
+                                               		<p class="" id="aques2"></p>
                                                    <p class="form-control-static" data-display="q2" id="q2"> </p>
                                                    <span>&nbsp;&nbsp;&nbsp;<i class="fa fa-close"></i></span>
                                                </div>
@@ -792,8 +790,7 @@
                                            <div class="form-group">
                                                <label class="control-label col-md-3">Q3:</label>
                                                <div class="col-md-4">
-                                               		<label class="control-label" id="aques3"> </label>
-                                               		<br/>
+                                               		<p class="" id="aques3"> </p>
                                                    <p class="form-control-static" data-display="q3" id="q3"> </p>
                                                </div>
                                            </div>
@@ -801,8 +798,7 @@
                                            <div class="form-group">
                                                <label class="control-label col-md-3">Q4:</label>
                                                <div class="col-md-4">
-                                               		<label class="control-label" id="aques4"> </label>
-                                               		<br/>
+                                               		<p class="" id="aques4"> </p>
                                                    <p class="form-control-static" data-display="q4" id="q4"> </p>
                                                </div>
                                            </div>
