@@ -205,7 +205,7 @@
 					</div>
 				</div>
 
-
+		<!-- 
 				<div class="row">
                         <div class="col-md-12">
                             <div class="portlet light " id="form_wizard_1">
@@ -232,6 +232,7 @@
                                     <form class="form-horizontal" action="#" id="submit_form" method="POST">
                                         <div class="form-wizard">
                                             <div class="form-body">
+                                            	
                                                 <ul class="nav nav-pills nav-justified steps">
                                                     <li>
                                                         <a href="#tab1" data-toggle="tab" class="step">
@@ -261,7 +262,8 @@
                                                                 <i class="fa fa-check"></i> Confirm </span>
                                                         </a>
                                                     </li>
-                                                </ul>
+                                                   
+                                                </ul> 
                                                 <div id="bar" class="progress progress-striped" role="progressbar">
                                                     <div class="progress-bar progress-bar-success"> </div>
                                                 </div>
@@ -437,7 +439,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="tab-pane" id="tab4">
+                                                    
+                                                	
+                                                	
+                                                	<div class="tab-pane" id="tab4">
                                                         <h3 class="block">Confirm your account</h3>
                                                         <h4 class="form-section">Account</h4>
                                                         <div class="form-group">
@@ -550,8 +555,10 @@
                         </div>
                     </div>
                 
-
-				<!-- 
+		 -->
+		 
+		 
+				
 				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet light ">
@@ -575,7 +582,7 @@
 							<div class="portlet-body form">
 								<form action="#" class="form-horizontal">
 									<div class="form-body">
-										<div id="quiz_knowledge">
+										<div id="quiz_0">
 										<div class="form-group">
 											<label class="col-md-2 control-label">Knowledge 1:</label>
 											<div class="col-md-5">
@@ -660,101 +667,160 @@
 										
 										</div>
 										
-										<div id="quiz_question_1">
+										<div id="quiz_1">
 											<div class="form-group">
 												<label class="col-md-2 control-label">Question 1:</label>
 												<div class="col-md-5">
-													<label class="control-label">What is Adogo?</label>
+													<label class="control-label" id="qt1"></label>
 													<p>&nbsp;</p>
 	                                                <div class="mt-radio-list">
-	                                                    <label class="mt-radio mt-radio-outline"> A. It is an e-commerce site like eBay, Amazon, etc.
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
-	                                                    <label class="mt-radio mt-radio-outline"> B. It is a yellow-page-like site.
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
-	                                                    <label class="mt-radio mt-radio-outline"> C. It is an ad-posting-like site.
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
-	                                                    <label class="mt-radio mt-radio-outline"> D. It is an innovated, evolving web-based presence for everyone to do online branding and marketing which connects life and business.
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
+	                                                	<p>
+	                                                		<input type="radio" value="A" name="q1"/>&nbsp;<span id="a1a"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="B" name="q1"/>&nbsp;<span id="a1b"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="C" name="q1"/>&nbsp;<span id="a1c"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="D" name="q1"/>&nbsp;<span id="a1d"></span>
+	                                                    </p>
 	                                                </div>
 												</div>
 											</div>
 										</div>
 										
-										<div id="quiz_question_2">
+										<div id="quiz_2">
 											<div class="form-group">
 												<label class="col-md-2 control-label">Question 2:</label>
 												<div class="col-md-5">
-													<label class="control-label">What outstanding features make Adogo so different from other advertising website?</label>
+													<label class="control-label" id="qt2"></label>
 													<p>&nbsp;</p>
 	                                                <div class="mt-radio-list">
-	                                                    <label class="mt-radio mt-radio-outline"> A. The Virtual Booth functioning as a micro-website conveys your CI (company image) to public.
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
-	                                                    <label class="mt-radio mt-radio-outline"> B. The Ad Post shown in one-page style makes it possible to express in various measures.
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
-	                                                    <label class="mt-radio mt-radio-outline"> C. 
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
-	                                                    <label class="mt-radio mt-radio-outline"> D. All of above
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
+	                                                	<p>
+	                                                		<input type="radio" value="A" name="q2"/>&nbsp;<span id="a2a"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="B" name="q2"/>&nbsp;<span id="a2b"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="C" name="q2"/>&nbsp;<span id="a2c"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="D" name="q2"/>&nbsp;<span id="a2d"></span>
+	                                                    </p>
 	                                                </div>
 												</div>
 											</div>
 										</div>
 										
-										<div id="quiz_question_3">
+										<div id="quiz_3">
 											<div class="form-group">
 												<label class="col-md-2 control-label">Question 3:</label>
 												<div class="col-md-5">
-													<label class="control-label">What is Adogo?</label>
+													<label class="control-label" id="qt3"></label>
 													<p>&nbsp;</p>
 	                                                <div class="mt-radio-list">
-	                                                    <label class="mt-radio mt-radio-outline"> Radio 1
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
-	                                                    <label class="mt-radio mt-radio-outline"> Radio 2
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
-	                                                    <label class="mt-radio mt-radio-outline"> Radio 3
-	                                                        <input type="radio" value="1" name="test" />
-	                                                        <span></span>
-	                                                    </label>
+	                                                	<p>
+	                                                		<input type="radio" value="A" name="q3"/>&nbsp;<span id="a3a"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="B" name="q3"/>&nbsp;<span id="a3b"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="C" name="q3"/>&nbsp;<span id="a3c"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="D" name="q3"/>&nbsp;<span id="a3d"></span>
+	                                                    </p>
+	                                                </div>
+												</div>
+											</div>
+										</div>
+										
+										<div id="quiz_4">
+											<div class="form-group">
+												<label class="col-md-2 control-label">Question 4:</label>
+												<div class="col-md-5">
+													<label class="control-label" id="qt4"></label>
+													<p>&nbsp;</p>
+	                                                <div class="mt-radio-list">
+	                                                	<p>
+	                                                		<input type="radio" value="A" name="q4"/>&nbsp;<span id="a4a"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="B" name="q4"/>&nbsp;<span id="a4b"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="C" name="q4"/>&nbsp;<span id="a4c"></span>
+	                                                    </p>
+	                                                    <p>
+	                                                		<input type="radio" value="D" name="q4"/>&nbsp;<span id="a4d"></span>
+	                                                    </p>
 	                                                </div>
 												</div>
 											</div>
 										</div>
 										
 										
+										<div id="quiz_5">
+                                           <h3 class="block">Confirm your answers</h3>
+                                           <h4 class="form-section">Account</h4>
+                                                                                    
+                                          
+                                           <div class="form-group">
+                                               <label class="control-label col-md-3">Q1: </label>
+                                               <div class="col-md-4">
+                                               	<label class="control-label" id="aques1"> </label>
+                                               		<br/>
+                                                   <p class="form-control-static" data-display="q1" id="q1"> </p>
+                                                   <span>&nbsp;&nbsp;&nbsp;<i class="fa fa-check"></i></span>
+                                               </div>
+                                           </div>
+                                           
+                                           <div class="form-group">
+                                               <label class="control-label col-md-3">Q2:</label>
+                                               <div class="col-md-4">
+                                               		<label class="control-label" id="aques2"></label>
+                                               		<br/>
+                                                   <p class="form-control-static" data-display="q2" id="q2"> </p>
+                                                   <span>&nbsp;&nbsp;&nbsp;<i class="fa fa-close"></i></span>
+                                               </div>
+                                           </div>
+                                           
+                                           <div class="form-group">
+                                               <label class="control-label col-md-3">Q3:</label>
+                                               <div class="col-md-4">
+                                               		<label class="control-label" id="aques3"> </label>
+                                               		<br/>
+                                                   <p class="form-control-static" data-display="q3" id="q3"> </p>
+                                               </div>
+                                           </div>
+                                           
+                                           <div class="form-group">
+                                               <label class="control-label col-md-3">Q4:</label>
+                                               <div class="col-md-4">
+                                               		<label class="control-label" id="aques4"> </label>
+                                               		<br/>
+                                                   <p class="form-control-static" data-display="q4" id="q4"> </p>
+                                               </div>
+                                           </div>
+                                       </div>
 									</div>
 									<div class="form-actions">
 										<div class="row">
 											<div class="col-md-offset-3 col-md-4" id="form_action_last">
-												<button type="submit" class="btn green" id="btn_submit"
-													onclick="return false;">Submit</button>
-												<button type="button" class="btn default" id="btn_cancel"
-													onclick=";return false;">Cancel</button>
+												<a class="btn green" id="btn_submit"
+													onclick="sumbitQuiz(); return false;">Submit</a>
+												<a class="btn default" id="btn_cancel"
+													onclick="prevPage(); return false;">Back</a>
 											</div>
 											<div class="col-md-offset-3 col-md-4" id="form_action">
-												<button type="submit" class="btn green" id="btn_prev"
-													onclick="prevPage();">Previous</button>
-												<button type="submit" class="btn green" id="btn_next"
-													onclick="nextPage();">Next</button>
+												<a class="btn green" id="btn_prev"
+													onclick="prevPage();">Previous</a>
+												<a class="btn green" id="btn_next"
+													onclick="nextPage();">Next</a>
 											</div>
 										</div>
 									</div>
@@ -770,7 +836,7 @@
 
 
 			</div>
-				 -->			
+						
 		<!-- END CONTENT BODY -->
 		</div>
 		<!-- END CONTENT -->
@@ -845,61 +911,10 @@
 	<script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="${webapp_name}/assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
     <script type="text/javascript" src="${webapp_name}/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    
+    <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/apply-quiz.js"></script>
+    
 	<script>
-	 	
-		var currentPage = 0;
-		var maxPage = 3;
-		
-		function nextPage(){
-			$("#quiz_knowledge").hide();
-			
-			if(currentPage >= maxPage){
-				$("#form_action_last").show();
-				$("#form_action").hide();
-				currentPage = maxPage;
-			}else{	
-				
-				$("#quiz_question_"+currentPage).hide();
-				currentPage = currentPage+1;
-				if(currentPage > 0){
-					$("#btn_prev").show();
-				}
-				$("#quiz_question_"+currentPage).show(1000);
-			}
-			
-		}
-		
-		function prevPage(){
-			if(currentPage<=0){
-				$("#quiz_knowledge").show();
-				$("#btn_prev").hide();
-				currentPage = 0;
-			}else{
-				
-				$("#btn_prev").show();
-				
-				if(currentPage == 1){
-					$("#quiz_question_"+currentPage).hide();
-					currentPage = currentPage-1;
-					$("#quiz_knowledge").show();
-					$("#btn_prev").hide();
-								
-				}else{
-					$("#quiz_question_"+currentPage).hide();
-					currentPage = currentPage-1;
-					$("#quiz_question_"+currentPage).show(1000);
-				}
-				
-			}
-		}
-		
-		$(document).ready(function(){
-			$("#form_action_last").hide();
-			$("#btn_prev").hide();
-			$("#quiz_question_1").hide();
-			$("#quiz_question_2").hide();
-			$("#quiz_question_3").hide();
-		});
 	</script>
 </body>
 </html>
