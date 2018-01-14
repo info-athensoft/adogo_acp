@@ -43,6 +43,10 @@ public class GlobalController {
 	}
 	
 	
+	/**
+	 * @return
+	 * @author sfz
+	 */
 	@RequestMapping("/testjs")
 	public String gotoIndexTest(){
 		System.out.println("/testjs");
