@@ -43,7 +43,7 @@ var MyValidator = function(){
 	                },
 	                rules: {
 	                    name: {
-	                        minlength: 2,
+	                        minlength: 4,
 	                        required: true
 	                    },
 	                    input_group: {
@@ -69,8 +69,7 @@ var MyValidator = function(){
 	                    creditcard: {
 	                        required: true,
 	                        creditcard: true
-	                    },
-	                    occupation: {
+	                    },	                    occupation: {
 	                        minlength: 5,
 	                    },
 	                    select: {
@@ -79,7 +78,7 @@ var MyValidator = function(){
 	                    select_multi: {
 	                        required: true,
 	                        minlength: 1,
-	                        maxlength: 3
+	                        maxlength: 2
 	                    }
 	                },
 
