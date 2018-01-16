@@ -8,13 +8,13 @@ public class AdPostHead {
 	private Long 	advertiserId;
 	private Long 	adPostId;
 	private Integer langNo;
-	private String 	mediaCoverUrl;
+	private String 	postCoverUrl;
 	private String 	postTitle;
 	private String 	postAuthor;
 	private Integer postCategory;
-	private String 	tags;
+	private String 	postTags;
 	private Integer viewNum;
 	private String 	shortDesc;
-	private Date 	createDatetime;
-	private Date 	postDatetime;
+	private Date 	createDate;
+	private Date 	postDate;
 }
