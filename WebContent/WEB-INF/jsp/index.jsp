@@ -86,7 +86,7 @@
         <!-- BEGIN CONTENT BODY -->
         <div class="page-content">
             <!-- BEGIN PAGE HEADER-->
-            <h1 class="page-title"> Adogo Control Panel 2.0
+            <h1 class="page-title"> Adogo Control Panel v2.0
             	<small>statistics, charts, recent events and reports</small>
             </h1>
             <div class="page-bar">
