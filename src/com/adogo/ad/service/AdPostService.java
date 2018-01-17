@@ -14,13 +14,13 @@ import com.adogo.ad.dao.AdPostGalleryImageDao;
 import com.adogo.ad.dao.AdPostHeadDao;
 import com.adogo.ad.dao.AdPostTextDao;
 import com.adogo.ad.dao.AdPostVideoDao;
-import com.adogo.advertiser.entity.adpost.AdPostAudio;
-import com.adogo.advertiser.entity.adpost.AdPostCoverImage;
-import com.adogo.advertiser.entity.adpost.AdPostGalleryImage;
-import com.adogo.advertiser.entity.adpost.AdPostHead;
-import com.adogo.advertiser.entity.adpost.AdPostSlideImage;
-import com.adogo.advertiser.entity.adpost.AdPostText;
-import com.adogo.advertiser.entity.adpost.AdPostVideo;
+import com.adogo.advertiser.entity.adpost.old.AdPostAudio;
+import com.adogo.advertiser.entity.adpost.old.AdPostCoverImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostGalleryImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostHead;
+import com.adogo.advertiser.entity.adpost.old.AdPostSlideImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostText;
+import com.adogo.advertiser.entity.adpost.old.AdPostVideo;
 
 
 @Service

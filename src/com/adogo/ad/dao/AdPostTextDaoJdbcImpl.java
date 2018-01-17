@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.adogo.advertiser.entity.adpost.AdPostText;
+import com.adogo.advertiser.entity.adpost.old.AdPostText;
 
 @Component
 @Qualifier("adPostTextDaoJdbcImpl")

@@ -18,7 +18,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
-import com.adogo.advertiser.entity.adpost.AdPostHead;
+import com.adogo.advertiser.entity.adpost.old.AdPostHead;
 
 
 @Component
@@ -44,23 +44,23 @@ public class AdPostHeadDaoJdbcImpl implements AdPostHeadDao{
 		sbf.append("SELECT ");
 		sbf.append("global_id, ");
 		sbf.append("user_id, ");
+		sbf.append("advertiser_id, ");
 		sbf.append("adpost_id, ");
-		sbf.append("media_cover_url, ");
+		sbf.append("lang_no, ");
+		sbf.append("post_cover_url, ");
 		sbf.append("post_title, ");
 		sbf.append("post_author, ");
 		sbf.append("post_category, ");
-		sbf.append("create_datetime, ");
-		sbf.append("post_datetime, ");
-		sbf.append("lang_no, ");
-		sbf.append("tags, ");
+		sbf.append("post_tags, ");
 		sbf.append("view_num, ");
-		sbf.append("short_desc ");
+		sbf.append("short_desc, ");
+		sbf.append("create_date, ");
+		sbf.append("post_date ");
 		sbf.append(" FROM "+TABLE);
 		String sql = sbf.toString();
 		
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		return jdbc.query(sql,paramSource,new AdPostHeadRowMapper());
-		
 	}
 
 	@Override

@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.adogo.advertiser.entity.MediaType;
-import com.adogo.advertiser.entity.adpost.AdPostVideo;
+import com.adogo.advertiser.entity.adpost.old.AdPostVideo;
 
 @Component
 @Qualifier("adPostVideoDaoJdbcImpl")

@@ -2,7 +2,7 @@ package com.adogo.ad.dao;
 
 import java.util.List;
 
-import com.adogo.advertiser.entity.adpost.AdPostText;
+import com.adogo.advertiser.entity.adpost.old.AdPostText;
 
 public interface AdPostTextDao {
 	public List<AdPostText> findAll();

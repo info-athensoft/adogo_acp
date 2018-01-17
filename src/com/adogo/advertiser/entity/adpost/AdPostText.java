@@ -1,40 +1,15 @@
 package com.adogo.advertiser.entity.adpost;
 
-import com.adogo.advertiser.entity.MediaType;
-
-/**
- * @author Athens
- *
- */
-public class AdPostText extends AdPostBody{
-	private String longDesc;
-	
-	public AdPostText(){
-		super.setMediaType(MediaType.TEXT);
-	}
-	
-	public AdPostText(AdPostBody adPostBody){
-		this.globalId = adPostBody.getAdPostId();
-		this.userId = adPostBody.getUserId();
-		this.adPostId = adPostBody.getAdPostId();
-		this.mediaCoverUrl = adPostBody.getMediaCoverUrl();
-		this.isPrimary = adPostBody.getIsPrimary();
-		this.mediaIndex = adPostBody.getMediaIndex();
-		this.mediaType = adPostBody.getMediaType();
-		this.langNo = adPostBody.getLangNo();
-		this.sortNo = adPostBody.getSortNo();
-		super.setMediaType(MediaType.TEXT);
-	}
-
-	public String getLongDesc() {
-		return longDesc;
-	}
-
-	public void setLongDesc(String longDesc) {
-		this.longDesc = longDesc;
-	}
-	
-	
-	
-	
+public class AdPostText {
+	private Long 	globalId;
+	private Long 	userId;
+	private Long	advertiserId;
+	private Long 	adPostId;
+	private Integer langNo;
+	private Integer sortNo;
+	private Boolean isPrimary;
+	private String 	mediaCoverUrl;
+	private Integer mediaIndex;
+	private Integer mediaType;
+	private String 	longDesc;
 }

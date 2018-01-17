@@ -1,4 +1,4 @@
-package com.adogo.advertiser.entity.adpost;
+package com.adogo.advertiser.entity.adpost.old;
 
 public class AdTag {
 	

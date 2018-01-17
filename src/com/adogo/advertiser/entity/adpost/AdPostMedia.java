@@ -1,4 +1,4 @@
-package com.adogo.advertiser.entity.adpost2;
+package com.adogo.advertiser.entity.adpost;
 
 public class AdPostMedia {
 	private Long 	globalId;

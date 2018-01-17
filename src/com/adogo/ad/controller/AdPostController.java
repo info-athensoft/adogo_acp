@@ -21,15 +21,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
-import com.adogo.advertiser.entity.adpost.AdPost;
-import com.adogo.advertiser.entity.adpost.AdPostAudio;
-import com.adogo.advertiser.entity.adpost.AdPostBody;
-import com.adogo.advertiser.entity.adpost.AdPostCoverImage;
-import com.adogo.advertiser.entity.adpost.AdPostGalleryImage;
-import com.adogo.advertiser.entity.adpost.AdPostHead;
-import com.adogo.advertiser.entity.adpost.AdPostMediaBody;
-import com.adogo.advertiser.entity.adpost.AdPostText;
-import com.adogo.advertiser.entity.adpost.AdPostVideo;
+import com.adogo.advertiser.entity.adpost.old.AdPost;
+import com.adogo.advertiser.entity.adpost.old.AdPostAudio;
+import com.adogo.advertiser.entity.adpost.old.AdPostBody;
+import com.adogo.advertiser.entity.adpost.old.AdPostCoverImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostGalleryImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostHead;
+import com.adogo.advertiser.entity.adpost.old.AdPostMediaBody;
+import com.adogo.advertiser.entity.adpost.old.AdPostText;
+import com.adogo.advertiser.entity.adpost.old.AdPostVideo;
 import com.athensoft.util.id.UUIDHelper;
 
 @Controller
