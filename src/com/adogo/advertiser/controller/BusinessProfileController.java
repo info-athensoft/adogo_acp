@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 import javax.servlet.http.HttpSession;
 
@@ -38,7 +37,16 @@ import com.athensoft.util.id.UUIDHelper;
 public class BusinessProfileController {
 	private static final Logger logger = Logger.getLogger(BusinessProfileController.class);
 	
+	/**
+	 * Warning message
+	 * no such user warning
+	 */
 	private static final String MSG_NO_SUCH_USER = "WARNING: No such user or please login in!";
+	
+	/**
+	 * Warning message
+	 * no such advertiser warning
+	 */
 	private static final String MSG_NO_SUCH_ADVERTISER = "WARNING: No such advertiser or please login in!";
 	
 	@Autowired
@@ -75,28 +83,28 @@ public class BusinessProfileController {
 	
 	
 	/**
-	 * @param session
-	 * @return
+	 * goto business profile index page
+	 * @param session - HttpSession
+	 * @return ModelAndView
 	 */
 	@RequestMapping("/")
 	public ModelAndView gotoBizProfileIndex(HttpSession session){
 		logger.info("entering... /advertiser/biz/");
-		
 		logger.info("session="+session);
 		
 		/* get data from session */
-		Object userIdObj = session.getAttribute("userId");
-		Object advertiserIdObj = session.getAttribute("advertiserId");
-		long userId = 0L;
-		long advertiserId = 0L;
 		String errorMsg = "";
 		
+		Object userIdObj = session.getAttribute("userId");
+		long userId = 0L;
 		if(userIdObj != null){
 			userId = (Long)userIdObj;
 		}else{
 			errorMsg = MSG_NO_SUCH_USER;
 		}
 		
+		Object advertiserIdObj = session.getAttribute("advertiserId");
+		long advertiserId = 0L;
 		if(advertiserIdObj != null){
 			advertiserId = (Long)advertiserIdObj;
 		}else{
@@ -123,8 +131,9 @@ public class BusinessProfileController {
 	}
 	
 	/**
-	 * @param session
-	 * @return
+	 * goto business profile manage page
+	 * @param session - HttpSession
+	 * @return ModelAndView
 	 */
 	@RequestMapping("/manage.html")
 	public ModelAndView gotoBizProfileManage(HttpSession session){
@@ -162,7 +171,9 @@ public class BusinessProfileController {
 	
 
 	/**
-	 * @return
+	 * goto business profile create page
+	 * 
+	 * @return ModelAndView
 	 */
 	@RequestMapping("/create.html")
 	public ModelAndView gotoBizProfileCreate(){
@@ -196,8 +207,9 @@ public class BusinessProfileController {
 	
 	
 	/**
-	 * @param bizId
-	 * @return
+	 * goto business profile create page
+	 * @param bizId - business id
+	 * @return ModelAndView
 	 */
 	@RequestMapping("/complete.html")
 	public ModelAndView gotoBizProfileComplete(@RequestParam long bizId){
@@ -223,8 +235,9 @@ public class BusinessProfileController {
 	
 	
 	/**
-	 * @param bizId
-	 * @return
+	 * goto business profile edit page
+	 * @param bizId - business id
+	 * @return ModelAndView
 	 */
 	@RequestMapping("/edit.html")
 	public ModelAndView gotoBizProfileEdit(@RequestParam long bizId){
@@ -328,8 +341,8 @@ public class BusinessProfileController {
 	
 	/**
 	 * Disable a business profile, usually by client
-	 * @param bizId
-	 * @return
+	 * @param bizId - business id
+	 * @return ModelAndView
 	 */
 	@RequestMapping("/publish.html")
 	public ModelAndView gotoBizProfilePublish(@RequestParam long bizId){
@@ -356,7 +369,7 @@ public class BusinessProfileController {
 	
 	/**
 	 * Disable a business profile, usually by client
-	 * @param bizId
+	 * @param bizId - business id
 	 * @return
 	 */
 	@RequestMapping("/disable.html")
@@ -384,7 +397,7 @@ public class BusinessProfileController {
 	
 	/**
 	 * Trash a business profile, usually by client
-	 * @param bizId
+	 * @param bizId - business id
 	 * @return
 	 */
 	@RequestMapping("/trash.html")
@@ -410,9 +423,12 @@ public class BusinessProfileController {
 	}
 	
 	
+	
 	/**
+	 * create business profile
+	 * @param session - HttpSession
 	 * @param businessProfileJSONString
-	 * @return
+	 * @return Map<String,Object>
 	 */
 	@RequestMapping(value="/create",method=RequestMethod.POST,produces="application/json")
 	@ResponseBody
@@ -549,6 +565,7 @@ public class BusinessProfileController {
 
 
 	/**
+	 * complete business profile
 	 * @param businessProfileJSONString
 	 * @return
 	 */
@@ -606,6 +623,7 @@ public class BusinessProfileController {
 	}
 	
 	/**
+	 * update business profile
 	 * @param bizProfileJSONString
 	 * @return
 	 * 
@@ -852,7 +870,7 @@ public class BusinessProfileController {
 	
 	
 	/**
-	 * View a business profile, usually by client
+	 * view a business profile, usually by client
 	 * @param bizId
 	 * @return
 	 */
@@ -882,6 +900,7 @@ public class BusinessProfileController {
 		return mav;
 	}
 	
+	//TODO
 	@RequestMapping(value="/{bizId}",method=RequestMethod.GET)
 	public ModelAndView viewBusinessProfile(@PathVariable long bizId){		
 		logger.info("entering... /advertiser/biz/{bizId}"+bizId);
@@ -895,35 +914,5 @@ public class BusinessProfileController {
         
 		logger.info("entering... /advertiser/biz/{bizId}"+bizId);
 		return mav;
-	}
-	
-	@RequestMapping(value="/industrycode/class/{parentIndustryCode}",method=RequestMethod.GET,produces="application/json")
-	@ResponseBody
-	public Map<String,Object> getDataSubIndustyCode(@PathVariable String parentIndustryCode){
-		logger.info("entering RESTFUL API ... /advertiser/industrycode/sub/"+parentIndustryCode);
-		
-		ModelAndView mav = new ModelAndView();
-		
-		//data
-		Map<String, Object> model = mav.getModel();
-		
-		//retrieve data from database via service and dao		
-		List<IndustryCode> listIndustryCode = new ArrayList<IndustryCode>();
-		
-		if (parentIndustryCode.indexOf("-")!=-1) {
-			String[] codes = parentIndustryCode.split("-");
-			int[] arrayCode = IntStream.rangeClosed(Integer.parseInt(codes[0]), Integer.parseInt(codes[1])).toArray();
-			for(int code : arrayCode){
-				listIndustryCode.addAll(industryCodeService.getIndustryCodeByParentCode(Integer.toString(code)));
-			}
-		}
-		else {
-			listIndustryCode = industryCodeService.getIndustryCodeByParentCode(parentIndustryCode);
-		}
-		
-		model.put("listIndustryCode", listIndustryCode);
-		
-		logger.info("exiting RESTFUL API... /advertiser/industrycode/sub/");
-		return model;
 	}
 }

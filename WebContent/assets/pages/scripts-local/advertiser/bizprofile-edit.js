@@ -141,17 +141,6 @@ function cancelSaveBusinessProfile(){
 //------------------------------------------------------------------------------------------
 
 
-/**
- * 
- * @Author Athens
- * 
- * Status:	IN TEST
- */
-function test(){
-	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
-	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
-	getSubIndustryCode(parentCode);
-}
 
 
 /**
@@ -175,7 +164,7 @@ function industryCodeOnChange(level){
 	if (level<4) {
 		$.ajax({
 			type	:	"GET",
-			url		: 	"/acp/advertiser/industrycode/class/"+parentCode,
+			url		: 	"/acp/advertiser/biz/industrycode/class/"+parentCode,
 			dataType:	'json',
 			timeout : 	10000,
 			success	:	function(data){
@@ -195,7 +184,7 @@ function industryCodeOnChange(level){
 				//add data entries
 				listIndustryCode.forEach(function(indCode, index) {
 					industryCodeElement.append($("<option></option>")
-				       .attr("value", indCode.industryCode).text(indCode.industryCode + " " + indCode.industryName));
+				       .attr("value", indCode.industryCode).text(indCode.industryCode + " : " + indCode.industryName));
 				});
 				
 				//empty the rest levels
