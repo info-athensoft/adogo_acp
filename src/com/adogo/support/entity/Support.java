@@ -1,0 +1,62 @@
+package com.adogo.support.entity;
+
+public class Support {
+	private Long globalId;
+	private Long topicId;
+	private Integer langNo;
+	private String topicTitle;
+	private String topicContent;
+	private Integer viewNum;
+	private String topicStatus;
+	
+	public Long getGlobalId() {
+		return globalId;
+	}
+	public void setGlobalId(Long globalId) {
+		this.globalId = globalId;
+	}
+	public Long getTopicId() {
+		return topicId;
+	}
+	public void setTopicId(Long topicId) {
+		this.topicId = topicId;
+	}
+	public Integer getLangNo() {
+		return langNo;
+	}
+	public void setLangNo(Integer langNo) {
+		this.langNo = langNo;
+	}
+	public String getTopicTitle() {
+		return topicTitle;
+	}
+	public void setTopicTitle(String topicTitle) {
+		this.topicTitle = topicTitle;
+	}
+	public String getTopicContent() {
+		return topicContent;
+	}
+	public void setTopicContent(String topicContent) {
+		this.topicContent = topicContent;
+	}
+	public Integer getViewNum() {
+		return viewNum;
+	}
+	public void setViewNum(Integer viewNum) {
+		this.viewNum = viewNum;
+	}
+	public String getTopicStatus() {
+		return topicStatus;
+	}
+	public void setTopicStatus(String topicStatus) {
+		this.topicStatus = topicStatus;
+	}
+	
+	@Override
+	public String toString() {
+		return "Support [globalId=" + globalId + ", topicId=" + topicId + ", langNo=" + langNo + ", topicTitle="
+				+ topicTitle + ", topicContent=" + topicContent + ", viewNum=" + viewNum + ", topicStatus="
+				+ topicStatus + "]";
+	}
+
+}
