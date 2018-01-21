@@ -22,3 +22,21 @@ function getBusinessObject(){
     
     return businessObject;
 }
+
+function getBusinessObjectForEdit(){	
+//	create a json object
+	var p1 = $("#support-global-id").val();
+	var p2 = $("#support-lang").val();        
+	var p3 = $("#support-topic-title").val();
+	var p4 = $("#support-topic-content").val();
+	
+	var businessObject =
+	{
+			supportId    			      :   p1,
+			supportLangNo   		      :   p2,
+			supportTopicTitle    		  :   p3,
+			supportTopicContent    		  :   p4,
+	};
+	
+	return businessObject;
+}

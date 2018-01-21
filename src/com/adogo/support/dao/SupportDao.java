@@ -16,5 +16,7 @@ public interface SupportDao {
 
 	public Support findSupportById(long supportId);
 
+	public int update(Support support);
+
 
 }

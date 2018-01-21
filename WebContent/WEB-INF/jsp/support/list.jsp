@@ -121,7 +121,7 @@
 
             <c:if test="${listSupport.size()==0}">
            		<div class="alert alert-info">
-                    <strong>INFO:</strong> Not any support available
+                    <strong>INFO:</strong> Not any support available.
                 </div>
            	</c:if>
             <c:forEach items="${listSupport}" var="sup">
@@ -140,7 +140,7 @@
 	                                	
 	                                	
 	                                	<span class="badge badge-info"> Topic ID: ${sup.topicId}</span>
-	                                	<!-- <span class="badge badge-danger">${langMapObj.getLangName(booth.langNo)}</span> -->
+	                                	<span class="badge badge-danger">${langMapObj.getLangName(sup.langNo)}</span>
 	                                	<br>
 	                                	<span class="bold">${sup.topicTitle}</span>
 	                                	<br>

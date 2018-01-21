@@ -69,19 +69,7 @@ public Support findSupportById(long supportId) {
 	}
 	return x;
 }
-/*
-@Override
-public int persistTag(String tagName) {
-	//System.out.println("entering -- AdTagDaoImpl/updateTag ");
-	AdTag tag = this.findTagByName(tagName);
-	if (tag == null) {
-		return (int) this.create(tagName);
-	}
-	else {
-		return this.updateTagScore(tagName);
-	}
-}
-*/
+
 public int create(Support x) {
 	//System.out.println("entering -- AdTagDaoImpl/create ");
 	
@@ -156,20 +144,29 @@ private static class SupportRowMapper implements RowMapper<Support>{
 	}		
 }
 
-
-
-
-/*
-private int updateTagScore(String tagName) {
-	//System.out.println("entering -- AdTagDaoImpl/updateTagScore ");
-	String sql = "UPDATE AD_TAG "
-               + "SET tag_score = (tag_score+1) "
-			   + "WHERE 1=1 "
-			   + "AND tag_name = :tagName";
-	MapSqlParameterSource paramSource = new MapSqlParameterSource();
-	paramSource.addValue("tagName", tagName);
-	return jdbc.update(sql,paramSource);
+@Override
+public int update(Support x) {
+	StringBuffer sbf = new StringBuffer();
+	sbf.append("UPDATE ").append(TABLE).append(" SET ");
+	sbf.append("lang_no=:lang_no,");
+	sbf.append("topic_title=:topic_title,");
+	sbf.append("topic_content=:topic_content");
 	
+	sbf.append(" WHERE 1=1");
+	sbf.append(" AND global_id=:global_id");
+	
+	
+	String sql = sbf.toString();
+	logger.info(sql);
+	
+	MapSqlParameterSource paramSource = new MapSqlParameterSource();
+	paramSource.addValue("global_id", x.getGlobalId());
+	paramSource.addValue("lang_no", x.getLangNo());
+	paramSource.addValue("topic_title", x.getTopicTitle());
+	paramSource.addValue("topic_content", x.getTopicContent());
+	
+	return jdbc.update(sql,paramSource);
 }
-*/
+
+
 }

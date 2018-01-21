@@ -31,13 +31,17 @@ public class SupportService {
 		return this.supportDao.create(support);
 	}
 
-	@Transactional
 	public List<Support> getSupports() {
 		return this.supportDao.getSupports();
 	}
 
 	public Support findSupportById(long supportId) {
 		return this.supportDao.findSupportById(supportId);
+	}
+
+	@Transactional
+	public int update(Support support) {
+		return this.supportDao.update(support);
 	}
 	
 

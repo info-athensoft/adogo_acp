@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.advertiser.entity.booth.Booth;
+import com.adogo.info.lang.LanguageMap;
 import com.adogo.support.entity.Support;
 import com.adogo.support.service.SupportService;
 import com.athensoft.util.id.UUIDHelper;
@@ -37,7 +38,13 @@ public class SupportController {
 		this.supportService = supportService;
 	}
 	
+	@Autowired
+	private LanguageMap langMapObj;
 	
+	@Autowired
+	public void setLanguageMap(LanguageMap langMapObj){
+		this.langMapObj = langMapObj;
+	}
 
 	/**
 	 * Create support
@@ -137,6 +144,53 @@ public class SupportController {
 		return mav;
 	}
 
+	/**
+	 * @param adPostJSONString
+	 * @return
+	 * 
+	 * @author sfz
+	 */
+	
+	@RequestMapping("/updateSupport")
+	public ModelAndView updateSupport(@RequestParam String supportJSONString){		
+		logger.info("entering... /acp/support/updateSupport");
+		
+		/* prepare data */		
+		JSONObject jsonObj= new JSONObject(supportJSONString);
+		
+//		Long topicId 			= UUIDHelper.getUniqueLongId();
+		Long supportId 	= jsonObj.getLong("supportId");
+		Integer supportLangNo 	= jsonObj.getInt("supportLangNo");
+		String supportTopicTitle 		= jsonObj.getString("supportTopicTitle");
+		String supportTopicContent	= jsonObj.getString("supportTopicContent");
+		
+		logger.info("supportId="+supportId);
+		logger.info("supportLangNo="+supportLangNo);
+		logger.info("supportTopicTitle="+supportTopicTitle);
+		logger.info("supportTopicContent="+supportTopicContent);
+
+		
+		/* prepare data */	
+		/*create a new record of support table*/
+		Support support = new Support();
+		support.setGlobalId(supportId);
+		support.setLangNo(supportLangNo);
+		support.setTopicTitle(supportTopicTitle);
+		support.setTopicContent(supportTopicContent);
+				
+		this.supportService.update(support);
+		
+		
+		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
+		
+		/* set view */
+		String viewName = ""; //"support/support_index";
+        mav.setViewName(viewName);
+		
+		logger.info("exiting... /acp/support/updateSupport");
+		return mav;
+	}
 	
 	/**
 	 * get Support list
@@ -159,6 +213,7 @@ public class SupportController {
 		
 		/* set data */
 		model.put("listSupport", listSupport);
+		model.put("langMapObj", langMapObj);
 		
 		/* set view */
 		String viewName = "support/list";

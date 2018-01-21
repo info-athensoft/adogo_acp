@@ -137,7 +137,7 @@
                                                 <i class="fa fa-angle-left"></i> Back</button>
                                             <button class="btn btn-secondary-outline" onclick="resetNews(); return false;">
                                                 <i class="fa fa-reply"></i> Reset</button>
-                                            <button class="btn btn-success" onclick="saveSupport(); return false;">
+                                            <button class="btn btn-success" onclick="updateSupport(); return false;">
                                                 <i class="fa fa-check"></i> Save</button>
                                             <button class="btn btn-success" onclick="updateSupportAndContinue(); return false;">
                                                 <i class="fa fa-check-circle"></i> Save &amp; Continue Edit</button>
@@ -216,13 +216,14 @@
 						                                    <form class="form-horizontal" role="form">
 						                                        <div class="form-body">
 						                                        	<div class="form-group">
+						                                        		<input type="hidden" id="support-global-id" class="form-control" value="${support.globalId}">
 						                                                <label class="col-md-3 control-label">Choose a language</label>
 						                                                <div class="col-md-9">
 						                                                <select id="support-lang" class="form-control">
-						                                                    <option value="1033" selected="selected">English</option>
-						                                                    <option value="3084" >French</option>
-						                                                    <option value="2052">Chinese (Simplified)</option>
-						                                                    <option value="31748">Chinese (Traditional)</option>
+						                                                    <option value="1033" <c:if test="${support.langNo==1033}">selected="selected"</c:if>>English</option>
+						                                                    <option value="3084" <c:if test="${support.langNo==3084}">selected="selected"</c:if>>French</option>
+						                                                    <option value="2052" <c:if test="${support.langNo==2052}">selected="selected"</c:if>>Chinese (Simplified)</option>
+						                                                    <option value="31748" <c:if test="${support.langNo==31748}">selected="selected"</c:if>>Chinese (Traditional)</option>
 						                                                </select>
 						                                                
 						                                                <button class="btn" name="confirm" onclick="testButtonConfirmLang();">Confirm</button>
@@ -420,7 +421,7 @@
 
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/support.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/support-create.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/support-edit.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/temp/adpost-create-test.js"></script>
 <script>
 //jQuery(document).ready(function() {
