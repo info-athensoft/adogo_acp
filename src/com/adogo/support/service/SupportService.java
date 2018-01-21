@@ -43,6 +43,5 @@ public class SupportService {
 	public int update(Support support) {
 		return this.supportDao.update(support);
 	}
-	
 
 }
