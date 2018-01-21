@@ -16,7 +16,7 @@ function getBusinessObject(){
     {
     		supportId    			      :   p1,
     		supportLangNo   		      :   p2,
-    		supportTopicTitle    		      :   p3,
+    		supportTopicTitle    		  :   p3,
     		supportTopicContent    		  :   p4,
     };
     

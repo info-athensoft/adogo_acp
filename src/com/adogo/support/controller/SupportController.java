@@ -1,6 +1,7 @@
 
 package com.adogo.support.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.adogo.advertiser.entity.booth.Booth;
 import com.adogo.support.entity.Support;
 import com.adogo.support.service.SupportService;
 import com.athensoft.util.id.UUIDHelper;
@@ -62,11 +64,28 @@ public class SupportController {
 	 */
 	
 	@RequestMapping("/edit.html")
-	public String gotoEdit(){
+	public ModelAndView gotoEdit(@RequestParam long supportId){
 		logger.info("entering... /acp/support/edit.html");
+		logger.info("supportId = " + supportId);
+
+		/* prepare data */
+		
+		Support support = supportService.findSupportById(supportId);
+		
+
+		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		
+		/* set data */
+		model.put("support", support);
+		
+		/* set view */
 		String viewName = "support/edit";
+        mav.setViewName(viewName);
+		
 		logger.info("exiting... /acp/support/edit.html");
-		return viewName;
+		return mav;
 	}
 	
 
@@ -97,7 +116,7 @@ public class SupportController {
 
 		
 		/* prepare data */	
-		/*create a new record of adpost into master table*/
+		/*create a new record of support table*/
 		Support support = new Support();
 		support.setTopicId(topicId);
 		support.setLangNo(supportLangNo);
@@ -120,77 +139,36 @@ public class SupportController {
 
 	
 	/**
-	 * search and get all AdPost objects
+	 * get Support list
 	 * @return
+	 * 
+	 * @author sfz
 	 */
-	@RequestMapping(value="/adposts",method=RequestMethod.GET,produces="application/json")
-	@ResponseBody
-	public Map<String,Object> getDataAdPostList(){
-		logger.info("entering RESTFUL API... /advertiser/adpost/adposts");
+	@RequestMapping(value="/list.html")
+	public Map<String,Object> getSupportList(){
+		logger.info("entering ... /acp/support/list.html");
 		
-		/* execute business logic */	
+		/* prepare data */
 		
-//		listAdPostHead = adPostService.getAllAdPostHead();
-
-//		Long numOfAdPost = adPostService.getAdPostHeadCount();
+		List<Support> listSupport = supportService.getSupports();
+		logger.info("listSupport size = " + listSupport.size());
 		
 		/* assemble data and view */
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();
 		
 		/* set data */
-//		model.put("listAdPost", listAdPost);					//FIXME
-//		model.put("listAdPostHead", listAdPostHead);
+		model.put("listSupport", listSupport);
 		
-		logger.info("exiting RESTFUL API... /advertiser/adpost/adposts");
+		/* set view */
+		String viewName = "support/list";
+        mav.setViewName(viewName);
+		
+		
+		logger.info("exiting ... /acp/support/list.html");
 		return model;
 	}
 	
-
-	
-	/**
-	 * create an AdPost object
-	 * @param adPostJSONString
-	 * @return
-	 * 
-	 * @author Athens
-	 */
-	@RequestMapping(value="/adposts",method=RequestMethod.POST)
-	@ResponseBody
-	public ResponseEntity<Boolean> createAdPost(@RequestParam String adPostJSONString){
-		
-		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
-	}
-	
-	
-	/**
-	 * update an AdPost object with entire object data
-	 * @param adPostId
-	 * @return
-	 * 
-	 * @author Athens
-	 */
-	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.PUT)
-	@ResponseBody
-	public ResponseEntity<Boolean> updateAdPost(@PathVariable String adPostId){
-		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
-	}
-	
-	
-	/**
-	 * delete an AdPost object with entire object data
-	 * @param adPostId
-	 * @return
-	 * 
-	 * @author Athens
-	 */
-	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.DELETE)
-	@ResponseBody
-	public ResponseEntity<Boolean> deleteAdPost(@PathVariable String adPostId){
-		return new ResponseEntity<Boolean>(true,HttpStatus.NO_CONTENT);
-	}
-	
-
 	
 }
 

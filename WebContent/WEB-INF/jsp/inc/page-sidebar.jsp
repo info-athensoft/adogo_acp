@@ -246,7 +246,7 @@
 						Create Support</a>
 					</li>
 					<li class="nav-item  ">
-						<a href="/acp/support/edit.html">
+						<a href="/acp/support/list.html">
 						<i class="icon-pencil"></i>
 						Edit Support</a>
 					</li>

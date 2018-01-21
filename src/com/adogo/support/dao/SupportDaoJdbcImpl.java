@@ -2,7 +2,8 @@ package com.adogo.support.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -18,6 +19,11 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import com.adogo.support.entity.Support;
+
+/**
+ * @author fz
+ *
+ */
 
 @Component
 @Qualifier("supportDaoJdbcImpl")
@@ -35,22 +41,34 @@ private static final Logger logger = Logger.getLogger(SupportDaoJdbcImpl.class);
 public void setDataSource(DataSource dataSource){
 	this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 }
-/*
+
 @Override
-public AdTag findTagByName(String tagName) {
-	System.out.println("entering -- AdTagDaoImpl/findTagByName ");
-	String sql = "select * from AD_TAG where tag_name =:tagName";
+public Support findSupportById(long supportId) {
+	StringBuffer sbf = new StringBuffer();
+	sbf.append("SELECT ");
+	sbf.append("global_id, ");
+	sbf.append("topic_id, ");
+	sbf.append("lang_no, ");
+	sbf.append("topic_title, ");
+	sbf.append("topic_content, ");
+	sbf.append("view_num, ");
+	sbf.append("topic_status ");
+	sbf.append(" FROM "+TABLE);
+	sbf.append(" WHERE 1 = 1");
+	sbf.append(" AND global_id =:global_id ");
+	String sql = sbf.toString();
+	
 	MapSqlParameterSource paramSource = new MapSqlParameterSource();
-	paramSource.addValue("tagName", tagName);
-	AdTag x = null;
+	
+	paramSource.addValue("global_id", supportId);
+	Support x = null;
 	try{
-		x = jdbc.queryForObject(sql, paramSource, new AdTagRowMapper());
+		x = jdbc.queryForObject(sql,paramSource,new SupportRowMapper());
 	}catch(EmptyResultDataAccessException ex){
 		x = null;
 	}
 	return x;
 }
-*/
 /*
 @Override
 public int persistTag(String tagName) {
@@ -69,11 +87,11 @@ public int create(Support x) {
 	
 	StringBuffer sbf = new StringBuffer();
 	sbf.append("INSERT INTO ").append(TABLE).append("(");
-	sbf.append("topic_id,");
-	sbf.append("lang_no,");
-	sbf.append("topic_title,");
-	sbf.append("topic_content,");
-	sbf.append("view_num,");
+	sbf.append("topic_id, ");
+	sbf.append("lang_no, ");
+	sbf.append("topic_title, ");
+	sbf.append("topic_content, ");
+	sbf.append("view_num, ");
 	sbf.append("topic_status) ");
 	
 	sbf.append("VALUES(");
@@ -98,6 +116,49 @@ public int create(Support x) {
 	
 	return jdbc.update(sql,paramSource);
 }
+
+@Override
+public List<Support> getSupports() {
+	StringBuffer sbf = new StringBuffer();
+	sbf.append("SELECT ");
+	sbf.append("global_id, ");
+	sbf.append("topic_id, ");
+	sbf.append("lang_no, ");
+	sbf.append("topic_title, ");
+	sbf.append("topic_content, ");
+	sbf.append("view_num, ");
+	sbf.append("topic_status ");
+	sbf.append(" FROM "+TABLE);
+	sbf.append(" WHERE 1 = 1");
+	String sql = sbf.toString();
+	
+	MapSqlParameterSource paramSource = new MapSqlParameterSource();
+	List<Support> x = new ArrayList<Support>();
+	try{
+		x = jdbc.query(sql, paramSource, new SupportRowMapper());
+	}catch(EmptyResultDataAccessException ex){
+		x = null;
+	}
+	return x;
+}
+
+private static class SupportRowMapper implements RowMapper<Support>{
+	public Support mapRow(ResultSet rs, int rowNumber) throws SQLException {
+		Support x = new Support();
+		x.setGlobalId(rs.getLong("global_id"));
+		x.setTopicId(rs.getLong("topic_id"));
+		x.setLangNo(rs.getInt("lang_no"));
+		x.setTopicTitle(rs.getString("topic_title"));
+		x.setTopicContent(rs.getString("topic_content"));
+		x.setViewNum(rs.getInt("view_num"));
+		x.setTopicStatus(rs.getString("topic_status"));
+        return x;
+	}		
+}
+
+
+
+
 /*
 private int updateTagScore(String tagName) {
 	//System.out.println("entering -- AdTagDaoImpl/updateTagScore ");
@@ -109,19 +170,6 @@ private int updateTagScore(String tagName) {
 	paramSource.addValue("tagName", tagName);
 	return jdbc.update(sql,paramSource);
 	
-}
-*/
-/*
-private static class AdTagRowMapper implements RowMapper<AdTag>{
-	public AdTag mapRow(ResultSet rs, int rowNumber) throws SQLException {
-		
-		AdTag x = new AdTag();
-		x.setTagId(rs.getLong("tag_id"));
-		x.setTagName(rs.getString("tag_name"));
-		x.setTagScore(rs.getInt("tag_score"));
-		
-        return x;
-	}		
 }
 */
 }
