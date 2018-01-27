@@ -272,7 +272,7 @@
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/support-list.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
-<script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
+s/layout2/scripts/layout.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js" type="text/javascript"></script>
 
 <!-- 
