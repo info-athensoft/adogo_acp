@@ -5,13 +5,13 @@
  */
 
 /* create support - button:Save support */
-function updateSupport(){
+function saveEditSupport(){
 //	alert("updateSupport called!");
 	var businessObject = getBusinessObjectForEdit();
 	
 	$.ajax({
 		type:"post",
-		url:"/acp/support/updateSupport",
+		url:"/acp/support/saveEditSupport",
 		dataType:"json",
 		data: {	supportJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,

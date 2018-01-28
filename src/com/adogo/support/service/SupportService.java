@@ -31,12 +31,12 @@ public class SupportService {
 		return this.supportDao.create(support);
 	}
 
-	public List<Support> getSupports() {
-		return this.supportDao.getSupports();
+	public List<Support> findAll() {
+		return this.supportDao.findAll();
 	}
 
-	public Support findSupportById(long supportId) {
-		return this.supportDao.findSupportById(supportId);
+	public Support findById(long supportId) {
+		return this.supportDao.findById(supportId);
 	}
 
 	@Transactional

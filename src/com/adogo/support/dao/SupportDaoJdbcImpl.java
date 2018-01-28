@@ -29,9 +29,12 @@ import com.adogo.support.entity.Support;
 @Qualifier("supportDaoJdbcImpl")
 public class SupportDaoJdbcImpl implements SupportDao {
 	
-private NamedParameterJdbcTemplate jdbc;
-private final String TABLE = "SUPPORT";
-private static final Logger logger = Logger.getLogger(SupportDaoJdbcImpl.class);
+	private static final Logger logger = Logger.getLogger(SupportDaoJdbcImpl.class);
+
+	private final String TABLE = "SUPPORT";
+	
+	private NamedParameterJdbcTemplate jdbc;
+
 	
 /**
  * inject DataSource object
@@ -43,7 +46,7 @@ public void setDataSource(DataSource dataSource){
 }
 
 @Override
-public Support findSupportById(long supportId) {
+public Support findById(long supportId) {
 	StringBuffer sbf = new StringBuffer();
 	sbf.append("SELECT ");
 	sbf.append("global_id, ");
@@ -106,7 +109,7 @@ public int create(Support x) {
 }
 
 @Override
-public List<Support> getSupports() {
+public List<Support> findAll() {
 	StringBuffer sbf = new StringBuffer();
 	sbf.append("SELECT ");
 	sbf.append("global_id, ");

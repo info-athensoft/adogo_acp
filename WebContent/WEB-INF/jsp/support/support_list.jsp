@@ -135,7 +135,7 @@
                                     <div class="caption">
                                         <i class="fa fa-shopping-cart"></i>Support Listing <span class="caption-helper">listing support, search, group action...</span></div>
                                     <div class="actions">
-                                        <a href="supportCreate" class="btn btn-circle btn-info">
+                                        <a href="create.html" class="btn btn-circle btn-info">
                                             <i class="fa fa-plus"></i><span class="hidden-xs"> Create support </span>
                                         </a>
                                         <div class="btn-group">
@@ -170,7 +170,7 @@
                                             <button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
                                         	 -->
                                         </div>
-                                        <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_roleList">
+                                        <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_supportList">
                                             <thead>
                                                 <tr role="row" class="heading">
                                                     <th width="1%">

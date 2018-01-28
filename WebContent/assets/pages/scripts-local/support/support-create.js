@@ -5,17 +5,19 @@
  */
 
 /* create support - button:Save support */
-function saveSupport(){
-//	alert("saveSupport called!");
+function saveCreateSupport(){
+//	alert("saveCreateSupport called!");
 	var businessObject = getBusinessObject();
 	
 	$.ajax({
 		type:"post",
-		url:"/acp/support/saveSupport",
+		url:"/acp/support/saveCreateSupport",
 		dataType:"json",
 		data: {	supportJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
-		success:function(data){	
+		success:function(data){
+			alert("saveCreateSupport called successfully!");
+			window.location.href="/acp/support/";
 		}		
 	});
 	

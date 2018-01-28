@@ -12,9 +12,9 @@ public interface SupportDao {
 
 	public int create(Support support);
 
-	public List<Support> getSupports();
+	public List<Support> findAll();
 
-	public Support findSupportById(long supportId);
+	public Support findById(long supportId);
 
 	public int update(Support support);
 
