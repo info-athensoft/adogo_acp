@@ -31,7 +31,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
-        <title>Athensoft | Events - News Listing</title>
+        <title>Adogo | UAAS - Role Listing</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
         
@@ -145,10 +145,10 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="portlet light">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-shopping-cart"></i>News Listing <span class="caption-helper">listing news, search, group action...</span></div>
+                                        <i class="fa fa-shopping-cart"></i>Role List <span class="caption-helper">listing roles, search, group action...</span></div>
                                     <div class="actions">
                                         <a href="eventsNewsCreate" class="btn btn-circle btn-info">
-                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Create news </span>
+                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Create a Role </span>
                                         </a>
                                         <div class="btn-group">
                                             <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
@@ -190,8 +190,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <span></span>
                                                         </label>
                                                     </th>
-                                                    <th width="8%">Role ID</th>
-													<th width="25%">Role Code</th>
+                                                    <th width="10%">Role ID</th>
+													<th width="20%">Role Code</th>
 													<th width="8%">Role Level</th>
 													<th width="8%">Role Type</th>
 													<th width="8%">Role Name</th>
@@ -277,9 +277,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${webapp_name}/assets/global/scripts/app.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/uaas/role.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/uaas/role-list.js"></script>
+
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
@@ -290,9 +288,12 @@ License: You must have a valid license purchased only from themeforest(the above
 <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
  -->
 <!-- END THEME LAYOUT SCRIPTS -->
+
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/uaas/role.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/uaas/role-list.js"></script>
 <script>
 RoleList.init();
-//$("#menu-myevents").addClass("selected");
 
 </script>
 </body>

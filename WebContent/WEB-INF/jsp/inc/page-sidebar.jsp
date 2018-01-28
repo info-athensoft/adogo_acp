@@ -51,12 +51,12 @@
 						Ad Post</a>
 						<ul class="sub-menu">
 							<li class="nav-item  ">
-								<a href="/acp/ad/adpost/create.html">
+								<a href="/acp/advertiser/adpost/create.html">
 								<i class="icon-paper-plane"></i>
 								Create Ad Post</a>
 							</li>
 							<li class="nav-item  ">
-								<a href="/acp/ad/adpost/edit.html">
+								<a href="/acp/advertiser/adpost/edit.html">
 								<i class="icon-paper-plane"></i>
 								Edit Ad Post</a>
 							</li>							
