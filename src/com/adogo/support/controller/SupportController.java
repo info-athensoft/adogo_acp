@@ -7,22 +7,17 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.adogo.advertiser.entity.booth.Booth;
 import com.adogo.info.lang.LanguageMap;
 import com.adogo.support.entity.Support;
+import com.adogo.support.entity.SupportStatus;
 import com.adogo.support.service.SupportService;
-import com.adogo.uaas.entity.Role;
-import com.adogo.uaas.entity.RoleStatus;
 import com.athensoft.util.id.UUIDHelper;
 
 @Controller
@@ -34,8 +29,6 @@ public class SupportController {
 	private static final String ACTION_EDIT = "Edit";
 	private static final String ACTION_DELETE = "Delete";
 	
-	
-	
 	@Autowired
 	private SupportService supportService;
 		
@@ -44,14 +37,6 @@ public class SupportController {
 		this.supportService = supportService;
 	}
 	
-	@Autowired
-	private LanguageMap langMapObj;
-	
-	@Autowired
-	public void setLanguageMap(LanguageMap langMapObj){
-		this.langMapObj = langMapObj;
-	}
-
 	/**
 	 * gotoDashboard
 	 * @param
@@ -62,7 +47,21 @@ public class SupportController {
 	
 	@RequestMapping(value="/")
 	public String gotoDashboard(){
-		String viewName = "support/support_list";
+		logger.info("entering /support/");
+		
+		String viewName = "support/support_dashboard";
+		
+		logger.info("entering /support/");
+		return viewName;
+	}
+	
+	@RequestMapping(value="/dashboard.html")
+	public String gotoDashboard2(){
+		logger.info("entering /support/dashboard.html");
+		
+		String viewName = "support/support_dashboard";
+		
+		logger.info("entering /support/dashboard.html");
 		return viewName;
 	}
 	
@@ -74,12 +73,172 @@ public class SupportController {
 	 * @author sfz
 	 */
 	
-	@RequestMapping(value="/list.html")
-	public String gotoSupportList(){
-		String viewName = "support/support_list";
+	@RequestMapping(value="/faq/")
+	public String gotoFaqIndex(){
+		logger.info("entering /support/faq/index.html");
+		
+		/* set view */
+		String viewName = "support/faq_index";
+		
+		logger.info("entering /support/faq/index.html");
 		return viewName;
 	}
 	
+	
+	@RequestMapping(value="/faq/index.html")
+	public String gotoFaqIndex2(){
+		logger.info("entering /support/faq/index.html");
+		
+		/* set view */
+		String viewName = "support/faq_index";
+		
+		logger.info("entering /support/faq/index.html");
+		return viewName;
+	}
+	
+	/**
+	 * Create support
+	 * @param
+	 * @return
+	 * 
+	 * @author sfz
+	 */
+	@RequestMapping("/faq/create.html")
+	public String gotoCreate(){
+		logger.info("entering... /acp/support/create.html");
+		
+		String viewName = "support/faq_create";
+		
+		logger.info("exiting... /acp/support/create.html");
+		return viewName;
+	}
+
+	/**
+	 * Edit support
+	 * @param
+	 * @return
+	 * 
+	 * @author sfz
+	 */
+	
+	@RequestMapping("/faq/edit.html")
+	public ModelAndView gotoEdit(@RequestParam long supportId){
+		logger.info("entering... /acp/support/faq/edit.html");
+		logger.info("supportId = " + supportId);
+	
+		/* execute business logic */
+		Support support = supportService.findById(supportId);
+		
+		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		
+		/* set data */
+		model.put("support", support);
+		
+		/* set view */
+		String viewName = "support/faq_edit";
+	    mav.setViewName(viewName);
+		
+		logger.info("exiting... /acp/support/faq/edit.html");
+		return mav;
+	}
+
+	/**
+	 * @param supportJSONString
+	 * @return
+	 * 
+	 * @author sfz
+	 */
+	
+	@RequestMapping(value="/faq/create",method=RequestMethod.POST,produces="application/json")
+	@ResponseBody
+	public Map<String,Object> createFaq(@RequestParam String supportJSONString){		
+		logger.info("entering... /acp/support/create");
+		
+		/* prepare data */		
+		JSONObject jsonObj= new JSONObject(supportJSONString);
+		
+		Long topicId 			= UUIDHelper.getUniqueLongId();
+		Integer supportLangNo 	= jsonObj.getInt("supportLangNo");
+		String supportTopicTitle 		= jsonObj.getString("supportTopicTitle");
+		String supportTopicContent	= jsonObj.getString("supportTopicContent");
+		
+		logger.info("topicId="+topicId);
+		logger.info("supportLangNo="+supportLangNo);
+		logger.info("supportTopicTitle="+supportTopicTitle);
+		logger.info("supportTopicContent="+supportTopicContent);
+	
+		
+		/* execute business logic */
+		Support support = new Support();
+		support.setTopicId(topicId);
+		support.setLangNo(supportLangNo);
+		support.setTopicTitle(supportTopicTitle);
+		support.setTopicContent(supportTopicContent);
+		support.setTopicStatus(SupportStatus.CREATED);
+				
+		this.supportService.create(support);
+		
+		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
+		
+		/* set data */
+		Map<String,Object> model = mav.getModel();
+		
+		/* set view */
+//		String viewName = "support/support_list";
+//	    mav.setViewName(viewName);
+		
+		logger.info("exiting... /acp/support/create");
+		return model;
+	}
+
+	/**
+		 * @param adPostJSONString
+		 * @return
+		 * 
+		 * @author sfz
+		 */
+		
+		@RequestMapping("/faq/update")
+		public ModelAndView updateFaq(@RequestParam String supportJSONString){		
+			logger.info("entering... /acp/support/faq/update");
+			
+			/* prepare data */		
+			JSONObject jsonObj= new JSONObject(supportJSONString);
+			
+	//		Long topicId 			= UUIDHelper.getUniqueLongId();
+			Long supportId 	= jsonObj.getLong("supportId");
+			Integer supportLangNo 		= jsonObj.getInt("supportLangNo");
+			String supportTopicTitle 	= jsonObj.getString("supportTopicTitle");
+			String supportTopicContent	= jsonObj.getString("supportTopicContent");
+			
+			logger.info("supportId="+supportId);
+			logger.info("supportLangNo="+supportLangNo);
+			logger.info("supportTopicTitle="+supportTopicTitle);
+			logger.info("supportTopicContent="+supportTopicContent);
+	
+			/* execute business logic */
+			Support support = new Support();
+			support.setGlobalId(supportId);
+			support.setLangNo(supportLangNo);
+			support.setTopicTitle(supportTopicTitle);
+			support.setTopicContent(supportTopicContent);
+					
+			this.supportService.update(support);
+			
+			/* assemble model and view */
+			ModelAndView mav = new ModelAndView();
+			
+			/* set view */
+			String viewName = "support/support_list";
+	        mav.setViewName(viewName);
+			
+			logger.info("exiting... /acp/support/faq/update");
+			return mav;
+		}
+
 	/**
 	 * getDataSupportList
 	 * @param
@@ -113,7 +272,7 @@ public class SupportController {
 		logger.info("leaving /support/supportListData");
 		return model;
 	}
-	
+
 	/**
 	 * getData
 	 * @param list, actionName
@@ -143,7 +302,7 @@ public class SupportController {
 			field4 = list.get(i).getTopicTitle()+"";
 			field5 = list.get(i).getTopicContent();
 			
-			String statusParameter = list.get(i).getTopicStatus();
+			Integer statusParameter = list.get(i).getTopicStatus();
 			String[] statusPair = getStatusPair(statusParameter);
 			
 			if(statusPair!=null && statusPair.length > 0) {
@@ -156,7 +315,7 @@ public class SupportController {
 				field6 = "";
 			}
 			
-			field7 = "<a href='/acp/support/edit.html?supportId="+field1+"' class='btn btn-xs default btn-editable'><i class='fa fa-pencil'></i> "+actionName+"</a>";
+			field7 = "<a href='/acp/support/faq/edit.html?supportId="+field1+"' class='btn btn-xs default btn-editable'><i class='fa fa-pencil'></i> "+actionName+"</a>";
 			
 			data[i][0] = field0;
 			data[i][1] = field1;
@@ -178,29 +337,26 @@ public class SupportController {
 	 * 
 	 * @author sfz
 	 */
-	private String[] getStatusPair(String statusParameter){
+	private String[] getStatusPair(Integer statusParameter){
 		
-		if (statusParameter == null || statusParameter.isEmpty()) {
-			return null;
-		}
+//		if (statusParameter == null || statusParameter.isEmpty()) {
+//			return null;
+//		}
 		String[] objectStatusPair = new String[2];
 		
 		String objectStatus = "";
 		String objectStatusKey = "";
-		switch(statusParameter.toUpperCase()){
-			case "ACTIVE": 
-				objectStatus = "Active";
+		switch(statusParameter){
+			case SupportStatus.CREATED: 
+				objectStatus = "Created";
 				objectStatusKey = "success";
 				break;
-			case "INACTIVE": 
-				objectStatus = "Inactive";
+			case SupportStatus.PUBLISHED: 
+				objectStatus = "Published";
 				objectStatusKey = "warning";
 				break;
-			case "PENDING": 
-				objectStatus = "Pending";
-				objectStatusKey = "danger";
-				break;
-			case "DISABLED": 
+			case SupportStatus.DISABLED: 
+				
 				objectStatus = "Disabled";
 				objectStatusKey = "default";
 				break;
@@ -213,144 +369,6 @@ public class SupportController {
 		
 		
 		return objectStatusPair;
-	}
-	
-	/**
-	 * Create support
-	 * @param
-	 * @return
-	 * 
-	 * @author sfz
-	 */
-	@RequestMapping("/create.html")
-	public String gotoCreate(){
-		logger.info("entering... /acp/support/create.html");
-		String viewName = "support/support_create";
-		logger.info("exiting... /acp/support/create.html");
-		return viewName;
-	}
-	
-	/**
-	 * Edit support
-	 * @param
-	 * @return
-	 * 
-	 * @author sfz
-	 */
-	
-	@RequestMapping("/edit.html")
-	public ModelAndView gotoEdit(@RequestParam long supportId){
-		logger.info("entering... /acp/support/edit.html");
-		logger.info("supportId = " + supportId);
-
-		/* execute business logic */
-		Support support = supportService.findById(supportId);
-		
-		/* assemble model and view */
-		ModelAndView mav = new ModelAndView();
-		Map<String, Object> model = mav.getModel();
-		
-		/* set data */
-		model.put("support", support);
-		
-		/* set view */
-		String viewName = "support/support_edit";
-        mav.setViewName(viewName);
-		
-		logger.info("exiting... /acp/support/edit.html");
-		return mav;
-	}
-	
-
-	
-	/**
-	 * @param supportJSONString
-	 * @return
-	 * 
-	 * @author sfz
-	 */
-	
-	@RequestMapping("/saveCreateSupport")
-	public ModelAndView saveCreateSupport(@RequestParam String supportJSONString){		
-		logger.info("entering... /acp/support/saveCreateSupport");
-		
-		/* prepare data */		
-		JSONObject jsonObj= new JSONObject(supportJSONString);
-		
-		Long topicId 			= UUIDHelper.getUniqueLongId();
-		Integer supportLangNo 	= jsonObj.getInt("supportLangNo");
-		String supportTopicTitle 		= jsonObj.getString("supportTopicTitle");
-		String supportTopicContent	= jsonObj.getString("supportTopicContent");
-		
-		logger.info("topicId="+topicId);
-		logger.info("supportLangNo="+supportLangNo);
-		logger.info("supportTopicTitle="+supportTopicTitle);
-		logger.info("supportTopicContent="+supportTopicContent);
-
-		
-		/* execute business logic */
-		Support support = new Support();
-		support.setTopicId(topicId);
-		support.setLangNo(supportLangNo);
-		support.setTopicTitle(supportTopicTitle);
-		support.setTopicContent(supportTopicContent);
-				
-		this.supportService.create(support);
-		
-		/* assemble model and view */
-		ModelAndView mav = new ModelAndView();
-		
-		/* set view */
-		String viewName = "support/support_list";
-        mav.setViewName(viewName);
-		
-		logger.info("exiting... /acp/support/saveCreateSupport");
-		return mav;
-	}
-
-	/**
-	 * @param adPostJSONString
-	 * @return
-	 * 
-	 * @author sfz
-	 */
-	
-	@RequestMapping("/saveEditSupport")
-	public ModelAndView saveEditSupport(@RequestParam String supportJSONString){		
-		logger.info("entering... /acp/support/saveEditSupport");
-		
-		/* prepare data */		
-		JSONObject jsonObj= new JSONObject(supportJSONString);
-		
-//		Long topicId 			= UUIDHelper.getUniqueLongId();
-		Long supportId 	= jsonObj.getLong("supportId");
-		Integer supportLangNo 	= jsonObj.getInt("supportLangNo");
-		String supportTopicTitle 		= jsonObj.getString("supportTopicTitle");
-		String supportTopicContent	= jsonObj.getString("supportTopicContent");
-		
-		logger.info("supportId="+supportId);
-		logger.info("supportLangNo="+supportLangNo);
-		logger.info("supportTopicTitle="+supportTopicTitle);
-		logger.info("supportTopicContent="+supportTopicContent);
-
-		/* execute business logic */
-		Support support = new Support();
-		support.setGlobalId(supportId);
-		support.setLangNo(supportLangNo);
-		support.setTopicTitle(supportTopicTitle);
-		support.setTopicContent(supportTopicContent);
-				
-		this.supportService.update(support);
-		
-		/* assemble model and view */
-		ModelAndView mav = new ModelAndView();
-		
-		/* set view */
-		String viewName = "support/support_list";
-        mav.setViewName(viewName);
-		
-		logger.info("exiting... /acp/support/saveEditSupport");
-		return mav;
 	}
 	
 }

@@ -1,13 +1,24 @@
 package com.adogo.support.entity;
 
+/**
+ * Post of support topic
+ * applied at Support system, FAQ's, etc.
+ * 
+ * @author sfz
+ *
+ */
 public class Support {
 	private Long globalId;
 	private Long topicId;
 	private Integer langNo;
 	private String topicTitle;
 	private String topicContent;
+	
+	/**
+	 * view number of this support post
+	 */
 	private Integer viewNum;
-	private String topicStatus;
+	private Integer topicStatus;
 	
 	public Long getGlobalId() {
 		return globalId;
@@ -45,10 +56,10 @@ public class Support {
 	public void setViewNum(Integer viewNum) {
 		this.viewNum = viewNum;
 	}
-	public String getTopicStatus() {
+	public Integer getTopicStatus() {
 		return topicStatus;
 	}
-	public void setTopicStatus(String topicStatus) {
+	public void setTopicStatus(Integer topicStatus) {
 		this.topicStatus = topicStatus;
 	}
 	
@@ -58,5 +69,4 @@ public class Support {
 				+ topicTitle + ", topicContent=" + topicContent + ", viewNum=" + viewNum + ", topicStatus="
 				+ topicStatus + "]";
 	}
-
 }

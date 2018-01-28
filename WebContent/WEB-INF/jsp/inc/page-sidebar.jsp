@@ -241,15 +241,16 @@
 				</a>
 				<ul class="sub-menu">
 					<li class="nav-item  ">
-						<a href="/acp/support/create.html">
+						<a href="/acp/support/">
 						<i class="icon-home"></i>
-						Create Support</a>
+						Dashboard</a>
 					</li>
 					<li class="nav-item  ">
-						<a href="/acp/support/list.html">
-						<i class="icon-pencil"></i>
-						Edit Support</a>
+						<a href="/acp/support/faq/">
+						<i class="icon-home"></i>
+						FAQ Post</a>
 					</li>
+					
 				</ul>
 			</li>
 		</ul>

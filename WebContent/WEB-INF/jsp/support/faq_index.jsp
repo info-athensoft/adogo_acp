@@ -62,26 +62,22 @@
         <div class="page-header navbar navbar-fixed-top">
             <!-- BEGIN HEADER INNER -->
             <div class="page-header-inner ">
-                <!-- BEGIN LOGO -->
-                <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
-                <!-- END LOGO -->
-                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-                <!-- END RESPONSIVE MENU TOGGLER -->
-                <!-- BEGIN PAGE ACTIONS -->
-                <!-- DOC: Remove "hide" class to enable the page header actions -->
-                <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
-                <!-- END PAGE ACTIONS -->
-                <!-- BEGIN PAGE TOP -->
-                <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
-                <!-- END PAGE TOP -->
-            </div>
+            <!-- LOGO -->
+            <jsp:include page="${inc_dir}/page-logo.jsp"></jsp:include>
+            <!-- RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+            <!-- PAGE ACTIONS -->
+            <jsp:include page="${inc_dir}/page-action.jsp"></jsp:include>
+            <!-- PAGE TOP -->
+            <jsp:include page="${inc_dir}/page-top.jsp"></jsp:include>
+        </div>
             <!-- END HEADER INNER -->
         </div>
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
         <!-- END HEADER & CONTENT DIVIDER -->
+        
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
@@ -91,41 +87,28 @@
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
-                    <!-- BEGIN PAGE HEADER-->
-                    <!-- BEGIN THEME PANEL -->
-                    <jsp:include page="${inc_dir}/theme-panel.jsp"></jsp:include>
-                    <!-- END THEME PANEL -->
-                    <h1 class="page-title"> Support</small></h1>
-                    <div class="page-bar">
-                        <ul class="page-breadcrumb">
-							<li>
-								<i class="fa fa-home"></i>
-								<a href="#">Home</a>
-								<i class="fa fa-angle-right"></i>
-							</li>
-							<li>
-								<a href="#">Support</a>
-								<i class="fa fa-angle-right"></i>
-							</li>
-							<li>
-								<a href="#">...</a>
-							</li>
-						</ul>
-                        <div class="page-toolbar">
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#"><i class="icon-bell"></i> Action</a></li>
-                                    <li><a href="#"><i class="icon-shield"></i> Another action</a></li>
-                                    <li><a href="#"><i class="icon-user"></i> Something else here</a></li>
-                                    <li class="divider"> </li>
-                                    <li><a href="#"><i class="icon-bag"></i> Separated link</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- PAGE HEADER-->
+                    <h1 class="page-title"> Support | FAQ <small>home</small></h1>
+		           <div class="page-bar">
+		               <ul class="page-breadcrumb">
+		                   <li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
+		                   <li><a href="${webapp_name}/support/">Support</a><i class="fa fa-angle-right"></i></li>
+		                   <li><a href="${webapp_name}/support/faq/">FAQ</a><i class="fa fa-angle-right"></i></li>
+		                   <li><span>FAQ Home</span></li>
+		               </ul>
+		               <div class="page-toolbar">
+		                   <div class="btn-group pull-right">
+		                       <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Quick Links
+		                           <i class="fa fa-angle-down"></i>
+		                       </button>
+		                       <ul class="dropdown-menu pull-right" role="menu">
+		                   	<li><a href="${webapp_name}/support/"><i class="icon-bag"></i> Goto Support Dashboard</a></li>
+			                   <li class="divider"> </li>
+			                   <li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
+			               </ul>
+		                   </div>
+		               </div>
+		           </div>
                     <!-- END PAGE HEADER-->
                     <div class="row">
                         <div class="col-md-12">
@@ -133,25 +116,11 @@
                             <div class="portlet light">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-shopping-cart"></i>Support Listing <span class="caption-helper">listing support, search, group action...</span></div>
+                                        Support FAQ List <span class="caption-helper">listing support, search, group action...</span></div>
                                     <div class="actions">
                                         <a href="create.html" class="btn btn-circle btn-info">
-                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Create support </span>
+                                            <i class="fa fa-plus"></i><span class="hidden-xs"> Create a FAQ Post </span>
                                         </a>
-                                        <div class="btn-group">
-                                            <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-                                                <i class="fa fa-share"></i>
-                                                <span class="hidden-xs"> Tools </span>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li><a href="javascript:;"> Export to Excel </a></li>
-                                                <li><a href="javascript:;"> Export to CSV </a></li>
-                                                <li><a href="javascript:;"> Export to XML </a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="javascript:;"> Print Invoices </a></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
@@ -267,23 +236,18 @@
 <script src="${webapp_name}/assets/global/scripts/app.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/support.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/support-list.js"></script>
+
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
-s/layout2/scripts/layout.min.js" type="text/javascript"></script>
+<script src="${webapp_name}/assets/layouts/layout2/scripts/layout.min.js" type="text/javascript"></script>
 <script src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js" type="text/javascript"></script>
-
-<!-- 
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
- -->
 <!-- END THEME LAYOUT SCRIPTS -->
+
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/global-validate.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/faq.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/faq-list.js"></script>
 <script>
 SupportList.init();
-//$("#menu-myevents").addClass("selected");
-
 </script>
 </body>
 

@@ -12,7 +12,7 @@ import com.adogo.support.entity.Support;
 
 
 /**
- * @author fz
+ * @author sfz
  *
  */
 @Service
@@ -26,17 +26,17 @@ public class SupportService {
 		this.supportDao = supportDao;
 	}	
 
-	@Transactional
-	public int create(Support support) {
-		return this.supportDao.create(support);
-	}
-
 	public List<Support> findAll() {
 		return this.supportDao.findAll();
 	}
 
 	public Support findById(long supportId) {
 		return this.supportDao.findById(supportId);
+	}
+
+	@Transactional
+	public int create(Support support) {
+		return this.supportDao.create(support);
 	}
 
 	@Transactional

@@ -225,6 +225,17 @@
                                         </div>
                                     </div>
                                     
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Post Status</label>
+                                        <div class="col-md-9">
+	                                        <select id="support-lang" class="form-control">
+	                                            <option value="1" selected="selected">Created</option>
+	                                            <option value="2">Published</option>
+	                                            <option value="4">Disabled</option>
+	                                        </select>
+                                        </div>
+                                    </div>
+                                    
 	                            </div>
 	                            
 	                            <div class="form-actions">
@@ -317,36 +328,11 @@
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <!-- commented by Athens on 2017-11-30 -->
 <!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script> -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/support.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/support-create.js"></script>
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/support-edit.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/faq.js"></script>
+<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/faq-edit.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
-/*
-function getSubIndustryCode1(){
-	//selectObject=$("#industryCodeLevel1")
-	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
-	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
-	var nextLevelIndex = 2;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-}
 
-function getSubIndustryCode2(){
-	var parentCode=$("#industryCodeLevel2").val();  //Select - Value
-	var checkText=$("#industryCodeLevel2").find("option:selected").text();  //Select - Text
-	var nextLevelIndex = 3;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-	//var parentCode=$("#industryCodeLevel2").val();  //Select - Value
-	//alert(checkValue+" : "+checkText);
-}
-
-function getSubIndustryCode3(){
-	var parentCode=$("#industryCodeLevel3").val();  //Select - Value
-	var checkText=$("#industryCodeLevel3").find("option:selected").text();  //Select - Text
-	var nextLevelIndex = 4;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-	//alert(checkValue+" : "+checkText);
-}*/
 </script>
 </body>
 </html>
