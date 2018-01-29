@@ -5,17 +5,32 @@ import java.util.List;
 import com.adogo.support.entity.Support;
 
 /**
- * @author fz
+ * @author sfz
  *
  */
 public interface SupportDao {
 
+	/**
+	 * @return
+	 */
+	public List<Support> findAll();
+
+	/**
+	 * @param supportId
+	 * @return
+	 */
+	public Support findById(long supportId);
+	
+	/**
+	 * @param support
+	 * @return
+	 */
 	public int create(Support support);
-
-	public List<Support> getSupports();
-
-	public Support findSupportById(long supportId);
-
+	
+	/**
+	 * @param support
+	 * @return
+	 */
 	public int update(Support support);
 
 
