@@ -16,7 +16,7 @@ function saveCreateSupport(){
 		data: {	supportJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
 		success:function(data){
-			alert("saveCreateSupport called successfully!");
+//			alert("saveCreateSupport called successfully!");
 			window.location.href="/acp/support/faq/";
 		}		
 	});

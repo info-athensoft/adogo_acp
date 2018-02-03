@@ -11,11 +11,13 @@ function saveEditSupport(){
 	
 	$.ajax({
 		type:"post",
-		url:"/acp/support/saveEditSupport",
+		url:"/acp/support/faq/update",
 		dataType:"json",
 		data: {	supportJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,
 		success:function(data){	
+//			alert("saveEditSupport called successfully!");
+			window.location.href="/acp/support/faq/";
 		}		
 	});
 	

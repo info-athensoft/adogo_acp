@@ -131,7 +131,8 @@ public class SupportDaoJdbcImpl implements SupportDao {
 		sbf.append("UPDATE ").append(TABLE).append(" SET ");
 		sbf.append("lang_no=:lang_no,");
 		sbf.append("topic_title=:topic_title,");
-		sbf.append("topic_content=:topic_content");
+		sbf.append("topic_content=:topic_content,");
+		sbf.append("topic_status=:topic_status");
 	
 		sbf.append(" WHERE 1=1");
 		sbf.append(" AND global_id=:global_id");
@@ -144,6 +145,7 @@ public class SupportDaoJdbcImpl implements SupportDao {
 		paramSource.addValue("lang_no", x.getLangNo());
 		paramSource.addValue("topic_title", x.getTopicTitle());
 		paramSource.addValue("topic_content", x.getTopicContent());
+		paramSource.addValue("topic_status", x.getTopicStatus());
 	
 		return jdbc.update(sql, paramSource);
 	}
