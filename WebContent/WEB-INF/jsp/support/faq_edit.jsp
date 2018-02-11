@@ -87,25 +87,21 @@
         <!-- CONTENT BODY -->
         <div class="page-content">
             <!-- PAGE HEADER-->
-            <h1 class="page-title"> Support - Create</small></h1>
+            <h1 class="page-title"> Support | FAQ <small>edit a FAQ post</small></h1>
             <div class="page-bar">
                 <ul class="page-breadcrumb">
 					<li><i class="icon-home"></i><a href="${webapp_name}/">Home</a><i class="fa fa-angle-right"></i></li>
                     <li><a href="${webapp_name}/support/">Support</a><i class="fa fa-angle-right"></i></li>
-                    <li><a href="#">Create Support</a><i class="fa fa-angle-right"></i></li>
-                    
+                   <li><a href="${webapp_name}/support/faq/">FAQ</a><i class="fa fa-angle-right"></i></li>
+                   <li><span>Edit a FAQ Post</span></li>
 				</ul>
             	<div class="page-toolbar">
                		<div class="btn-group pull-right">
-                    	<button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" 
-                    			data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-								Quick Links <i class="fa fa-angle-down"></i>
+                       <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Quick Links
+                           <i class="fa fa-angle-down"></i>
                         </button>
                     	<ul class="dropdown-menu pull-right" role="menu">
-                        	<li><a href="${webapp_name}/advertiser/"><i class="icon-bag"></i> Advertiser Dashboard</a></li>
-	                    	<li><a href="${webapp_name}/advertiser/biz/"><i class="icon-bell"></i> Goto Business</a></li>
-	                    	<li><a href="${webapp_name}/advertiser/booth/"><i class="icon-shield"></i> Goto Booths</a></li>
-	                    	<li><a href="${webapp_name}/advertiser/adpost/"><i class="icon-user"></i> Goto Ad Post</a></li>
+                   	<li><a href="${webapp_name}/support/"><i class="icon-bag"></i> Goto Support Dashboard</a></li>
 	                    	<li class="divider"> </li>
 	                    	<li><a href="#"><i class="icon-bag"></i> Export Report</a></li>
 	                    </ul>
@@ -115,41 +111,7 @@
             <!-- END PAGE HEADER-->
             
             <!-- ROW STEP -->
-            <!-- 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="portlet light portlet-fit ">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class=" icon-layers font-green"></i>
-                                <span class="caption-subject font-green bold uppercase">Quick steps - Register a business</span>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="mt-element-step">
-                                <div class="row step-thin">
-                                    <div class="col-md-4 bg-grey mt-step-col">
-                                        <div class="mt-step-number bg-white font-grey">1</div>
-                                        <div class="mt-step-title uppercase font-grey-cascade">Start</div>
-                                        <div class="mt-step-content font-grey-cascade">Start registering</div>
-                                    </div>
-                                    <div class="col-md-4 bg-grey mt-step-col done">
-                                        <div class="mt-step-number bg-white font-grey">2</div>
-                                        <div class="mt-step-title uppercase font-grey-cascade">Create</div>
-                                        <div class="mt-step-content font-grey-cascade">Create business profile</div>
-                                    </div>
-                                    <div class="col-md-4 bg-grey mt-step-col">
-                                        <div class="mt-step-number bg-white font-grey">3</div>
-                                        <div class="mt-step-title uppercase font-grey-cascade">Complete</div>
-                                        <div class="mt-step-content font-grey-cascade">Complete business profile</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             -->
+           
             <!-- END ROW STEP -->
             
             <div class="row">
@@ -157,7 +119,7 @@
                     <div class="portlet light">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-shopping-cart"></i>Create Support 
+                                <i class="fa fa-shopping-cart"></i>Edit Support 
                             </div>
                             <div class="actions">
                                 <a class="btn btn-circle btn-info" onclick="saveEditSupport(); return false;">
@@ -228,7 +190,9 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Post Status</label>
                                         <div class="col-md-9">
+
 	                                        <select id="support-status" class="form-control">
+
 	                                            <option value="1" selected="selected">Created</option>
 	                                            <option value="2">Published</option>
 	                                            <option value="4">Disabled</option>
@@ -326,7 +290,6 @@
 <script type="text/javascript" src="${webapp_name}/assets/layouts/layout2/scripts/demo.min.js"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<!-- commented by Athens on 2017-11-30 -->
 <!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script> -->
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/faq.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/support/faq-edit.js"></script>

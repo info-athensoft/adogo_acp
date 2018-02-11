@@ -242,6 +242,52 @@ public class SupportController {
 			return mav;
 		}
 
+	
+//	@RequestMapping(value="/faq/update",method=RequestMethod.POST,produces="application/json")
+//	@ResponseBody
+//	public Map<String,Object> updateFaq(@RequestParam String supportJSONString){		
+//		logger.info("entering... /acp/support/faq/update");
+//		
+//		/* prepare data */		
+//		JSONObject jsonObj= new JSONObject(supportJSONString);
+//		
+////		Long topicId 			= UUIDHelper.getUniqueLongId();
+//		Long supportId 	= jsonObj.getLong("supportId");
+//		Integer supportLangNo 		= jsonObj.getInt("supportLangNo");
+//		String supportTopicTitle 	= jsonObj.getString("supportTopicTitle");
+//		String supportTopicContent	= jsonObj.getString("supportTopicContent");
+//		Integer supportTopicStatus	= jsonObj.getInt("supportTopicStatus");
+//		
+//		logger.info("supportId="+supportId);
+//		logger.info("supportLangNo="+supportLangNo);
+//		logger.info("supportTopicTitle="+supportTopicTitle);
+//		logger.info("supportTopicContent="+supportTopicContent);
+//		logger.info("supportTopicStatus="+supportTopicStatus);
+//
+//		/* execute business logic */
+//		Support support = new Support();
+//		support.setGlobalId(supportId);
+//		support.setLangNo(supportLangNo);
+//		support.setTopicTitle(supportTopicTitle);
+//		support.setTopicContent(supportTopicContent);
+//		support.setTopicStatus(supportTopicStatus);
+//				
+//		this.supportService.update(support);
+//		
+//		/* assemble model and view */
+//		ModelAndView mav = new ModelAndView();
+//		
+//		/* set data */
+//		Map<String,Object> model = mav.getModel();
+//		
+//		/* set view */
+////		String viewName = "support/support_list";
+////        mav.setViewName(viewName);
+//		
+//		logger.info("exiting... /acp/support/faq/update");
+//		return model;
+//	}
+
 	/**
 	 * getDataSupportList
 	 * @param
