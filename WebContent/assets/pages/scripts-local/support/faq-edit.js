@@ -11,7 +11,7 @@ function saveEditSupport(){
 	
 	$.ajax({
 		type:"post",
-		url:"/acp/support/saveEditSupport",
+		url:"/acp/support/faq/update", //saveEditSupport
 		dataType:"json",
 		data: {	supportJSONString : JSON.stringify(businessObject) },
 		timeout : 5000,

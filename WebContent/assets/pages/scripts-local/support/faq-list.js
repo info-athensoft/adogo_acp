@@ -154,33 +154,17 @@ function filterSearch(){
     };
 
     var dt = $("#datatable_supportList").DataTable();
-    //alert('before ajax.url');
     var x = dt.ajax.url("/acp/support/newsSearchFilterData?itemJSONString="+JSON.stringify(businessObject)).load();
-/*    
-    $.ajax({
-		type:"post",
-		url:"/acp/support/newsSearchFilterData",
-		dataType:"json",
-		data: {	supportJSONString : JSON.stringify(businessObject) },
-		timeout : 5000,
-		success:function(data){
-			alert("saveCreateSupport called successfully!");
-			//window.location.href="/acp/support/faq/";
-		}		
-	}); */
 }
 
 
 /* list news - datatable:button:filter reset */
 function filterReset(){
 //	alert("do filterReset()");
-	var p2 = $("#eventUUID").val("");
-    var p3 = $("#eventTitle").val("");        
-    var p4 = $("#eventAuthor").val("");
-    var p5a = $("#postDatetimeFrom").val("");
-    var p5b = $("#postDatetimeTo").val("");
-    var p6a = $("#viewNumFrom").val("");
-    var p6b = $("#viewNumTo").val("");
-    var p9 = $("#eventClass").val(0);
-    var p10 = $("#eventStatus").val(0);
+	var p1 = $("#support-id").val("");
+    var p2 = $("#support-topic-id").val("");
+    var p3 = $("#support-lang").val(0);
+    var p4 = $("#support-topic-title").val("");
+    var p5 = $("#support-topic-content").val("");
+    var p6 = $("#support-topic-status").val(0);
 }

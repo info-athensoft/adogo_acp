@@ -11,6 +11,7 @@ function getBusinessObject(){
     var p2 = $("#support-lang").val();        
     var p3 = $("#support-topic-title").val();
     var p4 = $("#support-topic-content").val();
+    var p5 = $("#support-status").val();
     
     var businessObject =
     {
@@ -18,6 +19,7 @@ function getBusinessObject(){
     		supportLangNo   		      :   p2,
     		supportTopicTitle    		  :   p3,
     		supportTopicContent    		  :   p4,
+    		supportStatus    		      :   p5
     };
     
     return businessObject;
@@ -29,6 +31,7 @@ function getBusinessObjectForEdit(){
 	var p2 = $("#support-lang").val();        
 	var p3 = $("#support-topic-title").val();
 	var p4 = $("#support-topic-content").val();
+	var p5 = $("#support-status").val();
 	
 	var businessObject =
 	{
@@ -36,6 +39,7 @@ function getBusinessObjectForEdit(){
 			supportLangNo   		      :   p2,
 			supportTopicTitle    		  :   p3,
 			supportTopicContent    		  :   p4,
+			supportStatus    		      :   p5
 	};
 	
 	return businessObject;

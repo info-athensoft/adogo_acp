@@ -16,7 +16,7 @@ public interface SupportDao {
 	public List<Support> findAll();
 	
 	public List<Support> findAllByFilters(String supportTopicId, Integer supportLangNo, String supportTopicTitle,
-			String supportTopicContent, String supportTopicStatus);
+			String supportTopicContent, Integer supportTopicStatus);
 
 	/**
 	 * @param supportId

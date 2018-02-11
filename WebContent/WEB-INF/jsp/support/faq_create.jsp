@@ -189,7 +189,7 @@
                                      <div class="form-group">
                                         <label class="col-md-3 control-label">Post Status</label>
                                         <div class="col-md-9">
-	                                        <select id="support-lang" class="form-control">
+	                                        <select id="support-status" class="form-control" disabled="disabled">
 	                                            <option value="1" selected="selected">Created</option>
 	                                            <option value="2">Published</option>
 	                                            <option value="4">Disabled</option>

@@ -65,7 +65,7 @@ public class SupportDaoJdbcImpl implements SupportDao {
 	
 	@Override
 	public List<Support> findAllByFilters(String supportTopicId, Integer supportLangNo, String supportTopicTitle,
-			String supportTopicContent, String supportTopicStatus) {
+			String supportTopicContent, Integer supportTopicStatus) {
 		StringBuffer sbf = new StringBuffer();
 		sbf.append("SELECT ");
 		sbf.append("global_id, ");
@@ -78,12 +78,20 @@ public class SupportDaoJdbcImpl implements SupportDao {
 		sbf.append(" FROM ").append(TABLE);
 		sbf.append(" WHERE 1 = 1");
 		if (supportTopicId != null && !supportTopicId.isEmpty()) {
-			sbf.append(" and CAST(topic_id as CHAR) LIKE '%:topic_id%'"); // //CONVERT(topic_id, CHAR(20))
+			sbf.append(" and INSTR(topic_id, :topic_id)>0");
 		}
 		if (supportLangNo != null) {
 			sbf.append(" and lang_no=:lang_no");
 		}
-		
+		if (supportTopicTitle != null && !supportTopicTitle.isEmpty()) {
+			sbf.append(" and INSTR(topic_title, :topic_title)>0");
+		}
+		if (supportTopicContent != null && !supportTopicContent.isEmpty()) {
+			sbf.append(" and INSTR(topic_content, :topic_content)>0");
+		}
+		if (supportTopicStatus != null) {
+			sbf.append(" and topic_status=:topic_status");
+		}
 		String sql = sbf.toString();
 		logger.info(sql);
 
@@ -93,6 +101,9 @@ public class SupportDaoJdbcImpl implements SupportDao {
 		
 		paramSource.addValue("topic_id", supportTopicId);
 		paramSource.addValue("lang_no", supportLangNo);
+		paramSource.addValue("topic_title", supportTopicTitle);
+		paramSource.addValue("topic_content", supportTopicContent);
+		paramSource.addValue("topic_status", supportTopicStatus);
 		
 		List<Support> x = new ArrayList<Support>();
 		try {
@@ -171,7 +182,8 @@ public class SupportDaoJdbcImpl implements SupportDao {
 		sbf.append("UPDATE ").append(TABLE).append(" SET ");
 		sbf.append("lang_no=:lang_no,");
 		sbf.append("topic_title=:topic_title,");
-		sbf.append("topic_content=:topic_content");
+		sbf.append("topic_content=:topic_content,");
+		sbf.append("topic_status=:topic_status");
 	
 		sbf.append(" WHERE 1=1");
 		sbf.append(" AND global_id=:global_id");
@@ -184,6 +196,7 @@ public class SupportDaoJdbcImpl implements SupportDao {
 		paramSource.addValue("lang_no", x.getLangNo());
 		paramSource.addValue("topic_title", x.getTopicTitle());
 		paramSource.addValue("topic_content", x.getTopicContent());
+		paramSource.addValue("topic_status", x.getTopicStatus());
 	
 		return jdbc.update(sql, paramSource);
 	}

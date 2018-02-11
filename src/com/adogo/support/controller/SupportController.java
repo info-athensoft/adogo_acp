@@ -213,11 +213,13 @@ public class SupportController {
 			Integer supportLangNo 		= jsonObj.getInt("supportLangNo");
 			String supportTopicTitle 	= jsonObj.getString("supportTopicTitle");
 			String supportTopicContent	= jsonObj.getString("supportTopicContent");
+			Integer supportStatus	= jsonObj.getInt("supportStatus");
 			
 			logger.info("supportId="+supportId);
 			logger.info("supportLangNo="+supportLangNo);
 			logger.info("supportTopicTitle="+supportTopicTitle);
 			logger.info("supportTopicContent="+supportTopicContent);
+			logger.info("supportStatus="+supportStatus);
 	
 			/* execute business logic */
 			Support support = new Support();
@@ -225,6 +227,7 @@ public class SupportController {
 			support.setLangNo(supportLangNo);
 			support.setTopicTitle(supportTopicTitle);
 			support.setTopicContent(supportTopicContent);
+			support.setTopicStatus(supportStatus);
 					
 			this.supportService.update(support);
 			
@@ -288,13 +291,12 @@ public class SupportController {
 		/* prepare data */		
 		JSONObject jsonObj= new JSONObject(itemJSONString);
 		
-//		Long topicId 			= UUIDHelper.getUniqueLongId();
 //		Long supportId 	= jsonObj.getLong("supportId");
 		String supportTopicId 	= jsonObj.getString("supportTopicId");
 		Integer supportLangNo 		= jsonObj.getInt("supportLangNo");
 		String supportTopicTitle 	= jsonObj.getString("supportTopicTitle");
 		String supportTopicContent	= jsonObj.getString("supportTopicContent");
-		String supportTopicStatus	= jsonObj.getString("supportTopicStatus");
+		Integer supportTopicStatus	= jsonObj.getInt("supportTopicStatus");
 		
 //		logger.info("supportId="+supportId);
 		logger.info("supportTopicId="+supportTopicId);

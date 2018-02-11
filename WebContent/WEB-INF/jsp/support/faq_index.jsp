@@ -163,8 +163,9 @@
 													<td><input type="text" class="form-control form-filter input-sm" name="event_title" id="support-topic-id"></td>
 													<td>
 														<select class="form-control form-filter input-sm" name="support-lang" id="support-lang">
-															<option value="1033" selected="selected">English</option>
-				                                            <option value="3084" >French</option>
+															<option value="0">Select...</option>
+															<option value="1033">English</option>
+				                                            <option value="3084">French</option>
 				                                            <option value="2052">Chinese (Simplified)</option>
 				                                            <option value="31748">Chinese (Traditional)</option>
 														</select>

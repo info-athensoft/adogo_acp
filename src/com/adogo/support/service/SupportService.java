@@ -31,7 +31,7 @@ public class SupportService {
 	}
 	
 	public List<Support> findAllByFilters(String supportTopicId, Integer supportLangNo, String supportTopicTitle,
-			String supportTopicContent, String supportTopicStatus) {
+			String supportTopicContent, Integer supportTopicStatus) {
 		return this.supportDao.findAllByFilters(supportTopicId, supportLangNo, supportTopicTitle, supportTopicContent, supportTopicStatus);
 	}
 
