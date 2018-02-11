@@ -232,6 +232,27 @@
 					</li>
 				</ul>
 			</li>
+			
+			<li class="nav-item">
+				<a href="javascript:;" class="nav-link nav-toggle">
+				<i class="icon-user"></i>
+				<span class="title">Support</span>
+				<span class="arrow "></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item  ">
+						<a href="/acp/support/">
+						<i class="icon-home"></i>
+						Dashboard</a>
+					</li>
+					<li class="nav-item  ">
+						<a href="/acp/support/faq/">
+						<i class="icon-home"></i>
+						FAQ Post</a>
+					</li>
+					
+				</ul>
+			</li>
 		</ul>
 		<!-- END SIDEBAR MENU -->
 	</div>

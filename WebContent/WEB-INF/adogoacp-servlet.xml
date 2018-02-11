@@ -15,6 +15,7 @@
 	<context:component-scan base-package="com.adogo.uaas.controller"></context:component-scan>
 	<context:component-scan base-package="com.adogo.advertiser.controller"></context:component-scan>
 	<context:component-scan base-package="com.adogo.ad.controller"></context:component-scan>
+	<context:component-scan base-package="com.adogo.support.controller"></context:component-scan>
 	
 	<context:component-scan base-package="test.controller"></context:component-scan>
 
