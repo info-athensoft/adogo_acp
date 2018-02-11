@@ -2,7 +2,7 @@ package com.adogo.ad.dao;
 
 import java.util.List;
 
-import com.adogo.advertiser.entity.adpost.AdPostHead;
+import com.adogo.advertiser.entity.adpost.old.AdPostHead;
 
 public interface AdPostHeadDao {
 	
@@ -14,10 +14,10 @@ public interface AdPostHeadDao {
 	
 	public Long findTotalCount();
 	
-	public int saveTags(String adpostId, String tags);
+	public int saveTags(String adpostId, String tags);	//FIXME
 	
-	public long create(AdPostHead adPost);
+	public long create(AdPostHead adPost);				//FIXME
 	
-	public int update(AdPostHead adPost);
+	public int update(AdPostHead adPost);				//FIXME
 	
 }

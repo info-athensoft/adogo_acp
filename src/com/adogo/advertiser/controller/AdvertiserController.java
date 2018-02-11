@@ -41,18 +41,24 @@ public class AdvertiserController {
 	}
 	
 	
+	/**
+	 * @return
+	 */
 	@RequestMapping("/apply")
 	public String applyAdvertiserStep1(){
 		String viewName = "advertiser/advertiser_apply_agreement";
 		return viewName;
 	}
 	
+	/**
+	 * @return
+	 */
 	@RequestMapping("/apply/quiz")
 	public ModelAndView applyAdvertiserStep2(){
 		
 		/* assemble model and view */
 		ModelAndView mav = new ModelAndView();
-		Map<String,Object> model = mav.getModel();
+		//Map<String,Object> model = mav.getModel();
 		
 		/* set view */
 		String viewName = "advertiser/advertiser_apply_quiz";
@@ -63,6 +69,9 @@ public class AdvertiserController {
 	
 	
 	
+	/**
+	 * @return
+	 */
 	@RequestMapping("/")
 	public ModelAndView gotoDashboard(){
 		//String viewName = "advertiser/advertiser_dashboard";
@@ -70,6 +79,9 @@ public class AdvertiserController {
 		return gotoDashboard3();
 	}
 	
+	/**
+	 * @return
+	 */
 	@RequestMapping("/index")
 	public ModelAndView gotoDashboard2(){
 		//String viewName = "advertiser/advertiser_dashboard";
@@ -77,6 +89,9 @@ public class AdvertiserController {
 		return gotoDashboard3();
 	}
 	
+	/**
+	 * @return
+	 */
 	@RequestMapping("/dashboard")
 	public ModelAndView gotoDashboard3(){
 		logger.info("entering... /advertiser/dashboard");

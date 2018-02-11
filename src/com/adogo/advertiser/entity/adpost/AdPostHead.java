@@ -3,21 +3,20 @@ package com.adogo.advertiser.entity.adpost;
 import java.util.Date;
 
 public class AdPostHead {
-	protected Long globalId;
-	protected Long userId;
-	protected Long adPostId;
-	protected String mediaCoverUrl;
-	protected String postTitle;
-	protected String postAuthor;
-	protected Integer postCategory;
-	protected Date createDatetime;
-	protected Date postDatetime;
-	protected Integer langNo;
-	protected String tags;
-	protected Integer viewNum;
-	protected String shortDesc;
-	
-	
+	private Long 	globalId;
+	private Long 	userId;
+	private Long 	advertiserId;
+	private Long 	adPostId;
+	private Integer langNo;
+	private String 	postCoverUrl;
+	private String 	postTitle;
+	private String 	postAuthor;
+	private Integer postCategory;
+	private String 	postTags;
+	private Integer viewNum;
+	private String 	shortDesc;
+	private Date 	createDate;
+	private Date 	postDate;
 	public Long getGlobalId() {
 		return globalId;
 	}
@@ -30,17 +29,29 @@ public class AdPostHead {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+	public Long getAdvertiserId() {
+		return advertiserId;
+	}
+	public void setAdvertiserId(Long advertiserId) {
+		this.advertiserId = advertiserId;
+	}
 	public Long getAdPostId() {
 		return adPostId;
 	}
 	public void setAdPostId(Long adPostId) {
 		this.adPostId = adPostId;
 	}
-	public String getMediaCoverUrl() {
-		return mediaCoverUrl;
+	public Integer getLangNo() {
+		return langNo;
 	}
-	public void setMediaCoverUrl(String mediaCoverUrl) {
-		this.mediaCoverUrl = mediaCoverUrl;
+	public void setLangNo(Integer langNo) {
+		this.langNo = langNo;
+	}
+	public String getPostCoverUrl() {
+		return postCoverUrl;
+	}
+	public void setPostCoverUrl(String postCoverUrl) {
+		this.postCoverUrl = postCoverUrl;
 	}
 	public String getPostTitle() {
 		return postTitle;
@@ -54,42 +65,17 @@ public class AdPostHead {
 	public void setPostAuthor(String postAuthor) {
 		this.postAuthor = postAuthor;
 	}
-	public Date getCreateDatetime() {
-		return createDatetime;
-	}
-	public void setCreateDatetime(Date createDatetime) {
-		this.createDatetime = createDatetime;
-	}
-	public Date getPostDatetime() {
-		return postDatetime;
-	}
-	public void setPostDatetime(Date postDatetime) {
-		this.postDatetime = postDatetime;
-	}
-	public Integer getLangNo() {
-		return langNo;
-	}
-	public void setLangNo(Integer langNo) {
-		this.langNo = langNo;
-	}
-	public String getTags() {
-		return tags;
-	}
-	public void setTags(String tags) {
-		this.tags = tags;
-	}
-	
 	public Integer getPostCategory() {
 		return postCategory;
 	}
 	public void setPostCategory(Integer postCategory) {
 		this.postCategory = postCategory;
 	}
-	@Override
-	public String toString() {
-		return "AdPost [globalId=" + globalId + ", userId=" + userId + ", adPostId=" + adPostId + ", mediaCoverUrl="
-				+ mediaCoverUrl + ", postTitle=" + postTitle + ", postAuthor=" + postAuthor + ", createDatetime="
-				+ createDatetime + ", postDatetime=" + postDatetime + ", langNo=" + langNo + ", tags=" + tags + "]";
+	public String getPostTags() {
+		return postTags;
+	}
+	public void setPostTags(String postTags) {
+		this.postTags = postTags;
 	}
 	public Integer getViewNum() {
 		return viewNum;
@@ -103,5 +89,25 @@ public class AdPostHead {
 	public void setShortDesc(String shortDesc) {
 		this.shortDesc = shortDesc;
 	}
-
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public Date getPostDate() {
+		return postDate;
+	}
+	public void setPostDate(Date postDate) {
+		this.postDate = postDate;
+	}
+	
+	@Override
+	public String toString() {
+		return "AdPostHead [globalId=" + globalId + ", userId=" + userId + ", advertiserId=" + advertiserId
+				+ ", adPostId=" + adPostId + ", langNo=" + langNo + ", postCoverUrl=" + postCoverUrl + ", postTitle="
+				+ postTitle + ", postAuthor=" + postAuthor + ", postCategory=" + postCategory + ", postTags=" + postTags
+				+ ", viewNum=" + viewNum + ", shortDesc=" + shortDesc + ", createDate=" + createDate + ", postDate="
+				+ postDate + "]";
+	}
 }

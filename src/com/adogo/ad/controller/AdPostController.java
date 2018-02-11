@@ -21,15 +21,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.adogo.ad.service.AdPostService;
 import com.adogo.ad.service.AdTagService;
-import com.adogo.advertiser.entity.adpost.AdPost;
-import com.adogo.advertiser.entity.adpost.AdPostAudio;
-import com.adogo.advertiser.entity.adpost.AdPostBody;
-import com.adogo.advertiser.entity.adpost.AdPostCoverImage;
-import com.adogo.advertiser.entity.adpost.AdPostGalleryImage;
-import com.adogo.advertiser.entity.adpost.AdPostHead;
-import com.adogo.advertiser.entity.adpost.AdPostMediaBody;
-import com.adogo.advertiser.entity.adpost.AdPostText;
-import com.adogo.advertiser.entity.adpost.AdPostVideo;
+import com.adogo.advertiser.entity.adpost.old.AdPost;
+import com.adogo.advertiser.entity.adpost.old.AdPostAudio;
+import com.adogo.advertiser.entity.adpost.old.AdPostBody;
+import com.adogo.advertiser.entity.adpost.old.AdPostCoverImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostGalleryImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostHead;
+import com.adogo.advertiser.entity.adpost.old.AdPostMediaBody;
+import com.adogo.advertiser.entity.adpost.old.AdPostText;
+import com.adogo.advertiser.entity.adpost.old.AdPostVideo;
 import com.athensoft.util.id.UUIDHelper;
 
 @Controller
@@ -41,14 +41,14 @@ public class AdPostController {
 	
 	@Autowired
 	private AdPostService adPostService;
+	
+	@Autowired
+	private AdTagService adTagService;
 		
 	@Autowired
 	public void setAdPostService(AdPostService adPostService) {
 		this.adPostService = adPostService;
 	}
-	
-	@Autowired
-	private AdTagService adTagService;
 		
 	@Autowired
 	public void setAdTagService(AdTagService adTagService) {
@@ -56,7 +56,7 @@ public class AdPostController {
 	}
 	
 	@RequestMapping("/")
-	public String gotoIndex(){
+	public String gotoAdPostIndex(){
 		logger.info("entering... /acp/advertiser/adpost/");
 		String viewName = "advertiser/adpost_index";
 		logger.info("exiting... /acp/advertiser/adpost/");
@@ -64,7 +64,7 @@ public class AdPostController {
 	}
 	
 	@RequestMapping("/index.html")
-	public String gotoIndex2(){
+	public String gotoAdPostIndex2(){
 		logger.info("entering... /acp/advertiser/adpost/index.html");
 		String viewName = "advertiser/adpost_index";
 		logger.info("exiting... /acp/advertiser/adpost/index.html");
@@ -73,7 +73,7 @@ public class AdPostController {
 	
 	
 	@RequestMapping("/create.html")
-	public String gotoCreate(){
+	public String gotoAdPostCreate(){
 		logger.info("entering... /acp/advertiser/adpost/create.html");
 		String viewName = "advertiser/adpost_create";
 		logger.info("exiting... /acp/advertiser/adpost/create.html");
@@ -81,13 +81,179 @@ public class AdPostController {
 	}
 	
 	@RequestMapping("/edit.html")
-	public String gotoEdit(){
+	public String gotoAdPostEdit(){
 		logger.info("entering... /acp/advertiser/adpost/edit.html");
 		String viewName = "advertiser/adpost_edit";
 		logger.info("exiting... /acp/advertiser/adpost/edit.html");
 		return viewName;
 	}
 	
+	/**
+	 * create an AdPost object
+	 * @param adPostJSONString
+	 * @return
+	 * 
+	 * @author Athens
+	 */
+	@RequestMapping(value="/adposts",method=RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<Boolean> createAdPost(@RequestParam String adPostJSONString){
+		
+		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
+	}
+
+	/**
+	 * update an AdPost object with entire object data
+	 * @param adPostId
+	 * @return
+	 * 
+	 * @author Athens
+	 */
+	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.PUT)
+	@ResponseBody
+	public ResponseEntity<Boolean> updateAdPost(@PathVariable String adPostId){
+		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
+	}
+
+	/**
+		 * @param adPostJSONString
+		 * @return
+		 * 
+		 * @author sfz
+		 */
+		@RequestMapping("/saveAdPost")
+		public ModelAndView saveAdPost(@RequestParam String adPostJSONString){		
+			logger.info("entering... /acp/advertiser/adpost/saveAdPost");
+			
+			/* prepare data */		
+			JSONObject jsonObj= new JSONObject(adPostJSONString);
+			
+			Long adPostId 					= UUIDHelper.getUniqueLongId();
+			Long adPostUserId 				= jsonObj.getLong("adPostUserId");
+			Integer adPostLangNo 			= jsonObj.getInt("adPostLangNo");
+			String adPostTitle 				= jsonObj.getString("adPostTitle");
+			String adPostAuthor				= jsonObj.getString("adPostAuthor");
+			Integer adPostCategory			= jsonObj.getInt("adPostCategory");
+			String adPostTags				= jsonObj.getString("adPostTags").replaceAll("^\"|\"$", "");
+			String adPostShortDesc			= jsonObj.getString("adPostShortDesc");
+			
+			//cover image
+			String adPostCoverImgTitle		= jsonObj.getString("adPostCoverImgTitle");
+			String adPostCoverImgUrl		= jsonObj.getString("adPostCoverImgUrl");
+			String adPostCoverImgShortDesc	= jsonObj.getString("adPostCoverImgShortDesc");
+			
+			//text
+			String adPostTextContentLongDesc 	= jsonObj.getString("adPostTextContentLongDesc");
+			
+			//video
+			String adPostVideoContentTitle 		= jsonObj.getString("adPostVideoContentTitle");
+			String adPostVideoContentUrl 		= jsonObj.getString("adPostVideoContentUrl");
+			String adPostVideoContentShortDesc 	= jsonObj.getString("adPostVideoContentShortDesc");
+			
+			//audio
+			String adPostAudioContentTitle 		= jsonObj.getString("adPostAudioContentTitle");
+			String adPostAudioContentUrl 		= jsonObj.getString("adPostAudioContentUrl");
+			String adPostAudioContentShortDesc 	= jsonObj.getString("adPostAudioContentShortDesc");
+			
+			logger.info("adPostCategory="+adPostCategory);
+			logger.info("adPostShortDesc="+adPostShortDesc);
+			logger.info("cover image:adPostCoverImgTitle="+adPostCoverImgTitle);
+			logger.info("cover image:adPostCoverImgUrl="+adPostCoverImgUrl);
+			logger.info("cover image:adPostCoverImgShortDesc="+adPostCoverImgShortDesc);
+			logger.info("text: adPostTextContentLongDesc="+adPostTextContentLongDesc);
+			logger.info("video: adPostVideoContentTitle="+adPostVideoContentTitle);
+			logger.info("video: adPostVideoContentUrl="+adPostVideoContentUrl);
+			logger.info("video: adPostVideoContentShortDesc="+adPostVideoContentShortDesc);
+			logger.info("audio: adPostAudioContentTitle="+adPostAudioContentTitle);
+			logger.info("audio: adPostAudioContentUrl="+adPostAudioContentUrl);
+			logger.info("audio: adPostAudioContentShortDesc="+adPostAudioContentShortDesc);
+			
+			//gallery image
+//			final int SIZE_OF_ADPOST_GALLERY_IMAGE = 9;
+//			String[] adPostGalleryImgTitleList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
+//			String[] adPostGalleryImgUrlList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
+//			String[] adPostGalleryImgShortDescList	= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
+//			
+//			for(int i=0; i<SIZE_OF_ADPOST_GALLERY_IMAGE; i++){
+//				adPostGalleryImgTitleList[i] 		= jsonObj.getString("adPostGalleryImgTitle"+(i+1));
+//				adPostGalleryImgUrlList[i] 			= jsonObj.getString("adPostGalleryImgUrl"+(i+1));
+//				adPostGalleryImgShortDescList[i] 	= jsonObj.getString("adPostGalleryImgShortDesc"+(i+1));
+//				logger.info("gallery image:adPostGalleryImgTitleList["+i+"]="+adPostGalleryImgTitleList[i]);
+//				logger.info("gallery image:adPostGalleryImgUrlList["+i+"]="+adPostGalleryImgUrlList[i]);
+//				logger.info("gallery image:adPostGalleryImgShortDescList["+i+"]="+adPostGalleryImgShortDescList[i]);
+//			}
+			
+			
+			/* prepare data */	
+			AdPostHead adPostHead = new AdPostHead();
+			adPostHead.setAdPostId(adPostId);
+			adPostHead.setUserId(adPostUserId);
+			adPostHead.setLangNo(adPostLangNo);
+			adPostHead.setPostTitle(adPostTitle);
+			adPostHead.setPostAuthor(adPostAuthor);
+			adPostHead.setPostCategory(adPostCategory);
+			adPostHead.setTags(adPostTags);
+			adPostHead.setShortDesc(adPostShortDesc);
+					
+			//AdPostBody
+			AdPostBody adPostBody = new AdPostBody();
+			adPostBody.setUserId(jsonObj.getLong("adPostUserId"));
+			adPostBody.setAdPostId(adPostId);
+			adPostBody.setMediaIndex(0);
+			adPostBody.setLangNo(jsonObj.getInt("adPostLangNo"));
+			
+			//AdPostText
+			AdPostText tContent = getAdPostText(adPostBody,adPostTextContentLongDesc);
+			
+			//AdPostCoverImage
+			AdPostCoverImage cImg = getAdPostCoverImage(adPostBody, adPostCoverImgTitle, adPostCoverImgUrl, adPostCoverImgShortDesc);
+			
+				
+			//AdPostVideo
+			AdPostVideo vContent = getAdPostVideo(adPostBody, adPostVideoContentTitle, adPostVideoContentUrl, adPostVideoContentShortDesc);
+			
+			
+			//AdPostAudio
+			AdPostAudio aContent = getAdPostAudio(adPostBody, adPostAudioContentTitle, adPostAudioContentUrl, adPostAudioContentShortDesc);
+			
+			
+			//AdPostGalleryImage
+//			for(int i = 0; i < SIZE_OF_ADPOST_GALLERY_IMAGE; i++) {
+//				AdPostGalleryImage gImg = getAdPostGalleryImage(adPostBody, adPostGalleryImgTitleList[i], adPostGalleryImgUrlList[i], adPostGalleryImgShortDescList[i]);
+//				this.adPostService.create(gImg);
+//			}
+			
+			this.adPostService.create(adPostHead);
+			this.adTagService.updateTag(adPostTags);
+			this.adPostService.create(tContent);
+			this.adPostService.create(cImg);
+			this.adPostService.create(vContent);
+			this.adPostService.create(aContent);
+			
+			/* assemble model and view */
+			ModelAndView mav = new ModelAndView();
+			
+			/* set view */
+			String viewName = "advertiser/adpost_index";
+	        mav.setViewName(viewName);
+			
+			logger.info("exiting... /advertiser/adpost/saveAdPost");
+			return mav;
+		}
+
+	/**
+	 * delete an AdPost object with entire object data
+	 * @param adPostId
+	 * @return
+	 * 
+	 * @author Athens
+	 */
+	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.DELETE)
+	@ResponseBody
+	public ResponseEntity<Boolean> deleteAdPost(@PathVariable String adPostId){
+		return new ResponseEntity<Boolean>(true,HttpStatus.NO_CONTENT);
+	}
+
 	/**
 	 * @param adpostId
 	 * @param tags
@@ -112,140 +278,6 @@ public class AdPostController {
 		logger.info("exiting... /acp/advertiser/adpost/saveTags");
 		return viewName;
 	}
-	
-	/**
-	 * @param adPostJSONString
-	 * @return
-	 * 
-	 * @author sfz
-	 */
-	@RequestMapping("/saveAdPost")
-	public ModelAndView saveAdPost(@RequestParam String adPostJSONString){		
-		logger.info("entering... /acp/advertiser/adpost/saveAdPost");
-		
-		/* prepare data */		
-		JSONObject jsonObj= new JSONObject(adPostJSONString);
-		
-		Long adPostId 			= UUIDHelper.getUniqueLongId();
-		Long adPostUserId 		= jsonObj.getLong("adPostUserId");
-		Integer adPostLangNo 	= jsonObj.getInt("adPostLangNo");
-		String adPostTitle 		= jsonObj.getString("adPostTitle");
-		String adPostAuthor		= jsonObj.getString("adPostAuthor");
-		Integer adPostCategory	= jsonObj.getInt("adPostCategory");
-		String adPostTags		= jsonObj.getString("adPostTags").replaceAll("^\"|\"$", "");
-		String adPostShortDesc	= jsonObj.getString("adPostShortDesc");
-		
-		logger.info("adPostCategory="+adPostCategory);
-		logger.info("adPostShortDesc="+adPostShortDesc);
-		
-		//cover image
-		String adPostCoverImgTitle		= jsonObj.getString("adPostCoverImgTitle");
-		String adPostCoverImgUrl		= jsonObj.getString("adPostCoverImgUrl");
-		String adPostCoverImgShortDesc	= jsonObj.getString("adPostCoverImgShortDesc");
-		
-		logger.info("cover image:adPostCoverImgTitle="+adPostCoverImgTitle);
-		logger.info("cover image:adPostCoverImgUrl="+adPostCoverImgUrl);
-		logger.info("cover image:adPostCoverImgShortDesc="+adPostCoverImgShortDesc);
-		
-		//text
-		String adPostTextContentLongDesc = jsonObj.getString("adPostTextContentLongDesc");
-		
-		logger.info("text:adPostTextContentLongDesc="+adPostTextContentLongDesc);
-		
-		//video
-		String adPostVideoContentTitle 		= jsonObj.getString("adPostVideoContentTitle");
-		String adPostVideoContentUrl 		= jsonObj.getString("adPostVideoContentUrl");
-		String adPostVideoContentShortDesc 	= jsonObj.getString("adPostVideoContentShortDesc");
-		
-		logger.info("video:adPostVideoContentTitle="+adPostVideoContentTitle);
-		logger.info("video:adPostVideoContentUrl="+adPostVideoContentUrl);
-		logger.info("video:adPostVideoContentShortDesc="+adPostVideoContentShortDesc);
-		
-		//audio
-		String adPostAudioContentTitle 		= jsonObj.getString("adPostAudioContentTitle");
-		String adPostAudioContentUrl 		= jsonObj.getString("adPostAudioContentUrl");
-		String adPostAudioContentShortDesc 	= jsonObj.getString("adPostAudioContentShortDesc");
-		
-		logger.info("audio:adPostAudioContentTitle="+adPostAudioContentTitle);
-		logger.info("audio:adPostAudioContentUrl="+adPostAudioContentUrl);
-		logger.info("audio:adPostAudioContentShortDesc="+adPostAudioContentShortDesc);
-		
-		//gallery image
-/*		final int SIZE_OF_ADPOST_GALLERY_IMAGE = 9;
-		String[] adPostGalleryImgTitleList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
-		String[] adPostGalleryImgUrlList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
-		String[] adPostGalleryImgShortDescList	= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
-		
-		for(int i=0; i<SIZE_OF_ADPOST_GALLERY_IMAGE; i++){
-			adPostGalleryImgTitleList[i] 		= jsonObj.getString("adPostGalleryImgTitle"+(i+1));
-			adPostGalleryImgUrlList[i] 			= jsonObj.getString("adPostGalleryImgUrl"+(i+1));
-			adPostGalleryImgShortDescList[i] 	= jsonObj.getString("adPostGalleryImgShortDesc"+(i+1));
-			logger.info("gallery image:adPostGalleryImgTitleList["+i+"]="+adPostGalleryImgTitleList[i]);
-			logger.info("gallery image:adPostGalleryImgUrlList["+i+"]="+adPostGalleryImgUrlList[i]);
-			logger.info("gallery image:adPostGalleryImgShortDescList["+i+"]="+adPostGalleryImgShortDescList[i]);
-		}
-*/		
-		
-		/* prepare data */	
-		/*create a new record of adpost into master table*/
-		AdPostHead adPostHead = new AdPostHead();
-		adPostHead.setAdPostId(adPostId);
-		adPostHead.setUserId(adPostUserId);
-		adPostHead.setLangNo(adPostLangNo);
-		adPostHead.setPostTitle(adPostTitle);
-		adPostHead.setPostAuthor(adPostAuthor);
-		adPostHead.setPostCategory(adPostCategory);
-		adPostHead.setTags(adPostTags);
-		adPostHead.setShortDesc(adPostShortDesc);
-				
-		this.adPostService.create(adPostHead);
-		
-		/*update tags*/
-		this.adTagService.updateTag(adPostTags);
-		
-		/*create AdPostBody for common fields*/
-		AdPostBody adPostBody = new AdPostBody();
-		adPostBody.setUserId(jsonObj.getLong("adPostUserId"));
-		adPostBody.setAdPostId(adPostId);
-		adPostBody.setMediaIndex(0);
-		adPostBody.setLangNo(jsonObj.getInt("adPostLangNo"));
-		
-		/*create AdPostText*/
-		AdPostText tContent = getAdPostText(adPostBody,adPostTextContentLongDesc);
-		this.adPostService.create(tContent);
-		
-		logger.info("tContent.getLongDesc()="+tContent.getLongDesc());
-		
-		/*create AdPostCoverImage*/
-		AdPostCoverImage cImg = getAdPostCoverImage(adPostBody, adPostCoverImgTitle, adPostCoverImgUrl, adPostCoverImgShortDesc);
-		this.adPostService.create(cImg);
-				
-		/*create AdPostVideo*/
-		AdPostVideo vContent = getAdPostVideo(adPostBody, adPostVideoContentTitle, adPostVideoContentUrl, adPostVideoContentShortDesc);
-		this.adPostService.create(vContent);
-		
-		/*create AdPostAudio*/
-		AdPostAudio aContent = getAdPostAudio(adPostBody, adPostAudioContentTitle, adPostAudioContentUrl, adPostAudioContentShortDesc);
-		this.adPostService.create(aContent);
-		
-		/*create AdPostGalleryImage*/
-/*		for(int i = 0; i < SIZE_OF_ADPOST_GALLERY_IMAGE; i++) {
-			AdPostGalleryImage gImg = getAdPostGalleryImage(adPostBody, adPostGalleryImgTitleList[i], adPostGalleryImgUrlList[i], adPostGalleryImgShortDescList[i]);
-			this.adPostService.create(gImg);
-		}
-*/
-		
-		/* assemble model and view */
-		ModelAndView mav = new ModelAndView();
-		
-		/* set view */
-		String viewName = "advertiser/adpost_index";
-        mav.setViewName(viewName);
-		
-		logger.info("exiting... /advertiser/adpost/saveAdPost");
-		return mav;
-	}
-
 	
 	/**
 	 * search and get all AdPost objects
@@ -390,48 +422,6 @@ public class AdPostController {
 		}
         
 	}	
-	
-	/**
-	 * create an AdPost object
-	 * @param adPostJSONString
-	 * @return
-	 * 
-	 * @author Athens
-	 */
-	@RequestMapping(value="/adposts",method=RequestMethod.POST)
-	@ResponseBody
-	public ResponseEntity<Boolean> createAdPost(@RequestParam String adPostJSONString){
-		
-		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
-	}
-	
-	
-	/**
-	 * update an AdPost object with entire object data
-	 * @param adPostId
-	 * @return
-	 * 
-	 * @author Athens
-	 */
-	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.PUT)
-	@ResponseBody
-	public ResponseEntity<Boolean> updateAdPost(@PathVariable String adPostId){
-		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
-	}
-	
-	
-	/**
-	 * delete an AdPost object with entire object data
-	 * @param adPostId
-	 * @return
-	 * 
-	 * @author Athens
-	 */
-	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.DELETE)
-	@ResponseBody
-	public ResponseEntity<Boolean> deleteAdPost(@PathVariable String adPostId){
-		return new ResponseEntity<Boolean>(true,HttpStatus.NO_CONTENT);
-	}
 	
 	private AdPostText getAdPostText(AdPostBody adPostBody, String mediaDesc){
 		AdPostText contentObj = new AdPostText(adPostBody);

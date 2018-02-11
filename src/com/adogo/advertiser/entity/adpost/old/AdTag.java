@@ -1,10 +1,11 @@
-package com.adogo.advertiser.entity.adpost;
+package com.adogo.advertiser.entity.adpost.old;
 
 public class AdTag {
 	
 	private Long tagId;			//tagId
 	private String tagName;		//tagName
 	private Integer tagScore;		//tagScore
+	
 	public Long getTagId() {
 		return tagId;
 	}

@@ -245,7 +245,7 @@
 	                                        <select class="form-control" id="industryCodeLevel1" onchange="getSubIndustryCode1();">
 	                                        	<option value="">Choose a category for your business</option>
 	                                        	<c:forEach items="${NAICS_level_1}" var="item">
-	                                        		<option value="${item.industryCode}">${item.industryName}</option>
+	                                        		<option value="${item.industryCode}">${item.industryCode} : ${item.industryName}</option>
 	                                        	</c:forEach>
 	                                        </select>
 	                                        <p></p>
@@ -257,12 +257,12 @@
 	                                        	<option value="">--/--</option>
 	                                        </select>
 	                                        <p></p>
-	                                        <select class="form-control" id="industryCodeLevel4">
+	                                        <select class="form-control" id="industryCodeLevel4" onchange="getSubIndustryCode4();">
 	                                        	<option value="">--/--</option>
 	                                        </select>
-	                                        <span class="help-block"> Select the industry code for your business </span>
+	                                        <!-- <span class="help-block"> Select the industry code for your business </span>  -->
 	                                        <p></p>
-	                                        <input type="text" class="form-control" placeholder="industryCode" id="industryCode">
+	                                        <input type="hidden" class="form-control" placeholder="industryCode" id="industryCode">
 	                                    </div>
 	                                </div>
 	                                
@@ -467,34 +467,9 @@
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <!-- commented by Athens on 2017-11-30 -->
 <!-- <script type="text/javascript" src="${webapp_name}/assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script> -->
-<script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/pages/scripts-local/advertiser/bizprofile-create.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
-function getSubIndustryCode1(){
-	//selectObject=$("#industryCodeLevel1")
-	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
-	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
-	var nextLevelIndex = 2;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-}
-
-function getSubIndustryCode2(){
-	var parentCode=$("#industryCodeLevel2").val();  //Select - Value
-	var checkText=$("#industryCodeLevel2").find("option:selected").text();  //Select - Text
-	var nextLevelIndex = 3;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-	//var parentCode=$("#industryCodeLevel2").val();  //Select - Value
-	//alert(checkValue+" : "+checkText);
-}
-
-function getSubIndustryCode3(){
-	var parentCode=$("#industryCodeLevel3").val();  //Select - Value
-	var checkText=$("#industryCodeLevel3").find("option:selected").text();  //Select - Text
-	var nextLevelIndex = 4;
-	getSubIndustryCode(parentCode,nextLevelIndex);
-	//alert(checkValue+" : "+checkText);
-}
 </script>
 </body>
 </html>

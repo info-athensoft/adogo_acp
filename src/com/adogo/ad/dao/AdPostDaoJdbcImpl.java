@@ -13,12 +13,12 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
-import com.adogo.advertiser.entity.adpost.AdPostAudio;
-import com.adogo.advertiser.entity.adpost.AdPostCoverImage;
-import com.adogo.advertiser.entity.adpost.AdPostGalleryImage;
-import com.adogo.advertiser.entity.adpost.AdPostSlideImage;
-import com.adogo.advertiser.entity.adpost.AdPostText;
-import com.adogo.advertiser.entity.adpost.AdPostVideo;
+import com.adogo.advertiser.entity.adpost.old.AdPostAudio;
+import com.adogo.advertiser.entity.adpost.old.AdPostCoverImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostGalleryImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostSlideImage;
+import com.adogo.advertiser.entity.adpost.old.AdPostText;
+import com.adogo.advertiser.entity.adpost.old.AdPostVideo;
 
 @Component
 @Qualifier("adPostDaoJdbcImpl")

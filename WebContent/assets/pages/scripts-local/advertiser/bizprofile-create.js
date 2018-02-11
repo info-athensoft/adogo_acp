@@ -104,3 +104,73 @@ function cancelCreateBusinessProfile(){
 	
 	window.location.href="/acp/advertiser/biz/";
 }
+
+
+
+function getSubIndustryCode1(){
+	//selectObject=$("#industryCodeLevel1")
+	var checkText=$("#industryCodeLevel1").find("option:selected").text();  //Select - Text
+	var parentCode=$("#industryCodeLevel1").val();  //Select - Value
+	var nextLevelIndex = 2;
+	getSubIndustryCode(parentCode,nextLevelIndex);
+	$("#industryCode").val(parentCode);
+}
+
+function getSubIndustryCode2(){
+	var parentCode=$("#industryCodeLevel2").val();  //Select - Value
+	var checkText=$("#industryCodeLevel2").find("option:selected").text();  //Select - Text
+	var nextLevelIndex = 3;
+	getSubIndustryCode(parentCode,nextLevelIndex);
+	//var parentCode=$("#industryCodeLevel2").val();  //Select - Value
+	//alert(checkValue+" : "+checkText);
+	$("#industryCode").val(parentCode);
+}
+
+function getSubIndustryCode3(){
+	var parentCode=$("#industryCodeLevel3").val();  //Select - Value
+	var checkText=$("#industryCodeLevel3").find("option:selected").text();  //Select - Text
+	var nextLevelIndex = 4;
+	getSubIndustryCode(parentCode,nextLevelIndex);
+	//alert(checkValue+" : "+checkText);
+	$("#industryCode").val(parentCode);
+}
+
+function getSubIndustryCode4(){
+	var parentCode=$("#industryCodeLevel4").val();  //Select - Value
+	var checkText=$("#industryCodeLevel4").find("option:selected").text();  //Select - Text
+	
+	$("#industryCode").val(parentCode);
+}
+
+
+function getSubIndustryCode(parentIndustryCode,nextLevelIndex){
+	//alert("parent code = "+parentIndustryCode);
+	
+	$("#industryCodeLevel"+nextLevelIndex+"").empty().append('<option value="">-- choose a sub-category --- </option>');
+	//empty the rest levels
+	for (var i=nextLevelIndex+1; i <= 4; i++) { 
+		$("#industryCodeLevel"+i).find('option:first').attr("value", "").text("--/--");
+		$("#industryCodeLevel"+i).find('option').not(':first').remove();
+	}
+	
+	
+	$.ajax({
+		type	:	"get",
+		url	:"/acp/advertiser/biz/industrycode/class/"+parentIndustryCode,
+		dataType:"json",
+		/*data: {	parentIndustryCode : parentCode }, */
+		timeout : 5000,
+		success:function(data){	
+			var items = data.listIndustryCode;
+			
+			$.each(items, function (i, item) {
+			    $('#industryCodeLevel'+nextLevelIndex).append($('<option>', { 
+			       // value: item.parentCode,
+			    	value: item.industryCode,
+			        text : item.industryCode+" : "+item.industryName 
+			    }));
+			});
+			
+		}		
+	});	
+}

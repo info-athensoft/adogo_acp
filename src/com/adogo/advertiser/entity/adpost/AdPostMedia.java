@@ -1,9 +1,9 @@
 package com.adogo.advertiser.entity.adpost;
 
-public class AdPostText {
+public class AdPostMedia {
 	private Long 	globalId;
 	private Long 	userId;
-	private Long	advertiserId;
+	private Long 	advertiserId;
 	private Long 	adPostId;
 	private Integer langNo;
 	private Integer sortNo;
@@ -11,5 +11,7 @@ public class AdPostText {
 	private String 	mediaCoverUrl;
 	private Integer mediaIndex;
 	private Integer mediaType;
-	private String 	longDesc;
+	private String 	mediaTitle;
+	private String 	mediaUrl;
+	private String 	mediaDesc;
 }
