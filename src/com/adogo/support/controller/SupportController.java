@@ -272,6 +272,58 @@ public class SupportController {
 		logger.info("leaving /support/supportListData");
 		return model;
 	}
+	
+	/**
+	 * getDataSupportList
+	 * @param
+	 * @return
+	 * 
+	 * @author sfz
+	 */
+	@RequestMapping(value="/newsSearchFilterData",produces="application/json")
+	@ResponseBody
+	public Map<String,Object> getNewsSearchFilterData(@RequestParam String itemJSONString){
+		logger.info("entering /support/newsSearchFilterData");
+		
+		/* prepare data */		
+		JSONObject jsonObj= new JSONObject(itemJSONString);
+		
+//		Long topicId 			= UUIDHelper.getUniqueLongId();
+//		Long supportId 	= jsonObj.getLong("supportId");
+		String supportTopicId 	= jsonObj.getString("supportTopicId");
+		Integer supportLangNo 		= jsonObj.getInt("supportLangNo");
+		String supportTopicTitle 	= jsonObj.getString("supportTopicTitle");
+		String supportTopicContent	= jsonObj.getString("supportTopicContent");
+		String supportTopicStatus	= jsonObj.getString("supportTopicStatus");
+		
+//		logger.info("supportId="+supportId);
+		logger.info("supportTopicId="+supportTopicId);
+		logger.info("supportLangNo="+supportLangNo);
+		logger.info("supportTopicTitle="+supportTopicTitle);
+		logger.info("supportTopicContent="+supportTopicContent);
+		logger.info("supportTopicStatus="+supportTopicStatus);
+		
+		/* execute business logic */
+		List<Support> listSupport = supportService.findAllByFilters(supportTopicId, supportLangNo, supportTopicTitle, supportTopicContent, supportTopicStatus);
+		logger.info("Length of Support entries: "+ listSupport.size());
+		
+		String[][] data = getData(listSupport, ACTION_EDIT);
+		
+		/* assemble model and view */
+		ModelAndView mav = new ModelAndView();
+		
+		/* set data */
+		Map<String, Object> model = mav.getModel();
+		model.put("draw", new Integer(1));
+		model.put("recordsTotal", new Integer(5));
+		model.put("recordsFiltered", new Integer(5));
+		model.put("data", data);
+		model.put("customActionStatus","OK");
+		model.put("customActionMessage","Data loaded");
+		
+		logger.info("leaving /support/newsSearchFilterData");
+		return model;
+	}
 
 	/**
 	 * getData

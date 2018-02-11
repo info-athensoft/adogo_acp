@@ -62,6 +62,46 @@ public class SupportDaoJdbcImpl implements SupportDao {
 		}
 		return x;
 	}
+	
+	@Override
+	public List<Support> findAllByFilters(String supportTopicId, Integer supportLangNo, String supportTopicTitle,
+			String supportTopicContent, String supportTopicStatus) {
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT ");
+		sbf.append("global_id, ");
+		sbf.append("topic_id, ");
+		sbf.append("lang_no, ");
+		sbf.append("topic_title, ");
+		sbf.append("topic_content, ");
+		sbf.append("view_num, ");
+		sbf.append("topic_status ");
+		sbf.append(" FROM ").append(TABLE);
+		sbf.append(" WHERE 1 = 1");
+		if (supportTopicId != null && !supportTopicId.isEmpty()) {
+			sbf.append(" and CAST(topic_id as CHAR) LIKE '%:topic_id%'"); // //CONVERT(topic_id, CHAR(20))
+		}
+		if (supportLangNo != null) {
+			sbf.append(" and lang_no=:lang_no");
+		}
+		
+		String sql = sbf.toString();
+		logger.info(sql);
+
+		
+	
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		
+		paramSource.addValue("topic_id", supportTopicId);
+		paramSource.addValue("lang_no", supportLangNo);
+		
+		List<Support> x = new ArrayList<Support>();
+		try {
+			x = jdbc.query(sql, paramSource, new SupportRowMapper());
+		} catch (EmptyResultDataAccessException ex) {
+			x = null;
+		}
+		return x;
+	}
 
 	@Override
 	public Support findById(long globalId) {
@@ -161,5 +201,7 @@ public class SupportDaoJdbcImpl implements SupportDao {
 			return x;
 		}
 	}
+
+	
 
 }

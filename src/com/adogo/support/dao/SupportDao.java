@@ -14,6 +14,9 @@ public interface SupportDao {
 	 * @return
 	 */
 	public List<Support> findAll();
+	
+	public List<Support> findAllByFilters(String supportTopicId, Integer supportLangNo, String supportTopicTitle,
+			String supportTopicContent, String supportTopicStatus);
 
 	/**
 	 * @param supportId
@@ -32,6 +35,8 @@ public interface SupportDao {
 	 * @return
 	 */
 	public int update(Support support);
+
+	
 
 
 }

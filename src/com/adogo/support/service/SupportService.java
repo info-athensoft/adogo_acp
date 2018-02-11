@@ -29,6 +29,11 @@ public class SupportService {
 	public List<Support> findAll() {
 		return this.supportDao.findAll();
 	}
+	
+	public List<Support> findAllByFilters(String supportTopicId, Integer supportLangNo, String supportTopicTitle,
+			String supportTopicContent, String supportTopicStatus) {
+		return this.supportDao.findAllByFilters(supportTopicId, supportLangNo, supportTopicTitle, supportTopicContent, supportTopicStatus);
+	}
 
 	public Support findById(long supportId) {
 		return this.supportDao.findById(supportId);
@@ -44,4 +49,5 @@ public class SupportService {
 		return this.supportDao.update(support);
 	}
 
+	
 }

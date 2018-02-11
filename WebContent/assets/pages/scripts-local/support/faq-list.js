@@ -134,53 +134,40 @@ function groupUpdateStatus(itemUUIDArray,itemStatus){
 /* list news - datatable:button:filter search */
 function filterSearch(){
 	
-//	alert("do filterSearch()");
+//	alert("do filterSearch() for support");
 //	create a json object
-    var p2 = $("#eventUUID").val();
-    var p3 = $("#eventTitle").val();
-    var p4 = $("#eventAuthor").val();
-    var p5a = $("#postDatetimeFrom").val();
-    var p5b = $("#postDatetimeTo").val();
-    var p6a = $("#viewNumFrom").val();
-    var p6b = $("#viewNumTo").val();
-    var p9 = $("#eventClass").val();
-    var p10 = $("#eventStatus").val();
+    var p1 = $("#support-id").val();
+    var p2 = $("#support-topic-id").val();
+    var p3 = $("#support-lang").val();
+    var p4 = $("#support-topic-title").val();
+    var p5 = $("#support-topic-content").val();
+    var p6 = $("#support-topic-status").val();
 
-//    alert(p5a+" -- "+p5b);
-    
-//	validate
-	if(!isNonNegativeInteger(p6a)){
-		p6a = "";
-		$("#viewNumFrom").val("");
-	}
-	if(!isNonNegativeInteger(p6b)){
-		p6b = "";
-		$("#viewNumTo").val("");
-	}
-//	isNonNegativeInteger(p6b);
-//	alert(p5a+" "+p5b);
-  
     var businessObject =
     {
-    //		globalId    :    p1,
-    		eventUUID   :    p2,
-    		title    	:    p3,
-    		author    	:    p4,
-     		postDatetimeFrom:  p5a,            
-     		postDatetimeTo:    p5b,            
-    		viewNumFrom :    p6a,            
-    		viewNumTo 	:    p6b,            
-    //		descShort   :    p7,
-    //		descLong	:    p8,
-      		eventClass  :    p9,
-    		eventStatus	:    p10
+    		supportId             :    p1,
+    		supportTopicId        :    p2,
+    		supportLangNo    	  :    p3,
+    		supportTopicTitle     :    p4,
+    		supportTopicContent   :    p5,            
+    		supportTopicStatus    :    p6
     };
 
-    var dt = $("#datatable_eventNewsList").DataTable();
-    
-    var x = dt.ajax.url("newsSearchFilterData?itemJSONString="+JSON.stringify(businessObject)).load();
-    
-    
+    var dt = $("#datatable_supportList").DataTable();
+    //alert('before ajax.url');
+    var x = dt.ajax.url("/acp/support/newsSearchFilterData?itemJSONString="+JSON.stringify(businessObject)).load();
+/*    
+    $.ajax({
+		type:"post",
+		url:"/acp/support/newsSearchFilterData",
+		dataType:"json",
+		data: {	supportJSONString : JSON.stringify(businessObject) },
+		timeout : 5000,
+		success:function(data){
+			alert("saveCreateSupport called successfully!");
+			//window.location.href="/acp/support/faq/";
+		}		
+	}); */
 }
 
 

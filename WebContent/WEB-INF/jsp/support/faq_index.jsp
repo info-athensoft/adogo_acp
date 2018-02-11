@@ -159,25 +159,23 @@
                                                 </tr>
                                                 <tr role="row" class="filter">
 													<td></td>
-													<td><input type="text" class="form-control form-filter input-sm" name="event_uuid" id="eventUUID"></td>
-													<td><input type="text" class="form-control form-filter input-sm" name="event_title" id="eventTitle"></td>
-													<td><input type="text" class="form-control form-filter input-sm" name="event_author" id="eventAuthor"></td>
+													<td><input type="text" class="form-control form-filter input-sm" name="event_uuid" id="support-id"></td>
+													<td><input type="text" class="form-control form-filter input-sm" name="event_title" id="support-topic-id"></td>
 													<td>
-														<select class="form-control form-filter input-sm" name="event_class" id="eventClass">
-															<option value="0">Select...</option>
-															<option value="1">Default</option>
-															<option value="2">New</option>
-															<option value="3">Hot</option>
+														<select class="form-control form-filter input-sm" name="support-lang" id="support-lang">
+															<option value="1033" selected="selected">English</option>
+				                                            <option value="3084" >French</option>
+				                                            <option value="2052">Chinese (Simplified)</option>
+				                                            <option value="31748">Chinese (Traditional)</option>
 														</select>
 													</td>
-													
-													<td><input type="text" class="form-control form-filter input-sm" name="event_author" id="eventAuthor"></td>
+													<td><input type="text" class="form-control form-filter input-sm" name="support-topic-title" id="support-topic-title"></td>
+													<td><input type="text" class="form-control form-filter input-sm" name="support-topic-content" id="support-topic-content"></td>
 													<td>
-														<select class="form-control form-filter input-sm" name="event_status" id="roleStatus">
+														<select class="form-control form-filter input-sm" name="support-topic-status" id="support-topic-status">
 															<option value="0">Select...</option>
-															<option value="1">Active</option>
-															<option value="2">Inactive</option>
-															<option value="3">Pending</option>
+															<option value="1">Created</option>
+															<option value="2">Published</option>
 															<option value="4">Disabled</option>
 														</select>
 													</td>
