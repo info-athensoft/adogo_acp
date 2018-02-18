@@ -80,7 +80,7 @@ public class SupportDaoJdbcImpl implements SupportDao {
 		if (supportTopicId != null && !supportTopicId.isEmpty()) {
 			sbf.append(" and INSTR(topic_id, :topic_id)>0");
 		}
-		if (supportLangNo != null) {
+		if (supportLangNo != null && supportLangNo !=0 ) {
 			sbf.append(" and lang_no=:lang_no");
 		}
 		if (supportTopicTitle != null && !supportTopicTitle.isEmpty()) {
@@ -89,14 +89,13 @@ public class SupportDaoJdbcImpl implements SupportDao {
 		if (supportTopicContent != null && !supportTopicContent.isEmpty()) {
 			sbf.append(" and INSTR(topic_content, :topic_content)>0");
 		}
-		if (supportTopicStatus != null) {
+		if (supportTopicStatus != null && supportTopicStatus != 0) {
 			sbf.append(" and topic_status=:topic_status");
 		}
 		String sql = sbf.toString();
 		logger.info(sql);
 
-		
-	
+			
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		
 		paramSource.addValue("topic_id", supportTopicId);
