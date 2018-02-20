@@ -17,6 +17,7 @@ public class AdPostHead {
 	private String 	shortDesc;
 	private Date 	createDate;
 	private Date 	postDate;
+	
 	public Long getGlobalId() {
 		return globalId;
 	}
