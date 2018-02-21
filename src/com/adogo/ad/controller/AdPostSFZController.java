@@ -32,11 +32,11 @@ import com.adogo.advertiser.entity.adpost.old.AdPostText;
 import com.adogo.advertiser.entity.adpost.old.AdPostVideo;
 import com.athensoft.util.id.UUIDHelper;
 
-@Controller
-@RequestMapping("/advertiser/adpost")
-public class AdPostController {
+//@Controller
+//@RequestMapping("/advertiser/adpost")
+public class AdPostSFZController {
 	
-	private static final Logger logger = Logger.getLogger(AdPostController.class);
+	private static final Logger logger = Logger.getLogger(AdPostSFZController.class);
 	
 	
 	@Autowired
@@ -106,13 +106,7 @@ public class AdPostController {
 	@RequestMapping(value="/adposts",method=RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<Boolean> createAdPost(@RequestParam String adPostJSONString){
-		logger.info("entering... /acp/advertiser/adpost/adposts	POST");
 		
-		/* prepare data */		
-		JSONObject jsonObj= new JSONObject(adPostJSONString);
-		System.out.println(jsonObj);
-		
-		logger.info("exiting... /acp/advertiser/adpost/adposts	POST");
 		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
 	}
 
@@ -126,64 +120,63 @@ public class AdPostController {
 	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<Boolean> updateAdPost(@PathVariable String adPostId){
-		
 		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
 	}
 
 	/**
-	 * @param adPostJSONString
-	 * @return
-	 * 
-	 * @author sfz
-	 */
-	@RequestMapping("/saveAdPost")
-	public ModelAndView saveAdPost(@RequestParam String adPostJSONString){		
-		logger.info("entering... /acp/advertiser/adpost/saveAdPost");
-		
-		/* prepare data */		
-		JSONObject jsonObj= new JSONObject(adPostJSONString);
-		
-		Long adPostId 					= UUIDHelper.getUniqueLongId();
-		Long adPostUserId 				= jsonObj.getLong("adPostUserId");
-		Integer adPostLangNo 			= jsonObj.getInt("adPostLangNo");
-		String adPostTitle 				= jsonObj.getString("adPostTitle");
-		String adPostAuthor				= jsonObj.getString("adPostAuthor");
-		Integer adPostCategory			= jsonObj.getInt("adPostCategory");
-		String adPostTags				= jsonObj.getString("adPostTags").replaceAll("^\"|\"$", "");
-		String adPostShortDesc			= jsonObj.getString("adPostShortDesc");
-		
-		//cover image
-		String adPostCoverImgTitle		= jsonObj.getString("adPostCoverImgTitle");
-		String adPostCoverImgUrl		= jsonObj.getString("adPostCoverImgUrl");
-		String adPostCoverImgShortDesc	= jsonObj.getString("adPostCoverImgShortDesc");
-		
-		//text
-		String adPostTextContentLongDesc 	= jsonObj.getString("adPostTextContentLongDesc");
-		
-		//video
-		String adPostVideoContentTitle 		= jsonObj.getString("adPostVideoContentTitle");
-		String adPostVideoContentUrl 		= jsonObj.getString("adPostVideoContentUrl");
-		String adPostVideoContentShortDesc 	= jsonObj.getString("adPostVideoContentShortDesc");
-		
-		//audio
-		String adPostAudioContentTitle 		= jsonObj.getString("adPostAudioContentTitle");
-		String adPostAudioContentUrl 		= jsonObj.getString("adPostAudioContentUrl");
-		String adPostAudioContentShortDesc 	= jsonObj.getString("adPostAudioContentShortDesc");
-		
-		logger.info("adPostCategory="+adPostCategory);
-		logger.info("adPostShortDesc="+adPostShortDesc);
-		logger.info("cover image:adPostCoverImgTitle="+adPostCoverImgTitle);
-		logger.info("cover image:adPostCoverImgUrl="+adPostCoverImgUrl);
-		logger.info("cover image:adPostCoverImgShortDesc="+adPostCoverImgShortDesc);
-		logger.info("text: adPostTextContentLongDesc="+adPostTextContentLongDesc);
-		logger.info("video: adPostVideoContentTitle="+adPostVideoContentTitle);
-		logger.info("video: adPostVideoContentUrl="+adPostVideoContentUrl);
-		logger.info("video: adPostVideoContentShortDesc="+adPostVideoContentShortDesc);
-		logger.info("audio: adPostAudioContentTitle="+adPostAudioContentTitle);
-		logger.info("audio: adPostAudioContentUrl="+adPostAudioContentUrl);
-		logger.info("audio: adPostAudioContentShortDesc="+adPostAudioContentShortDesc);
-		
-		//gallery image
+		 * @param adPostJSONString
+		 * @return
+		 * 
+		 * @author sfz
+		 */
+		@RequestMapping("/saveAdPost")
+		public ModelAndView saveAdPost(@RequestParam String adPostJSONString){		
+			logger.info("entering... /acp/advertiser/adpost/saveAdPost");
+			
+			/* prepare data */		
+			JSONObject jsonObj= new JSONObject(adPostJSONString);
+			
+			Long adPostId 					= UUIDHelper.getUniqueLongId();
+			Long adPostUserId 				= jsonObj.getLong("adPostUserId");
+			Integer adPostLangNo 			= jsonObj.getInt("adPostLangNo");
+			String adPostTitle 				= jsonObj.getString("adPostTitle");
+			String adPostAuthor				= jsonObj.getString("adPostAuthor");
+			Integer adPostCategory			= jsonObj.getInt("adPostCategory");
+			String adPostTags				= jsonObj.getString("adPostTags").replaceAll("^\"|\"$", "");
+			String adPostShortDesc			= jsonObj.getString("adPostShortDesc");
+			
+			//cover image
+			String adPostCoverImgTitle		= jsonObj.getString("adPostCoverImgTitle");
+			String adPostCoverImgUrl		= jsonObj.getString("adPostCoverImgUrl");
+			String adPostCoverImgShortDesc	= jsonObj.getString("adPostCoverImgShortDesc");
+			
+			//text
+			String adPostTextContentLongDesc 	= jsonObj.getString("adPostTextContentLongDesc");
+			
+			//video
+			String adPostVideoContentTitle 		= jsonObj.getString("adPostVideoContentTitle");
+			String adPostVideoContentUrl 		= jsonObj.getString("adPostVideoContentUrl");
+			String adPostVideoContentShortDesc 	= jsonObj.getString("adPostVideoContentShortDesc");
+			
+			//audio
+			String adPostAudioContentTitle 		= jsonObj.getString("adPostAudioContentTitle");
+			String adPostAudioContentUrl 		= jsonObj.getString("adPostAudioContentUrl");
+			String adPostAudioContentShortDesc 	= jsonObj.getString("adPostAudioContentShortDesc");
+			
+			logger.info("adPostCategory="+adPostCategory);
+			logger.info("adPostShortDesc="+adPostShortDesc);
+			logger.info("cover image:adPostCoverImgTitle="+adPostCoverImgTitle);
+			logger.info("cover image:adPostCoverImgUrl="+adPostCoverImgUrl);
+			logger.info("cover image:adPostCoverImgShortDesc="+adPostCoverImgShortDesc);
+			logger.info("text: adPostTextContentLongDesc="+adPostTextContentLongDesc);
+			logger.info("video: adPostVideoContentTitle="+adPostVideoContentTitle);
+			logger.info("video: adPostVideoContentUrl="+adPostVideoContentUrl);
+			logger.info("video: adPostVideoContentShortDesc="+adPostVideoContentShortDesc);
+			logger.info("audio: adPostAudioContentTitle="+adPostAudioContentTitle);
+			logger.info("audio: adPostAudioContentUrl="+adPostAudioContentUrl);
+			logger.info("audio: adPostAudioContentShortDesc="+adPostAudioContentShortDesc);
+			
+			//gallery image
 //			final int SIZE_OF_ADPOST_GALLERY_IMAGE = 9;
 //			String[] adPostGalleryImgTitleList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
 //			String[] adPostGalleryImgUrlList		= new String[SIZE_OF_ADPOST_GALLERY_IMAGE];
@@ -197,64 +190,64 @@ public class AdPostController {
 //				logger.info("gallery image:adPostGalleryImgUrlList["+i+"]="+adPostGalleryImgUrlList[i]);
 //				logger.info("gallery image:adPostGalleryImgShortDescList["+i+"]="+adPostGalleryImgShortDescList[i]);
 //			}
-		
-		
-		/* prepare data */	
-		AdPostHead adPostHead = new AdPostHead();
-		adPostHead.setAdPostId(adPostId);
-		adPostHead.setUserId(adPostUserId);
-		adPostHead.setLangNo(adPostLangNo);
-		adPostHead.setPostTitle(adPostTitle);
-		adPostHead.setPostAuthor(adPostAuthor);
-		adPostHead.setPostCategory(adPostCategory);
-		adPostHead.setTags(adPostTags);
-		adPostHead.setShortDesc(adPostShortDesc);
-				
-		//AdPostBody
-		AdPostBody adPostBody = new AdPostBody();
-		adPostBody.setUserId(jsonObj.getLong("adPostUserId"));
-		adPostBody.setAdPostId(adPostId);
-		adPostBody.setMediaIndex(0);
-		adPostBody.setLangNo(jsonObj.getInt("adPostLangNo"));
-		
-		//AdPostText
-//			AdPostText tContent = getAdPostText(adPostBody,adPostTextContentLongDesc);
-		
-		//AdPostCoverImage
-//			AdPostCoverImage cImg = getAdPostCoverImage(adPostBody, adPostCoverImgTitle, adPostCoverImgUrl, adPostCoverImgShortDesc);
-		
 			
-		//AdPostVideo
-//			AdPostVideo vContent = getAdPostVideo(adPostBody, adPostVideoContentTitle, adPostVideoContentUrl, adPostVideoContentShortDesc);
-		
-		
-		//AdPostAudio
-//			AdPostAudio aContent = getAdPostAudio(adPostBody, adPostAudioContentTitle, adPostAudioContentUrl, adPostAudioContentShortDesc);
-		
-		
-		//AdPostGalleryImage
+			
+			/* prepare data */	
+			AdPostHead adPostHead = new AdPostHead();
+			adPostHead.setAdPostId(adPostId);
+			adPostHead.setUserId(adPostUserId);
+			adPostHead.setLangNo(adPostLangNo);
+			adPostHead.setPostTitle(adPostTitle);
+			adPostHead.setPostAuthor(adPostAuthor);
+			adPostHead.setPostCategory(adPostCategory);
+			adPostHead.setTags(adPostTags);
+			adPostHead.setShortDesc(adPostShortDesc);
+					
+			//AdPostBody
+			AdPostBody adPostBody = new AdPostBody();
+			adPostBody.setUserId(jsonObj.getLong("adPostUserId"));
+			adPostBody.setAdPostId(adPostId);
+			adPostBody.setMediaIndex(0);
+			adPostBody.setLangNo(jsonObj.getInt("adPostLangNo"));
+			
+			//AdPostText
+			AdPostText tContent = getAdPostText(adPostBody,adPostTextContentLongDesc);
+			
+			//AdPostCoverImage
+			AdPostCoverImage cImg = getAdPostCoverImage(adPostBody, adPostCoverImgTitle, adPostCoverImgUrl, adPostCoverImgShortDesc);
+			
+				
+			//AdPostVideo
+			AdPostVideo vContent = getAdPostVideo(adPostBody, adPostVideoContentTitle, adPostVideoContentUrl, adPostVideoContentShortDesc);
+			
+			
+			//AdPostAudio
+			AdPostAudio aContent = getAdPostAudio(adPostBody, adPostAudioContentTitle, adPostAudioContentUrl, adPostAudioContentShortDesc);
+			
+			
+			//AdPostGalleryImage
 //			for(int i = 0; i < SIZE_OF_ADPOST_GALLERY_IMAGE; i++) {
 //				AdPostGalleryImage gImg = getAdPostGalleryImage(adPostBody, adPostGalleryImgTitleList[i], adPostGalleryImgUrlList[i], adPostGalleryImgShortDescList[i]);
 //				this.adPostService.create(gImg);
 //			}
-		
-		this.adPostService.create(adPostHead);
-		this.adTagService.updateTag(adPostTags);
-//			this.adPostService.create(tContent);
-//			this.adPostService.create(cImg);
-//			this.adPostService.create(vContent);
-//			this.adPostService.create(aContent);
-		
-		/* assemble model and view */
-		ModelAndView mav = new ModelAndView();
-		
-		/* set view */
-		String viewName = "advertiser/adpost_index";
-        mav.setViewName(viewName);
-		
-		logger.info("exiting... /advertiser/adpost/saveAdPost");
-		return mav;
-	}
+			
+			this.adPostService.create(adPostHead);
+			this.adTagService.updateTag(adPostTags);
+			this.adPostService.create(tContent);
+			this.adPostService.create(cImg);
+			this.adPostService.create(vContent);
+			this.adPostService.create(aContent);
+			
+			/* assemble model and view */
+			ModelAndView mav = new ModelAndView();
+			
+			/* set view */
+			String viewName = "advertiser/adpost_index";
+	        mav.setViewName(viewName);
+			
+			logger.info("exiting... /advertiser/adpost/saveAdPost");
+			return mav;
+		}
 
 	/**
 	 * delete an AdPost object with entire object data
@@ -386,6 +379,9 @@ public class AdPostController {
 		logger.info("adPostCoverImage size = "+adPostCoverImage.size());
 		
 		List<AdPostCoverImage> adPostCoverImage2 = adPost.getListAdPostCoverImage();
+/*		for (AdPostCoverImage cImg : adPostCoverImage2) {
+			logger.info("cImg getMediaUrl()="+cImg.getMediaUrl());
+		} */
 		AdPostCoverImage primaryCoverImage = adPost.getPrimaryMediaObject(adPostCoverImage2);
 		logger.info("primaryCoverImage getMediaUrl()="+primaryCoverImage.getMediaUrl());
 		
@@ -409,17 +405,17 @@ public class AdPostController {
 		
 		//TODO temporarily commented for test
 		//2017-11-12 by Athens
+		/*
+		List<AdPostGalleryImage> adPostGalleryImage = adPostService.getAdPostGalleryImageByAdPostId(adPostId);
+		adPost.setListAdPostGalleryImage(adPostGalleryImage);
 		
-//		List<AdPostGalleryImage> adPostGalleryImage = adPostService.getAdPostGalleryImageByAdPostId(adPostId);
-//		adPost.setListAdPostGalleryImage(adPostGalleryImage);
-//		
-//		List<AdPostGalleryImage> adPostGalleryImage2 = adPost.getListAdPostGalleryImage();
-//		for (AdPostGalleryImage gImg : adPostGalleryImage2) {
-//			logger.info("gImg getMediaUrl()="+gImg.getMediaUrl());
-//		} 
-//		AdPostGalleryImage primaryGalleryImage = adPost.getPrimaryMediaObject(adPostGalleryImage2);
-//		logger.info("primaryGalleryImage getMediaUrl()="+primaryGalleryImage.getMediaUrl());
-		
+		List<AdPostGalleryImage> adPostGalleryImage2 = adPost.getListAdPostGalleryImage();
+		for (AdPostGalleryImage gImg : adPostGalleryImage2) {
+			logger.info("gImg getMediaUrl()="+gImg.getMediaUrl());
+		} 
+		AdPostGalleryImage primaryGalleryImage = adPost.getPrimaryMediaObject(adPostGalleryImage2);
+		logger.info("primaryGalleryImage getMediaUrl()="+primaryGalleryImage.getMediaUrl());
+		*/
 		
 		logger.info("exiting RESTFUL API... /advertiser/adpost/"+adPostId);
 		
@@ -434,8 +430,7 @@ public class AdPostController {
 		}
         
 	}	
-
-	/*
+	
 	private AdPostText getAdPostText(AdPostBody adPostBody, String mediaDesc){
 		AdPostText contentObj = new AdPostText(adPostBody);
 		contentObj.setLongDesc(mediaDesc);
@@ -472,6 +467,17 @@ public class AdPostController {
 		mediaBody.setMediaUrl(mediaUrl);
 		mediaBody.setMediaDesc(mediaDesc);
 		return mediaBody;
-	}	*/
+	}
+	
+	
+	//TODO
+	public void test(){
+		AdPostBody adPostBody = new AdPostBody();
+		String mediaTitle = "mediaTitle";
+		String mediaUrl = "mediaUrl";
+		String mediaDesc = "mediaDesc";
+		this.getAdPostGalleryImage(adPostBody, mediaTitle, mediaUrl, mediaDesc);
+	}
+	
 }
 

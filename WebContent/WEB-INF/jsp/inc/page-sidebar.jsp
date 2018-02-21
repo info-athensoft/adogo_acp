@@ -56,6 +56,11 @@
 								Create Ad Post</a>
 							</li>
 							<li class="nav-item  ">
+								<a href="/acp/advertiser/adpost/create_zq.html">
+								<i class="icon-paper-plane"></i>
+								Create Ad Post - zq</a>
+							</li>
+							<li class="nav-item  ">
 								<a href="/acp/advertiser/adpost/edit.html">
 								<i class="icon-paper-plane"></i>
 								Edit Ad Post</a>
