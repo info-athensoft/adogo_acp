@@ -103,18 +103,19 @@ public class AdPostController {
 	 * 
 	 * @author Athens
 	 */
+	/*
 	@RequestMapping(value="/adposts",method=RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<Boolean> createAdPost(@RequestParam String adPostJSONString){
 		logger.info("entering... /acp/advertiser/adpost/adposts	POST");
 		
-		/* prepare data */		
+		// prepare data //		
 		JSONObject jsonObj= new JSONObject(adPostJSONString);
 		System.out.println(jsonObj);
 		
 		logger.info("exiting... /acp/advertiser/adpost/adposts	POST");
 		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
-	}
+	}*/
 
 	/**
 	 * update an AdPost object with entire object data
@@ -123,12 +124,13 @@ public class AdPostController {
 	 * 
 	 * @author Athens
 	 */
+	/*
 	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<Boolean> updateAdPost(@PathVariable String adPostId){
 		
 		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED);
-	}
+	}*/
 
 	/**
 	 * @param adPostJSONString
@@ -136,11 +138,12 @@ public class AdPostController {
 	 * 
 	 * @author sfz
 	 */
+	/*
 	@RequestMapping("/saveAdPost")
 	public ModelAndView saveAdPost(@RequestParam String adPostJSONString){		
 		logger.info("entering... /acp/advertiser/adpost/saveAdPost");
 		
-		/* prepare data */		
+		// prepare data //		
 		JSONObject jsonObj= new JSONObject(adPostJSONString);
 		
 		Long adPostId 					= UUIDHelper.getUniqueLongId();
@@ -199,7 +202,7 @@ public class AdPostController {
 //			}
 		
 		
-		/* prepare data */	
+		// prepare data //	
 		AdPostHead adPostHead = new AdPostHead();
 		adPostHead.setAdPostId(adPostId);
 		adPostHead.setUserId(adPostUserId);
@@ -245,16 +248,16 @@ public class AdPostController {
 //			this.adPostService.create(vContent);
 //			this.adPostService.create(aContent);
 		
-		/* assemble model and view */
+		// assemble model and view //
 		ModelAndView mav = new ModelAndView();
 		
-		/* set view */
+		// set view //
 		String viewName = "advertiser/adpost_index";
         mav.setViewName(viewName);
 		
 		logger.info("exiting... /advertiser/adpost/saveAdPost");
 		return mav;
-	}
+	}*/
 
 	/**
 	 * delete an AdPost object with entire object data
@@ -263,11 +266,12 @@ public class AdPostController {
 	 * 
 	 * @author Athens
 	 */
+	/*
 	@RequestMapping(value="/adposts/{adPostId}",method=RequestMethod.DELETE)
 	@ResponseBody
 	public ResponseEntity<Boolean> deleteAdPost(@PathVariable String adPostId){
 		return new ResponseEntity<Boolean>(true,HttpStatus.NO_CONTENT);
-	}
+	}*/
 
 	/**
 	 * @param adpostId
@@ -276,6 +280,7 @@ public class AdPostController {
 	 * 
 	 * @author sfz
 	 */
+	/*
 	@RequestMapping("/saveTags")
 	public String saveTags(@RequestParam String adpostId, @RequestParam String tags){
 		logger.info("entering... /acp/advertiser/adpost/saveTags");
@@ -283,27 +288,28 @@ public class AdPostController {
 		//test
 		logger.info("adpostId= " + adpostId + ", tags="+String.valueOf(tags));
 		
-		/* execute business logic */
+		// execute business logic 
 		this.adPostService.saveTags(adpostId, tags);		
 		this.adTagService.updateTagList(tags);
 		
-		/* set view */
+		// set view 
 		String viewName = "advertiser/adpost_index";
 		
 		logger.info("exiting... /acp/advertiser/adpost/saveTags");
 		return viewName;
-	}
+	}*/
 	
 	/**
 	 * search and get all AdPost objects
 	 * @return
 	 */
+	/*
 	@RequestMapping(value="/adposts",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
 	public Map<String,Object> getDataAdPostList(){
 		logger.info("entering RESTFUL API... /advertiser/adpost/adposts");
 		
-		/* execute business logic */	
+		// execute business logic //	
 		List<AdPost> listAdPost = new ArrayList<AdPost>();		//FIXME	
 		
 		List<AdPostHead> listAdPostHead = new ArrayList<AdPostHead>();
@@ -312,18 +318,18 @@ public class AdPostController {
 		Long numOfAdPost = adPostService.getAdPostHeadCount();
 		logger.info(">>> Num of AdPost (header) is: "+numOfAdPost);
 		
-		/* assemble data and view */
+		// assemble data and view //
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> model = mav.getModel();
 		
-		/* set data */
+		// set data //
 		model.put("listAdPost", listAdPost);					//FIXME
 		model.put("listAdPostHead", listAdPostHead);
 		model.put("countAdPost", numOfAdPost+"");
 		
 		logger.info("exiting RESTFUL API... /advertiser/adpost/adposts");
 		return model;
-	}
+	}*/
 	
 	
 	/**
@@ -360,7 +366,7 @@ public class AdPostController {
 	} */
 	
 	
-	
+	/*
 	@RequestMapping(value="/{adPostId}",method=RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> getDataAdPost(@PathVariable long adPostId){
@@ -433,7 +439,7 @@ public class AdPostController {
 			return new ResponseEntity<AdPost>(adPost, HttpStatus.OK);
 		}
         
-	}	
+	}	*/
 
 	/*
 	private AdPostText getAdPostText(AdPostBody adPostBody, String mediaDesc){
