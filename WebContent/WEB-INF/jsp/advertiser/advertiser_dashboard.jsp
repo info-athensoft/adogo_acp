@@ -110,7 +110,9 @@
                         </div>
                     </div>
             <!-- END PAGE HEADER-->
-            
+            <div class="row">
+            	<a onclick="clickTestDiv();">TEST</a>
+            </div>
             <!-- ROW SUMMARY -->
             <div class="row">
                 <div class="col-lg-12 col-xs-12 col-sm-12">
@@ -664,7 +666,26 @@
 <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-sidebar.min.js"></script>
 <script type="text/javascript" src="${webapp_name}/assets/layouts/global/scripts/quick-nav.min.js"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
-<script>    
+<script>
+function clickTestDiv() {
+	//alert("clickTestDiv");
+	  $.ajax({
+		url:'/acp/advertiser/test/',
+	    //dataType: 'script',
+	    //cache: false,
+	    //contentType: false,
+	    //processData: false,
+	    //data: form_data, 
+	    type: 'post',
+	    error: function (xhr, status) {
+            alert("error, status : "+status);
+        },
+	    success: function(data) {
+	      // Do something after Ajax completes 
+	    	alert("success");
+	    }
+	  });
+}
 </script>
 </body>
 </html>

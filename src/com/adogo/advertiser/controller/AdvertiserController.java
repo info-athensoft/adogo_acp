@@ -40,6 +40,16 @@ public class AdvertiserController {
 		this.businessProfileService = businessProfileService;
 	}
 	
+	/**
+	 * @return
+	 */
+	@RequestMapping("/test")
+	public String testAdvertiser(){
+		logger.info("entering... /advertiser/test/");
+		String viewName = "advertiser/advertiser_dashboard";
+		logger.info("exiting... /advertiser/test/");
+		return viewName;
+	}
 	
 	/**
 	 * @return
