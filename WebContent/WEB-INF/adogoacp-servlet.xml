@@ -52,14 +52,15 @@
             <mvc:exclude-mapping path="/logout" />
             <bean class="com.adogo.web.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
-<!--         
+         
         <mvc:interceptor>
             <mvc:mapping path="/advertiser/**"/>
+            <mvc:exclude-mapping path="/advertiser/test/**" />
             <bean class="com.adogo.web.interceptor.AdvertiserInterceptor"/>
-        </mvc:interceptor>  -->
+        </mvc:interceptor>  
         
         <mvc:interceptor>
-            <mvc:mapping path="/advertiser/**"/>
+            <mvc:mapping path="/advertiser/test/**"/>
             <bean class="com.adogo.web.interceptor.TestInterceptor"/>
         </mvc:interceptor>
         

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -34,37 +35,18 @@ public class TestInterceptor extends HandlerInterceptorAdapter {
     	logger.info("===========TestInterceptor preHandle. RequestURL : " + url);
     	HttpSession session = request.getSession(false);
     	
-    	/*
-    	//if already tested by login interceptor and required login 
-    	String loginReqMsg = (String)session.getAttribute("loginReqMsg");
-    	if (loginReqMsg.contains("login")) {
-    		return true;
-    	}*/
+    	
     	//test ajax starts
     	if (url.contains("test")) {
     		logger.info("### TEST ### TEST ### TEST ### TEST ### TEST ### TEST : " + url);
-    		sendRedirect(request, response, ACP_ROLE, "WARNING: test letting you OUT!");
+    		response.setHeader("REQUIRES_AUTH", "1");
+    		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+    	       return false;
+    		//sendRedirect(request, response, "/acp/advertiser/biz/", "WARNING: test letting you OUT!");
     	}
     	//test ajax ends
     	
-    	UserAccount userAccount = (UserAccount)session.getAttribute("userAccount");
-    	if (userAccount != null) {
-        	String userName = userAccount.getAcctName();
-        	long acctId = userAccount.getAcctId();
-        	logger.info(">>>>>>userName: " + userName + ">>>>>>acctId: " + acctId);
-        	
-        	boolean isAdvertiser = this.userRoleService.isAdvertiserUnderAccount(acctId);
-        	
-        	if (!isAdvertiser) {
-        		//session.setAttribute("advertiserRoleMsg", "WARNING: You do not have an Advertiser Role yet, please apply for it now!");
-        		//session.setAttribute("flag_NotAdvertiser", true);
-        		sendRedirect(request, response, ACP_ROLE, "WARNING: You do not have an Advertiser Role yet, please apply for it now!");
-        		
-        	}else{
-        		//session.setAttribute("advertiserRoleMsg", "");
-        		//session.setAttribute("flag_NotAdvertiser", false);
-        	}
-    	}
+    	
         return true;
     }
 

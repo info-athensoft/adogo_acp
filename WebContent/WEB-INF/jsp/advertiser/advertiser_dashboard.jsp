@@ -671,18 +671,31 @@ function clickTestDiv() {
 	//alert("clickTestDiv");
 	  $.ajax({
 		url:'/acp/advertiser/test/',
+		//dataType:"json",
 	    //dataType: 'script',
 	    //cache: false,
 	    //contentType: false,
 	    //processData: false,
 	    //data: form_data, 
-	    type: 'post',
-	    error: function (xhr, status) {
-            alert("error, status : "+status);
+	    type: 'get', //post
+	    error: function (data) { //xhr, status
+           // alert("error, status : "+status);
+	    	if (data.status == 401 ){
+	            alert("UnAuthorized. Redirecting to Error");
+	            window.location.replace("/acp/error.jsp"); //contextPath +
+	        }
         },
-	    success: function(data) {
+	    success: function(response) {
 	      // Do something after Ajax completes 
-	    	alert("success");
+	      alert("success");
+	    	//alert("success, getResponseHeader="+response.getResponseHeader('REQUIRES_AUTH'));//response.getResponseHeader('REQUIRES_AUTH') //response.redirect
+	    	if (response.redirect) {
+	    		alert("redirect");
+                window.location.href = response.redirect;
+            }
+            else {
+                // Process the expected results...
+            } 
 	    }
 	  });
 }

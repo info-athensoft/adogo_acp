@@ -44,12 +44,12 @@ public class AdvertiserController {
 	 * @return
 	 */
 	@RequestMapping("/test")
-	public String testAdvertiser(){
+	public ModelAndView testAdvertiser(){
 		logger.info("entering... /advertiser/test/");
-		String viewName = "advertiser/advertiser_dashboard";
+		String viewName = "/acp/"; // //advertiser/bizprofile_index //advertiser_dashboard
 		logger.info("exiting... /advertiser/test/");
-		return viewName;
-	}
+		return gotoDashboard3();
+	} 
 	
 	/**
 	 * @return
