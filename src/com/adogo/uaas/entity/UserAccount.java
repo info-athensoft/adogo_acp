@@ -76,7 +76,5 @@ public class UserAccount {
 				+ primaryEmail + ", secureEmail=" + secureEmail + ", createDate=" + createDate + ", lastModDate="
 				+ lastModDate + ", acctStatus=" + acctStatus + "]";
 	}
-	
-	
 }
 

@@ -64,7 +64,7 @@ public class UUIDHelper {
 //		System.out.println(getUniqueLongId());
 //		System.out.println(getUniqueLongId());
 		for(int i=0; i<20; i++)
-			System.out.println(getUniqueLongIdUUID());
+			System.out.println(getUniqueLongId());
 		
 		
 		
